@@ -4,20 +4,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Mobile Phones Store</title>
     <link rel="stylesheet" href="./assets/lib/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./assets/css/global.css">
+    <link rel="stylesheet" href="./src/css/global.css">
 </head>
 
 <body>
     <div class="container">
-        <div class="box">
-            <h1 class="text-danger">Hello World</h1>
+        <div class="bg-light">
+            <div class="container my-5">
+                <h1 class="text-center mb-4">📱 Mobile Phones</h1>
+                <div id="product-list" class="row g-4">
+                    <!-- Products will be rendered here -->
+                </div>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="productModal" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 id="modalProductName" class="modal-title"></h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <img id="modalProductImage" class="img-fluid rounded" alt="">
+                                </div>
+                                <div class="col-md-7">
+                                    <p id="modalProductDescription"></p>
+                                    <h4 class="text-success mb-3">$<span id="modalProductPrice"></span></h4>
+                                    <h6>Specifications:</h6>
+                                    <ul id="modalProductSpecs" class="list-group list-group-flush"></ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button class="btn btn-primary">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+
     <script defer src="./assets/lib/js/bootstrap.bundle.min.js"></script>
-    <script defer src="./assets/js/shared.js"></script>
-    <script defer src="./assets/js/main.js"></script>
+    <script defer src="./src/js/shared.js"></script>
+    <script defer src="./src/js/main.js"></script>
 </body>
 
 </html>
