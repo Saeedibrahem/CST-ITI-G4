@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../assets/lib/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../assets/css/global.css" />
+    <link rel="stylesheet" href="./signup.css" />
+  </head>
+
+  <body>
+    <main class="signup-container">
+      <form class="was-validated">
+        <div class="form-field">
+          <label for="firstName">First name</label>
+          <input
+            required
+            type="text"
+            id="firstName"
+            name="firstName"
+            placeholder="abdo"
+            class="form-control"
+          />
+          <div class="valid-feedback">Valid.</div>
+          <div class="invalid-feedback">Please fill out this field.</div>
+        </div>
+
+        <div class="form-field">
+          <label for="lastName">Last name</label>
+          <input
+            required
+            type="text"
+            id="lastName"
+            name="lastName"
+            placeholder="sakr"
+            class="form-control"
+          />
+          <div class="valid-feedback">Valid.</div>
+          <div class="invalid-feedback">Please fill out this field.</div>
+        </div>
+
+        <div class="form-field">
+          <label for="email">Email</label>
+          <input
+            required
+            type="email"
+            id="email"
+            name="email"
+            placeholder="abdo@gmail.com"
+            class="form-control"
+          />
+          <div class="valid-feedback">Valid.</div>
+          <div class="invalid-feedback">Please fill out this field.</div>
+        </div>
+
+        <div class="form-field">
+          <label for="password">Password</label>
+          <input
+            required
+            type="password"
+            id="password"
+            name="password"
+            placeholder="1b@z38"
+            class="form-control"
+          />
+          <div class="valid-feedback">Valid.</div>
+          <div class="invalid-feedback">Please fill out this field.</div>
+        </div>
+
+        <div class="form-field">
+          <label for="confirmPassword">Confirm password</label>
+          <input
+            required
+            type="password"
+            id="confirmPassword"
+            name="confirmPassword"
+            placeholder="1b@z38"
+            class="form-control"
+          />
+          <div class="valid-feedback">Valid.</div>
+          <div class="invalid-feedback">Please fill out this field.</div>
+        </div>
+
+        <div class="form-field">
+          <label for="role">Select role</label>
+          <select name="role" id="role" class="form-select">
+            <option value="customer">Customer</option>
+            <option value="seller">Seller</option>
+          </select>
+          <div class="valid-feedback">Valid.</div>
+          <div class="invalid-feedback">Please fill out this field.</div>
+        </div>
+
+        <div
+          class="form-field d-flex flex-row justify-content-center justify-content-md-start"
+          style="font-size: small"
+        >
+          <input required type="checkbox" id="termsService" />
+          <label for="termsService">
+            I agree to the
+            <span class="text-primary">Terms of Service</span>
+            and privacy
+            <span class="text-primary"> Policy</span>
+          </label>
+        </div>
+
+        <div class="form-field mt-3">
+          <button type="submit" class="btn bg-dark text-white">
+            Create Account
+          </button>
+        </div>
+
+        <div
+          class="form-field d-flex flex-row justify-content-center"
+          style="font-size: small"
+        >
+          Already have an account?
+          <span class="text-primary">Sign in</span>
+        </div>
+
+        <!-- end of form -->
+      </form>
+    </main>
+    <!-- outer JS files -->
+    <script defer src="../assets/lib/js/bootstrap.bundle.min.js"></script>
+    <script defer src="../assets/js/shared.js"></script>
+    <script defer src="../assets/js/main.js"></script>
+  </body>
+</html>
