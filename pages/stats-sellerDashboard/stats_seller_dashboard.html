@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../assets/lib/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../src/css/global.css" />
+    <link rel="stylesheet" href="./stats_seller_dashboard.css" />
+    <!-- script link for chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+
+  <body>
+    <section class="stats-sec">
+      <div>Sales & Performance Overview</div>
+      <div class="cards">
+        <div class="card">
+          <div class="info1">
+            <div class="title">Total Sales</div>
+            <img src="../../assets/img/money.svg" alt="money" />
+          </div>
+          <div class="info2">$15,231.89</div>
+          <div class="info3">
+            +12.5% from last month
+            <br />
+            <span> Revenue generated this month. </span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="info1">
+            <div class="title">Total Orders</div>
+            <img src="../../assets/img/cube.svg" alt="cube" />
+          </div>
+          <div class="info2">456</div>
+          <div class="info3">
+            +8.2% from last month
+            <br />
+            <span>New orders received.</span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="info1">
+            <div class="title">Avg. Order Value</div>
+            <img src="../../assets/img/cart.svg" alt="cart" />
+          </div>
+          <div class="info2">$33.39</div>
+          <div class="info3">
+            -1.1% from last month
+            <br />
+            <span> Average value per order. </span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="info1">
+            <div class="title">Customer Satisfaction</div>
+            <img src="../../assets/img/account.svg" alt="account" />
+          </div>
+          <div class="info2">4.7/5</div>
+          <div class="info3">
+            Based on 234 reviews
+            <br />
+            <span> Overall customer rating. </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="charts">
+      <div>
+        <div class="chart-title1">Monthly Sales Trend</div>
+        <div class="chart-title2">
+          Sales performance over the last 6 monthes
+        </div>
+        <canvas id="my_line_chart"></canvas>
+      </div>
+      <div>
+        <div class="chart-title1">Product Category Sales Distribution</div>
+        <div class="chart-title2">Percentage of sales by category.</div>
+        <canvas id="my_doughnut_chart"></canvas>
+      </div>
+    </section>
+
+    <!-- outer JS files -->
+    <script defer src="../../assets/lib/js/bootstrap.bundle.min.js"></script>
+    <script defer src="../../src/js/shared.js"></script>
+    <script defer src="../../src/js/main.js"></script>
+    <script src="./stats_seller_dashboard.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.5.0/chart.min.js"></script>
+    <script></script>
+  </body>
+</html>
