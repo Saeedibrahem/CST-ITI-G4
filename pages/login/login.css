@@ -45,6 +45,10 @@ section {
     flex-direction: column;
     gap: 10px;
     width: 100%;
+
+    input::placeholder {
+      font-size: small;
+    }
   }
 }
 /* ================ Media query ================  */

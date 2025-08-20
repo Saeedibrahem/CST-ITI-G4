@@ -38,6 +38,10 @@ section {
     align-items: center;
     flex-wrap: wrap;
     gap: 20px;
+
+    input::placeholder {
+      font-size: small;
+    }
   }
 
   .form-field {
