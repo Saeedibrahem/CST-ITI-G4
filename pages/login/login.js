@@ -1,3 +1,7 @@
+// if user loggedin redirect to home page
+if (localStorage.getItem("currentUser")) {
+  //TODO: window.location.href = "../../index.html";
+}
 // confirmForm-func
 function confirmForm(e) {
   e.preventDefault();
@@ -12,23 +16,25 @@ function confirmForm(e) {
   });
   // check-form-validity
   if (my_form.checkValidity()) {
-    // get-users-from-localstorage
-    const users = JSON.parse(localStorage.getItem("users"));
-    let current_user_index;
-    const result = users.filter((value, index) => {
+    //* get users form localstorage
+    const users = JSON.parse(
+      decrypt_string_to_string(localStorage.getItem("users"))
+    );
+    const resultArr = users.filter((value) => {
       if (value.email == etnered_email && value.password == entered_password) {
-        current_user_index = index;
         return value;
       }
     });
+    console.log(users);
+    console.log(resultArr);
     // check-if-user-exist
-    if (result.length > 0) {
+    if (resultArr.length > 0) {
       e.target.disabled = true;
       toastList[0].show();
-      // save-current-user-index
+      //* update currentUser in localstorage
       localStorage.setItem(
-        "current_user_index",
-        JSON.stringify(current_user_index)
+        "currentUser",
+        encrypt_string_to_string(JSON.stringify(resultArr[0]))
       );
       // redirect-to-home-page
       window.location.href = "../../index.html";

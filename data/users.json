@@ -1,5 +1,6 @@
 [
   {
+    "id": 0,
     "firstName": "abdo",
     "lastName": "sakr",
     "email": "abdo@gmail.com",
@@ -7,17 +8,11 @@
     "role": "customer"
   },
   {
+    "id": 1,
     "firstName": "ali",
     "lastName": "ahmed",
-    "email": "ali@example.com",
+    "email": "ali@gmail.com",
     "password": "123",
     "role": "seller"
-  },
-  {
-    "firstName": "Ali",
-    "lastName": "Hassan",
-    "email": "ali.hassan@example.com",
-    "password": "hashed_password_789",
-    "role": "customer"
   }
 ]

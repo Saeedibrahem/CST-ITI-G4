@@ -1,3 +1,8 @@
+// if user loggedin redirect to home page
+if (localStorage.getItem("currentUser")) {
+  //TODO: window.location.href = "../../index.html";
+  //! add user to users.json
+}
 // confirmForm-func
 function confirmForm(e) {
   e.preventDefault();
@@ -18,35 +23,38 @@ function confirmForm(e) {
 
   // check-form-validity
   if (my_form.checkValidity()) {
-    // get-users-from-localstorage
-    let users = JSON.parse(localStorage.getItem("users"));
-    let current_user_index;
-    const result = users.filter((value, index) => {
+    //* get users form localstorage
+    const users = JSON.parse(
+      decrypt_string_to_string(localStorage.getItem("users"))
+    );
+
+    const result = users.filter((value) => {
       if (value.email == etnered_email && value.password == entered_password) {
-        current_user_index = index;
         return value;
       }
     });
-    // check-if-user-not-exist
+    // check existance
     if (result.length == 0) {
-      // check-confirmPassword
+      // check confirmPassword
       if (entered_password == entered_confirmPassword) {
-        // create-add-user-to-localstorage
+        //* create user
         let user = {
+          id: users.length,
           firstName: etnered_firstName,
           lastName: entered_lastName,
           email: etnered_email,
           password: entered_password,
           role: entered_role,
         };
+        //* update users in localstorage
         users.push(user);
-        localStorage.setItem("users", JSON.stringify(users));
-        e.target.disabled = true;
-        toastList[0].show();
-        // save-current-user-index
+        const encryptedUsers = encrypt_string_to_string(JSON.stringify(users));
+        localStorage.setItem("users", encryptedUsers);
+
+        //* update currentUser in localstorage
         localStorage.setItem(
-          "current_user_index",
-          JSON.stringify(current_user_index)
+          "currentUser",
+          encrypt_string_to_string(JSON.stringify(user))
         );
         // redirect-to-home-page
         window.location.href = "../../index.html";
