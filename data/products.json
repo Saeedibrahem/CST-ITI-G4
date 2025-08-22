@@ -8,6 +8,8 @@
     "salePercentage": 0,
     "category": "Smartphones",
     "stock": 25,
+    "sold": 15,
+    "monthlySales": [10, 20, 30, 70, 40, 20, 50, 60, 70, 80, 120, 100],
     "images": [
       "assets/img/products/iphone15pro_max/front.png",
       "assets/img/products/iphone15pro_max/back.png"
@@ -73,11 +75,13 @@
     "salePercentage": 10,
     "category": "Smartphones",
     "stock": 30,
+    "sold": 20,
+    "monthlySales": [5, 20, 30, 7, 10, 20, 10, 30, 40, 20, 80, 10],
     "images": [
       "assets/img/products/galaxy_s24_ultra/front.png",
       "assets/img/products/galaxy_s24_ultra/back.png"
     ],
-    "sellerId": 102,
+    "sellerId": 101,
     "rating": 4.7,
     "adminReview": {
       "status": "approved",

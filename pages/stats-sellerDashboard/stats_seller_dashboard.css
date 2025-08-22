@@ -55,9 +55,7 @@
 
 .charts {
   padding: 40px;
-  display: flex;
-  flex-direction: column;
-  gap: 50px;
+  width: 100vw;
 
   .chart-title1 {
     font-size: 1.4rem;
@@ -69,14 +67,6 @@
     color: var(--secondary-color);
     opacity: 0.8;
     margin: 5px 0 20px 0;
-  }
-  div:nth-child(1) {
-    flex-grow: 1;
-  }
-  div:nth-child(2) {
-    flex-grow: 1;
-  }
-  canvas {
   }
 }
 
@@ -108,16 +98,19 @@
   }
 
   .charts {
-    flex-direction: row;
+    display: flex;
     justify-content: space-between;
+    width: 98vw;
 
     .chart-title1 {
     }
     .chart-title2 {
     }
     div:nth-child(1) {
+      min-width: 40vw;
     }
     div:nth-child(2) {
+      min-width: 40vw;
     }
     canvas {
     }

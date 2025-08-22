@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../../assets/lib/css/bootstrap.min.css" />
     <link rel="stylesheet" href="../../src/css/global.css" />
     <link rel="stylesheet" href="./stats_seller_dashboard.css" />
-    <!-- script link for chart.js library -->
+    <!-- chartjs-cdn -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
 
@@ -20,7 +20,7 @@
             <div class="title">Total Sales</div>
             <img src="../../assets/img/money.svg" alt="money" />
           </div>
-          <div class="info2">$15,231.89</div>
+          <div class="info2" id="totalSales">$15,231.89</div>
           <div class="info3">
             +12.5% from last month
             <br />
@@ -32,7 +32,7 @@
             <div class="title">Total Orders</div>
             <img src="../../assets/img/cube.svg" alt="cube" />
           </div>
-          <div class="info2">456</div>
+          <div class="info2" id="totalOrders">456</div>
           <div class="info3">
             +8.2% from last month
             <br />
@@ -44,14 +44,13 @@
             <div class="title">Avg. Order Value</div>
             <img src="../../assets/img/cart.svg" alt="cart" />
           </div>
-          <div class="info2">$33.39</div>
+          <div class="info2" id="AOV">$33.39</div>
           <div class="info3">
             -1.1% from last month
             <br />
             <span> Average value per order. </span>
           </div>
         </div>
-        
       </div>
     </section>
 
@@ -71,11 +70,10 @@
     </section>
 
     <!-- outer JS files -->
-    <script src="./stats_seller_dashboard.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.5.0/chart.min.js"></script>
+    <script defer src="../../assets/lib/js/crypto-js.min.js"></script>
     <script defer src="../../assets/lib/js/bootstrap.bundle.min.js"></script>
     <script defer src="../../src/js/shared.js"></script>
     <script defer src="../../src/js/main.js"></script>
-    <script></script>
+    <script defer src="./stats_seller_dashboard.js"></script>
   </body>
 </html>

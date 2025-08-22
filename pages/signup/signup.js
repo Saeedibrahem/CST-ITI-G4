@@ -1,7 +1,10 @@
 // if user loggedin redirect to home page
 if (localStorage.getItem("currentUser")) {
   //TODO: window.location.href = "../../index.html";
-  //! add user to users.json
+  //TODO: 2 changes in stats_seller_dashboard.js file
+  //! we cant't add user to users.json, so it will be just in localstorage
+  //! how to calculate TotalSales/TotoalOrders from products.json, add "sold" field after "stock"
+  //! how to calculate MonthlySales from products.json, add "monthlySales" field after "sold", [0,0,0,0,0,0,0,0,0,0,0,0]
 }
 // confirmForm-func
 function confirmForm(e) {
