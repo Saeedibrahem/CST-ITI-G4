@@ -101,6 +101,37 @@ function getSalesDistribution() {
   }
 }
 getSalesDistribution();
+// getTopSellingProduct
+let topSellingProduct = null;
+let maxSales = 0;
+function getTopSellingProduct() {
+  const productsObj = {
+    REALME,
+    INFINIX,
+    IPHONE,
+    OPPO,
+    SAMSUNG,
+    HONOR,
+    SONY,
+    HUAWEI,
+    XIAOMI,
+    ONEPLUS,
+  };
+  for (const key in productsObj) {
+    if (productsObj[key] > maxSales) {
+      maxSales = productsObj[key];
+      topSellingProduct = key;
+    }
+  }
+  document.getElementById(
+    "topSellingProduct"
+  ).innerHTML = `${topSellingProduct.toLowerCase()}`;
+  document.getElementById(
+    "topSellingProductTimes"
+  ).innerHTML = `Sold ${maxSales} times`;
+}
+getTopSellingProduct();
+
 // my_line_chart code
 const line_chart = document.getElementById("my_line_chart");
 new Chart(line_chart, {
