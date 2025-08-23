@@ -10,7 +10,7 @@
   </head>
 
   <body>
-    <form>
+    <form id="edit_seller_product_form">
       <!--! sec1 -->
       <section class="sec sec1">
         <div class="secTitle">Product information</div>
@@ -89,20 +89,20 @@ static value
         </div>
       </section>
       <!--! sec2 -->
-      <section class="sec sec-3">
+      <section class="sec sec-2">
         <div class="secTitle">Product Images</div>
         <div class="form-field">
           <input
-            required
             type="file"
             id="productImageUpload"
             name="productImageUpload"
             class="form-control"
+            onchange="addProductImage(event)"
           />
           <div id="uploaded-img-container">
-            <img src="../../assets/img/realmec65_1.jpg" alt="" />
+            <!-- <img src="../../assets/img/realmec65_1.jpg" alt="" />
             <img src="../../assets/img/realmec65_2.jpg" alt="" />
-            <img src="../../assets/img/realmec65_4.jpg" alt="" />
+            <img src="../../assets/img/realmec65_4.jpg" alt="" /> -->
           </div>
         </div>
       </section>
@@ -134,26 +134,30 @@ Buy the new iPhone 14 with A15 Bionic chip, 6.1-inch display, and advanced dual-
           <label>Product Summary</label>
           <div>
             <div>Status</div>
-            <div class="status">published</div>
+            <div class="status" id="summary_status">published</div>
             <!-- approved / pending / rejected -->
           </div>
           <div>
             <div>Price</div>
-            <div>29.5$</div>
+            <div id="summary_price">29.5$</div>
           </div>
           <div>
             <div>Total Stock</div>
-            <div>25</div>
+            <div id="summary_stock">25</div>
           </div>
           <div>
             <div>Images</div>
-            <div>3</div>
+            <div id="summary_img">3</div>
           </div>
         </section>
         <!--! sec5 -->
         <section class="sec sec-5">
           <label>Qucik Actions</label>
-          <button type="button" class="btn btn-success">
+          <button
+            type="submit"
+            class="btn btn-success"
+            onclick="sendUpdatesToAdmin(event)"
+          >
             Send Updates to Admin
           </button>
           <button type="button" class="btn btn-outline-secondary">

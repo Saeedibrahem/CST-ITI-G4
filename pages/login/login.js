@@ -1,6 +1,7 @@
 // if user loggedin redirect to home page
 if (localStorage.getItem("currentUser")) {
-  //TODO: window.location.href = "../../index.html";
+  //TODO:
+  // window.location.href = "../../index.html";
 }
 // confirmForm-func
 function confirmForm(e) {
@@ -39,11 +40,20 @@ function confirmForm(e) {
       // redirect-to-home-page
       window.location.href = "../../index.html";
     } else {
-      e.target.disabled = true;
-      setTimeout(() => {
-        e.target.disabled = false;
-      }, 2000);
-      toastList[1].show();
+      if (etnered_email == "admin@gmail.com" && entered_password == "123") {
+        window.location.href = "../../admin.html";
+        //! get admin
+        localStorage.setItem(
+          "currentUser",
+          encrypt_string_to_string(JSON.stringify({}))
+        );
+      } else {
+        e.target.disabled = true;
+        setTimeout(() => {
+          e.target.disabled = false;
+        }, 2000);
+        toastList[1].show();
+      }
     }
   } else {
     my_form.classList.add("was-validated");

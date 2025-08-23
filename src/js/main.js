@@ -1,3 +1,10 @@
+//TODO: signup.js 1 line remove it after test
+//TODO: login.js 1 line remove it after test
+//TODO: stats_seller_dashboard.js 2 lines remove it after test
+//TODO: edit_seller_product.js 1 line remove it after test
+//! how to calculate TotalSales/TotoalOrders from products.json, add "sold" field after "stock"
+//! how to calculate MonthlySales from products.json, add "monthlySales" field after "sold", [0,0,0,0,0,0,0,0,0,0,0,0]
+//! login.js get admin data
 // ============================= user section =============================
 // ============================= user section =============================
 // ============================= user section =============================
@@ -33,17 +40,25 @@ function getCurrentUser() {
     return currentUser;
   }
 }
-console.log(getCurrentUser());
+// get users
+function getUsers() {
+  const users = JSON.parse(
+    decrypt_string_to_string(localStorage.getItem("users"))
+  );
+  return users;
+}
 // ============================= product section =============================
 // ============================= product section =============================
 // ============================= product section =============================
-// Fetch products and render them
-fetch("../../data/products.json")
-  .then((res) => res.json())
-  .then((products) => {
-    localStorage.setItem("products", JSON.stringify(products));
-  })
-  .catch((err) => console.error("Error loading products:", err));
+// Fetch products one time
+if (!localStorage.getItem("products")) {
+  fetch("../../data/products.json")
+    .then((res) => res.json())
+    .then((products) => {
+      localStorage.setItem("products", JSON.stringify(products));
+    })
+    .catch((err) => console.error("Error loading products:", err));
+}
 // get products
 function getProducts() {
   return JSON.parse(localStorage.getItem("products"));
