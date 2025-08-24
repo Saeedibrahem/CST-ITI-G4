@@ -1,0 +1,18 @@
+[
+  {
+    "id": 0,
+    "firstName": "abdo",
+    "lastName": "sakr",
+    "email": "abdo@gmail.com",
+    "password": "123",
+    "role": "customer"
+  },
+  {
+    "id": 1,
+    "firstName": "ali",
+    "lastName": "ahmed",
+    "email": "ali@gmail.com",
+    "password": "123",
+    "role": "seller"
+  }
+]

@@ -19,17 +19,18 @@
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .card {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   border: none;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
 .card-img-top {
