@@ -1,5 +1,5 @@
 // Fetch products and render them
-fetch("./data/products.json")
+fetch("../data/products.json")
   .then(res => res.json())
   .then(products => {
     setItemToLocalStorage("products", products);
@@ -98,7 +98,7 @@ function clearLocalStorage() {
 // ============================= user section =============================
 // fetch users one tiem
 if (!localStorage.getItem("users")) {
-  fetch("../../data/users.json")
+  fetch("../data/users.json")
     .then((res) => res.json())
     .then((users) => {
       const encryptedUsers = encrypt_string_to_string(JSON.stringify(users));
@@ -139,15 +139,15 @@ function getUsers() {
 // ============================= product section =============================
 // ============================= product section =============================
 // Fetch products one time
-if (!localStorage.getItem("products")) {
-  fetch("../../data/products.json")
-    .then((res) => res.json())
-    .then((products) => {
-      localStorage.setItem("products", JSON.stringify(products));
-    })
-    .catch((err) => console.error("Error loading products:", err));
-}
-// get products
-function getProducts() {
-  return JSON.parse(localStorage.getItem("products"));
-}
+// if (!localStorage.getItem("products")) {
+//   fetch("../../data/products.json")
+//     .then((res) => res.json())
+//     .then((products) => {
+//       localStorage.setItem("products", JSON.stringify(products));
+//     })
+//     .catch((err) => console.error("Error loading products:", err));
+// }
+// // get products
+// function getProducts() {
+//   return JSON.parse(localStorage.getItem("products"));
+// }

@@ -1,0 +1,118 @@
+.stats-sec {
+  padding: 40px;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+
+  .cards {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .card {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 0;
+
+      .info1 {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .title {
+          font-size: 0.9rem;
+          font-weight: bold;
+          color: var(--secondary-color);
+          opacity: 0.9;
+        }
+        img {
+          width: 1.1rem;
+          display: none;
+        }
+      }
+      .info2 {
+        font-size: 1.4rem;
+        font-weight: bold;
+        margin-top: 20px;
+      }
+      .info3 {
+        font-size: 0.7rem;
+        font-weight: 300;
+        color: var(--secondary-color);
+
+        span {
+          opacity: 0.8;
+        }
+      }
+    }
+  }
+}
+
+.charts {
+  padding: 40px;
+  width: 100vw;
+
+  .chart-title1 {
+    font-size: 1.4rem;
+    font-weight: bold;
+  }
+  .chart-title2 {
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: var(--secondary-color);
+    opacity: 0.8;
+    margin: 5px 0 20px 0;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .stats-sec {
+    text-align: left;
+
+    .cards {
+      flex-direction: row;
+      justify-content: space-between;
+
+      .card {
+        width: 25%;
+        height: 150px;
+
+        .info1,
+        .info2,
+        .info3 {
+          width: 100%;
+          text-align: left;
+          justify-content: space-between;
+
+          img {
+            display: inline-block;
+          }
+        }
+      }
+    }
+  }
+
+  .charts {
+    display: flex;
+    justify-content: space-between;
+    width: 98vw;
+
+    .chart-title1 {
+    }
+    .chart-title2 {
+    }
+    div:nth-child(1) {
+      min-width: 40vw;
+    }
+    div:nth-child(2) {
+      min-width: 40vw;
+    }
+    canvas {
+    }
+  }
+}

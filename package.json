@@ -1,0 +1,51 @@
+{
+  "name": "mobilexpress",
+  "version": "2.0.0",
+  "description": "متجر إلكتروني متخصص في بيع الهواتف الذكية والأجهزة المحمولة",
+  "main": "index.html",
+  "scripts": {
+    "start": "live-server --port=5500 --open=/index.html",
+    "dev": "live-server --port=5500 --open=/index.html",
+    "build": "echo 'No build process needed for static HTML project'",
+    "test": "echo 'No tests specified'",
+    "lint": "echo 'No linting configured'",
+    "format": "prettier --write \"**/*.{html,css,js,json,md}\"",
+    "serve": "python -m http.server 8000"
+  },
+  "keywords": [
+    "ecommerce",
+    "mobile",
+    "smartphones",
+    "shop",
+    "responsive",
+    "bootstrap",
+    "javascript",
+    "html5",
+    "css3"
+  ],
+  "author": "CST-ITI-G4 Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/mobilexpress.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-username/mobilexpress/issues"
+  },
+  "homepage": "https://github.com/your-username/mobilexpress#readme",
+  "files": [
+    "index.html",
+    "pages/**/*",
+    "src/**/*",
+    "assets/**/*",
+    "data/**/*",
+    "*.md",
+    "*.html"
+  ],
+  "contributors": [
+    "CST-ITI-G4 Team"
+  ],
+  "maintainers": [
+    "CST-ITI-G4 Team"
+  ]
+}

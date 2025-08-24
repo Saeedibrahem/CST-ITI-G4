@@ -2,58 +2,417 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mobile Phones Store</title>
-    <link rel="stylesheet" href="./assets/lib/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./src/css/global.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> MobileXpress</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="./src/css/global.css" rel="stylesheet">
+  <link href="./src/css/home_page.css" rel="stylesheet">
+  <!-- font awsome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+  <!-- swiper -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
 </head>
 
-
 <body>
+
+
+
+  <!-- Navbar -->
+  <header>
+    <nav class="top_nav nav_cont">
+      <!-- logo -->
+      <a class="logo" href="./index.html">
+        <img src="./assets/home_page_img/logo.png" alt="logo">
+      </a>
+
+      <!-- search bar -->
+      <form action="" class="search">
+        <input type="search" class="search" placeholder="Search for product...">
+        <button type="submit">Search</button>
+      </form>
+
+      <!-- cart -->
+      <div class="  ">
+        <div class="icon_cart" onclick="open_cart()">
+          <i class="fa-solid fa-cart-shopping"></i>
+        </div>
+      </div>
+    </nav>
+
+    <!-- bottom nav -->
+    <div class="bottom_nav">
+      <div class="links _cont">
+        <i onclick="open_menu()" class="fa-solid fa-bars open_menu"></i>
+        <ul id="menu">
+          <span class="bg_overlay " onclick="close_menu()">
+
+          </span>
+
+
+          <img src="./assets/home_page_img/iphone-seeklogo.png" class="logo_menu" alt="">
+
+
+          <i class="fa-solid fa-xmark close_menu" onclick="close_menu()" style="color: #000000;"></i>
+          <li class="active"><a href="./index.html">Home</a></li>
+          <li><a href="./pages/products/index.html">Catalog</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+
+        <!-- login / signup -->
+        <div class="login_sign_up">
+          <a href="./pages/login/index.html">Login <i class="fa-solid fa-right-to-bracket"></i></a>
+          <a href="./pages/signup/index.html">Signup<i class="fa-solid fa-user-plus"></i></a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+  <!-- <div class="side_cart">
+
+<div class="top_cart">
+  <h3>mycarty <span>0 item in my cart</span></h3>
+  <span class="close_cart" onclick="close_cart()"><i class="fa-solid fa-xmark"></i></span>
+</div>
+<div class="items_in_cart">
+<div class="item_cart">
+  <img src="./assets/images/products/iphone13/front.png" alt="">
+  <div class="content">
+    <h4>Lorem ipsum dolor sit amet.</h4>
+    <p class="price_cart">EGP 145</p>
+  </div>
+  <BUtton class="del_item"><i class="fa-solid fa-trash-can" style="color: #000000;"></i></BUtton>
+</div>
+
+</div>
+<div class="bottom_cart">
+  <div class="total">
+    <p>cart total</p>
+    <p class="price_cart_total">EGP 0</p>
+  </div>
+
+  <div class="cart_button">
+    <a href="#" class="btn-cart"> procceed to checkout </a>
+    <button class="btn-cart trans_bg">shop more</button>
+  </div>
+</div>
+</div> -->
+
+  <!-- frist section -->
+  <section class="slider py-5">
     <div class="container">
 
-        <div class="bg-light">
-            <div class="container my-5">
-                <h1 class="text-center mb-4">📱 Mobile Phones</h1>
-                <div id="product-list" class="row g-4">
-                    <!-- Products will be rendered here -->
-                </div>
-            </div>
-
-            <!-- Modal -->
-            <div class="modal fade" id="productModal" tabindex="-1" aria-hidden="true">
-                <div class="modal-dialog modal-lg modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 id="modalProductName" class="modal-title"></h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="row">
-                                <div class="col-md-5">
-                                    <img id="modalProductImage" class="img-fluid rounded" alt="">
-                                </div>
-                                <div class="col-md-7">
-                                    <p id="modalProductDescription"></p>
-                                    <h4 class="text-success mb-3">$<span id="modalProductPrice"></span></h4>
-                                    <h6>Specifications:</h6>
-                                    <ul id="modalProductSpecs" class="list-group list-group-flush"></ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button class="btn btn-primary">Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <!-- Swiper -->
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <a href="#"><img src="./assets/home_page_img/Banner1.png" alt="Banner 2"></a>
+          </div>
+          <!-- <div class="swiper-slide">
+          <a href="#"><img src="./assets/images/home_page/Banner 2.png" alt="Banner 1"></a>
+        </div> -->
+          <div class="swiper-slide">
+            <a href="#"><img src="./assets/home_page_img/baner4.png" alt="Banner"></a>
+          </div>
+          <div class="swiper-slide">
+            <a href="#"><img src="./assets/home_page_img/banner6.png" alt="Banner"></a>
+          </div>
         </div>
-    </div>
 
-    <script defer src="./assets/lib/js/crypto-js.min.js"></script>
-    <script defer src="./assets/lib/js/bootstrap.bundle.min.js"></script>
-    <script defer src="./src/js/shared.js"></script>
-    <script defer src="./src/js/main.js"></script>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+
+        <div class="swiper-pagination"></div>
+      </div>
+
+      <div class="sidebanner">
+        <img src="./assets/home_page_img/sidebaner.png" alt="Side Banner">
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- sale section  -->
+  <section class="sale-products py-5" id="sale_sction">
+    <div class="">
+
+      <div class="text-center mb-4">
+        <h1 class="fw-bold">
+          Sale <span class="text-primary">Products</span>
+        </h1>
+      </div>
+
+      <!-- Swiper -->
+      <div class="swiper saleSwiper">
+        <div class="swiper-wrapper">
+          <!-- cards -->
+        </div>
+
+        <!-- btns -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+  <!-- category -->
+  <section class="container my-5">
+    <h1 class="text-center mb-4">Categories</h1>
+    <div class="row g-4 text-center">
+      <div class="col-md-3 col-6">
+        <div class="category-item border p-3 h-100">
+          <a href="./pages/products/index.html"><img class="img-fluid" src="./assets/home_page_img/iphone-seeklogo.png"
+              alt="iPhone"></a>
+        </div>
+      </div>
+      <div class="col-md-3 col-6">
+        <div class="category-item border p-3 h-100">
+          <a href="./pages/products/index.html"><img class="img-fluid" src="./assets/home_page_img/Oppo-Logo.wine.png"
+              alt="Oppo"></a>
+        </div>
+      </div>
+      <div class="col-md-3 col-6">
+        <div class="category-item border p-3 h-100">
+          <a href="./pages/products/index.html"><img class="img-fluid" src="./assets/home_page_img/pixel.png"
+              alt="Google Pixel"></a>
+        </div>
+      </div>
+      <div class="col-md-3 col-6">
+        <div class="category-item border p-3 h-100">
+          <a href="./pages/products/index.html"><img class="img-fluid" src="./assets/home_page_img/Samsung-Logo-2.png"
+              alt="Samsung"></a>
+        </div>
+      </div>
+      <div class="col-md-3 col-6">
+        <div class="category-item border p-3 h-100">
+          <a href="./pages/products/index.html"><img class="img-fluid" src="./assets/home_page_img/infinix-logo.png"
+              alt="Infinix"></a>
+        </div>
+      </div>
+      <div class="col-md-3 col-6">
+        <div class="category-item border p-3 h-100">
+          <a href="./pages/products/index.html"><img class="img-fluid"
+              src="./assets/home_page_img/Realme Logo (PNG480p) - Vector69Com.png" alt="Realme"></a>
+        </div>
+      </div>
+      <div class="col-md-3 col-6">
+        <div class="category-item border p-3 h-100">
+          <a href="./pages/products/index.html"><img class="img-fluid" src="./assets/home_page_img/Honor-Logo.png"
+              alt="Honor"></a>
+        </div>
+      </div>
+      <div class="col-md-3 col-6">
+        <div class="category-item border p-3 h-100">
+          <a href="./pages/products/index.html"><img class="img-fluid" src="./assets/home_page_img/oneplus-seeklogo.png"
+              alt="OnePlus"></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- baner section -->
+  <section class="hero-section bg-black ">
+    <div class="container">
+      <div class="row align-items-center g-4 g-lg-5">
+        <div class="col-12 col-md-6 order-md-1 order-1">
+          <div class="hero-content text-center text-md-start py-4 py-lg-5">
+            <h1 class="display-4 fw-bold text-white mb-3">iPhone 14 Pro</h1>
+            <p class="lead text-white mb-4">Experience the future with Dynamic Island & A16 Bionic</p>
+            <a href="./pages/products/index.html" class="btn btn-outline-light btn-lg px-4 py-2">Shop Now</a>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 order-md-2 order-2">
+          <div class="hero-image">
+            <img src="./assets/home_page_img/heroIphone Image.png" class="img-fluid" alt="iPhone 14 Pro">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- all products -->
+
+  <section class="all-products py-5">
+    <div class="">
+      <div class="d-flex justify-content-between align-items-center mb-4 container">
+        <h1 class="fw-bold">all <span class="">products</span></h1>
+        <a href="./pages/products/index.html" class="btns">View All</a>
+      </div>
+      <div class="swiper allProductsSwiper">
+        <div class="swiper-wrapper" id="all-products-wrapper">
+          <!-- cards -->
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- footer -->
+  <footer id="page-footer" class="footer mt-auto py-5 bg-black text-white">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-md-4">
+          <h5 class="fw-bold text-white logo"><a href="./index.html"> <img
+                src="./assets/home_page_img/logo_white_black_back.png" alt=""> </a></h5>
+          <p class=" text-white">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste sint perspiciatis eaque maxime expedita eius
+            asperiores provident delectus dolores distinctio?.
+          </p>
+        </div>
+        <div class="col-md-2 mt-5">
+          <h5 class="fw-bold text-white">Shop</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2">
+              <a href="./pages/products/index.html"
+                class="text-decoration-none  text-white footer-text text-white">Collection</a>
+            </li>
+            <li class="mb-2">
+              <a href="#sale_sction" class="text-decoration-none text-white footer-text text-white">sale </a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-3 mt-5">
+          <h5 class="fw-bold text-white">Support</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2 footer-text">
+              <a href="#" class="text-decoration-none text-white footer-text">FAQ</a>
+            </li>
+            <li class="mb-2">
+              <a href="./index.html" class="text-decoration-none text-white footer-text">Shipping</a>
+            </li>
+            <li class="mb-2">
+              <a href="#" class="text-decoration-none text-white footer-text">Contact Us</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h5 class="fw-bold text-center mb-4">Follow Us</h5>
+
+          <div class="d-flex justify-content-evenly">
+
+            <div class="social-group text-center">
+              <a href="#" class="text-decoration-none text-white d-block">
+                <i class="fab fa-facebook fa-2x social-icon"></i>
+                <div class="social-text">Facebook</div>
+              </a>
+            </div>
+
+
+            <div class="social-group text-center">
+              <a href="#" class="text-decoration-none text-white d-block">
+                <i class="fab fa-instagram fa-2x social-icon"></i>
+                <div class="social-text">Instagram</div>
+              </a>
+            </div>
+
+
+          </div>
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="col-12 text-white">
+          <p class="text-white mb-0">
+            &copy; 2025 mobileshop. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- swiper -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script defer src="./assets/lib/js/crypto-js.min.js"></script>
+  <script defer src="./assets/lib/js/bootstrap.bundle.min.js"></script>
+  <script defer src="./src/js/shared.js"></script>
+  <script defer src="./src/js/main.js"></script>
+  <script defer src="./src/js/home_page.js"></script>
+
 </body>
+
+</html>
+
+
+<!-- <div class="product_popup deactive">
+</div> -->
+<!-- Product Catalog -->
+<!-- <div class="container py-5">
+  <h2 class="mb-4 text-center">Product Catalog</h2>
+  <div class="row g-3" id="catalog"> -->
+<!-- Content will be added by JavaScript -->
+<!-- </div>
+</div>
+
+ -->
+
+
+<!-- <div id="cartSidebar" class="cart-sidebar">
+  <div class="cart-header d-flex justify-content-between align-items-center">
+    <h5 class="mb-0">Shopping Cart</h5>
+    <button class="btn-close" id="closeCart"></button>
+  </div>
+
+  <div class="cart-items p-3" id="cartItems">
+    <p class="text-muted">Your cart is empty</p>
+  </div>
+
+  <div class="cart-footer p-3 border-top">
+    <div class="d-flex justify-content-between align-items-center mb-2">
+      <strong>Total</strong>
+      <span id="cartTotal">0 EGP</span>
+    </div>
+    <button class="btn btn-primary w-100">Checkout</button>
+  </div>
+</div> -->
+
+<!-- Overlay -->
+<!-- <div id="cartOverlay" class="cart-overlay"></div> -->
+
+
+
+<!-- Summer Discount Section -->
+<!-- <section class="bg-primary text-white text-center py-5 summer-disc">
+  <div class="container">
+    <h2 class="fw-bold">Big Summer Sale</h2>
+    <p>Up to 50% off on selected smartphones!</p>
+    <a href="catalog.html" class="text-white btn-lg btn-summer">Shop Now</a>
+  </section> -->
+
+<!-- Footer -->

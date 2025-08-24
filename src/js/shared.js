@@ -1,2 +1,16 @@
-// Shared utilities and functions
-// This file is intentionally left empty for future use
+// navbar 
+var menu = document.getElementById("menu");
+window.open_menu = function () {
+  menu.classList.add("active");
+};
+window.close_menu = function () {
+  menu.classList.remove("active");
+};
+
+
+
+
+// document.addEventListener("DOMContentLoaded", () => {
+//   initProducts();
+// });
+

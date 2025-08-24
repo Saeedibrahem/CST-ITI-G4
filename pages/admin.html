@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="../assets/lib/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../src/css/global.css">
+    <link rel="stylesheet" href="../src/css/admin.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+
+
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar bg-dark">
+        <div class="d-flex flex-column h-100 p-3">
+            <a href="../index.html" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                <i class="bi bi-shield-check fs-4 me-2"></i>
+                <span class="fs-4">Admin Panel</span>
+            </a>
+            <hr class="text-white">
+            <ul class="nav nav-pills flex-column mb-auto">
+                <li class="nav-item">
+                    <a href="#" class="nav-link active" data-section="dashboard">
+                        <i class="bi bi-house-door me-2"></i>
+                        Dashboard
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link" data-section="users">
+                        <i class="bi bi-people me-2"></i>
+                        User Management
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link" data-section="products">
+                        <i class="bi bi-box me-2"></i>
+                        Product Moderation
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link" data-section="orders">
+                        <i class="bi bi-cart me-2"></i>
+                        Order Management
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link" data-section="support">
+                        <i class="bi bi-headset me-2"></i>
+                        Customer Service
+                    </a>
+                </li>
+            </ul>
+            <hr class="text-white">
+            <div class="text-white small">
+                <div class="d-flex align-items-center">
+                    <i class="bi bi-person-circle me-2"></i>
+                    <span>Super Admin</span>
+                </div>
+                <small class="text-muted">Full Access</small>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="container-fluid">
+            <!-- Header -->
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <div>
+                    <h1 class="h3 mb-0" id="page-title">Dashboard</h1>
+                    <p class="text-muted mb-0" id="page-subtitle">Welcome to the admin panel</p>
+                </div>
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-outline-primary" onclick="exportData()">
+                        <i class="bi bi-download me-2"></i>Export Data
+                    </button>
+                    <button type="button" class="btn btn-primary" onclick="showAddModal()">
+                        <i class="bi bi-plus me-2"></i>Add New
+                    </button>
+                </div>
+            </div>
+
+            <!-- Dashboard Section -->
+            <div id="dashboard" class="section-content" style="display: block;">
+                <!-- Stats Cards -->
+                <div class="stats-grid mb-4">
+                    <div class="stat-card">
+                        <h3 id="totalUsers">0</h3>
+                        <p>Total Users</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3 id="totalProducts">0</h3>
+                        <p>Total Products</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3 id="totalOrders">0</h3>
+                        <p>Total Orders</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3 id="pendingTickets">0</h3>
+                        <p>Pending Tickets</p>
+                    </div>
+                </div>
+
+                <!-- Analytics Charts -->
+                <div class="row mb-4">
+                    <div class="col-md-8">
+                        <div class="content-card">
+                            <h5 class="card-title mb-3">
+                                <i class="bi bi-graph-up me-2"></i>System Analytics
+                            </h5>
+                            <canvas id="systemChart" height="300"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="content-card">
+                            <h5 class="card-title mb-3">
+                                <i class="bi bi-pie-chart me-2"></i>User Distribution
+                            </h5>
+                            <canvas id="userChart" height="200"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Users Section -->
+            <div id="users" class="section-content" style="display: none;">
+                <div class="content-card">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h5 class="card-title mb-0">
+                            <i class="bi bi-people me-2"></i>User Management
+                        </h5>
+                        <button class="btn btn-primary btn-sm" onclick="showAddUserModal()">
+                            <i class="bi bi-plus me-1"></i>Add User
+                        </button>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-hover" id="usersTable">
+                            <thead>
+                                <tr>
+                                    <th>User ID</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Role</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="usersTableBody">
+                                <!-- Users will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Products Section -->
+            <div id="products" class="section-content" style="display: none;">
+                <div class="content-card">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h5 class="card-title mb-0">
+                            <i class="bi bi-box me-2"></i>Product Moderation
+                        </h5>
+                        <div class="btn-group" role="group">
+                            <button class="btn btn-outline-primary btn-sm" onclick="filterProducts('all')">All</button>
+                            <button class="btn btn-outline-warning btn-sm"
+                                onclick="filterProducts('pending')">Pending</button>
+                            <button class="btn btn-outline-success btn-sm"
+                                onclick="filterProducts('approved')">Approved</button>
+                            <button class="btn btn-outline-danger btn-sm"
+                                onclick="filterProducts('rejected')">Rejected</button>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-hover" id="productsTable">
+                            <thead>
+                                <tr>
+                                    <th>Product ID</th>
+                                    <th>Name</th>
+                                    <th>Seller</th>
+                                    <th>Category</th>
+                                    <th>Price</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="productsTableBody">
+                                <!-- Products will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Orders Section -->
+            <div id="orders" class="section-content" style="display: none;">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="content-card">
+                            <h5 class="card-title mb-3">
+                                <i class="bi bi-cart me-2"></i>Order Management
+                            </h5>
+                            <div class="table-responsive">
+                                <table class="table table-hover" id="ordersTable">
+                                    <thead>
+                                        <tr>
+                                            <th>Order ID</th>
+                                            <th>Customer</th>
+                                            <th>Products</th>
+                                            <th>Total</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="ordersTableBody">
+                                        <!-- Orders will be loaded here -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="content-card">
+                            <h5 class="card-title mb-3">
+                                <i class="bi bi-bell me-2"></i>Recent Activity
+                            </h5>
+                            <div class="list-group list-group-flush" id="activityList">
+                                <!-- Activity will be loaded here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Support Section -->
+            <div id="support" class="section-content" style="display: none;">
+                <div class="content-card">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h5 class="card-title mb-0">
+                            <i class="bi bi-headset me-2"></i>Customer Service
+                        </h5>
+                        <div class="btn-group" role="group">
+                            <button class="btn btn-outline-primary btn-sm" onclick="filterTickets('all')">All</button>
+                            <button class="btn btn-outline-warning btn-sm" onclick="filterTickets('open')">Open</button>
+                            <button class="btn btn-outline-info btn-sm" onclick="filterTickets('in-progress')">In
+                                Progress</button>
+                            <button class="btn btn-outline-success btn-sm"
+                                onclick="filterTickets('resolved')">Resolved</button>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-hover" id="ticketsTable">
+                            <thead>
+                                <tr>
+                                    <th>Ticket ID</th>
+                                    <th>Customer</th>
+                                    <th>Subject</th>
+                                    <th>Priority</th>
+                                    <th>Status</th>
+                                    <th>Created</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="ticketsTableBody">
+                                <!-- Tickets will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add User Modal -->
+    <div class="modal fade" id="addUserModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add New User</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="addUserForm">
+                        <div class="mb-3">
+                            <label class="form-label">Full Name</label>
+                            <input type="text" class="form-control" id="userName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control" id="userEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Role</label>
+                            <select class="form-select" id="userRole" required>
+                                <option value="user">User</option>
+                                <option value="seller">Seller</option>
+                                <option value="admin">Admin</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Password</label>
+                            <input type="password" class="form-control" id="userPassword" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" onclick="addUser()">Add User</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Review Modal -->
+    <div class="modal fade" id="productReviewModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Review Product</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="productReviewContent">
+                    <!-- Product details will be loaded here -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-danger" onclick="rejectProduct()">Reject</button>
+                    <button type="button" class="btn btn-success" onclick="approveProduct()">Approve</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ticket Response Modal -->
+    <div class="modal fade" id="ticketResponseModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Respond to Ticket</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="ticketDetails">
+                        <!-- Ticket details will be loaded here -->
+                    </div>
+                    <hr>
+                    <div class="mb-3">
+                        <label class="form-label">Admin Response</label>
+                        <textarea class="form-control" id="adminResponse" rows="4"
+                            placeholder="Type your response..."></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Status</label>
+                        <select class="form-select" id="ticketStatus">
+                            <option value="open">Open</option>
+                            <option value="in-progress">In Progress</option>
+                            <option value="resolved">Resolved</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" onclick="updateTicket()">Update Ticket</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Admin Demo Data -->
+    <script src="../data/admin-demo.json"></script>
+
+    <!-- Bootstrap Bundle -->
+    <script src="../assets/lib/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Shared JS -->
+    <script src="../src/js/shared.js"></script>
+
+    <!-- Admin JS -->
+    <script defer src="../src/js/admin.js"></script>
+
+
+    <!-- Main JS -->
+    <script src="../src/js/main.js"></script>
+</body>
+
+</html>
