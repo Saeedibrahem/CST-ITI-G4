@@ -37,13 +37,10 @@ function getProductById(productId) {
   document.getElementById("summary_img").innerHTML = product.images.length;
   return product;
 }
-// TODO:remove it after test
-getProductById(1);
 //! addProductImage =============================================================
 let newImgs = product.images;
 function addProductImage(e) {
   newImgs.push(e.target.value);
-  console.log(newImgs);
 }
 //! removeProductImage =============================================================
 function removeProductImage(e) {}
@@ -82,7 +79,6 @@ function sendUpdatesToAdmin(e) {
       }
     });
 
-    //TODO: send acceptance requist to admin
     // localStorage.setItem("products", JSON.stringify(newProducts));
     // window.location.href = "../../index.html";
   } else {

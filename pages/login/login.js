@@ -1,7 +1,6 @@
 // if user loggedin redirect to home page
 if (localStorage.getItem("currentUser")) {
-  //TODO:
-  // window.location.href = "../../index.html";
+  window.location.href = "../../index.html";
 }
 // confirmForm-func
 function confirmForm(e) {
@@ -26,8 +25,6 @@ function confirmForm(e) {
         return value;
       }
     });
-    console.log(users);
-    console.log(resultArr);
     // check-if-user-exist
     if (resultArr.length > 0) {
       e.target.disabled = true;

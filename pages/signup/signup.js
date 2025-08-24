@@ -1,7 +1,6 @@
 // if user loggedin redirect to home page
 if (localStorage.getItem("currentUser")) {
-  //TODO: 
-  // window.location.href = "../../index.html";
+  window.location.href = "../../index.html";
 }
 // confirmForm-func
 function confirmForm(e) {

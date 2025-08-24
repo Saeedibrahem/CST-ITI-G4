@@ -1,7 +1,3 @@
-//TODO: signup.js 1 line remove it after test
-//TODO: login.js 1 line remove it after test
-//TODO: stats_seller_dashboard.js 2 lines remove it after test
-//TODO: edit_seller_product.js 1 line remove it after test
 //! how to calculate TotalSales/TotoalOrders from products.json, add "sold" field after "stock"
 //! how to calculate MonthlySales from products.json, add "monthlySales" field after "sold", [0,0,0,0,0,0,0,0,0,0,0,0]
 //! login.js get admin data

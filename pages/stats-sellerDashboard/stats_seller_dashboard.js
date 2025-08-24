@@ -44,9 +44,7 @@ function getMonthlySales() {
   const currentUser = getCurrentUser();
   const products = getProducts();
   for (const product of products) {
-    //TODO:
-    // if (product.sellerId == product.sellerId) {
-    if (product.sellerId == 101) {
+    if (product.sellerId == product.sellerId) {
       for (let i = 0; i < monthlySales.length; i++) {
         monthlySales[i] += product.monthlySales[i];
       }
@@ -71,11 +69,8 @@ function getSalesDistribution() {
   const currentUser = getCurrentUser();
   const products = getProducts();
   for (const product of products) {
-    //TODO:
-    // if (product.sellerId == product.sellerId) {
-    if (product.sellerId == 101) {
+    if (product.sellerId == product.sellerId) {
       nameOfProduct = product.name.toUpperCase();
-      console.log(nameOfProduct);
       if (nameOfProduct.includes("REALME")) {
         REALME++;
       } else if (nameOfProduct.includes("INFINIX")) {
