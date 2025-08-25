@@ -5,7 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title> MobileXpress</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="./assets/lib/css/bootstrap.min.css">
+  <!-- css files -->
   <link href="./src/css/global.css" rel="stylesheet">
   <link href="./src/css/home_page.css" rel="stylesheet">
   <!-- font awsome -->
@@ -13,62 +15,91 @@
   <!-- swiper -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
+
 </head>
 
 <body>
+  <header class="sticky-top bg-white shadow-sm border-bottom">
+    <nav class="navbar navbar-expand-lg navbar-light py-2">
+      <div class="container-fluid">
+        <!-- Logo -->
+        <a class="navbar-brand fw-bold d-flex align-items-center" href="./">
+          <img src="./assets/home_page_img/logo.png" alt="Logo" height="40" class="me-2">
+        </a>
 
+        <!-- Right side (cart + user/login) -->
+        <div class="d-flex align-items-center gap-2 order-lg-2">
+          <!-- Cart -->
+          <button class="btn btn-outline-dark position-relative rounded-circle p-2" onclick="open_cart()">
+            <i class="fa-solid fa-cart-shopping fa-lg"></i>
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">2</span>
+          </button>
 
+          <!-- If user logged in -->
+          <div id="userMenu" class="dropdown d-none">
+            <button class="btn btn-outline-dark rounded-circle p-2" data-bs-toggle="dropdown">
+              <i class="fa-solid fa-user fa-lg"></i>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end shadow border-0 rounded-3 mt-2">
+              <li>
+                <h6 class="dropdown-header text-primary">User Account</h6>
+              </li>
+              <li><a class="dropdown-item" href="#"><i class="fa-solid fa-user-gear me-2 text-primary"></i>Profile</a>
+              </li>
+              <li><a class="dropdown-item" href="#"><i class="fa-solid fa-box me-2 text-primary"></i>Orders</a></li>
+              <li><a class="dropdown-item" href="#"><i class="fa-solid fa-heart me-2 text-primary"></i>Wishlist</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item text-danger" href="#" onclick="logout()"><i
+                    class="fa-solid fa-sign-out-alt me-2"></i>Logout</a></li>
+            </ul>
+          </div>
 
-  <!-- Navbar -->
-  <header>
-    <nav class="top_nav nav_cont">
-      <!-- logo -->
-      <a class="logo" href="./index.html">
-        <img src="./assets/home_page_img/logo.png" alt="logo">
-      </a>
+          <!-- If user NOT logged in -->
+          <div id="authLinks" class="d-flex gap-2">
+            <a href="./pages/login/index.html" class="btn btn-outline-primary btn-sm">
+              <i class="fa-solid fa-right-to-bracket me-1"></i> Login
+            </a>
+            <a href="./pages/signup/index.html" class="btn btn-primary btn-sm">
+              <i class="fa-solid fa-user-plus me-1"></i> Signup
+            </a>
+          </div>
 
-      <!-- search bar -->
-      <form action="" class="search">
-        <input type="search" class="search" placeholder="Search for product...">
-        <button type="submit">Search</button>
-      </form>
+          <!-- Navbar Toggler -->
+          <button class="navbar-toggler ms-2 border-0 shadow-none" type="button" data-bs-toggle="collapse"
+            data-bs-target="#mainNav">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
 
-      <!-- cart -->
-      <div class="  ">
-        <div class="icon_cart" onclick="open_cart()">
-          <i class="fa-solid fa-cart-shopping"></i>
+        <!-- Collapsible Nav + Search -->
+        <div class="collapse navbar-collapse order-lg-1 mt-3 mt-lg-0" id="mainNav">
+          <ul class="navbar-nav me-auto mb-3 mb-lg-0">
+            <li class="nav-item"><a class="nav-link active fw-semibold" href="./"><i
+                  class="fa-solid fa-home me-2"></i>Home</a></li>
+            <li class="nav-item"><a class="nav-link fw-semibold" href="./pages/products/index.html"><i
+                  class="fa-solid fa-th-large me-2"></i>Catalog</a></li>
+            <li class="nav-item"><a class="nav-link fw-semibold" href="#"><i
+                  class="fa-solid fa-info-circle me-2"></i>About Us</a></li>
+            <li class="nav-item"><a class="nav-link fw-semibold" href="#"><i
+                  class="fa-solid fa-envelope me-2"></i>Contact Us</a></li>
+          </ul>
+          <form class="d-flex my-2 my-lg-0">
+            <div class="input-group">
+              <input type="search" class="form-control" placeholder="Search products...">
+              <button class="btn btn-primary"><i class="fa-solid fa-search"></i></button>
+            </div>
+          </form>
         </div>
       </div>
     </nav>
-
-    <!-- bottom nav -->
-    <div class="bottom_nav">
-      <div class="links _cont">
-        <i onclick="open_menu()" class="fa-solid fa-bars open_menu"></i>
-        <ul id="menu">
-          <span class="bg_overlay " onclick="close_menu()">
-
-          </span>
-
-
-          <img src="./assets/home_page_img/iphone-seeklogo.png" class="logo_menu" alt="">
-
-
-          <i class="fa-solid fa-xmark close_menu" onclick="close_menu()" style="color: #000000;"></i>
-          <li class="active"><a href="./index.html">Home</a></li>
-          <li><a href="./pages/products/index.html">Catalog</a></li>
-          <li><a href="#">About Us</a></li>
-          <li><a href="#">Contact Us</a></li>
-        </ul>
-
-        <!-- login / signup -->
-        <div class="login_sign_up">
-          <a href="./pages/login/index.html">Login <i class="fa-solid fa-right-to-bracket"></i></a>
-          <a href="./pages/signup/index.html">Signup<i class="fa-solid fa-user-plus"></i></a>
-        </div>
-      </div>
-    </div>
   </header>
+
+
+
+
+
 
 
 
@@ -356,11 +387,13 @@
 
 
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Bootstrap JavaScript -->
+  <script src="./assets/lib/js/bootstrap.bundle.min.js"></script>
   <!-- swiper -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <!-- crypto js -->
   <script defer src="./assets/lib/js/crypto-js.min.js"></script>
-  <script defer src="./assets/lib/js/bootstrap.bundle.min.js"></script>
+  <!-- js files -->
   <script defer src="./src/js/shared.js"></script>
   <script defer src="./src/js/main.js"></script>
   <script defer src="./src/js/home_page.js"></script>

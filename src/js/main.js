@@ -1,3 +1,5 @@
+// ============================= products section =============================
+// ============================= products section =============================
 // Fetch products and render them
 fetch("../data/products.json")
   .then(res => res.json())
@@ -105,6 +107,27 @@ if (!localStorage.getItem("users")) {
       localStorage.setItem("users", encryptedUsers);
     })
     .catch((err) => console.error("Error loading users:", err));
+}
+// mock login
+let loggedIn = getCurrentUser() ? true : false;
+
+window.addEventListener("DOMContentLoaded", () => {
+  const userMenu = document.getElementById("userMenu");
+  const authLinks = document.getElementById("authLinks");
+
+  if (loggedIn) {
+    userMenu.classList.remove("d-none");
+    authLinks.classList.add("d-none");
+  } else {
+    userMenu.classList.add("d-none");
+    authLinks.classList.remove("d-none");
+  }
+});
+
+function logout() {
+  loggedIn = false;
+  removeItemFromLocalStorage("currentUser");
+  location.reload();
 }
 // encrypt func     abdo=>***
 // if argument is string enter it, else enter JSON.stringify(data)
