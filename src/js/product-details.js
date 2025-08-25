@@ -15,7 +15,7 @@ if (productId) {
       document.getElementById("product-details").innerHTML = `
         <div class="col-12 text-center">
           <h2>Product not found!</h2>
-          <a href="index.html" class="btn btn-outline-dark mt-3">⬅ Back to Home</a>
+          <a href="../../index.html" class="btn btn-outline-dark mt-3">⬅ Back to Home</a>
         </div>
       `;
     }
@@ -66,8 +66,8 @@ function displayProductDetails(product) {
 
       <div class="actions">
         <button class="btn bg-black text-white">Add to Cart</button>
-        <a href="home_page.html" class="btn back-home">Back to Home</a>
-        <a href="product_catalog.html" class="btn back-home">Back to product catalog</a>
+        <a href="../../index.html" class="btn back-home">Back to Home</a>
+        <a href="../../pages/products/index.html" class="btn back-home">Back to product catalog</a>
       </div>
 
 
