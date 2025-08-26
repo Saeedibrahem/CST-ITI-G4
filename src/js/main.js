@@ -127,7 +127,9 @@ window.addEventListener("DOMContentLoaded", () => {
 function logout() {
   loggedIn = false;
   removeItemFromLocalStorage("currentUser");
-  location.reload();
+
+
+  window.location.href = "./";
 }
 // encrypt func     abdo=>***
 // if argument is string enter it, else enter JSON.stringify(data)

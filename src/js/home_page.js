@@ -1,19 +1,22 @@
-
-
-
-
-// async function initProducts() {
-//     const res = await fetch("./data/products.json");
-//     const products = await res.json();
-
-//     localStorage.setItem("products", JSON.stringify(products));
-
-// products = getItemFromLocalStorage("products");
-
-// }
+// load spinner
+function loadSpinner() {
+  window.addEventListener("load", () => {
+    const loaderContainer = document.createElement("div");
+    loaderContainer.classList.add("loader-container");
+    document.body.appendChild(loaderContainer);
+    const spinner = document.createElement("span");
+    spinner.classList.add("loader");
+    loaderContainer.appendChild(spinner);
+    setTimeout(() => {
+      loaderContainer.remove();
+    }, 1000);
+  });
+}
+loadSpinner();
 displaySaleProducts(products);
-displayAllProducts(products);
 initSwipers();
+displayAllProducts(products);
+// display sale products
 
 function displaySaleProducts(products) {
   const swiperWrapper = document.querySelector(".saleSwiper .swiper-wrapper");
@@ -46,7 +49,13 @@ function displaySaleProducts(products) {
         ? `<img src="${product.images[1]}" class="hover-img position-absolute top-0 start-0 w-100 h-100" alt="${product.name} Hover">`
         : ""
       }
-        </a>
+      </a>
+      ${discount
+        ? `<div class="sale-badge_icon position-absolute z-3 top-0 start-0 bg-danger text-white px-2 py-1 small rounded-end">
+               -${discount}%
+             </div>`
+        : ""
+      }
       </div>
 
       <!-- Card Body -->
@@ -101,7 +110,7 @@ function displayAllProducts(products) {
             class="card-img-top main-img" 
             alt="${product.name}">
             ${product.images[1]
-        ? `<img src="${product.images[1]}" class="hover-img position-absolute top-0 start-0 w-100 h-100" alt="${product.name}">`
+        ? `<img src="${product.images[1]}" class="hover-img position-absolute top-0 start-0 w-100 h-100" alt="${product.name} Hover">`
         : ""
       }
           </a>
@@ -116,7 +125,7 @@ function displayAllProducts(products) {
           <div class="product-price d-flex justify-content-center align-items-center mb-3">
             <h5 class="mb-0 text-success fw-bold">EGP ${product.price}</h5>
             ${product.old_price
-        ? `<del class="ms-2 text-muted small">EGP ${product.old_price}</del>`
+        ? `<del class="ms-2 text-muted small">${product.old_price}</del>`
         : ""
       }
           </div>
@@ -153,7 +162,9 @@ function displayAllProducts(products) {
 //  Swipers Init 
 function initSwipers() {
   new Swiper(".saleSwiper", {
-    slidesPerView: 4,
+    loop: true,
+    autoHeight: true, // 👈 ده اللي هيحل المشكلة
+
     spaceBetween: 20,
     loop: true,
     navigation: {
@@ -172,7 +183,8 @@ function initSwipers() {
   });
 
   new Swiper(".allProductsSwiper", {
-    slidesPerView: 4,
+    loop: true,
+    autoHeight: true,
     spaceBetween: 20,
     loop: true,
     autoplay: {
@@ -200,6 +212,8 @@ function initSwipers() {
 //  hero section swiper
 var swiper = new Swiper(".mySwiper", {
   loop: true,
+  autoHeight: true,
+
   autoplay: {
     delay: 3000,
     disableOnInteraction: false,
