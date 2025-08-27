@@ -25,25 +25,24 @@
 
       <!-- Logo -->
       <a class="navbar-brand fw-bold d-flex align-items-center" href="./index.html">
-        <img src="./assets/home_page_img/logo.png" alt="Logo" height="40" class="me-2">
+        <img src="../../assets/home_page_img/logo.png" alt="Logo" height="40" class="me-2">
       </a>
 
       <!-- Collapsible Nav + Search -->
       <div class="collapse navbar-collapse justify-content-center" id="mainNav">
-        <ul class="navbar-nav mx-3">
-          <li class="nav-item"><a class="nav-link active fw-semibold text-primary" href="./index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link fw-semibold text-primary " href="./pages/products/index.html">Catalog</a></li>
-          <li class="nav-item"><a class="nav-link fw-semibold text-primary" href="#">Contact Us</a></li>
-          <li class="nav-item"><a class="nav-link fw-semibold text-primary" href="#">About Us</a></li>
+        <ul class="navbar-nav mx-3 d-flex g-4 ">
+          <li class="nav-item"><a class="nav-link  fw-semibold text-dark active" href="./index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link fw-semibold text-dark " href="./pages/products/index.html">Catalog</a></li>
+          <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="./pages/aboutus/aboutus.html">About Us</a></li>
         </ul>
 
         <!-- Search -->
-        <form class="d-flex mx-lg-3 my-2 my-lg-0">
+        <!-- <form class="d-flex mx-lg-3 my-2 my-lg-0">
           <div class="input-group">
             <input type="search" class="form-control" placeholder="Search products...">
             <button class="btn btn-primary"><i class="fa-solid fa-search"></i></button>
           </div>
-        </form>
+        </form> -->
       </div>
 
       <!-- Right Side (Auth / User) -->
@@ -55,8 +54,8 @@
             <i class="fa-solid fa-user fa-lg"></i>
           </button>
           <ul class="dropdown-menu dropdown-menu-end shadow border-0 rounded-3 mt-2">
-            <li><h6 class="dropdown-header text-primary">User Account</h6></li>
-            <li><a class="dropdown-item" href="#"><i class="fa-solid fa-user-gear me-2 text-primary"></i>Profile</a></li>
+            <li><h6 class="dropdown-header  text-primary">User Account</h6></li>
+            <li><a class="dropdown-item" href="#"><i class="fa-solid fa-user-gear me-2 "></i>Profile</a></li>
             <li><a class="dropdown-item" href="#"><i class="fa-solid fa-box me-2 text-primary"></i>Orders</a></li>
             <li><a class="dropdown-item" href="#"><i class="fa-solid fa-heart me-2 text-primary"></i>Wishlist</a></li>
             <li><hr class="dropdown-divider"></li>
@@ -65,11 +64,11 @@
         </div>
 
         <!-- If user NOT logged in -->
-        <div id="authLinks" class="d-flex gap-2">
-          <a href="./pages/login/index.html" class="btn btn-outline-primary btn-sm">
+        <div id="authLinks" class="d-flex gap-2 ">
+          <a href="./pages/login/index.html" class=" login_btn btn btn-outline-dark  text-dark btn-sm">
             <i class="fa-solid fa-right-to-bracket me-1"></i> Login
           </a>
-          <a href="./pages/signup/index.html" class="btn btn-primary btn-sm">
+          <a href="./pages/signup/index.html" class="btn btn-primary signup_btn bg-dark text-white btn-outline-dark btn-sm">
             <i class="fa-solid fa-user-plus me-1"></i> Signup
           </a>
         </div>
@@ -84,6 +83,24 @@
   </nav>
 </header>
 
+  <section class="hero-section  ">
+    <div class="container">
+      <div class="row align-items-center g-4 g-lg-5">
+        <div class="col-12 col-md-6 order-md-1 order-1">
+          <div class="hero-content text-center text-md-start py-4 py-lg-5">
+            <h1 class="display-4 fw-bold text-white mb-3">iPhone 14 Pro</h1>
+            <p class="lead text-white mb-4">Experience the future with Dynamic Island & A16 Bionic</p>
+            <a href="./pages/products/index.html" class="btn btn-outline-light btn-lg px-4 py-2 text-sm-center">Shop Now</a>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 order-md-2 order-2">
+          <div class="hero-image">
+            <img src="./assets/home_page_img/heroIphone Image.png" class="img-fluid" alt="iPhone 14 Pro">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
 
 
@@ -119,32 +136,6 @@
 </div> -->
 
   <!-- frist section -->
-    <section class="slider py-5">
-        <div class="container">
-            <!-- Swiper -->
-            <div class="swiper mySwiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <a href="#"><img src="./assets/home_page_img/Banner1.png" alt="Banner 1"></a>
-                    </div>
-                    <div class="swiper-slide">
-                        <a href="#"><img src="./assets/home_page_img/banner6.png" alt="Banner 2"></a>
-                    </div>
-                    <div class="swiper-slide">
-                        <a href="#"><img src="./assets/home_page_img/baner4.png" alt="Banner 3"></a>
-                    </div>
-                </div>
-                
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-pagination"></div>
-            </div>
-            
-            <div class="sidebanner">
-                <a href="#"><img src="./assets/home_page_img/sidebaner.png" alt="Side Banner"></a>
-            </div>
-        </div>
-    </section>
 
 
   <!-- sale section  -->
@@ -231,28 +222,36 @@
 
 
   <!-- baner section -->
-  <section class="hero-section  ">
-    <div class="container">
-      <div class="row align-items-center g-4 g-lg-5">
-        <div class="col-12 col-md-6 order-md-1 order-1">
-          <div class="hero-content text-center text-md-start py-4 py-lg-5">
-            <h1 class="display-4 fw-bold text-white mb-3">iPhone 14 Pro</h1>
-            <p class="lead text-white mb-4">Experience the future with Dynamic Island & A16 Bionic</p>
-            <a href="./pages/products/index.html" class="btn btn-outline-light btn-lg px-4 py-2">Shop Now</a>
-          </div>
+
+
+
+
+    <section class="slider py-5">
+        <div class="container">
+            <!-- Swiper -->
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <a href="#"><img src="./assets/home_page_img/Banner1.png" alt="Banner 1"></a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#"><img src="./assets/home_page_img/banner6.png" alt="Banner 2"></a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#"><img src="./assets/home_page_img/baner4.png" alt="Banner 3"></a>
+                    </div>
+                </div>
+                
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+            
+            <div class="sidebanner">
+                <a href="#"><img src="./assets/home_page_img/sidebaner.png" alt="Side Banner"></a>
+            </div>
         </div>
-        <div class="col-12 col-md-6 order-md-2 order-2">
-          <div class="hero-image">
-            <img src="./assets/home_page_img/heroIphone Image.png" class="img-fluid" alt="iPhone 14 Pro">
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-
-
+    </section>
 
 
 
@@ -317,7 +316,7 @@
               <a href="#" class="text-decoration-none text-white footer-text">FAQ</a>
             </li>
             <li class="mb-2">
-              <a href="./index.html" class="text-decoration-none text-white footer-text">Shipping</a>
+              <a href="#" class="text-decoration-none text-white footer-text">Shipping</a>
             </li>
             <li class="mb-2">
               <a href="#" class="text-decoration-none text-white footer-text">Contact Us</a>

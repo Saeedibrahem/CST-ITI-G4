@@ -67,6 +67,14 @@ header {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   transition: var(--transition);
 }
+.login_btn:hover  {
+color: white !important;
+}
+
+.signup_btn:hover{
+  background-color: white !important;
+  color: black !important;
+} 
 
 /* Logo styling */
 .navbar-brand {
@@ -88,32 +96,28 @@ header {
 
 /* Navigation links */
 .navbar-nav .nav-link {
-  color: var(--primary);
   font-weight: 500;
-  padding: 12px 20px;
   border-radius: 12px;
   transition: var(--transition);
   position: relative;
   margin: 0 4px;
   border: 2px solid transparent;
+
+  display: flex ;
 }
 
 .navbar-nav .nav-link:hover {
   color: var(--dark);
-  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-  transform: translateY(-2px);
-  border-color: var(--primary);
+    transform: translateY(-2px);
+  border-color: var(--shadow);
 }
 
 .navbar-nav .nav-link.active {
   color: var(--primary);
-  background: linear-gradient(
-    135deg,
-    rgba(0, 102, 255, 0.1),
-    rgba(47, 0, 255, 0.05)
-  );
-  box-shadow: 0 2px 8px rgba(137, 222, 255, 0.2);
-  border-color: var(--primary);
+background-color: #000;
+color: white !important;  
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2);
+  border-color: var(--shadow);
 }
 
 .navbar-nav .nav-link i {

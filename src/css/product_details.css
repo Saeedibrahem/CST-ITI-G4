@@ -20,7 +20,18 @@ main {
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   flex-wrap: wrap;
 }
-
+.product-name {
+  color: black;
+}
+.price-box del {
+  font-size: 18px;
+}
+.price-box h1 {
+  color: #198754;
+}
+.description , .stock , .rating {
+  color: black;
+}
 /* Left - Image */
 .product-image {
   flex: 1 1 350px;
@@ -63,7 +74,7 @@ main {
   min-width: 280px;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 10px;
 }
 
 /* Actions (buttons) */
@@ -384,6 +395,17 @@ img, .product-card_details, .product-tabs {
 
 
 
+.footer {
+  background-color: #000;
+}
+.logo_footer {
+  width: 120px;
+  height: 120px;
+}
+.logo_footer img {
+  width: 100%;
+  height: 100%;
+}
 
 
 

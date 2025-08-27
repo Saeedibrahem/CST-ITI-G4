@@ -15,8 +15,8 @@
   --radius: 12px;
   --shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
   --transition: all 0.3s ease;
-  --gradient-primary: linear-gradient(135deg, var(--main), #ff8c00);
-  --gradient-hover: linear-gradient(135deg, #ff8c00, var(--main));
+  /* --gradient-primary: linear-gradient(135deg, var(--main), #ff8c00);
+  --gradient-hover: linear-gradient(135deg, #ff8c00, var(--main)); */
 }
 
 /* ================== RESET ================== */
@@ -80,19 +80,18 @@ header {
 
 /* Nav Links */
 .navbar-nav .nav-link {
-  color: var(--primary);
+  /* color: var(--primary); */
   font-weight: 500;
   padding: 12px 20px;
   margin: 0 4px;
-  border: 2px solid transparent;
+  /* border: 2px solid transparent; */
   border-radius: var(--radius);
   transition: var(--transition);
   position: relative;
 }
 .navbar-nav .nav-link:hover {
   color: var(--dark);
-  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-  border-color: var(--primary);
+  background: var(--shadow);
   transform: translateY(-2px);
 }
 .navbar-nav .nav-link.active {
@@ -102,7 +101,7 @@ header {
     rgba(0, 102, 255, 0.1),
     rgba(47, 0, 255, 0.05)
   );
-  border-color: var(--primary);
+  border-color: var(--shadow);
   box-shadow: 0 2px 8px rgba(137, 222, 255, 0.2);
 }
 .navbar-nav .nav-link i {

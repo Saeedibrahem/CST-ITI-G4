@@ -46,8 +46,8 @@ function displayProductDetails(product) {
       <p class="product-category">Category: ${product.category}</p>
 
       <div class="price-box">
-        ${product.old_price ? `<del>EGP${product.old_price}</del>` : ""}
-        <h2 class="new-price">$${product.price}</h2>
+        ${product.old_price ? `<del>EGP ${product.old_price}</del>` : ""}
+        <h1 class="new-price">EGP ${product.price}</h1>
       </div>
 
       <p class="description text-start">Description: ${product.description}</p>
