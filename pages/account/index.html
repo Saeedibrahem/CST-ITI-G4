@@ -36,7 +36,7 @@
       <!-- card_2 -->
       <!-- card_2 -->
       <div class="card card_2">
-        <form>
+        <form id="profileIformation_form" onsubmit="save_btn(event)">
           <div class="title">Profile Information</div>
           <div class="profileInfo-block">
             <div class="row-in-block">
@@ -71,37 +71,37 @@
             </div>
             <div class="sub-info">
               <div class="label">Phone</div>
-              <div class="data data_to_view phone">01007137667</div>
+              <div class="data data_to_view phone"></div>
               <input class="form-control data_to_enter phone" type="number" />
             </div>
             <div class="row-in-block">
               <div class="sub-info">
                 <div class="label">Address</div>
-                <div class="data data_to_view address">Elgharbia</div>
+                <div class="data data_to_view address"></div>
                 <input class="form-control data_to_enter address" type="text" />
               </div>
               <div class="sub-info">
                 <div class="label">City</div>
-                <div class="data data_to_view city">Tanta</div>
+                <div class="data data_to_view city"></div>
                 <input class="form-control data_to_enter city" type="text" />
               </div>
             </div>
             <div class="row-in-block">
               <div class="sub-info">
                 <div class="label">Country</div>
-                <div class="data data_to_view country">Egypt</div>
+                <div class="data data_to_view country"></div>
                 <input class="form-control data_to_enter country" type="text" />
               </div>
               <div class="sub-info">
                 <div class="label">ZIP</div>
-                <div class="data data_to_view zip">123456</div>
+                <div class="data data_to_view zip"></div>
                 <input class="form-control data_to_enter zip" type="number" />
               </div>
             </div>
             <div class="row-in-block">
               <div class="sub-info">
                 <div class="label">Date of birth</div>
-                <div class="data data_to_view DOB">Not specified</div>
+                <div class="data data_to_view DOB"></div>
                 <input class="form-control data_to_enter DOB" type="date" />
               </div>
               <div class="sub-info">
@@ -141,11 +141,7 @@
               >
                 Edit Profile
               </button>
-              <button
-                type="submit"
-                class="btn btn-success data_to_enter"
-                onsubmit="save_btn(event)"
-              >
+              <button type="submit" class="btn btn-success data_to_enter">
                 Save
               </button>
               <button
@@ -335,28 +331,122 @@
       <!-- card_4 -->
       <!-- card_4 -->
       <div class="card card_4">
-        <form>
+        <form id="password_form" onsubmit="change_password(event)">
           <div class="title">My Orders</div>
           <div class="profileInfo-block">
             <div class="sub-info">
               <div class="label">Old Password</div>
-              <input class="form-control" type="password" />
+              <input
+                required
+                class="form-control"
+                type="password"
+                id="entred_oldPassword"
+              />
             </div>
             <div class="sub-info">
               <div class="label">New Password</div>
-              <input class="form-control" type="password" />
+              <input
+                required
+                class="form-control"
+                type="password"
+                id="new_password"
+              />
             </div>
             <div class="sub-info">
               <div class="label">Confirm New Password</div>
-              <input class="form-control" type="password" />
+              <input
+                required
+                class="form-control"
+                type="password"
+                id="confirm_new_password"
+              />
             </div>
             <div>
-              <button class="btn btn-primary">Confirm</button>
+              <button type="submit" class="btn btn-primary">Confirm</button>
             </div>
           </div>
         </form>
       </div>
     </main>
+    <!-- toasts -->
+    <!-- toast 1.1 -->
+    <div class="toast-container position-fixed top-0 end-0 p-3">
+      <div
+        class="toast align-items-center bg-success text-white border-0"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+      >
+        <div class="d-flex">
+          <div class="toast-body">🥳 Profile updated successfully</div>
+          <button
+            type="button"
+            class="btn-close btn-close-white me-2 m-auto"
+            data-bs-dismiss="toast"
+            aria-label="Close"
+          ></button>
+        </div>
+      </div>
+    </div>
+    <!-- toast 2.1 -->
+    <div class="toast-container position-fixed top-0 end-0 p-3">
+      <div
+        class="toast align-items-center bg-success text-white border-0"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+      >
+        <div class="d-flex">
+          <div class="toast-body">🥳 Password changed successfully</div>
+          <button
+            type="button"
+            class="btn-close btn-close-white me-2 m-auto"
+            data-bs-dismiss="toast"
+            aria-label="Close"
+          ></button>
+        </div>
+      </div>
+    </div>
+    <!-- toast 2.2 -->
+    <div class="toast-container position-fixed top-0 end-0 p-3">
+      <div
+        class="toast align-items-center bg-danger text-white border-0"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+      >
+        <div class="d-flex">
+          <div class="toast-body">⚠️ Password incorrect</div>
+          <button
+            type="button"
+            class="btn-close btn-close-white me-2 m-auto"
+            data-bs-dismiss="toast"
+            aria-label="Close"
+          ></button>
+        </div>
+      </div>
+    </div>
+    <!-- toast 2.3 -->
+    <div class="toast-container position-fixed top-0 end-0 p-3">
+      <div
+        class="toast align-items-center bg-danger text-white border-0"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+      >
+        <div class="d-flex">
+          <div class="toast-body">
+            ⚠️ Password and Confirm password not the same
+          </div>
+          <button
+            type="button"
+            class="btn-close btn-close-white me-2 m-auto"
+            data-bs-dismiss="toast"
+            aria-label="Close"
+          ></button>
+        </div>
+      </div>
+    </div>
     <!-- outer JS files -->
     <script defer src="../../assets/lib/js/crypto-js.min.js"></script>
     <script defer src="../../assets/lib/js/bootstrap.bundle.min.js"></script>

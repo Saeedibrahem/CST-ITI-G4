@@ -1,3 +1,8 @@
+// collect-toast-blocks
+var toastElList = [].slice.call(document.querySelectorAll(".toast"));
+var toastList = toastElList.map(function (toastEl) {
+  return new bootstrap.Toast(toastEl);
+});
 // ====== option buttons ======
 // ====== option buttons ======
 // ====== option buttons ======
@@ -94,9 +99,6 @@ function save_profile_information() {
     'input[name="gender"]:checked'
   ).value;
 
-  if (new_firstName.length == 0) {
-    new_firstName = undefined;
-  }
   //* create user
   let user = {
     id: currentUser.id,
@@ -126,10 +128,69 @@ function save_profile_information() {
     encrypt_string_to_string(JSON.stringify(user))
   );
 }
-// ====== fill_myOrders_information ======
-// ====== fill_myOrders_information ======
-// ====== fill_myOrders_information ======
+// ====== fill_myOrders_information() ======
+// ====== fill_myOrders_information() ======
+// ====== fill_myOrders_information() ======
 
+// ====== change_password() ======
+// ====== change_password() ======
+// ====== change_password() ======
+function change_password(e) {
+  e.preventDefault();
+  const oldPassword = currentUser.password;
+  const entred_oldPassword =
+    document.getElementById("entred_oldPassword").value;
+  const new_password = document.getElementById("new_password").value;
+  const confirm_new_password = document.getElementById(
+    "confirm_new_password"
+  ).value;
+
+  if (
+    oldPassword == entred_oldPassword &&
+    new_password == confirm_new_password
+  ) {
+    //* create user
+    let user = {
+      id: currentUser.id,
+      firstName: currentUser.firstName,
+      lastName: currentUser.lastName,
+      email: currentUser.email,
+      password: new_password,
+      role: currentUser.role,
+      phone: currentUser.phone,
+      address: currentUser.address,
+      city: currentUser.city,
+      country: currentUser.country,
+      zip: currentUser.zip,
+      DOB: currentUser.DOB,
+      gender: currentUser.gender,
+    };
+
+    //* remove old user
+    users = users.filter((item) => item.id != currentUser.id);
+    //* update users in localstorage
+    users.push(user);
+    const encryptedUsers = encrypt_string_to_string(JSON.stringify(users));
+    localStorage.setItem("users", encryptedUsers);
+    //* update currentUser in localstorage
+    localStorage.setItem(
+      "currentUser",
+      encrypt_string_to_string(JSON.stringify(user))
+    );
+
+    select_option1();
+    toastList[1].show();
+    document.getElementById("password_form").reset();
+    document.getElementById("password_form").classList.remove("was-validated");
+  } else {
+    document.getElementById("password_form").classList.add("was-validated");
+    if (oldPassword != entred_oldPassword) {
+      toastList[2].show();
+    } else if (new_password != confirm_new_password) {
+      toastList[3].show();
+    }
+  }
+}
 // ====== buttons ======
 // ====== buttons ======
 // ====== buttons ======
