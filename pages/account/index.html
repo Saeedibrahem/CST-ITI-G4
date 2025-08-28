@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="../../assets/lib/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../src/css/global.css" />
+    <link rel="stylesheet" href="./account.css" />
+  </head>
+  <body>
+    <!-- navbar -->
+    <h1>My Account</h1>
+    <main class="account_container">
+      <!-- card_1 -->
+      <!-- card_1 -->
+      <!-- card_1 -->
+      <div class="card card_1">
+        <div class="username">user name</div>
+        <div class="useremail">user email</div>
+        <div class="option option1" onclick="select_option1()">
+          <img src="../../assets/img/account.svg" alt="account" width="15px" />
+          <div>Profile Information</div>
+        </div>
+        <div class="option option2" onclick="select_option2()">
+          <img src="../../assets/img/cube.svg" alt="orders" width="15px" />
+          <div>My Orders</div>
+        </div>
+        <div class="option option3" onclick="select_option3()">
+          <img src="../../assets/img/pass.svg" alt="orders" width="15px" />
+          <div>Change Password</div>
+        </div>
+      </div>
+      <!-- card_2 -->
+      <!-- card_2 -->
+      <!-- card_2 -->
+      <div class="card card_2">
+        <form>
+          <div class="title">Profile Information</div>
+          <div class="profileInfo-block">
+            <div class="row-in-block">
+              <div class="sub-info">
+                <div class="label">First Name</div>
+                <div class="data data_to_view firstName">abdo</div>
+                <input
+                  required
+                  id="firstName"
+                  class="form-control data_to_enter firstName"
+                  type="text"
+                />
+              </div>
+              <div class="sub-info">
+                <div class="label">Last Name</div>
+                <div class="data data_to_view lastName">sakr</div>
+                <input
+                  required
+                  class="form-control data_to_enter lastName"
+                  type="text"
+                />
+              </div>
+            </div>
+            <div class="sub-info">
+              <div class="label">Email</div>
+              <div class="data data_to_view email">abdo@gmail.com</div>
+              <input
+                required
+                class="form-control data_to_enter email"
+                type="email"
+              />
+            </div>
+            <div class="sub-info">
+              <div class="label">Phone</div>
+              <div class="data data_to_view phone">01007137667</div>
+              <input class="form-control data_to_enter phone" type="number" />
+            </div>
+            <div class="row-in-block">
+              <div class="sub-info">
+                <div class="label">Address</div>
+                <div class="data data_to_view address">Elgharbia</div>
+                <input class="form-control data_to_enter address" type="text" />
+              </div>
+              <div class="sub-info">
+                <div class="label">City</div>
+                <div class="data data_to_view city">Tanta</div>
+                <input class="form-control data_to_enter city" type="text" />
+              </div>
+            </div>
+            <div class="row-in-block">
+              <div class="sub-info">
+                <div class="label">Country</div>
+                <div class="data data_to_view country">Egypt</div>
+                <input class="form-control data_to_enter country" type="text" />
+              </div>
+              <div class="sub-info">
+                <div class="label">ZIP</div>
+                <div class="data data_to_view zip">123456</div>
+                <input class="form-control data_to_enter zip" type="number" />
+              </div>
+            </div>
+            <div class="row-in-block">
+              <div class="sub-info">
+                <div class="label">Date of birth</div>
+                <div class="data data_to_view DOB">Not specified</div>
+                <input class="form-control data_to_enter DOB" type="date" />
+              </div>
+              <div class="sub-info">
+                <div class="label">Gender</div>
+                <div class="data data_to_view gender_data"></div>
+                <!-- radio -->
+                <div class="form-check data_to_enter">
+                  <input
+                    class="form-check-input gender_input"
+                    type="radio"
+                    name="gender"
+                    id="male"
+                    value="male"
+                    required
+                  />
+                  <label class="form-check-label" for="male"> male </label>
+                </div>
+                <div class="form-check data_to_enter">
+                  <input
+                    class="form-check-input gender_input"
+                    type="radio"
+                    name="gender"
+                    id="female"
+                    value="female"
+                    required
+                  />
+                  <label class="form-check-label" for="female"> female </label>
+                </div>
+                <!-- radio -->
+              </div>
+            </div>
+            <div>
+              <button
+                type="button"
+                class="btn btn-primary data_to_view"
+                onclick="editProfile_btn()"
+              >
+                Edit Profile
+              </button>
+              <button
+                type="submit"
+                class="btn btn-success data_to_enter"
+                onsubmit="save_btn(event)"
+              >
+                Save
+              </button>
+              <button
+                type="button"
+                class="btn btn-outline-secondary data_to_enter"
+                onclick="cancle_btn()"
+              >
+                Cancle
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <!-- card_3 -->
+      <!-- card_3 -->
+      <!-- card_3 -->
+      <div class="card card_3">
+        <form>
+          <div class="title">My Orders</div>
+          <div class="myOrders-block">
+            <div class="row-in-block">
+              <div class="sub-info">
+                <div class="label">Order Number</div>
+                <div class="data">1</div>
+              </div>
+              <div class="sub-info">
+                <div class="label">Order Date</div>
+                <div class="data">14/7/2025</div>
+              </div>
+              <div class="sub-info">
+                <div class="label">Order State</div>
+                <div class="data">Ongoing</div>
+              </div>
+            </div>
+            <div class="row-in-block">
+              <div class="sub-info">
+                <div class="label">Order List (Quantity)</div>
+                <div class="data">Iphone 15 (2)</div>
+                <div class="data">Realme (5)</div>
+              </div>
+              <div class="sub-info">
+                <div class="label">Total Price</div>
+                <div class="data">50,000$</div>
+              </div>
+              <div class="sub-info">
+                <!-- <div class="label">Order State</div>
+                <div class="data">Ongoing</div> -->
+              </div>
+            </div>
+            <div class="sub-info">
+              <div class="label">Delivering Date</div>
+              <div class="data">15/10/2025</div>
+            </div>
+          </div>
+          <div
+            style="
+              height: 3px;
+              background: #ffd700;
+              border-radius: 3px;
+              margin: 20px 0;
+            "
+          ></div>
+          <div class="myOrders-block">
+            <div class="row-in-block">
+              <div class="sub-info">
+                <div class="label">Order Number</div>
+                <div class="data">1</div>
+              </div>
+              <div class="sub-info">
+                <div class="label">Order Date</div>
+                <div class="data">14/7/2025</div>
+              </div>
+              <div class="sub-info">
+                <div class="label">Order State</div>
+                <div class="data">Ongoing</div>
+              </div>
+            </div>
+            <div class="row-in-block">
+              <div class="sub-info">
+                <div class="label">Order List (Quantity)</div>
+                <div class="data">Iphone 15 (2)</div>
+                <div class="data">Realme (5)</div>
+              </div>
+              <div class="sub-info">
+                <div class="label">Total Price</div>
+                <div class="data">50,000$</div>
+              </div>
+              <div class="sub-info">
+                <!-- <div class="label">Order State</div>
+                <div class="data">Ongoing</div> -->
+              </div>
+            </div>
+            <div class="sub-info">
+              <div class="label">Delivering Date</div>
+              <div class="data">15/10/2025</div>
+            </div>
+          </div>
+          <div
+            style="
+              height: 3px;
+              background: #ffd700;
+              border-radius: 3px;
+              margin: 20px 0;
+            "
+          ></div>
+          <div class="myOrders-block">
+            <div class="row-in-block">
+              <div class="sub-info">
+                <div class="label">Order Number</div>
+                <div class="data">1</div>
+              </div>
+              <div class="sub-info">
+                <div class="label">Order Date</div>
+                <div class="data">14/7/2025</div>
+              </div>
+              <div class="sub-info">
+                <div class="label">Order State</div>
+                <div class="data">Ongoing</div>
+              </div>
+            </div>
+            <div class="row-in-block">
+              <div class="sub-info">
+                <div class="label">Order List (Quantity)</div>
+                <div class="data">Iphone 15 (2)</div>
+                <div class="data">Realme (5)</div>
+              </div>
+              <div class="sub-info">
+                <div class="label">Total Price</div>
+                <div class="data">50,000$</div>
+              </div>
+              <div class="sub-info">
+                <!-- <div class="label">Order State</div>
+                <div class="data">Ongoing</div> -->
+              </div>
+            </div>
+            <div class="sub-info">
+              <div class="label">Delivering Date</div>
+              <div class="data">15/10/2025</div>
+            </div>
+          </div>
+          <div
+            style="
+              height: 3px;
+              background: #ffd700;
+              border-radius: 3px;
+              margin: 20px 0;
+            "
+          ></div>
+          <div class="myOrders-block">
+            <div class="row-in-block">
+              <div class="sub-info">
+                <div class="label">Order Number</div>
+                <div class="data">1</div>
+              </div>
+              <div class="sub-info">
+                <div class="label">Order Date</div>
+                <div class="data">14/7/2025</div>
+              </div>
+              <div class="sub-info">
+                <div class="label">Order State</div>
+                <div class="data">Ongoing</div>
+              </div>
+            </div>
+            <div class="row-in-block">
+              <div class="sub-info">
+                <div class="label">Order List (Quantity)</div>
+                <div class="data">Iphone 15 (2)</div>
+                <div class="data">Realme (5)</div>
+              </div>
+              <div class="sub-info">
+                <div class="label">Total Price</div>
+                <div class="data">50,000$</div>
+              </div>
+              <div class="sub-info">
+                <!-- <div class="label">Order State</div>
+                <div class="data">Ongoing</div> -->
+              </div>
+            </div>
+            <div class="sub-info">
+              <div class="label">Delivering Date</div>
+              <div class="data">15/10/2025</div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <!-- card_4 -->
+      <!-- card_4 -->
+      <!-- card_4 -->
+      <div class="card card_4">
+        <form>
+          <div class="title">My Orders</div>
+          <div class="profileInfo-block">
+            <div class="sub-info">
+              <div class="label">Old Password</div>
+              <input class="form-control" type="password" />
+            </div>
+            <div class="sub-info">
+              <div class="label">New Password</div>
+              <input class="form-control" type="password" />
+            </div>
+            <div class="sub-info">
+              <div class="label">Confirm New Password</div>
+              <input class="form-control" type="password" />
+            </div>
+            <div>
+              <button class="btn btn-primary">Confirm</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </main>
+    <!-- outer JS files -->
+    <script defer src="../../assets/lib/js/crypto-js.min.js"></script>
+    <script defer src="../../assets/lib/js/bootstrap.bundle.min.js"></script>
+    <script defer src="../../src/js/shared.js"></script>
+    <script defer src="../../src/js/main.js"></script>
+    <script defer src="./account.js"></script>
+  </body>
+</html>

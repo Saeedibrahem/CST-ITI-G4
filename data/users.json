@@ -1,0 +1,17 @@
+[
+  {
+    "id": 0,
+    "firstName": "abdo",
+    "lastName": "sakr",
+    "email": "abdo@gmail.com",
+    "password": "123",
+    "role": "customer",
+    "phone": null,
+    "address": null,
+    "city": null,
+    "country": "Egypt",
+    "zip": null,
+    "DOB": "2000-01-01",
+    "gender": "male"
+  }
+]

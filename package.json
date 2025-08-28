@@ -1,0 +1,24 @@
+{
+  "name": "mobilexpress",
+  "version": "2.0.0",
+  "description": "متجر إلكتروني متخصص في بيع الهواتف الذكية والأجهزة المحمولة",
+  "main": "index.html",
+  "keywords": [
+    "ecommerce",
+    "mobile",
+    "smartphones",
+    "shop",
+    "responsive",
+    "bootstrap",
+    "javascript",
+    "html5",
+    "css3"
+  ],
+  "author": "CST-ITI-G4 Team",
+  "contributors": [
+    "CST-ITI-G4 Team"
+  ],
+  "maintainers": [
+    "CST-ITI-G4 Team"
+  ]
+}
