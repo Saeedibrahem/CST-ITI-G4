@@ -1,0 +1,97 @@
+ /* =========================
+       Mobile-first styles
+       ========================= */
+        :root {
+            --sidebar-bg: #222536;
+            --page-bg: #f6f7fb;
+        }
+        
+        body {
+            background: var(--page-bg);
+            min-height: 100vh;
+        }
+
+        /* Topbar */
+        .topbar {
+            background: #fff;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        /* Offcanvas width on mobile */
+        .offcanvas-start {
+            width: 280px;
+            background: var(--sidebar-bg);
+            color: #fff;
+        }
+
+        /* Static sidebar (visible on md+) */
+        .static-sidebar {
+            background: var(--sidebar-bg);
+            color: #fff;
+            min-height: 100vh;
+            padding-top: 1rem;
+        }
+
+        .static-sidebar .nav-link {
+            color: rgba(255, 255, 255, 0.92);
+        }
+
+        .static-sidebar .nav-link.active {
+            background: rgba(255, 255, 255, 0.06);
+            color: #fff;
+        }
+
+        /* Stat cards */
+        .stat-card {
+            border-radius: 12px;
+            color: #fff;
+            padding: 14px;
+            box-shadow: 0 8px 20px rgba(17, 24, 39, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 70px;
+        }
+
+        .stat-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        .stat-green {
+            background: linear-gradient(90deg, #1e8e5d, #157544);
+        }
+
+        .stat-yellow {
+            background: linear-gradient(90deg, #f5b21a, #f2a600);
+            color: #0b0b0b;
+        }
+
+        .stat-blue {
+            background: linear-gradient(90deg, #1877f2, #0f5ed8);
+        }
+
+        .stat-red {
+            background: linear-gradient(90deg, #e04b57, #c62f35);
+        }
+
+        .card-graph {
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(17, 24, 39, 0.04);
+        }
+
+        @media(min-width:768px) {
+
+            /* ensure static sidebar column is visible on md+ */
+            .sidebar-col {
+                position: sticky;
+                top: 0;
+                height: 100vh;
+                overflow: auto;
+            }
+        }
