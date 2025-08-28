@@ -1,7 +1,7 @@
 // ============================= products section =============================
 // ============================= products section =============================
 // Fetch products and render them
-fetch("../data/products.json")
+fetch("../../data/products.json")
   .then((res) => res.json())
   .then((products) => {
     setItemToLocalStorage("products", products);
