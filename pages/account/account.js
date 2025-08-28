@@ -134,7 +134,6 @@ function save_profile_information() {
 // ====== fill_myOrders_information() ======
 // ====== fill_myOrders_information() ======
 function fill_myOrders_information() {
-  console.log(products);
   const selledProducts = [
     {
       id_of_product: 0,
@@ -329,3 +328,7 @@ function cancle_btn() {
 }
 cancle_btn();
 fill_myOrders_information();
+// fill user name and email
+document.getElementsByClassName("username")[0].innerHTML =
+  currentUser.firstName;
+document.getElementsByClassName("useremail")[0].innerHTML = currentUser.email;
