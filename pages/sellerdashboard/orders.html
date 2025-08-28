@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Seller Dashboard</title>
+
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="../../assets/lib/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../src/css/sellerdashboard.css">
+</head>
+
+<body>
+
+    <header class="topbar py-2">
+        <div class="container-fluid d-flex align-items-center justify-content-between">
+            <div class="d-flex align-items-center gap-2">
+                <!-- burger opens offcanvas on small screens -->
+                <button class="btn btn-outline-secondary d-md-none" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#sidebarOffcanvas" aria-controls="sidebarOffcanvas" aria-label="Open menu">
+                    <i class="bi bi-list" style="font-size:1.25rem"></i>
+                </button>
+                <a class="navbar-brand mb-0" href="#" style="font-weight:600;color:#111">Seller Dashboard</a>
+            </div>
+
+            <div class="d-flex align-items-center gap-2">
+                <span class="d-none d-sm-inline text-muted small">Welcome, <strong>Mark</strong></span>
+                <img src="https://api.dicebear.com/6.x/initials/svg?seed=MT" alt="avatar"
+                    style="width:36px;height:36px;border-radius:50%;">
+            </div>
+        </div>
+    </header>
+
+    <!-- Responsive offcanvas (only used on small screens) -->
+    <div class="offcanvas offcanvas-start d-md-none" tabindex="-1" id="sidebarOffcanvas" aria-labelledby="sidebarLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title text-white" id="sidebarLabel">Menu</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body p-0">
+            <nav class="nav flex-column px-2" style="background:var(--sidebar-bg); min-height:100vh; color:#fff;">
+                <div class="px-3 pb-3 border-bottom" style="border-color: rgba(255,255,255,0.06) !important;">
+                    <div style="font-weight:600;font-size:1.05rem;color:#fff;">Seller Dashboard</div>
+                </div>
+                <a class="nav-link  rounded-2 px-3 py-2 mt-3" href="./index.html"><i
+                        class="bi bi-speedometer2 me-2"></i>
+                    Dashboard</a>
+                <a class="nav-link rounded-2 px-3 py-2" href="./products.html"><i class="bi bi-grid-1x2 me-2"></i>
+                    Products</a>
+                <a class="nav-link rounded-2 px-3 py-2 active" href="./orders.html"><i class="bi bi-cart3 me-2"></i>
+                    Orders</a>
+                <a class="nav-link rounded-2 px-3 py-2" href="./cusomers.html"><i class="bi bi-people me-2"></i>
+                    Customers</a>
+                <div class="mt-auto px-3 py-4 small text-muted" style="color:rgba(255,255,255,0.6)">© 2025 mobile Phones
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <div class="container-fluid" style="padding-left: 0  ; margin-left: 0;">
+        <div class="row g-0">
+            <!-- STATIC SIDEBAR: visible on md+ -->
+            <aside class="col-0 col-md-3 col-lg-2 d-none d-md-block sidebar-col">
+                <div class="static-sidebar h-100">
+                    <div class="px-3 pb-3">
+                        <div style="font-weight:600;font-size:1.05rem;color:#fff;">Seller Dashboard</div>
+                    </div>
+                    <nav class="nav flex-column px-2">
+                        <a class="nav-link  rounded-2 px-3 py-2 mt-3" href="./index.html"><i
+                                class="bi bi-speedometer2 me-2"></i> Dashboard</a>
+                        <a class="nav-link rounded-2 px-3 py-2" href="./products.html"><i
+                                class="bi bi-grid-1x2 me-2"></i>
+                            Products</a>
+                        <a class="nav-link active rounded-2 px-3 py-2" href="./orders.html"><i
+                                class="bi bi-cart3 me-2"></i> Orders</a>
+                        <a class="nav-link rounded-2 px-3 py-2" href="./cusomers.html"><i class="bi bi-people me-2"></i>
+                            Customers</a>
+                    </nav>
+                    <div class="mt-auto px-3 py-4 small text-muted" style="color:rgba(255,255,255,0.6)">© 2025 mobile
+                        Phones
+                    </div>
+                </div>
+            </aside>
+
+            <!-- MAIN CONTENT -->
+            <main class="col-12 col-md-9 col-lg-10 p-3">
+                <div class="container my-4">
+                    <h2 class="mb-4">Orders Management</h2>
+
+                    <!-- Quick Stats (dynamic) -->
+                    <div class="row mb-4">
+                        <div class="col-md-3">
+                            <div class="card text-center shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">Pending Orders</h5>
+                                    <p id="statPending" class="card-text fs-4">0</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card text-center shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">Shipped Orders</h5>
+                                    <p id="statShipped" class="card-text fs-4">0</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card text-center shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">Delivered Orders</h5>
+                                    <p id="statDelivered" class="card-text fs-4">0</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card text-center shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">Cancelled Orders</h5>
+                                    <p id="statCancelled" class="card-text fs-4">0</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Orders Table -->
+                    <div class="card shadow-sm">
+                        <div class="table-responsive">
+                            <table class="table table-striped align-middle mb-0">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>Order ID</th>
+                                        <th>Customer</th>
+                                        <th>Products</th>
+                                        <th>Total</th>
+                                        <th>Status</th>
+                                        <th>Date</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="ordersTbody">
+                                    <!-- rows will be injected by JS -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+    <!-- Order details modal -->
+    <div class="modal fade" id="orderModal" tabindex="-1" aria-labelledby="orderModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="orderModalLabel">Order #<span id="modalOrderId"></span></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div>
+                        <strong>Customer:</strong> <span id="modalCustomer"></span><br>
+                        <strong>Email:</strong> <span id="modalEmail"></span><br>
+                        <strong>Phone:</strong> <span id="modalPhone"></span><br>
+                        <strong>Shipping Address:</strong>
+                        <div id="modalAddress" class="ms-0 ps-0"></div>
+                        <hr>
+                        <h6>Products</h6>
+                        <div id="modalProducts"></div>
+                        <hr>
+                        <div class="d-flex gap-2 align-items-center">
+                            <label class="mb-0 me-2"><strong>Status:</strong></label>
+                            <select id="modalStatus" class="form-select form-select-sm" style="width:180px;">
+                                <option>Pending</option>
+                                <option>Processing</option>
+                                <option>Shipped</option>
+                                <option>Delivered</option>
+                                <option>Cancelled</option>
+                            </select>
+                            <button id="saveStatusBtn" class="btn btn-sm btn-primary ms-2">Save Changes</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="modalDeleteBtn" type="button" class="btn btn-danger">Delete Order</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="../../assets/lib/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        (function () {
+            "use strict";
+
+            // ---------- Config & defaults ----------
+            const STORAGE_KEY = "orders_store_v1";
+            const DEFAULT_ORDERS = [
+                {
+                    id: 1001,
+                    customerName: "Mohamed Ali",
+                    email: "mohamed@example.com",
+                    phone: "+201234567890",
+                    shippingAddress: "123 Nile St, Cairo, Egypt",
+                    products: [{ name: "iPhone 15 Pro Max", qty: 1, price: 1399 }],
+                    total: 1399,
+                    status: "Pending",
+                    date: "2025-08-19",
+                    createdAt: new Date().toISOString(),
+                },
+                {
+                    id: 1002,
+                    customerName: "Sara Ahmed",
+                    email: "sara@example.com",
+                    phone: "+201098765432",
+                    shippingAddress: "10 Nile Corniche, Alexandria, Egypt",
+                    products: [{ name: "Samsung S24", qty: 1, price: 1200 }],
+                    total: 1200,
+                    status: "Shipped",
+                    date: "2025-08-18",
+                    createdAt: new Date().toISOString(),
+                },
+                {
+                    id: 1003,
+                    customerName: "Omar Khaled",
+                    email: "omar@example.com",
+                    phone: "+201234111222",
+                    shippingAddress: "45 Tahrir Square, Cairo, Egypt",
+                    products: [{ name: "iPhone 12 Pro", qty: 1, price: 2500 }],
+                    total: 2500,
+                    status: "Delivered",
+                    date: "2025-08-16",
+                    createdAt: new Date().toISOString(),
+                }
+            ];
+
+            // ---------- State ----------
+            let ORDERS = [];
+
+            // ---------- DOM refs (matching your HTML) ----------
+            const ordersTbody = document.getElementById("ordersTbody");
+            const statPending = document.getElementById("statPending");
+            const statShipped = document.getElementById("statShipped");
+            const statDelivered = document.getElementById("statDelivered");
+            const statCancelled = document.getElementById("statCancelled");
+
+            // modal
+            const orderModalEl = document.getElementById("orderModal");
+            const orderModal = orderModalEl ? new bootstrap.Modal(orderModalEl) : null;
+            const modalOrderId = document.getElementById("modalOrderId");
+            const modalCustomer = document.getElementById("modalCustomer");
+            const modalEmail = document.getElementById("modalEmail");
+            const modalPhone = document.getElementById("modalPhone");
+            const modalAddress = document.getElementById("modalAddress");
+            const modalProducts = document.getElementById("modalProducts");
+            const modalStatus = document.getElementById("modalStatus");
+            const modalDeleteBtn = document.getElementById("modalDeleteBtn");
+            const saveStatusBtn = document.getElementById("saveStatusBtn");
+
+            let currentModalOrderId = null;
+
+            // ---------- Helpers ----------
+            function safeParse(json, fallback) {
+                try { return JSON.parse(json); } catch (e) { return fallback; }
+            }
+            function saveToStorage() {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(ORDERS));
+            }
+            function loadFromStorage() {
+                const raw = localStorage.getItem(STORAGE_KEY);
+                const parsed = safeParse(raw, null);
+                if (!Array.isArray(parsed) || parsed.length === 0) {
+                    ORDERS = DEFAULT_ORDERS.slice();
+                    saveToStorage();
+                } else ORDERS = parsed;
+            }
+            function generateId() {
+                return Date.now() + Math.floor(Math.random() * 1000);
+            }
+            function escapeHtml(s) {
+                if (typeof s !== "string") return s;
+                return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+                    .replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+            }
+            function statusBadge(status) {
+                const map = { Pending: "warning", Processing: "primary", Shipped: "info", Delivered: "success", Cancelled: "danger" };
+                const cls = map[status] || "secondary";
+                return `<span class="badge bg-${cls}">${escapeHtml(status)}</span>`;
+            }
+
+            // ---------- Render functions ----------
+            function renderStats() {
+                statPending.textContent = ORDERS.filter(o => o.status === "Pending").length;
+                statShipped.textContent = ORDERS.filter(o => o.status === "Shipped").length;
+                statDelivered.textContent = ORDERS.filter(o => o.status === "Delivered").length;
+                statCancelled.textContent = ORDERS.filter(o => o.status === "Cancelled").length;
+            }
+
+            function renderOrdersTable() {
+                if (!ordersTbody) return;
+                ordersTbody.innerHTML = "";
+                if (!Array.isArray(ORDERS) || ORDERS.length === 0) {
+                    ordersTbody.innerHTML = '<tr><td colspan="7" class="text-center py-4">No orders found</td></tr>';
+                    renderStats();
+                    return;
+                }
+
+                for (const order of ORDERS) {
+                    const productsText = (order.products || []).map(p => `${escapeHtml(p.name)} (x${p.qty})`).join(", ");
+                    const tr = document.createElement("tr");
+                    tr.innerHTML = `
+                        <td>#${order.id}</td>
+                        <td>${escapeHtml(order.customerName || "")}</td>
+                        <td>${productsText}</td>
+                        <td>$${Number(order.total || 0).toFixed(2)}</td>
+                        <td>${statusBadge(order.status)}</td>
+                        <td>${escapeHtml(order.date || "")}</td>
+                        <td>
+                          <button class="btn btn-sm btn-primary btn-view" data-id="${order.id}"><i class="bi bi-eye"></i> View</button>
+                          <button class="btn btn-sm btn-danger btn-delete" data-id="${order.id}"><i class="bi bi-trash"></i> Delete</button>
+                        </td>
+                      `;
+                    ordersTbody.appendChild(tr);
+                }
+
+                // attach handlers
+                document.querySelectorAll(".btn-delete").forEach(btn => btn.addEventListener("click", (e) => {
+                    const id = Number(e.currentTarget.dataset.id); deleteOrderById(id);
+                }));
+                document.querySelectorAll(".btn-view").forEach(btn => btn.addEventListener("click", (e) => {
+                    const id = Number(e.currentTarget.dataset.id); openOrderModal(id);
+                }));
+
+                renderStats();
+            }
+
+            // ---------- CRUD operations ----------
+            function addOrder(order) {
+                const o = Object.assign({}, order);
+                if (!o.id) o.id = generateId();
+                if (!o.createdAt) o.createdAt = new Date().toISOString();
+                ORDERS.unshift(o);
+                saveToStorage();
+                renderOrdersTable();
+                return o;
+            }
+
+            function setOrders(newArray) {
+                if (!Array.isArray(newArray)) throw new Error("setOrders expects array");
+                ORDERS = newArray.slice();
+                saveToStorage();
+                renderOrdersTable();
+            }
+
+            function getOrders() {
+                return ORDERS.map(o => JSON.parse(JSON.stringify(o)));
+            }
+
+            function deleteOrderById(id) {
+                if (!confirm("Delete order #" + id + "?")) return;
+                const before = ORDERS.length;
+                ORDERS = ORDERS.filter(o => o.id !== id);
+                if (ORDERS.length !== before) {
+                    saveToStorage();
+                    renderOrdersTable();
+                    if (currentModalOrderId === id && orderModal) orderModal.hide();
+                }
+            }
+
+            function updateOrderStatus(id, newStatus) {
+                const idx = ORDERS.findIndex(o => o.id === id);
+                if (idx === -1) return false;
+                ORDERS[idx].status = newStatus;
+                ORDERS[idx].updatedAt = new Date().toISOString();
+                saveToStorage();
+                renderOrdersTable();
+                return true;
+            }
+
+            // ---------- Modal interactions ----------
+            function openOrderModal(id) {
+                const order = ORDERS.find(o => o.id === id);
+                if (!order) { alert("Order not found"); return; }
+                currentModalOrderId = id;
+
+                if (modalOrderId) modalOrderId.textContent = order.id;
+                if (modalCustomer) modalCustomer.textContent = order.customerName || "-";
+                if (modalEmail) modalEmail.textContent = order.email || "-";
+                if (modalPhone) modalPhone.textContent = order.phone || "-";
+                if (modalAddress) modalAddress.textContent = order.shippingAddress || "-";
+                if (modalProducts) {
+                    modalProducts.innerHTML = "";
+                    (order.products || []).forEach(p => {
+                        const div = document.createElement("div");
+                        div.textContent = `${p.name} — qty: ${p.qty} — $${Number(p.price).toFixed(2)}`;
+                        modalProducts.appendChild(div);
+                    });
+                }
+                if (modalStatus) modalStatus.value = order.status || "Pending";
+
+                if (orderModal) orderModal.show();
+            }
+
+            if (modalDeleteBtn) modalDeleteBtn.addEventListener("click", () => {
+                if (!currentModalOrderId) return;
+                if (!confirm("Delete order #" + currentModalOrderId + "?")) return;
+                deleteOrderById(currentModalOrderId);
+                if (orderModal) orderModal.hide();
+            });
+
+            if (saveStatusBtn) saveStatusBtn.addEventListener("click", () => {
+                if (!currentModalOrderId) return;
+                const newStatus = modalStatus ? modalStatus.value : null;
+                if (!newStatus) return;
+                if (updateOrderStatus(currentModalOrderId, newStatus)) {
+                    if (orderModal) orderModal.hide();
+                } else {
+                    alert("Failed to update status");
+                }
+            });
+
+            // ---------- Storage sync across tabs ----------
+            window.addEventListener("storage", (e) => {
+                if (e.key === STORAGE_KEY) {
+                    loadFromStorage();
+                    renderOrdersTable();
+                }
+            });
+
+            // ---------- Public API exposure (on window) ----------
+            window.ordersApp = {
+                getOrders,
+                setOrders,
+                addOrder,
+                deleteOrderById,
+                updateOrderStatus,
+                reload: function () { loadFromStorage(); renderOrdersTable(); }
+            };
+
+            // ---------- Init ----------
+            function init() {
+                loadFromStorage();
+                renderOrdersTable();
+            }
+
+            // Wait DOM if necessary (script is placed after DOM in this file so DOM is ready)
+            init();
+
+        })();
+    </script>
+
+</body>
+
+</html>

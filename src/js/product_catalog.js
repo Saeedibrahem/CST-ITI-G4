@@ -48,59 +48,38 @@
           : null;
 
         wrapper.innerHTML += `
-<div class="col-md-6 col-lg-4">
-  <div class="card product-card h-100 shadow-sm border-0">
-    <div class="img-box position-relative">
-      ${discount 
-        ? `<div class="sale-badge_icon position-absolute z-3 top-0 start-0 bg-danger text-white px-2 py-1 small rounded-end">
-            -${discount}%
-          </div>` 
-        : ""
-      }
-      <a href="../../pages/products/product.html?id=${product.id}">
-        <img 
-          src="${product.images[0] || '../../assets/img/placeholder.png'}" 
-          class="card-img-top main-img" 
-          alt="${product.name}">
-        ${product.images[1] 
-          ? `<img src="${product.images[1]}" class="hover-img position-absolute top-0 start-0 w-100 h-100" alt="${product.name}">`
-          : ""
-        }
-      </a>
-    </div>
-
-    <div class="card-body text-center d-flex flex-column">
-      <a href="../../pages/products/product.html?id=${product.id}" class="text-decoration-none">
-        <h6 class="product-title fw-bold text-dark">${product.name}</h6>
-      </a>
-      <p class="text-muted small mb-2">${product.description || ""}</p>
-
-      <div class="product-price d-flex justify-content-center align-items-center mb-3">
-        <h6 class="mb-0 text-success fw-bold">EGP ${product.price}</h6>
-        ${product.old_price 
-          ? `<del class="ms-2 text-muted small">${product.old_price}</del>` 
-          : ""
-        }
-      </div>
-
-      <div class="mt-auto btn-group-custom">
-        <button 
-          class="btn btn-sm btn-dark add-to-cart-btn w-100" 
-          data-id="${product.id}">
-          <i class="fa fa-shopping-cart me-1"></i> Add to Cart
-        </button>
-        <a 
-          href="../../pages/products/product.html?id=${product.id}" 
-          class="btn btn-sm btn-outline-secondary w-100">
-          View Product
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
-
-          `;
-        });
+          <div class="col-md-6 col-lg-4">
+            <div class="card product-card h-100 shadow-sm border-0">
+              <div class="img-box position-relative">
+                ${discount ? `<span class="badge bg-danger position-absolute top-0 start-0 m-2">${discount}%</span>` : ""}
+                <a href="../../pages/products/product.html?id=${product.id}">
+                  <img src="${product.images[0] || '../../assets/img/placeholder.png'}" 
+                       class="card-img-top main-img" alt="${product.name}">
+                  ${product.images[1] 
+                    ? `<img src="${product.images[1]}" class="hover-img position-absolute top-0 start-0 w-100 h-100" alt="${product.name}">` 
+                    : ""}
+                </a>
+              </div>
+              <div class="card-body text-center d-flex flex-column">
+                <h6 class="product-title fw-bold">${product.name}</h6>
+                <p class="text-muted small mb-2">${product.description}</p>
+                <div class="product-price d-flex justify-content-center align-items-center mb-3">
+                  <h5 class="mb-0 text-success fw-bold">$${product.price}</h5>
+                  ${product.old_price ? `<del class="ms-2 text-muted small">$${product.old_price}</del>` : ''}
+                </div>
+                <div class="mt-auto d-flex justify-content-center gap-2">
+                  <button class="btn btn-sm btn-dark add-to-cart-btn px-3" data-id="${product.id}">
+                    <i class="fa fa-shopping-cart me-1"></i> Add to Cart
+                  </button>
+                  <a href="../../pages/products/product.html?id=${product.id}" class="btn btn-sm btn-outline-secondary px-3">
+                    View Product
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      });
 
       // pagees pagination
       const totalPages = Math.ceil(products.length / itemsPerPage);
