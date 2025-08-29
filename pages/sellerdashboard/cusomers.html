@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Seller Dashboard</title>
+    <title>Seller Dashboard - Customers</title>
 
     <!-- Bootstrap 5.3 CSS -->
     <link href="../../assets/lib/css/bootstrap.min.css" rel="stylesheet">
@@ -12,7 +12,6 @@
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="../../src/css/sellerdashboard.css">
-
 </head>
 
 <body>
@@ -20,7 +19,6 @@
     <header class="topbar py-2">
         <div class="container-fluid d-flex align-items-center justify-content-between">
             <div class="d-flex align-items-center gap-2">
-                <!-- burger opens offcanvas on small screens -->
                 <button class="btn btn-outline-secondary d-md-none" type="button" data-bs-toggle="offcanvas"
                     data-bs-target="#sidebarOffcanvas" aria-controls="sidebarOffcanvas" aria-label="Open menu">
                     <i class="bi bi-list" style="font-size:1.25rem"></i>
@@ -53,7 +51,8 @@
                 <a class="nav-link rounded-2 px-3 py-2" href="./products.html"><i class="bi bi-grid-1x2 me-2"></i>
                     Products</a>
                 <a class="nav-link rounded-2 px-3 py-2" href="./orders.html"><i class="bi bi-cart3 me-2"></i> Orders</a>
-                <a class="nav-link rounded-2 px-3 py-2 active" href="./cusomers.html"><i class="bi bi-people me-2"></i> Customers</a>
+                <a class="nav-link rounded-2 px-3 py-2 active" href="./cusomers.html"><i class="bi bi-people me-2"></i>
+                    Customers</a>
                 <div class="mt-auto px-3 py-4 small text-muted" style="color:rgba(255,255,255,0.6)">© 2025 mobile Phones
                 </div>
             </nav>
@@ -74,8 +73,11 @@
                         <a class="nav-link rounded-2 px-3 py-2" href="./products.html"><i
                                 class="bi bi-grid-1x2 me-2"></i>
                             Products</a>
-                        <a class="nav-link rounded-2 px-3 py-2" href="./orders.html"><i class="bi bi-cart3 me-2"></i> Orders</a>
-                        <a class="nav-link rounded-2 px-3 py-2 active" href="./cusomers.html"><i class="bi bi-people me-2"></i> Customers</a>
+                        <a class="nav-link rounded-2 px-3 py-2" href="./orders.html"><i class="bi bi-cart3 me-2"></i>
+                            Orders</a>
+                        <a class="nav-link rounded-2 px-3 py-2 active" href="./cusomers.html"><i
+                                class="bi bi-people me-2"></i>
+                            Customers</a>
                     </nav>
                     <div class="mt-auto px-3 py-4 small text-muted" style="color:rgba(255,255,255,0.6)">© 2025 mobile
                         Phones
@@ -84,7 +86,6 @@
             </aside>
 
             <!-- MAIN CONTENT -->
-            <!-- Note: on small screens we use full width (col-12); on md+ we leave space for sidebar -->
             <main class="col-12 col-md-9 col-lg-10 p-3">
                 <div class="container my-4">
                     <h2 class="mb-4">Customers Management</h2>
@@ -95,7 +96,7 @@
                             <div class="card text-center shadow-sm">
                                 <div class="card-body">
                                     <h5 class="card-title">Total Customers</h5>
-                                    <p class="card-text fs-4">152</p>
+                                    <p id="totalCustomers" class="card-text fs-4">0</p>
                                 </div>
                             </div>
                         </div>
@@ -103,7 +104,7 @@
                             <div class="card text-center shadow-sm">
                                 <div class="card-body">
                                     <h5 class="card-title">Active Customers</h5>
-                                    <p class="card-text fs-4">134</p>
+                                    <p id="activeCustomers" class="card-text fs-4">0</p>
                                 </div>
                             </div>
                         </div>
@@ -111,7 +112,7 @@
                             <div class="card text-center shadow-sm">
                                 <div class="card-body">
                                     <h5 class="card-title">Blocked Customers</h5>
-                                    <p class="card-text fs-4">18</p>
+                                    <p id="blockedCustomers" class="card-text fs-4">0</p>
                                 </div>
                             </div>
                         </div>
@@ -133,60 +134,55 @@
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>C-001</td>
-                                        <td>Mohamed Ali</td>
-                                        <td>mohamed@example.com</td>
-                                        <td>+201234567890</td>
-                                        <td>8</td>
-                                        <td>2025-08-18</td>
-                                        <td><span class="badge bg-success">Active</span></td>
-                                        <td>
-                                            <button class="btn btn-sm btn-primary">View</button>
-                                            <button class="btn btn-sm btn-warning">Edit</button>
-                                            <button class="btn btn-sm btn-danger">Block</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>C-002</td>
-                                        <td>Sara Ahmed</td>
-                                        <td>sara@example.com</td>
-                                        <td>+201098765432</td>
-                                        <td>5</td>
-                                        <td>2025-08-16</td>
-                                        <td><span class="badge bg-success">Active</span></td>
-                                        <td>
-                                            <button class="btn btn-sm btn-primary">View</button>
-                                            <button class="btn btn-sm btn-warning">Edit</button>
-                                            <button class="btn btn-sm btn-danger">Block</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>C-003</td>
-                                        <td>Omar Khaled</td>
-                                        <td>omar@example.com</td>
-                                        <td>+201234111222</td>
-                                        <td>2</td>
-                                        <td>2025-08-10</td>
-                                        <td><span class="badge bg-danger">Blocked</span></td>
-                                        <td>
-                                            <button class="btn btn-sm btn-primary">View</button>
-                                            <button class="btn btn-sm btn-warning">Edit</button>
-                                            <button class="btn btn-sm btn-success">Unblock</button>
-                                        </td>
-                                    </tr>
+                                <tbody id="customersTableBody">
+                                    <!-- dynamic rows -->
                                 </tbody>
                             </table>
                         </div>
                     </div>
 
                 </div>
-
-
-
-
             </main>
+        </div>
+    </div>
+
+    <!-- View Customer Modal -->
+    <div class="modal fade" id="viewCustomerModal" tabindex="-1" aria-labelledby="viewCustomerModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content rounded-3 shadow">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="viewCustomerModalLabel">Customer Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <dl class="row mb-0">
+                        <dt class="col-4">ID</dt>
+                        <dd class="col-8" id="viewId">-</dd>
+
+                        <dt class="col-4">Name</dt>
+                        <dd class="col-8" id="viewName">-</dd>
+
+                        <dt class="col-4">Email</dt>
+                        <dd class="col-8" id="viewEmail">-</dd>
+
+                        <dt class="col-4">Phone</dt>
+                        <dd class="col-8" id="viewPhone">-</dd>
+
+                        <dt class="col-4">Total Orders</dt>
+                        <dd class="col-8" id="viewTotalOrders">-</dd>
+
+                        <dt class="col-4">Last Order</dt>
+                        <dd class="col-8" id="viewLastOrder">-</dd>
+
+                        <dt class="col-4">Status</dt>
+                        <dd class="col-8" id="viewStatus">-</dd>
+                    </dl>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary rounded-pill" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -194,8 +190,142 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.2/dist/chart.umd.js"></script>
 
     <!-- Bootstrap bundle JS -->
-    <script src="../assets/lib/js/bootstrap.bundle.min.js" defer></script>
-    <script src="../src/js/chart.js"></script>
+    <script src="../../assets/lib/js/bootstrap.bundle.min.js" defer></script>
+
+    <script>
+        (() => {
+            const STORAGE_KEY = "customers_store";
+
+            function readCustomers() {
+                try {
+                    const raw = localStorage.getItem(STORAGE_KEY);
+                    const parsed = raw ? JSON.parse(raw) : null;
+                    return Array.isArray(parsed) ? parsed : [];
+                } catch (e) { return []; }
+            }
+
+            function saveCustomers(arr) {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(arr));
+            }
+
+            // initial sample data if empty
+            if (!localStorage.getItem(STORAGE_KEY)) {
+                const sample = [
+                    { id: "C-001001", name: "Mohamed Ali", email: "mohamed@example.com", phone: "+201234567890", totalOrders: 8, lastOrder: "2025-08-18", status: "Active" },
+                    { id: "C-002002", name: "Sara Ahmed", email: "sara@example.com", phone: "+201098765432", totalOrders: 5, lastOrder: "2025-08-16", status: "Active" },
+                    { id: "C-003003", name: "Omar Khaled", email: "omar@example.com", phone: "+201234111222", totalOrders: 2, lastOrder: "2025-08-10", status: "Blocked" }
+                ];
+                saveCustomers(sample);
+            }
+
+            // escape HTML
+            function escapeHtml(s) {
+                if (!s && s !== 0) return "";
+                return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+                    .replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+            }
+
+            function renderStats() {
+                const customers = readCustomers();
+                document.getElementById("totalCustomers").textContent = customers.length;
+                document.getElementById("activeCustomers").textContent = customers.filter(c => c.status === "Active").length;
+                document.getElementById("blockedCustomers").textContent = customers.filter(c => c.status === "Blocked").length;
+            }
+
+            function renderTable() {
+                const tbody = document.getElementById("customersTableBody");
+                tbody.innerHTML = "";
+                const customers = readCustomers();
+
+                if (customers.length === 0) {
+                    tbody.innerHTML = '<tr><td colspan="8" class="text-center py-4">No customers found</td></tr>';
+                    renderStats();
+                    return;
+                }
+
+                for (const c of customers) {
+                    const tr = document.createElement("tr");
+                    tr.innerHTML = `
+            <td>${escapeHtml(c.id)}</td>
+            <td>${escapeHtml(c.name)}</td>
+            <td>${escapeHtml(c.email)}</td>
+            <td>${escapeHtml(c.phone || "-")}</td>
+            <td>${Number(c.totalOrders || 0)}</td>
+            <td>${escapeHtml(c.lastOrder || "-")}</td>
+            <td><span class="badge ${c.status === "Active" ? "bg-success" : "bg-danger"}">${escapeHtml(c.status)}</span></td>
+            <td>
+              <div class="d-flex gap-1">
+                <button class="btn btn-sm btn-outline-primary view-btn" data-id="${c.id}" title="View"><i class="bi bi-eye"></i></button>
+                ${c.status === "Active"
+                            ? `<button class="btn btn-sm btn-outline-danger block-btn" data-id="${c.id}" title="Block"><i class="bi bi-person-x"></i></button>`
+                            : `<button class="btn btn-sm btn-outline-success unblock-btn" data-id="${c.id}" title="Unblock"><i class="bi bi-person-check"></i></button>`
+                        }
+                <button class="btn btn-sm btn-outline-danger delete-btn" data-id="${c.id}" title="Delete"><i class="bi bi-trash"></i></button>
+              </div>
+            </td>
+          `;
+                    tbody.appendChild(tr);
+                }
+
+                renderStats();
+            }
+
+            // actions
+            function setCustomerStatus(id, status) {
+                const customers = readCustomers();
+                const idx = customers.findIndex(c => c.id === id);
+                if (idx === -1) return;
+                customers[idx].status = status;
+                saveCustomers(customers);
+                renderTable();
+            }
+
+            function deleteCustomer(id) {
+                if (!confirm("Are you sure you want to delete customer " + id + " ?")) return;
+                let customers = readCustomers();
+                customers = customers.filter(c => c.id !== id);
+                saveCustomers(customers);
+                renderTable();
+            }
+
+            // delegation for buttons
+            document.addEventListener("click", function (ev) {
+                const btn = ev.target.closest("button");
+                if (!btn) return;
+                const id = btn.dataset.id;
+                if (btn.classList.contains("view-btn")) {
+                    const customers = readCustomers();
+                    const c = customers.find(x => x.id === id);
+                    if (c) {
+                        document.getElementById("viewId").textContent = c.id;
+                        document.getElementById("viewName").textContent = c.name;
+                        document.getElementById("viewEmail").textContent = c.email;
+                        document.getElementById("viewPhone").textContent = c.phone || "-";
+                        document.getElementById("viewTotalOrders").textContent = c.totalOrders || 0;
+                        document.getElementById("viewLastOrder").textContent = c.lastOrder || "-";
+                        document.getElementById("viewStatus").textContent = c.status || "-";
+                        const modal = new bootstrap.Modal(document.getElementById("viewCustomerModal"));
+                        modal.show();
+                    }
+                } else if (btn.classList.contains("block-btn")) {
+                    if (id) setCustomerStatus(id, "Blocked");
+                } else if (btn.classList.contains("unblock-btn")) {
+                    if (id) setCustomerStatus(id, "Active");
+                } else if (btn.classList.contains("delete-btn")) {
+                    if (id) deleteCustomer(id);
+                }
+            });
+
+            // storage sync across tabs
+            window.addEventListener("storage", (e) => {
+                if (e.key === STORAGE_KEY) renderTable();
+            });
+
+            // init
+            renderTable();
+
+        })();
+    </script>
 </body>
 
 </html>

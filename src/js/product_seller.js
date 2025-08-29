@@ -42,7 +42,7 @@
   // ---------- Storage keys & constants ----------
   const STORAGE_KEY = "products_store";
   const PENDING_KEY = "pendingEdits";
-  const PLACEHOLDER = "https://via.placeholder.com/200";
+  const PLACEHOLDER = "";
 
   // ---------- DOM references (Add modal) ----------
   const addProductForm = document.getElementById("addProductForm");
@@ -680,3 +680,4 @@
     });
   }
 })();
+

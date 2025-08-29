@@ -64,11 +64,9 @@
     "name": "iPhone 15 Pro Max",
     "slug": "50320",
     "old_price": 120394,
-
     "color": "white",
     "os": "ios",
     "brand": "iphone",
-
     "description": "iPhone 15 Pro Max with A17 Pro chip, 6.7-inch ProMotion display, titanium design, 5x optical zoom, and USB-C port.",
     "price": 12199,
     "originalPrice": 1299,
@@ -125,11 +123,9 @@
     "id": 8,
     "slug": "50120",
     "old_price": 120394,
-
     "color": "black",
     "os": "ios",
     "brand": "iphone",
-
     "name": "iPhone 16 Pro Max",
     "description": "iPhone 16 Pro Max with A18 Pro chip, 6.9-inch ProMotion display, enhanced thermal design, improved battery life, and advanced camera system.",
     "price": 13929,
@@ -187,11 +183,9 @@
     "id": 9,
     "slug": "501320",
     "old_price": 120394,
-
     "color": "black",
     "os": "ios",
     "brand": "iphone",
-
     "name": "iPhone 13",
     "description": "iPhone 13 with A15 Bionic chip, 6.1-inch Super Retina XDR display, 4GB RAM, 128GB storage, and advanced dual-camera system.",
     "price": 72399,
@@ -239,11 +233,9 @@
     "id": 10,
     "slug": "502410",
     "old_price": 120394,
-
     "color": "white",
     "os": "ios",
     "brand": "iphone",
-
     "name": "iPhone 13 Pro",
     "description": "iPhone 13 Pro with A15 Bionic chip, 6.1-inch ProMotion display, 6GB RAM, 128GB storage, and professional triple-camera system.",
     "price": 30000,
@@ -291,11 +283,9 @@
     "id": 11,
     "slug": "215020",
     "old_price": 120394,
-
     "color": "white",
     "os": "ios",
     "brand": "iphone",
-
     "name": "iPhone 14",
     "description": "iPhone 14 with A15 Bionic chip, 6.1-inch Super Retina XDR display, 6GB RAM, 128GB storage, and improved camera system with Photonic Engine.",
     "price": 799,
@@ -342,11 +332,9 @@
   {
     "id": 12,
     "slug": "50209",
-
     "color": "black",
     "os": "ios",
     "brand": "iphone",
-
     "name": "iPhone 14 Pro",
     "description": "iPhone 14 Pro with A16 Bionic chip, 6.1-inch Always-On display, Dynamic Island, 48MP main camera, and ProMotion technology.",
     "old_price": "1200",
@@ -395,7 +383,6 @@
     "color": "white",
     "os": "ios",
     "brand": "iphone",
-
     "id": 13,
     "slug": "505520",
     "name": "iPhone 15",
@@ -445,11 +432,9 @@
   {
     "id": 14,
     "slug": "50122220",
-
     "color": "red",
     "os": "ios",
     "brand": "iphone",
-
     "name": "iPhone 15 Pro",
     "description": "iPhone 15 Pro with A17 Pro chip, 6.1-inch ProMotion display, titanium design, USB-C, 6GB RAM, and advanced camera system.",
     "price": 1099,
@@ -496,11 +481,9 @@
   {
     "id": 15,
     "slug": "50311420",
-
     "color": "red",
     "os": "ios",
     "brand": "iphone",
-
     "name": "iPhone 16",
     "description": "iPhone 16 with A17 Pro chip, 6.1-inch Super Retina XDR display, USB-C, 6GB RAM, improved battery life, and enhanced camera system.",
     "old_price": "1200",
@@ -548,11 +531,9 @@
   {
     "id": 16,
     "slug": "50412420",
-
     "color": "white",
     "os": "ios",
     "brand": "iphone",
-
     "name": "iPhone 16 Pro",
     "description": "iPhone 16 Pro with A18 Pro chip, 6.3-inch ProMotion display, titanium design, USB-C, 8GB RAM, and advanced camera system with spatial video capture.",
     "price": 1099,
@@ -599,11 +580,9 @@
   {
     "id": 17,
     "slug": "502011",
-
     "color": "green",
     "os": "android",
     "brand": "iphone",
-
     "name": "OPPO A55",
     "description": "OPPO A55 with MediaTek Helio G35, 6.5-inch HD+ display, 4GB RAM, 64GB storage, and 5000mAh battery with 18W fast charging.",
     "price": 30000,
@@ -650,11 +629,9 @@
   {
     "id": 18,
     "slug": "50311320",
-
     "color": "green",
     "os": "android",
     "brand": "iphone",
-
     "name": "OPPO A77",
     "description": "OPPO A77 with Snapdragon 680, 6.56-inch HD+ 90Hz display, 6GB RAM, 128GB storage, and 5000mAh battery with 33W fast charging.",
     "price": 199,
@@ -702,10 +679,8 @@
     "color": "green",
     "os": "android",
     "brand": "iphone",
-
     "id": 19,
     "slug": "50333120",
-
     "name": "OPPO A97",
     "description": "OPPO A97 with Dimensity 810, 6.6-inch FHD+ 90Hz display, 12GB RAM, 256GB storage, and 5000mAh battery with 33W fast charging.",
     "price": 279,
@@ -752,11 +727,9 @@
   {
     "id": 20,
     "slug": "50212320",
-
     "color": "green",
     "os": "android",
     "brand": "iphone",
-
     "name": "OPPO Find X5",
     "description": "OPPO Find X5 with Snapdragon 888, 6.55-inch AMOLED 120Hz display, MariSilicon X NPU, Hasselblad camera, and 80W fast charging.",
     "price": 699,
@@ -803,11 +776,9 @@
   {
     "id": 21,
     "slug": "5412020",
-
     "color": "green",
     "os": "android",
     "brand": "iphone",
-
     "name": "OPPO Find X6",
     "description": "OPPO Find X6 Pro with Snapdragon 8 Gen 2, 6.82-inch LTPO AMOLED 120Hz, MariSilicon X2, Hasselblad camera, and 100W fast charging.",
     "price": 999,
@@ -854,11 +825,9 @@
   {
     "id": 22,
     "slug": "50122310",
-
     "color": "red",
     "os": "android",
     "brand": "iphone",
-
     "name": "OPPO Reno 4",
     "description": "OPPO Reno 4 with Snapdragon 720G, 6.4-inch AMOLED display, 8GB RAM, 128GB storage, and 65W SuperVOOC charging.",
     "price": 349,
@@ -905,11 +874,9 @@
   {
     "id": 23,
     "slug": "50121220",
-
     "color": "green",
     "os": "android",
     "brand": "iphone",
-
     "name": "OPPO Reno 5",
     "description": "OPPO Reno 5 with Snapdragon 765G, 6.43-inch AMOLED 90Hz display, AI Portrait Video, 8GB RAM, and 65W SuperVOOC charging.",
     "price": 399,
@@ -956,11 +923,9 @@
   {
     "id": 24,
     "slug": "5012312320",
-
     "color": "white",
     "os": "android",
     "brand": "iphone",
-
     "name": "OPPO Reno 12",
     "description": "OPPO Reno 12 with Dimensity 7050, 6.7-inch FHD+ 120Hz AMOLED, 12GB RAM, 256GB storage, and 80W SuperVOOC charging.",
     "price": 499,
@@ -1007,11 +972,9 @@
   {
     "id": 25,
     "slug": "52121020",
-
     "color": "black",
     "os": "android",
     "brand": "iphone",
-
     "name": "OPPO Reno 13",
     "description": "OPPO Reno 13 with Snapdragon 7+ Gen 3, 6.74-inch FHD+ 120Hz AMOLED, MariSilicon X imaging chip, 16GB RAM, and 100W SuperVOOC charging.",
     "price": 599,
@@ -1054,5 +1017,1385 @@
     },
     "createdAt": "2025-08-18T15:00:00Z",
     "updatedAt": "2025-08-18T15:00:00Z"
+  },
+  {
+    "id": 26,
+    "slug": "26010001",
+    "color": "gray",
+    "os": "android",
+    "brand": "samsung",
+    "name": "Samsung Galaxy S25 Ultra",
+    "description": "The Samsung Galaxy S25 Ultra is Samsung's top-tier flagship combining premium materials, cutting-edge performance and an advanced imaging system. It features a large 6.9-inch Dynamic AMOLED 2X display with QHD+ resolution and adaptive 120Hz LTPO refresh for outstanding clarity and power efficiency. Powered by the Snapdragon 8 Elite (or equivalent regional SoC), the S25 Ultra offers multi-core performance for heavy multitasking, productivity and gaming; paired with up to 12GB RAM and UFS 4.0 storage options up to 1TB. The camera array centers on a high-resolution 200MP main sensor with improved low-light processing, multi-frame HDR, AI scene optimization and OIS; additional modules include an ultra-wide and two telephoto options (including a periscope) to deliver long-range optical zoom. Battery capacity targets all-day use with intelligent battery management and supports fast wired and wireless charging plus reverse wireless charging. Software is One UI on Android with extended update support and feature-rich tools for creators, including pro video modes and DeX productivity features. Build quality, IP68 water/dust resistance and stereo speakers round out a device aimed at power users and creative professionals.",
+    "price": 1499,
+    "originalPrice": 1699,
+    "salePercentage": 12,
+    "category": "Smartphones",
+    "stock": 45,
+    "images": [
+      "assets/img/products/samsung_galaxy_s25_ultra/front.png",
+      "assets/img/products/samsung_galaxy_s25_ultra/back.png"
+    ],
+    "sellerId": 1001,
+    "rating": 4.9,
+    "adminReview": {
+      "status": "approved",
+      "reviewedBy": "admin_samsung_01",
+      "reviewedAt": "2025-01-20T10:30:00Z",
+      "notes": "Flagship device with market-leading display and camera performance. Meets quality standards.",
+      "approvalDate": "2025-01-20T10:30:00Z"
+    },
+    "userComments": [
+      {
+        "id": "comment_s25ultra_001",
+        "userId": "u1001",
+        "username": "PowerPhotog",
+        "rating": 5,
+        "comment": "Incredible camera detail and dynamic range — the best zoom I've used on a phone. Battery lasts a full heavy-use day.",
+        "createdAt": "2025-02-15T09:12:00Z",
+        "helpful": 24,
+        "verified": true
+      },
+      {
+        "id": "comment_s25ultra_002",
+        "userId": "u1002",
+        "username": "ProdUser",
+        "rating": 5,
+        "comment": "Screen and S Pen support make it a perfect productivity device. Fast and smooth for editing and multitasking.",
+        "createdAt": "2025-02-18T14:40:00Z",
+        "helpful": 11,
+        "verified": true
+      },
+      {
+        "id": "comment_s25ultra_003",
+        "userId": "u1003",
+        "username": "GamerGal",
+        "rating": 4,
+        "comment": "Amazing performance but it can warm under prolonged gaming; cooling is good overall.",
+        "createdAt": "2025-02-20T20:05:00Z",
+        "helpful": 7,
+        "verified": false
+      }
+    ],
+    "specifications": {
+      "Processor": "Snapdragon 8 Elite (or Exynos variant)",
+      "Display": "6.9-inch Dynamic AMOLED 2X, QHD+, LTPO, 120Hz",
+      "RAM": "12GB / 16GB",
+      "Storage": "256GB / 512GB / 1TB (UFS 4.0)",
+      "Battery": "5000 mAh",
+      "Camera": "200MP (main) + 50MP (ultrawide) + 10MP (telephoto) + 50MP (periscope)"
+    },
+    "createdAt": "2025-01-10T08:00:00Z",
+    "updatedAt": "2025-02-01T12:00:00Z"
+  },
+  {
+    "id": 27,
+    "slug": "27010002",
+    "color": "white",
+    "os": "android",
+    "brand": "samsung",
+    "name": "Samsung Galaxy S25",
+    "description": "The Samsung Galaxy S25 is the compact member of the S25 family delivering flagship-level fundamentals in a smaller footprint. It features a vibrant 6.2-inch Dynamic AMOLED display with adaptive 120Hz refresh for smooth scrolling and excellent outdoor visibility. The S25 is powered by the latest flagship-tier SoC, balanced with 8–12GB RAM, and optimized storage. Its camera system emphasizes accurate color reproduction and strong low-light performance through a capable 50MP primary sensor with OIS, accompanied by an ultrawide and telephoto module that support versatile shooting modes. Battery and thermals are tuned for daily longevity in a compact chassis, and fast wired charging is supported. One UI brings AI-assisted features for image enhancement, extended privacy controls and multi-year software support. The S25 targets users who want flagship speed, excellent cameras and premium software in a pocket-friendly design with IP68 water resistance and stereo audio.",
+    "price": 999,
+    "originalPrice": 1099,
+    "salePercentage": 9,
+    "category": "Smartphones",
+    "stock": 80,
+    "images": [
+      "assets/img/products/samsung_galaxy_s25/front.png",
+      "assets/img/products/samsung_galaxy_s25/back.png"
+    ],
+    "sellerId": 1001,
+    "rating": 4.7,
+    "adminReview": {
+      "status": "approved",
+      "reviewedBy": "admin_samsung_02",
+      "reviewedAt": "2025-01-22T09:00:00Z",
+      "notes": "Solid compact flagship offering. Performance and camera meet expectations.",
+      "approvalDate": "2025-01-22T09:00:00Z"
+    },
+    "userComments": [
+      {
+        "id": "comment_s25_001",
+        "userId": "u1010",
+        "username": "PocketPro",
+        "rating": 5,
+        "comment": "Love the compact size and still gets flagship-level photos. Perfect for one-handed use.",
+        "createdAt": "2025-02-05T08:00:00Z",
+        "helpful": 13,
+        "verified": true
+      },
+      {
+        "id": "comment_s25_002",
+        "userId": "u1011",
+        "username": "EverydayUser",
+        "rating": 4,
+        "comment": "Great screen and battery is fine for daily tasks. Camera is excellent for most conditions.",
+        "createdAt": "2025-02-07T17:20:00Z",
+        "helpful": 6,
+        "verified": true
+      },
+      {
+        "id": "comment_s25_003",
+        "userId": "u1012",
+        "username": "SpecWatcher",
+        "rating": 4,
+        "comment": "A little pricey for the smaller size, but performance justifies it.",
+        "createdAt": "2025-02-09T10:10:00Z",
+        "helpful": 3,
+        "verified": false
+      }
+    ],
+    "specifications": {
+      "Processor": "Snapdragon 8 Elite",
+      "Display": "6.2-inch Dynamic AMOLED, 120Hz",
+      "RAM": "8GB / 12GB",
+      "Storage": "128GB / 256GB",
+      "Battery": "4200 mAh",
+      "Camera": "50MP (main) + 12MP (ultrawide) + 10MP (telephoto)"
+    },
+    "createdAt": "2025-01-12T08:00:00Z",
+    "updatedAt": "2025-02-01T12:00:00Z"
+  },
+  {
+    "id": 28,
+    "slug": "28010003",
+    "color": "silver",
+    "os": "android",
+    "brand": "samsung",
+    "name": "Samsung Galaxy S25 Plus",
+    "description": "The Galaxy S25 Plus is the mid-size flagship that balances a larger immersive display with long battery life and strong performance. It features a 6.7-inch Dynamic AMOLED panel with adaptive 120Hz refresh and enhanced HDR rendering for cinema-grade content playback. Under the hood the phone uses a high-end Snapdragon chipset, coupled with 12GB RAM and efficient thermal management to sustain heavy workloads and gaming. The camera suite is versatile — a refined 50MP primary sensor with advanced computational photography, an ultrawide for landscapes and a telephoto for optical zoom. Battery capacity is larger than the base S25, enabling longer screen-on time, and the phone supports fast wired and wireless charging. One UI delivers productivity features, secure biometrics and continual software updates. The S25 Plus appeals to users who want a large-screen flagship experience without the extreme size or price of the Ultra model.",
+    "price": 1149,
+    "originalPrice": 1249,
+    "salePercentage": 8,
+    "category": "Smartphones",
+    "stock": 60,
+    "images": [
+      "assets/img/products/samsung_galaxy_s25_plus/front.png",
+      "assets/img/products/samsung_galaxy_s25_plus/back.png"
+    ],
+    "sellerId": 1001,
+    "rating": 4.8,
+    "adminReview": {
+      "status": "approved",
+      "reviewedBy": "admin_samsung_03",
+      "reviewedAt": "2025-01-24T09:00:00Z",
+      "notes": "Premium plus-size flagship with balanced battery and display performance.",
+      "approvalDate": "2025-01-24T09:00:00Z"
+    },
+    "userComments": [
+      {
+        "id": "comment_s25plus_001",
+        "userId": "u1020",
+        "username": "MovieFan",
+        "rating": 5,
+        "comment": "Display is gorgeous for streaming; battery lasts through long sessions.",
+        "createdAt": "2025-02-02T20:00:00Z",
+        "helpful": 18,
+        "verified": true
+      },
+      {
+        "id": "comment_s25plus_002",
+        "userId": "u1021",
+        "username": "PhotoNerd",
+        "rating": 4,
+        "comment": "Very good camera system; telephoto could be a touch better but overall great shots.",
+        "createdAt": "2025-02-04T09:30:00Z",
+        "helpful": 5,
+        "verified": false
+      },
+      {
+        "id": "comment_s25plus_003",
+        "userId": "u1022",
+        "username": "PowerUser2",
+        "rating": 4,
+        "comment": "Solid performer for multitasking, slight bloat from preinstalled apps.",
+        "createdAt": "2025-02-06T11:45:00Z",
+        "helpful": 2,
+        "verified": true
+      }
+    ],
+    "specifications": {
+      "Processor": "Snapdragon 8 Elite",
+      "Display": "6.7-inch Dynamic AMOLED, 120Hz",
+      "RAM": "12GB",
+      "Storage": "256GB / 512GB",
+      "Battery": "4800 mAh",
+      "Camera": "50MP (main) + 12MP (ultrawide) + 10MP (telephoto)"
+    },
+    "createdAt": "2025-01-14T08:00:00Z",
+    "updatedAt": "2025-02-01T12:00:00Z"
+  },
+  {
+    "id": 29,
+    "slug": "04010004",
+    "color": "blue",
+    "os": "android",
+    "brand": "samsung",
+    "name": "Samsung Galaxy S24 FE",
+    "description": "The Galaxy S24 FE (Fan Edition) is tailored for users seeking near-flagship experience at a value price. It ships with a bright 6.7-inch Dynamic AMOLED display, smooth 120Hz refresh and solid color accuracy. The FE model leverages a capable upper-mid-tier SoC and optimized software to provide responsive everyday performance and reliable gaming capability. Camera hardware mirrors many flagship traits: a 50MP main sensor with computational enhancements, ultrawide lens and functional telephoto, making it versatile for social photography and content creation. Battery capacity targets all-day usage and supports fast wired charging. Samsung includes extended software support and One UI features such as advanced camera modes and security controls. The S24 FE is a smart choice for buyers who want premium design cues, excellent screen quality and long-term updates without paying flagship prices.",
+    "price": 549,
+    "originalPrice": 699,
+    "salePercentage": 21,
+    "category": "Smartphones",
+    "stock": 110,
+    "images": [
+      "assets/img/products/samsung_galaxy_s24_fe/front.png",
+      "assets/img/products/samsung_galaxy_s24_fe/back.png"
+    ],
+    "sellerId": 1002,
+    "rating": 4.5,
+    "adminReview": {
+      "status": "approved",
+      "reviewedBy": "admin_samsung_04",
+      "reviewedAt": "2024-12-02T14:00:00Z",
+      "notes": "Good mid-tier offering with reliable updates and features.",
+      "approvalDate": "2024-12-02T15:00:00Z"
+    },
+    "userComments": [
+      {
+        "id": "comment_s24fe_001",
+        "userId": "u1030",
+        "username": "ValueBuyer",
+        "rating": 5,
+        "comment": "Excellent value for the screen and software support. Camera does well for social use.",
+        "createdAt": "2025-01-05T12:00:00Z",
+        "helpful": 16,
+        "verified": true
+      },
+      {
+        "id": "comment_s24fe_002",
+        "userId": "u1031",
+        "username": "StudentSam",
+        "rating": 4,
+        "comment": "Nice phone for studies and media. Battery life is exactly what I need.",
+        "createdAt": "2025-01-07T09:20:00Z",
+        "helpful": 4,
+        "verified": true
+      },
+      {
+        "id": "comment_s24fe_003",
+        "userId": "u1032",
+        "username": "CasualUser",
+        "rating": 4,
+        "comment": "Smooth UI and good camera for the price — recommended for midrange buyers.",
+        "createdAt": "2025-01-10T18:10:00Z",
+        "helpful": 2,
+        "verified": false
+      }
+    ],
+    "specifications": {
+      "Processor": "Snapdragon 8+ Gen 1 (or equivalent)",
+      "Display": "6.7-inch Dynamic AMOLED, 120Hz",
+      "RAM": "8GB",
+      "Storage": "128GB / 256GB",
+      "Battery": "5000 mAh",
+      "Camera": "50MP (main) + 12MP (ultrawide) + 8MP (telephoto)"
+    },
+    "createdAt": "2024-11-22T09:00:00Z",
+    "updatedAt": "2025-01-02T09:00:00Z"
+  },
+  {
+    "id": 30,
+    "slug": "05010005",
+    "color": "purple",
+    "os": "android",
+    "brand": "samsung",
+    "name": "Samsung Galaxy Z Flip 7",
+    "description": "The Samsung Galaxy Z Flip 7 is an updated compact foldable that emphasizes pocketability and everyday convenience. Its outer cover display provides quick glance information, while the internal flexible AMOLED delivers a tablet-like 6.7-inch viewing area when opened. The Flip 7 uses a high-performance chipset tuned for foldable thermals, with 8GB RAM and responsive storage. Dual rear cameras capture solid photos in daylight and improved low-light modes, and a front-facing under-display or punch-hole selfie sensor covers video calls and selfies. The hinge and flexible display benefit from Samsung’s durability improvements, and the device supports fast wired and wireless charging, IPX water resistance, and stereo speakers. Software features include fold-specific UI tweaks, split-view controls and Flex mode for hands-free media and quick shortcuts. The Z Flip 7 targets users who want a stylish compact device that unfolds into a larger screen experience.",
+    "price": 1199,
+    "originalPrice": 1299,
+    "salePercentage": 7,
+    "category": "Smartphones",
+    "stock": 55,
+    "images": [
+      "assets/img/products/samsung_galaxy_z_flip_7/front.png",
+      "assets/img/products/samsung_galaxy_z_flip_7/back.png"
+    ],
+    "sellerId": 1003,
+    "rating": 4.6,
+    "adminReview": {
+      "status": "approved",
+      "reviewedBy": "admin_samsung_05",
+      "reviewedAt": "2024-11-05T08:00:00Z",
+      "notes": "Refined compact foldable with strong consumer appeal.",
+      "approvalDate": "2024-11-05T09:00:00Z"
+    },
+    "userComments": [
+      {
+        "id": "comment_zflip7_001",
+        "userId": "u1040",
+        "username": "StyleSeeker",
+        "rating": 5,
+        "comment": "Love the compact fold form — perfect for pockets and looks premium.",
+        "createdAt": "2025-01-11T10:00:00Z",
+        "helpful": 21,
+        "verified": true
+      },
+      {
+        "id": "comment_zflip7_002",
+        "userId": "u1041",
+        "username": "FlipFan",
+        "rating": 4,
+        "comment": "Great for photos and daily use; hinge feels solid so far.",
+        "createdAt": "2025-01-13T13:15:00Z",
+        "helpful": 6,
+        "verified": false
+      },
+      {
+        "id": "comment_zflip7_003",
+        "userId": "u1042",
+        "username": "AccessoryLover",
+        "rating": 4,
+        "comment": "Screen crease is minimal and cover display is handy for quick tasks.",
+        "createdAt": "2025-01-15T09:45:00Z",
+        "helpful": 3,
+        "verified": true
+      }
+    ],
+    "specifications": {
+      "Processor": "Snapdragon 8 Gen 3",
+      "Display": "6.7-inch foldable AMOLED (inner), 3.4-inch cover AMOLED (outer), 120Hz",
+      "RAM": "8GB",
+      "Storage": "128GB / 256GB",
+      "Battery": "3700 mAh",
+      "Camera": "50MP (main) + 12MP (ultrawide), 10MP front"
+    },
+    "createdAt": "2024-10-17T08:50:00Z",
+    "updatedAt": "2025-01-03T08:50:00Z"
+  },
+  {
+    "id": 31,
+    "slug": "06010006",
+    "color": "black",
+    "os": "android",
+    "brand": "samsung",
+    "name": "Samsung Galaxy Z Fold 7",
+    "description": "The Samsung Galaxy Z Fold 7 is Samsung's premium foldable designed for productivity and large-screen entertainment in a single device. Opening to a tablet-like internal display (around 7.6 inches) with LTPO adaptive refresh and high brightness, the Fold 7 supports multi-window workflows, drag-and-drop document editing and DeX-style desktop features. Performance is flagship-class with a top-tier SoC, multi-core RAM configurations and high-speed storage to support heavy multitasking. Camera hardware includes flagship sensors with improved stabilization and multi-lens versatility for creative shooting. The device supports fast wired and wireless charging, and battery balancing between the internal and external display for efficient endurance. Durability improvements to the hinge and display materials, combined with fold-aware software, make it suitable for professionals who want a portable productivity device that replaces both phone and tablet.",
+    "price": 1799,
+    "originalPrice": 1999,
+    "salePercentage": 10,
+    "category": "Smartphones",
+    "stock": 35,
+    "images": [
+      "assets/img/products/samsung_galaxy_z_fold_7/front.png",
+      "assets/img/products/samsung_galaxy_z_fold_7/back.png"
+    ],
+    "sellerId": 1003,
+    "rating": 4.7,
+    "adminReview": {
+      "status": "approved",
+      "reviewedBy": "admin_samsung_06",
+      "reviewedAt": "2024-11-06T14:00:00Z",
+      "notes": "Top productivity foldable; recommended for pro users.",
+      "approvalDate": "2024-11-06T15:00:00Z"
+    },
+    "userComments": [
+      {
+        "id": "comment_zfold7_001",
+        "userId": "u1050",
+        "username": "MobileEditor",
+        "rating": 5,
+        "comment": "Transforms into a true mini tablet — a massive boost for on-the-go editing and multitasking.",
+        "createdAt": "2025-01-20T11:30:00Z",
+        "helpful": 28,
+        "verified": true
+      },
+      {
+        "id": "comment_zfold7_002",
+        "userId": "u1051",
+        "username": "LargeScreenUser",
+        "rating": 4,
+        "comment": "Fantastic screen and software features; heavier than a normal phone but worth it for productivity.",
+        "createdAt": "2025-01-23T16:05:00Z",
+        "helpful": 9,
+        "verified": true
+      },
+      {
+        "id": "comment_zfold7_003",
+        "userId": "u1052",
+        "username": "GadgetReviewer",
+        "rating": 4,
+        "comment": "Expensive but unique; hinge durability seems improved over past models.",
+        "createdAt": "2025-01-25T08:20:00Z",
+        "helpful": 5,
+        "verified": false
+      }
+    ],
+    "specifications": {
+      "Processor": "Snapdragon 8 Elite",
+      "Display": "7.6-inch foldable Dynamic AMOLED, 120Hz (inner) + 6.3-inch cover AMOLED",
+      "RAM": "12GB / 16GB",
+      "Storage": "256GB / 512GB",
+      "Battery": "4400 mAh",
+      "Camera": "50MP (main) + 12MP (ultrawide) + 12MP (telephoto)"
+    },
+    "createdAt": "2024-10-23T00:45:00Z",
+    "updatedAt": "2025-01-04T00:45:00Z"
+  },
+  {
+    "id": 32,
+    "slug": "07010007",
+    "color": "green",
+    "os": "android",
+    "brand": "samsung",
+    "name": "Samsung Galaxy S25 Edge",
+    "description": "The Galaxy S25 Edge variant emphasizes a curved-edge display for a premium look and feel while preserving flagship performance. With a slightly smaller or similar display area as the Plus model but with pronounced curved edges, the S25 Edge offers immersive visuals and refined ergonomics. Under the hood it shares the same high-end SoC as other S25 models, paired with ample RAM and fast storage. The camera package focuses on balanced imaging with a large main sensor, wide-angle capabilities and telephoto support. Battery capacity and charging are tuned for all-day usage. The Edge edition includes One UI customization for edge panels and quick access shortcuts, making it ideal for users who value design as much as performance.",
+    "price": 1099,
+    "originalPrice": 1199,
+    "salePercentage": 8,
+    "category": "Smartphones",
+    "stock": 95,
+    "images": [
+      "assets/img/products/samsung_galaxy_s25_edge/front.png",
+      "assets/img/products/samsung_galaxy_s25_edge/back.png"
+    ],
+    "sellerId": 1004,
+    "rating": 4.6,
+    "adminReview": {
+      "status": "approved",
+      "reviewedBy": "admin_samsung_07",
+      "reviewedAt": "2024-12-14T09:00:00Z",
+      "notes": "Stylish edge design with flagship-level hardware.",
+      "approvalDate": "2024-12-14T10:00:00Z"
+    },
+    "userComments": [
+      {
+        "id": "comment_s25edge_001",
+        "userId": "u1060",
+        "username": "DesignLover",
+        "rating": 5,
+        "comment": "Edge curvature looks premium and feels great in the hand.",
+        "createdAt": "2025-01-28T12:00:00Z",
+        "helpful": 14,
+        "verified": true
+      },
+      {
+        "id": "comment_s25edge_002",
+        "userId": "u1061",
+        "username": "ScreenFan",
+        "rating": 4,
+        "comment": "Beautiful display; occasional accidental touches on the edge though.",
+        "createdAt": "2025-01-29T15:20:00Z",
+        "helpful": 4,
+        "verified": false
+      },
+      {
+        "id": "comment_s25edge_003",
+        "userId": "u1062",
+        "username": "MediaUser",
+        "rating": 4,
+        "comment": "Excellent for media and scrolling, comfortable one-handed use.",
+        "createdAt": "2025-01-30T09:45:00Z",
+        "helpful": 2,
+        "verified": true
+      }
+    ],
+    "specifications": {
+      "Processor": "Snapdragon 8 Elite",
+      "Display": "6.3-inch Curved Super AMOLED, 120Hz",
+      "RAM": "12GB",
+      "Storage": "128GB / 256GB",
+      "Battery": "4500 mAh",
+      "Camera": "50MP (main) + 12MP (ultrawide) + 10MP (telephoto)"
+    },
+    "createdAt": "2024-12-14T19:26:00Z",
+    "updatedAt": "2025-01-06T19:26:00Z"
+  },
+  {
+    "id": 33,
+    "slug": "08010008",
+    "color": "black",
+    "os": "android",
+    "brand": "samsung",
+    "name": "Samsung Galaxy A56",
+    "description": "The Samsung Galaxy A56 is a strong mid-range offering delivering a premium display, competent cameras and long battery life at a more accessible price point. It offers a 6.7-inch Super AMOLED display with 120Hz refresh for smooth UI interactions and pleasant media consumption. The A56 runs an efficient Exynos or mid-tier chipset coupled with 6–12GB of RAM depending on the SKU, plus expandable storage options. Photography relies on a capable 50MP main sensor with AI scene optimization, an ultrawide lens and depth/macro sensors for versatile everyday photos. Battery capacity is generous and supports decent wired fast charging. Samsung provides several years of security updates and One UI features such as Knox security and adaptive performance. This phone is positioned for users who want flagship-like screen quality and solid battery life without flagship pricing.",
+    "price": 499,
+    "originalPrice": 599,
+    "salePercentage": 16,
+    "category": "Smartphones",
+    "stock": 150,
+    "images": [
+      "assets/img/products/samsung_galaxy_a56/front.png",
+      "assets/img/products/samsung_galaxy_a56/back.png"
+    ],
+    "sellerId": 1005,
+    "rating": 4.4,
+    "adminReview": {
+      "status": "approved",
+      "reviewedBy": "admin_samsung_08",
+      "reviewedAt": "2024-11-22T09:00:00Z",
+      "notes": "Strong mid-range proposition with premium display.",
+      "approvalDate": "2024-11-22T10:00:00Z"
+    },
+    "userComments": [
+      {
+        "id": "comment_a56_001",
+        "userId": "u1070",
+        "username": "MidrangeBuyer",
+        "rating": 5,
+        "comment": "Excellent screen and battery for the price. Great daily driver.",
+        "createdAt": "2025-01-03T11:20:00Z",
+        "helpful": 12,
+        "verified": true
+      },
+      {
+        "id": "comment_a56_002",
+        "userId": "u1071",
+        "username": "CameraTester",
+        "rating": 4,
+        "comment": "Good photos in daylight, night shots could be improved.",
+        "createdAt": "2025-01-06T09:45:00Z",
+        "helpful": 3,
+        "verified": false
+      },
+      {
+        "id": "comment_a56_003",
+        "userId": "u1072",
+        "username": "LongBattery",
+        "rating": 4,
+        "comment": "Battery easily lasts a full day of heavy use.",
+        "createdAt": "2025-01-09T18:00:00Z",
+        "helpful": 4,
+        "verified": true
+      }
+    ],
+    "specifications": {
+      "Processor": "Exynos 1580 (or similar)",
+      "Display": "6.7-inch Super AMOLED, 120Hz",
+      "RAM": "8GB / 12GB",
+      "Storage": "128GB / 256GB",
+      "Battery": "5000 mAh",
+      "Camera": "50MP (main) + 12MP (ultrawide) + 5MP (macro)"
+    },
+    "createdAt": "2024-11-22T09:23:00Z",
+    "updatedAt": "2025-01-02T09:23:00Z"
+  },
+  {
+    "id": 34,
+    "slug": "09010009",
+    "color": "blue",
+    "os": "android",
+    "brand": "samsung",
+    "name": "Samsung Galaxy A36 5G",
+    "description": "The Galaxy A36 5G is an affordable 5G-capable phone designed to cover essential modern features: an AMOLED screen with 120Hz refresh, reliable battery life, and an efficient mid-range chipset. It balances performance for tasks, social media and light gaming with a 6.5-inch FHD+ display that offers good color and contrast for the price. The camera system centers on a 50MP primary sensor with supporting ultrawide and depth/macro modules to handle everyday photography needs. A large battery and moderate charging speed help keep the phone usable throughout a long day. Samsung's software support and One UI elements provide polish and security updates. A36 5G targets budget-conscious users needing modern connectivity and a pleasant screen experience.",
+    "price": 349,
+    "originalPrice": 399,
+    "salePercentage": 12,
+    "category": "Smartphones",
+    "stock": 180,
+    "images": [
+      "assets/img/products/samsung_galaxy_a36_5g/front.png",
+      "assets/img/products/samsung_galaxy_a36_5g/back.png"
+    ],
+    "sellerId": 1006,
+    "rating": 4.2,
+    "adminReview": {
+      "status": "approved",
+      "reviewedBy": "admin_samsung_09",
+      "reviewedAt": "2024-12-23T12:37:00Z",
+      "notes": "Good budget 5G option with AMOLED display.",
+      "approvalDate": "2024-12-23T13:37:00Z"
+    },
+    "userComments": [
+      {
+        "id": "comment_a36_001",
+        "userId": "u1080",
+        "username": "BudgetUser",
+        "rating": 4,
+        "comment": "Very good value for an AMOLED display and 5G support.",
+        "createdAt": "2025-01-12T10:00:00Z",
+        "helpful": 9,
+        "verified": true
+      },
+      {
+        "id": "comment_a36_002",
+        "userId": "u1081",
+        "username": "LightGamer",
+        "rating": 3,
+        "comment": "Handles light games well; heavy titles show frame drops.",
+        "createdAt": "2025-01-14T09:15:00Z",
+        "helpful": 2,
+        "verified": false
+      },
+      {
+        "id": "comment_a36_003",
+        "userId": "u1082",
+        "username": "PhotoFan",
+        "rating": 4,
+        "comment": "Camera is surprisingly capable in daylight.",
+        "createdAt": "2025-01-16T12:30:00Z",
+        "helpful": 3,
+        "verified": true
+      }
+    ],
+    "specifications": {
+      "Processor": "Exynos 1280 / Dimensity variant",
+      "Display": "6.5-inch FHD+ Super AMOLED, 120Hz",
+      "RAM": "6GB / 8GB",
+      "Storage": "128GB / 256GB",
+      "Battery": "5000 mAh",
+      "Camera": "50MP (main) + 12MP (ultrawide) + 5MP (macro)"
+    },
+    "createdAt": "2024-12-23T12:37:00Z",
+    "updatedAt": "2025-01-10T12:37:00Z"
+  },
+  {
+    "id": 35,
+    "slug": "10010010",
+    "color": "gold",
+    "os": "android",
+    "brand": "samsung",
+    "name": "Samsung Galaxy A16",
+    "description": "The Galaxy A16 is Samsung's entry-to-mid-level phone aimed at users who prioritize battery, straightforward performance and a large readable screen. It typically includes a 6.6–6.7 inch display (PLS/LCD or AMOLED depending on regional SKU), a power-efficient mid-range chipset, and a 5000 mAh battery that supports extended use. The camera system is basic but serviceable for everyday social photos with a 50MP main sensor, and software enhancements improve exposure and color. Samsung maintains a simple, clean One UI experience with useful features such as digital wellbeing tools and secure folder. The A16 is ideal as a daily driver for users who want good battery life, modern connectivity and dependable performance at an accessible price point.",
+    "price": 199,
+    "originalPrice": 249,
+    "salePercentage": 20,
+    "category": "Smartphones",
+    "stock": 220,
+    "images": [
+      "assets/img/products/samsung_galaxy_a16/front.png",
+      "assets/img/products/samsung_galaxy_a16/back.png"
+    ],
+    "sellerId": 1007,
+    "rating": 4.1,
+    "adminReview": {
+      "status": "approved",
+      "reviewedBy": "admin_samsung_10",
+      "reviewedAt": "2024-11-14T15:28:00Z",
+      "notes": "Reliable budget device with strong battery life.",
+      "approvalDate": "2024-11-14T16:28:00Z"
+    },
+    "userComments": [
+      {
+        "id": "comment_a16_001",
+        "userId": "u1090",
+        "username": "BudgetSaver",
+        "rating": 4,
+        "comment": "Great battery life and a pleasant screen for the price.",
+        "createdAt": "2025-01-02T10:10:00Z",
+        "helpful": 8,
+        "verified": true
+      },
+      {
+        "id": "comment_a16_002",
+        "userId": "u1091",
+        "username": "BasicUser",
+        "rating": 4,
+        "comment": "Perfect as a secondary phone or for someone who doesn’t need premium specs.",
+        "createdAt": "2025-01-04T14:00:00Z",
+        "helpful": 2,
+        "verified": false
+      },
+      {
+        "id": "comment_a16_003",
+        "userId": "u1092",
+        "username": "FirstPhone",
+        "rating": 3,
+        "comment": "Affordable but performance is limited for heavy multitasking.",
+        "createdAt": "2025-01-06T09:50:00Z",
+        "helpful": 1,
+        "verified": true
+      }
+    ],
+    "specifications": {
+      "Processor": "Octa-core (budget/mid chipset)",
+      "Display": "6.6-inch LCD/AMOLED, 90Hz",
+      "RAM": "4GB / 6GB",
+      "Storage": "64GB / 128GB",
+      "Battery": "5000 mAh",
+      "Camera": "50MP (main) + 2MP + 2MP (rear), 13MP (front)"
+    },
+    "createdAt": "2024-11-14T15:28:00Z",
+    "updatedAt": "2024-12-13T15:28:00Z"
+  },
+  {
+    "id": 36,
+    "slug": "01020011",
+    "color": "black",
+    "os": "android",
+    "brand": "oneplus",
+    "name": "OnePlus 13",
+    "description": "The OnePlus 13 is OnePlus's current flagship offering: a performance-first handset with premium display, cameras tuned for natural color and fast charging. It sports a 6.82-inch QHD+ LTPO AMOLED display with adaptive 120Hz refresh for outstanding smoothness and power efficiency. Powered by the Snapdragon 8 Elite platform, paired with up to 16GB RAM and UFS 4.0 storage, the 13 delivers consistent high performance for gaming, content creation and multitasking. The camera system, tuned in collaboration with imaging partners, typically includes a high-quality primary sensor supported by ultrawide and telephoto modules, with sophisticated AI processing for low-light and portrait shots. Battery capacity targets full-day endurance and supports ultra-fast wired charging plus wireless charging on select SKUs. OxygenOS provides a clean, responsive software experience with useful customization and timely updates. Overall, the OnePlus 13 suits power users who want flagship speed, refined software and a strong camera experience at competitive pricing.",
+    "price": 899,
+    "originalPrice": 999,
+    "salePercentage": 10,
+    "category": "Smartphones",
+    "stock": 70,
+    "images": [
+      "assets/img/products/oneplus_13/front.png",
+      "assets/img/products/oneplus_13/back.png"
+    ],
+    "sellerId": 2001,
+    "rating": 4.8,
+    "adminReview": {
+      "status": "approved",
+      "reviewedBy": "admin_oneplus_01",
+      "reviewedAt": "2024-07-18T12:41:56Z",
+      "notes": "Flagship-caliber OnePlus device with refined software and strong hardware.",
+      "approvalDate": "2024-07-18T12:41:56Z"
+    },
+    "userComments": [
+      {
+        "id": "comment_op13_001",
+        "userId": "ou1001",
+        "username": "OnePlusLover",
+        "rating": 5,
+        "comment": "Blazing fast and the display is phenomenal. Camera colors are natural and pleasing.",
+        "createdAt": "2024-08-01T10:00:00Z",
+        "helpful": 30,
+        "verified": true
+      },
+      {
+        "id": "comment_op13_002",
+        "userId": "ou1002",
+        "username": "BatteryTester",
+        "rating": 4,
+        "comment": "Battery lasts all day, charging speed is extremely convenient.",
+        "createdAt": "2024-08-03T09:15:00Z",
+        "helpful": 8,
+        "verified": true
+      },
+      {
+        "id": "comment_op13_003",
+        "userId": "ou1003",
+        "username": "PhotoFanOP",
+        "rating": 4,
+        "comment": "Great camera for daylight shots; night mode is improved but not flawless.",
+        "createdAt": "2024-08-05T14:30:00Z",
+        "helpful": 5,
+        "verified": false
+      }
+    ],
+    "specifications": {
+      "Processor": "Snapdragon 8 Elite",
+      "Display": "6.82-inch QHD+ LTPO AMOLED, 120Hz",
+      "RAM": "12GB / 16GB",
+      "Storage": "256GB / 512GB",
+      "Battery": "6000 mAh",
+      "Camera": "50MP (main) + 50MP (ultrawide) + 50MP (telephoto)"
+    },
+    "createdAt": "2024-07-18T12:41:56Z",
+    "updatedAt": "2024-07-30T12:41:56Z"
+  },
+  {
+    "id": 37,
+    "slug": "02020012",
+    "color": "white",
+    "os": "android",
+    "brand": "oneplus",
+    "name": "OnePlus 13R",
+    "description": "The OnePlus 13R is a value-focused variant of the 13 series delivering many flagship strengths at a more affordable price. It typically features a 6.78-inch AMOLED display with 120Hz refresh, a high-performance Snapdragon chipset, and enough RAM to support demanding apps and multitasking. The camera system centers around a 50MP primary sensor with OIS and supportive ultrawide and macro sensors; software enhancements improve dynamic range and night performance. Large battery capacity with very fast wired charging capability ensures the device gets you through a full day and quickly refills when needed. OxygenOS maintains a near-stock feel with useful customizations and regular security updates. The 13R is aimed at buyers who want flagship-like performance and a premium screen without the flagship price premium.",
+    "price": 599,
+    "originalPrice": 649,
+    "salePercentage": 7,
+    "category": "Smartphones",
+    "stock": 120,
+    "images": [
+      "assets/img/products/oneplus_13r/front.png",
+      "assets/img/products/oneplus_13r/back.png"
+    ],
+    "sellerId": 2002,
+    "rating": 4.6,
+    "adminReview": {
+      "status": "approved",
+      "reviewedBy": "admin_oneplus_02",
+      "reviewedAt": "2024-11-25T02:54:32Z",
+      "notes": "Well-balanced mid-flagship offering with strong battery and display.",
+      "approvalDate": "2024-12-14T02:54:32Z"
+    },
+    "userComments": [
+      {
+        "id": "comment_op13r_001",
+        "userId": "ou1010",
+        "username": "ValueSeeker",
+        "rating": 5,
+        "comment": "Great value — flagship-like speed and excellent battery life.",
+        "createdAt": "2024-12-01T12:00:00Z",
+        "helpful": 20,
+        "verified": true
+      },
+      {
+        "id": "comment_op13r_002",
+        "userId": "ou1011",
+        "username": "CasualGamer",
+        "rating": 4,
+        "comment": "Runs games very well for the price; camera is competent.",
+        "createdAt": "2024-12-05T10:30:00Z",
+        "helpful": 6,
+        "verified": true
+      },
+      {
+        "id": "comment_op13r_003",
+        "userId": "ou1012",
+        "username": "PhotoHobby",
+        "rating": 4,
+        "comment": "Solid daylight photos; low-light is improved but not flagship-leading.",
+        "createdAt": "2024-12-08T16:45:00Z",
+        "helpful": 3,
+        "verified": false
+      }
+    ],
+    "specifications": {
+      "Processor": "Snapdragon 8 Gen 3",
+      "Display": "6.78-inch AMOLED, 120Hz",
+      "RAM": "8GB / 12GB",
+      "Storage": "128GB / 256GB",
+      "Battery": "6000 mAh",
+      "Camera": "50MP (main) + 8MP (ultrawide) + 2MP (macro)"
+    },
+    "createdAt": "2024-11-25T02:54:32Z",
+    "updatedAt": "2024-12-14T02:54:32Z"
+  },
+  {
+    "id": 38,
+    "slug": "03020013",
+    "color": "silver",
+    "os": "android",
+    "brand": "oneplus",
+    "name": "OnePlus Open",
+    "description": "OnePlus Open is OnePlus's foldable device combining phone portability with tablet-style productivity. It offers a large inner foldable AMOLED display (~7.8 inches) with adaptive refresh, and a full-featured outer display for everyday phone use. The device is engineered for multitasking — split-screen apps, floating windows and optimized workflows for creators and professionals. The Open typically ships with a flagship-class chipset and generous RAM configurations to maintain smooth performance across two displays. Camera hardware includes versatile sensors for quality photos and video capture, while software includes fold-aware optimizations and extended support for accessories. Battery architecture is designed to support both displays, and charging is relatively fast across wired and wireless methods. The OnePlus Open aims to deliver a premium foldable experience with OnePlus software polish and competitive imaging.",
+    "price": 1699,
+    "originalPrice": 1999,
+    "salePercentage": 15,
+    "category": "Smartphones",
+    "stock": 40,
+    "images": [
+      "assets/img/products/oneplus_open/front.png",
+      "assets/img/products/oneplus_open/back.png"
+    ],
+    "sellerId": 2003,
+    "rating": 4.6,
+    "adminReview": {
+      "status": "approved",
+      "reviewedBy": "admin_oneplus_03",
+      "reviewedAt": "2024-12-19T07:31:52Z",
+      "notes": "Competent foldable with strong performance and useful multitasking features.",
+      "approvalDate": "2024-12-28T07:31:52Z"
+    },
+    "userComments": [
+      {
+        "id": "comment_open_001",
+        "userId": "ou1020",
+        "username": "FoldFan",
+        "rating": 5,
+        "comment": "Fantastic for productivity and media, and the inner display is excellent for editing.",
+        "createdAt": "2024-12-28T09:00:00Z",
+        "helpful": 22,
+        "verified": true
+      },
+      {
+        "id": "comment_open_002",
+        "userId": "ou1021",
+        "username": "Traveler",
+        "rating": 4,
+        "comment": "Great on flights for watching movies; heavy to carry but worth it for the screen size.",
+        "createdAt": "2025-01-02T14:20:00Z",
+        "helpful": 7,
+        "verified": true
+      },
+      {
+        "id": "comment_open_003",
+        "userId": "ou1022",
+        "username": "TechTesterOP",
+        "rating": 4,
+        "comment": "Very capable device though price & app optimization remain considerations.",
+        "createdAt": "2025-01-06T11:50:00Z",
+        "helpful": 4,
+        "verified": false
+      }
+    ],
+    "specifications": {
+      "Processor": "Snapdragon 8 Gen 2",
+      "Display": "7.8-inch foldable AMOLED (inner) + 6.3-inch outer AMOLED, 120Hz",
+      "RAM": "12GB / 16GB",
+      "Storage": "256GB / 512GB",
+      "Battery": "4805 mAh",
+      "Camera": "48MP (main) + 48MP (ultrawide) + 64MP (telephoto)"
+    },
+    "createdAt": "2024-11-30T08:00:00Z",
+    "updatedAt": "2024-12-28T08:00:00Z"
+  },
+  {
+    "id": 39,
+    "slug": "04020014",
+    "color": "black",
+    "os": "android",
+    "brand": "oneplus",
+    "name": "OnePlus Nord 30 5G",
+    "description": "OnePlus Nord 30 5G is a mid-range device focused on delivering strong display quality, balanced performance and fast charging at an affordable price. It usually offers a 6.7-inch AMOLED or high-quality LCD panel with 120Hz refresh for smooth UI interactions. The SoC is a mid-tier chipset optimized for everyday tasks and light gaming, paired with 6–12GB of RAM depending on the SKU. Camera hardware centers on high-resolution main sensors (often 50MP to 108MP depending on market) accompanied by auxiliary lenses for ultrawide and depth. A generous battery supports fast wired charging (often 50–80W), ensuring quick top-ups. OxygenOS provides a smooth, near-stock experience with useful customization features. Nord 30 5G aims to provide the best balance of display, battery and modern connectivity for value-conscious shoppers.",
+    "price": 349,
+    "originalPrice": 399,
+    "salePercentage": 12,
+    "category": "Smartphones",
+    "stock": 140,
+    "images": [
+      "assets/img/products/oneplus_nord_30_5g/front.png",
+      "assets/img/products/oneplus_nord_30_5g/back.png"
+    ],
+    "sellerId": 2004,
+    "rating": 4.5,
+    "adminReview": {
+      "status": "approved",
+      "reviewedBy": "admin_oneplus_04",
+      "reviewedAt": "2024-09-13T00:19:38Z",
+      "notes": "Strong mid-range contender with excellent display and battery.",
+      "approvalDate": "2024-10-01T00:19:38Z"
+    },
+    "userComments": [
+      {
+        "id": "comment_nord30_001",
+        "userId": "ou1030",
+        "username": "BudgetDisplay",
+        "rating": 5,
+        "comment": "Lovely display and very fast charging — real value for money.",
+        "createdAt": "2024-10-05T10:00:00Z",
+        "helpful": 17,
+        "verified": true
+      },
+      {
+        "id": "comment_nord30_002",
+        "userId": "ou1031",
+        "username": "SocialCreator",
+        "rating": 4,
+        "comment": "Decent camera for social content; not a top-tier shooter but great for price.",
+        "createdAt": "2024-10-12T13:30:00Z",
+        "helpful": 6,
+        "verified": false
+      },
+      {
+        "id": "comment_nord30_003",
+        "userId": "ou1032",
+        "username": "EverydayJoe",
+        "rating": 4,
+        "comment": "Smooth experience for everyday apps; battery comfortably lasts the day.",
+        "createdAt": "2024-10-15T09:40:00Z",
+        "helpful": 3,
+        "verified": true
+      }
+    ],
+    "specifications": {
+      "Processor": "Snapdragon 695 / Dimensity variant",
+      "Display": "6.7-inch FHD+ AMOLED, 120Hz",
+      "RAM": "8GB / 12GB",
+      "Storage": "128GB / 256GB",
+      "Battery": "5000 mAh",
+      "Camera": "108MP or 50MP (market dependent) + 8MP + 2MP"
+    },
+    "createdAt": "2024-07-18T12:41:56Z",
+    "updatedAt": "2024-10-01T12:41:56Z"
+  },
+  {
+    "id": 40,
+    "slug": "05020015",
+    "color": "green",
+    "os": "android",
+    "brand": "oneplus",
+    "name": "OnePlus 12",
+    "description": "OnePlus 12 is a flagship-grade smartphone that brings top-tier silicon, an industry-leading display, and fast charging together with OnePlus's software polish. With a 6.82-inch QHD+ LTPO AMOLED display supporting adaptive refresh and HDR, the 12 delivers outstanding viewing experiences. The Snapdragon 8 Gen 3 platform (or equivalent) powers heavy multitasking and gaming, while large RAM and fast storage options ensure fluid responsiveness. Photography receives upgrades with multi-sensor setups and advanced computational processing for cleaner low-light photos and improved dynamic range. The battery is large and supports very fast wired charging and wireless charging on select SKUs. OxygenOS focuses on minimal bloat, customization and timely updates. The OnePlus 12 targets power users who want flagship performance, fast charging and a refined user experience.",
+    "price": 799,
+    "originalPrice": 899,
+    "salePercentage": 11,
+    "category": "Smartphones",
+    "stock": 95,
+    "images": [
+      "assets/img/products/oneplus_12/front.png",
+      "assets/img/products/oneplus_12/back.png"
+    ],
+    "sellerId": 2005,
+    "rating": 4.7,
+    "adminReview": {
+      "status": "approved",
+      "reviewedBy": "admin_oneplus_05",
+      "reviewedAt": "2024-12-19T07:31:52Z",
+      "notes": "Flagship experience with strong performance and fast charging.",
+      "approvalDate": "2024-12-28T07:31:52Z"
+    },
+    "userComments": [
+      {
+        "id": "comment_op12_001",
+        "userId": "ou1040",
+        "username": "FlagshipSeeker",
+        "rating": 5,
+        "comment": "Fantastic screen and very fast charging — great all-rounder.",
+        "createdAt": "2024-12-24T11:00:00Z",
+        "helpful": 26,
+        "verified": true
+      },
+      {
+        "id": "comment_op12_002",
+        "userId": "ou1041",
+        "username": "DayToDay",
+        "rating": 4,
+        "comment": "Smooth software and great battery life with heavy use.",
+        "createdAt": "2024-12-26T09:35:00Z",
+        "helpful": 5,
+        "verified": true
+      },
+      {
+        "id": "comment_op12_003",
+        "userId": "ou1042",
+        "username": "VideoMaker",
+        "rating": 4,
+        "comment": "Good video capture and stabilization; audio capture could be slightly better.",
+        "createdAt": "2024-12-28T14:10:00Z",
+        "helpful": 3,
+        "verified": false
+      }
+    ],
+    "specifications": {
+      "Processor": "Snapdragon 8 Gen 3",
+      "Display": "6.82-inch QHD+ LTPO AMOLED, 120Hz",
+      "RAM": "12GB / 16GB",
+      "Storage": "256GB / 512GB",
+      "Battery": "5400 mAh",
+      "Camera": "50MP (main) + 64MP (telephoto) + 48MP (ultrawide)"
+    },
+    "createdAt": "2024-12-19T07:31:52Z",
+    "updatedAt": "2024-12-28T07:31:52Z"
+  },
+  {
+    "id": 41,
+    "slug": "06020016",
+    "color": "gray",
+    "os": "android",
+    "brand": "oneplus",
+    "name": "OnePlus Nord 4",
+    "description": "The OnePlus Nord 4 is a capable upper-midrange phone offering flagship-adjacent display and charging features at a more accessible price. It typically includes a high-quality AMOLED panel with 120Hz refresh, a power-efficient mid-to-upper-tier SoC and a large battery with extremely fast wired charging. Camera performance is competent with a 50MP main sensor and supportive lenses for wide and depth shots. OxygenOS brings a clean UI with useful customizations and performance modes for gaming. Nord 4 is aimed at users who want high-end display and charging technology without the premium flagship cost, making it a strong choice for media consumption and everyday productivity.",
+    "price": 499,
+    "originalPrice": 599,
+    "salePercentage": 16,
+    "category": "Smartphones",
+    "stock": 130,
+    "images": [
+      "assets/img/products/oneplus_nord_4/front.png",
+      "assets/img/products/oneplus_nord_4/back.png"
+    ],
+    "sellerId": 2006,
+    "rating": 4.5,
+    "adminReview": {
+      "status": "approved",
+      "reviewedBy": "admin_oneplus_06",
+      "reviewedAt": "2024-08-24T11:46:37Z",
+      "notes": "Strong mid-upper range candidate with excellent charging and display.",
+      "approvalDate": "2024-09-17T11:46:37Z"
+    },
+    "userComments": [
+      {
+        "id": "comment_nord4_001",
+        "userId": "ou1050",
+        "username": "ValueDisplay",
+        "rating": 5,
+        "comment": "Great display and super fast charging; a great daily driver.",
+        "createdAt": "2024-09-20T10:00:00Z",
+        "helpful": 18,
+        "verified": true
+      },
+      {
+        "id": "comment_nord4_002",
+        "userId": "ou1051",
+        "username": "BalancedUser",
+        "rating": 4,
+        "comment": "Very balanced phone for the price; camera is OK but not flagship-level.",
+        "createdAt": "2024-09-25T13:30:00Z",
+        "helpful": 6,
+        "verified": false
+      },
+      {
+        "id": "comment_nord4_003",
+        "userId": "ou1052",
+        "username": "PhoneReviewer",
+        "rating": 4,
+        "comment": "Strong battery and smooth software updates so far.",
+        "createdAt": "2024-09-28T16:10:00Z",
+        "helpful": 4,
+        "verified": true
+      }
+    ],
+    "specifications": {
+      "Processor": "Snapdragon 7+ Gen 3",
+      "Display": "6.7-inch AMOLED, 120Hz",
+      "RAM": "8GB / 12GB",
+      "Storage": "128GB / 256GB",
+      "Battery": "5500 mAh",
+      "Camera": "50MP (main) + 8MP (ultrawide) + 2MP"
+    },
+    "createdAt": "2024-08-24T11:46:37Z",
+    "updatedAt": "2024-09-17T11:46:37Z"
+  },
+  {
+    "id": 42,
+    "slug": "07020017",
+    "color": "white",
+    "os": "android",
+    "brand": "oneplus",
+    "name": "OnePlus Nord CE 4 Lite",
+    "description": "OnePlus Nord CE 4 Lite is a budget-conscious model that brings a smooth display, large battery and essential OnePlus software experience to cost-sensitive buyers. It commonly features a 6.67-inch FHD+ display with 120Hz refresh, a power-efficient midrange chipset, and a 5000mAh-class battery with fast charging support. The camera setup provides serviceable results for social photos with a high-resolution main sensor. OxygenOS maintains a clean interface with useful extras and system optimizations. Nord CE 4 Lite targets students, first-time smartphone upgraders and anyone seeking a pleasant everyday phone that retains some premium traits without a high price tag.",
+    "price": 299,
+    "originalPrice": 349,
+    "salePercentage": 14,
+    "category": "Smartphones",
+    "stock": 160,
+    "images": [
+      "assets/img/products/oneplus_nord_ce_4_lite/front.png",
+      "assets/img/products/oneplus_nord_ce_4_lite/back.png"
+    ],
+    "sellerId": 2007,
+    "rating": 4.3,
+    "adminReview": {
+      "status": "approved",
+      "reviewedBy": "admin_oneplus_07",
+      "reviewedAt": "2024-10-31T08:11:46Z",
+      "notes": "Good entry-level option with reliable performance for the segment.",
+      "approvalDate": "2024-11-16T08:11:46Z"
+    },
+    "userComments": [
+      {
+        "id": "comment_ce4lite_001",
+        "userId": "ou1060",
+        "username": "StudentBuyer",
+        "rating": 5,
+        "comment": "Affordable yet surprisingly smooth for everyday use. Great battery life.",
+        "createdAt": "2024-11-10T09:00:00Z",
+        "helpful": 14,
+        "verified": true
+      },
+      {
+        "id": "comment_ce4lite_002",
+        "userId": "ou1061",
+        "username": "ValueSeeker2",
+        "rating": 4,
+        "comment": "Nice phone for social apps and streaming; camera okay in daylight.",
+        "createdAt": "2024-11-14T12:30:00Z",
+        "helpful": 6,
+        "verified": false
+      },
+      {
+        "id": "comment_ce4lite_003",
+        "userId": "ou1062",
+        "username": "BudgetReviewer",
+        "rating": 4,
+        "comment": "Solid performer overall; very few compromises for the price.",
+        "createdAt": "2024-11-18T15:20:00Z",
+        "helpful": 3,
+        "verified": true
+      }
+    ],
+    "specifications": {
+      "Processor": "Snapdragon 695",
+      "Display": "6.67-inch FHD+ AMOLED, 120Hz",
+      "RAM": "8GB",
+      "Storage": "128GB",
+      "Battery": "5110 mAh",
+      "Camera": "50MP (main) + 2MP (depth) + 2MP (macro)"
+    },
+    "createdAt": "2024-10-31T08:11:46Z",
+    "updatedAt": "2024-11-28T08:11:46Z"
+  },
+  {
+    "id": 43,
+    "slug": "08020018",
+    "color": "black",
+    "os": "android",
+    "brand": "oneplus",
+    "name": "OnePlus 11",
+    "description": "OnePlus 11 is a previous-generation flagship that remains a strong choice for users who want a reliable high-performance phone at a competitive price. It provides a 6.7-inch Fluid AMOLED display with 120Hz refresh, flagship Snapdragon silicon, and a tuned camera system that emphasizes natural color and responsive autofocus. The OnePlus 11 also supports very fast wired charging, long battery life and refined stereo audio. OxygenOS offers a near-stock Android experience with customization and performance modes for gaming. The device remains popular thanks to its blend of performance, display and charging speed in a well-built chassis.",
+    "price": 699,
+    "originalPrice": 799,
+    "salePercentage": 12,
+    "category": "Smartphones",
+    "stock": 90,
+    "images": [
+      "assets/img/products/oneplus_11/front.png",
+      "assets/img/products/oneplus_11/back.png"
+    ],
+    "sellerId": 2008,
+    "rating": 4.5,
+    "adminReview": {
+      "status": "approved",
+      "reviewedBy": "admin_oneplus_08",
+      "reviewedAt": "2024-09-13T00:19:38Z",
+      "notes": "Excellent older flagship that still competes in performance and charging.",
+      "approvalDate": "2024-10-01T00:19:38Z"
+    },
+    "userComments": [
+      {
+        "id": "comment_op11_001",
+        "userId": "ou1070",
+        "username": "ClassicFan",
+        "rating": 5,
+        "comment": "Great all-rounder — fast, smooth and excellent battery life for daily use.",
+        "createdAt": "2024-10-05T11:00:00Z",
+        "helpful": 20,
+        "verified": true
+      },
+      {
+        "id": "comment_op11_002",
+        "userId": "ou1071",
+        "username": "CameraWatcher",
+        "rating": 4,
+        "comment": "Good camera setup for most users; video capture is solid.",
+        "createdAt": "2024-10-12T14:30:00Z",
+        "helpful": 7,
+        "verified": false
+      },
+      {
+        "id": "comment_op11_003",
+        "userId": "ou1072",
+        "username": "LongTimeUser",
+        "rating": 4,
+        "comment": "Still very snappy; software updates have kept it relevant.",
+        "createdAt": "2024-10-20T09:40:00Z",
+        "helpful": 5,
+        "verified": true
+      }
+    ],
+    "specifications": {
+      "Processor": "Snapdragon 8 Gen 2",
+      "Display": "6.7-inch Fluid AMOLED, 120Hz",
+      "RAM": "8GB / 12GB",
+      "Storage": "128GB / 256GB",
+      "Battery": "5000 mAh",
+      "Camera": "50MP (main) + 48MP (ultrawide) + 32MP (telephoto)"
+    },
+    "createdAt": "2024-09-13T00:19:38Z",
+    "updatedAt": "2024-10-01T00:19:38Z"
+  },
+  {
+    "id": 44,
+    "slug": "09020019",
+    "color": "blue",
+    "os": "android",
+    "brand": "oneplus",
+    "name": "OnePlus 10T",
+    "description": "OnePlus 10T is a performance-focused handset that emphasizes raw speed and charging convenience. Sporting a powerful Snapdragon 8+ Gen chipset (or equivalent), fast RAM and optimized thermals, the 10T is tuned for gaming and sustained performance. The display is a high-refresh AMOLED for smooth visuals, while the camera system focuses on practical shooting with a strong primary sensor. OnePlus is known for extremely fast wired charging on T-series models, allowing rapid top-ups that minimize downtime. The 10T suits enthusiasts and users who prioritize performance and charging speed over premium telephoto camera features.",
+    "price": 649,
+    "originalPrice": 749,
+    "salePercentage": 13,
+    "category": "Smartphones",
+    "stock": 100,
+    "images": [
+      "assets/img/products/oneplus_10t/front.png",
+      "assets/img/products/oneplus_10t/back.png"
+    ],
+    "sellerId": 2009,
+    "rating": 4.4,
+    "adminReview": {
+      "status": "approved",
+      "reviewedBy": "admin_oneplus_09",
+      "reviewedAt": "2024-10-31T08:11:46Z",
+      "notes": "Excellent for speed-focused users and fast charging enthusiasts.",
+      "approvalDate": "2024-11-28T08:11:46Z"
+    },
+    "userComments": [
+      {
+        "id": "comment_op10t_001",
+        "userId": "ou1080",
+        "username": "ChargeLover",
+        "rating": 5,
+        "comment": "Insane charging speeds — perfect for busy days.",
+        "createdAt": "2024-11-05T09:00:00Z",
+        "helpful": 19,
+        "verified": true
+      },
+      {
+        "id": "comment_op10t_002",
+        "userId": "ou1081",
+        "username": "GameRunner",
+        "rating": 4,
+        "comment": "Excellent sustained performance with good thermals.",
+        "createdAt": "2024-11-10T14:40:00Z",
+        "helpful": 7,
+        "verified": true
+      },
+      {
+        "id": "comment_op10t_003",
+        "userId": "ou1082",
+        "username": "CameraUser",
+        "rating": 3,
+        "comment": "Good for quick snaps but camera is not as versatile as flagship models.",
+        "createdAt": "2024-11-14T17:30:00Z",
+        "helpful": 2,
+        "verified": false
+      }
+    ],
+    "specifications": {
+      "Processor": "Snapdragon 8+ Gen 1",
+      "Display": "6.7-inch AMOLED, 120Hz",
+      "RAM": "8GB / 12GB",
+      "Storage": "128GB / 256GB",
+      "Battery": "4800 mAh",
+      "Camera": "50MP (main) + 8MP (ultrawide) + 2MP (macro)"
+    },
+    "createdAt": "2024-11-14T15:28:00Z",
+    "updatedAt": "2024-12-13T15:28:00Z"
+  },
+  {
+    "id": 45,
+    "slug": "10020020",
+    "color": "pink",
+    "os": "android",
+    "brand": "oneplus",
+    "name": "OnePlus Nord N30 5G",
+    "description": "The OnePlus Nord N30 5G is an entry-level 5G phone delivering essential modern connectivity, a responsive display and reliable battery life for budget-minded users. It usually features a 6.7-inch FHD+ display with 120Hz refresh, a power-efficient Snapdragon 695 chipset, and a 5000 mAh battery to sustain long usage. Camera hardware commonly includes a high-resolution main sensor (often 108MP or 50MP depending on market) and auxiliary sensors for depth and macro. Fast charging is supported at modest speeds, enabling quick top-ups. OxygenOS brings a lightweight and clean user experience. The Nord N30 is tailored for users who want a contemporary smartphone experience with 5G support without a premium price tag.",
+    "price": 279,
+    "originalPrice": 329,
+    "salePercentage": 15,
+    "category": "Smartphones",
+    "stock": 140,
+    "images": [
+      "../assets/img/oneplus/Oneplus Nord N30/front.png",
+      "assets/img/products/oneplus_nord_n30_5g/back.png"
+    ],
+    "sellerId": 2010,
+    "rating": 4.3,
+    "adminReview": {
+      "status": "approved",
+      "reviewedBy": "admin_oneplus_10",
+      "reviewedAt": "2024-12-30T11:04:25Z",
+      "notes": "Good budget 5G device with balanced features for its price.",
+      "approvalDate": "2025-01-23T11:04:25Z"
+    },
+    "userComments": [
+      {
+        "id": "comment_n30_001",
+        "userId": "ou1090",
+        "username": "BudgetFirst",
+        "rating": 4,
+        "comment": "Great everyday phone for the price — solid battery and 5G.",
+        "createdAt": "2024-12-30T12:00:00Z",
+        "helpful": 11,
+        "verified": true
+      },
+      {
+        "id": "comment_n30_002",
+        "userId": "ou1091",
+        "username": "CasualSnap",
+        "rating": 3,
+        "comment": "Camera is okay in daylight but mediocre in low light.",
+        "createdAt": "2025-01-05T10:30:00Z",
+        "helpful": 4,
+        "verified": false
+      },
+      {
+        "id": "comment_n30_003",
+        "userId": "ou1092",
+        "username": "ValueWatcher",
+        "rating": 4,
+        "comment": "A reliable affordable 5G handset; good for social apps and media.",
+        "createdAt": "2025-01-08T09:40:00Z",
+        "helpful": 3,
+        "verified": true
+      }
+    ],
+    "specifications": {
+      "Processor": "Snapdragon 695",
+      "Display": "6.7-inch FHD+ LCD/AMOLED, 120Hz",
+      "RAM": "6GB / 8GB",
+      "Storage": "128GB",
+      "Battery": "5000 mAh",
+      "Camera": "108MP or 50MP (market dependent) + 2MP + 2MP"
+    },
+    "createdAt": "2024-12-30T11:04:25Z",
+    "updatedAt": "2025-01-23T11:04:25Z"
   }
 ]
