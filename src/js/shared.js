@@ -8,6 +8,26 @@ if (!localStorage.getItem("users")) {
     })
     .catch((err) => console.error("Error loading users:", err));
 }
+
+function getItemFromLocalStorage(key) {
+  const item = localStorage.getItem(key);
+  return item ? JSON.parse(item) : null;
+}
+
+// Set Item to Local Storage
+function setItemToLocalStorage(key, value) {
+  localStorage.setItem(key, JSON.stringify(value));
+}
+
+// Remove Item from Local Storage
+function removeItemFromLocalStorage(key) {
+  localStorage.removeItem(key);
+}
+
+// Clear Local Storage
+function clearLocalStorage() {
+  localStorage.clear();
+}
 // mock login
 let loggedIn = getCurrentUser() ? true : false;
 
@@ -61,3 +81,16 @@ function getUsers() {
 }
 let currentUser = getCurrentUser();
 let users = getUsers();
+
+function redirectToRole() {
+  if (currentUser ) {
+    if (currentUser.role === "admin") {
+      location.href = "../../pages/admin/index.html";
+    } else if (currentUser.role === "seller") {
+      location.href = "../../pages/seller/index.html";
+    } else {
+        location.href = "/";
+    }
+  } 
+}
+

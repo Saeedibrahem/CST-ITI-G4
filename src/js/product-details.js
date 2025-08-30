@@ -1,7 +1,6 @@
 const params = new URLSearchParams(window.location.search);
 const productId = params.get("id");
 
-
 if (productId) {
   const storedProducts = localStorage.getItem("products");
 
@@ -53,6 +52,7 @@ function displayProductDetails(product) {
       <p class="description text-start">Description: ${product.description}</p>
       <p class="stock">Stock: <strong>${product.stock}</strong> available</p>
       <p class="rating">Rating: ⭐${product.rating} / 5</p>
+      <p class="rating">soled-by: ${users.find(u => u.id === product.sellerId).firstName} ${users.find(u => u.id === product.sellerId).lastName}</p>
 
       <!-- Quantity Selector -->
       <div class="quantity-box d-flex align-items-center mb-3">
@@ -77,7 +77,7 @@ function displayProductDetails(product) {
     
   </div>
     <!-- Product Details Tabs -->
-  <div class="product-tabs">
+  <div class="product-tabs " style="min-height: 400px;">
     <div class="tabs-header">
       <button class="tab-btn active" data-tab="specifications">Specifications</button>
       <button class="tab-btn" data-tab="description">Description</button>

@@ -100,6 +100,28 @@ body {
     color: var(--primary-color);
 }
 
+/* Filter Button Styles */
+.btn-group .btn.active {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border-color: var(--primary-color);
+    color: white;
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+    transform: translateY(-1px);
+}
+
+.btn-group .btn.active:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(79, 70, 229, 0.4);
+}
+
+.filter-section {
+    margin-bottom: 1rem;
+}
+
+.filter-section .btn-group {
+    margin-right: 1rem;
+}
+
 .btn-outline-primary:hover {
     background-color: var(--primary-color);
     border-color: var(--primary-color);

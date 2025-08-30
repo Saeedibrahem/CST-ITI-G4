@@ -1,5 +1,11 @@
+if (!localStorage.getItem("currentUser") || currentUser.role !== "admin") {
 
-// Admin Dashboard - Comprehensive Management System (Function-based)
+    showNotification("You are not authorized to access this page", "danger");
+    window.location.href = "../../index.html";
+} else {
+    showNotification("Welcome to the admin dashboard", "success");
+}
+// Admin Dashboard
 let currentSection = 'dashboard';
 let data = {
     users: [],
@@ -9,41 +15,7 @@ let data = {
     activities: []
 };
 
-fetch("../../data/admin-demo.json").then(res => res.json()).then(data => {
-
-
-    data.map((item, index) => {
-        console.log(item, index);
-        if (index === 0) {
-            setItemToLocalStorage("admin_users", item.users);
-        }
-        if (index === 1) {
-            setItemToLocalStorage("admin_products", item.products);
-        }
-
-        if (index === 2) {
-            setItemToLocalStorage("admin_orders", item.orders);
-        }
-
-        if (index === 3) {
-            setItemToLocalStorage("admin_tickets", item.tickets);
-        }
-
-        if (index === 4) {
-            setItemToLocalStorage("admin_activities", item.activities);
-        }
-        // setItemToLocalStorage(item.name, item.data);
-    });
-    // setItemToLocalStorage("admin_users", data.users);
-    // setItemToLocalStorage("admin_products", data.products);
-    // setItemToLocalStorage("admin_orders", data.orders);
-    // setItemToLocalStorage("admin_tickets", data.tickets);
-    // setItemToLocalStorage("admin_activities", data.activities);
-});
-
-let users = getItemFromLocalStorage("admin_users");
-// console.log(getItemFromLocalStorage("admin_users"));
-
+let adUsers = users
 
 // Initialize the dashboard when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
@@ -66,11 +38,18 @@ async function init() {
 
 // Load data from localStorage or create sample data
 function loadData() {
-    const storageKeys = ['admin_users', 'admin_products', 'admin_orders', 'admin_tickets', 'admin_activities'];
+    const storageKeys = ['adUsers', 'products', 'admin_orders', 'admin_tickets', 'admin_activities'];
     const dataKeys = ['users', 'products', 'orders', 'tickets', 'activities'];
 
+
     dataKeys.forEach((key, index) => {
-        data[key] = getItemFromLocalStorage(storageKeys[index]) ?? [];
+        if (key === 'users') {
+            data[key] = [...users];
+        } else if (key === 'products') {
+            data[key] = [...products];
+        } else {
+            data[key] = getItemFromLocalStorage(storageKeys[index]) ?? [];
+        }
     });
 
     saveData();
@@ -81,7 +60,7 @@ function loadData() {
 
 // Save data to localStorage
 function saveData() {
-    const storageKeys = ['admin_users', 'admin_products', 'admin_orders', 'admin_tickets', 'admin_activities'];
+    const storageKeys = ['adUsers', 'products', 'admin_orders', 'admin_tickets', 'admin_activities'];
     const dataKeys = ['users', 'products', 'orders', 'tickets', 'activities'];
 
     dataKeys.forEach((key, index) => {
@@ -107,7 +86,7 @@ function createSystemChart() {
             labels: ['All Users', 'Sellers', 'Customers'],
             datasets: [{
                 label: 'Users Count',
-                data: [(userCounts.user + userCounts.seller), userCounts.seller, userCounts.user],
+                data: [(userCounts.customer + userCounts.seller), userCounts.seller, userCounts.customer],
                 backgroundColor: [
                     'rgba(79, 70, 229, 0.5)',
                     'rgba(124, 58, 237, 0.5)',
@@ -147,9 +126,9 @@ function createUserChart() {
     new Chart(ctx, {
         type: 'doughnut',
         data: {
-            labels: ['Users', 'Sellers'],
+            labels: ['Customers', 'Sellers'],
             datasets: [{
-                data: [userCounts.user, userCounts.seller],
+                data: [userCounts.customer, userCounts.seller],
                 backgroundColor: ['#4f46e5', '#7c3aed'],
                 borderColor: '#ffffff',
                 borderWidth: 3
@@ -167,7 +146,7 @@ function createUserChart() {
 
 // Get user counts by role
 function getUserCounts() {
-    const counts = { user: 0, seller: 0, customer: 0 };
+    const counts = { customer: 0, seller: 0, admin: 0 };
     data.users.forEach(({ role }) => {
         if (counts.hasOwnProperty(role)) {
             counts[role]++;
@@ -269,11 +248,11 @@ function updateDashboard() {
 function loadUsers() {
     const tbody = document.getElementById('usersTableBody');
     if (!tbody) return;
-
+    console.log(data.users);
     tbody.innerHTML = data.users.map(user => `
         <tr>
             <td>${user.id}</td>
-            <td>${user.name}</td>
+            <td>${user.firstName} ${user.lastName || ''}</td>
             <td>${user.email}</td>
             <td><span class="badge bg-${getRoleBadgeColor(user.role)}">${user.role}</span></td>
             <td><span class="badge bg-${getStatusBadgeColor(user.status)}">${user.status}</span></td>
@@ -301,18 +280,18 @@ function loadProducts() {
         <tr>
             <td>${product.id}</td>
             <td>${product.name}</td>
-            <td>${product.seller}</td>
+            <td>${data.users.find(u => u.id === product.sellerId)?.firstName} ${data.users.find(u => u.id === product.sellerId)?.lastName}</td>
             <td>${product.category}</td>
             <td>$${product.price}</td>
-            <td><span class="badge bg-${getProductStatusBadgeColor(product.status)}">${product.status}</span></td>
+            <td><span class="badge bg-${getProductStatusBadgeColor(product.adminReview.status)}">${product.adminReview.status}</span></td>
             <td>
                 <button class="btn btn-sm btn-outline-primary me-1" onclick="viewProduct('${product.id}')">
                     <i class="bi bi-eye"></i>
                 </button>
-                <button class="btn btn-sm btn-outline-success me-1" onclick="approveProduct('${product.id}')" ${product.status === 'approved' ? 'disabled' : ''}>
+                <button class="btn btn-sm btn-outline-success me-1" onclick="approveProduct('${product.id}')" ${product.adminReview.status === 'approved' ? 'disabled' : ''}>
                     <i class="bi bi-check"></i>
                 </button>
-                <button class="btn btn-sm btn-outline-danger" onclick="rejectProduct('${product.id}')" ${product.status === 'rejected' ? 'disabled' : ''}>
+                <button class="btn btn-sm btn-outline-danger" onclick="rejectProduct('${product.id}')" ${product.adminReview.status === 'rejected' ? 'disabled' : ''}>
                     <i class="bi bi-x"></i>
                 </button>
             </td>
@@ -487,9 +466,73 @@ function addUser() {
 }
 
 function editUser(userId) {
-    const user = data.users.find(u => u.id === userId);
+    const user = data.users.find(u => u.id === +userId);
     if (user) {
-        showNotification('Edit user functionality coming soon', 'info');
+        // Populate the edit form with user data
+        document.getElementById('editUserId').value = user.id;
+        document.getElementById('editUserName').value = user.firstName + ' ' + user.lastName;
+        document.getElementById('editUserEmail').value = user.email;
+        document.getElementById('editUserRole').value = user.role;
+        document.getElementById('editUserStatus').value = user.status;
+        document.getElementById('editUserPassword').value = ''; // Clear password field
+
+        // Show the edit modal
+        const modal = new bootstrap.Modal(document.getElementById('editUserModal'));
+        modal.show();
+    } else {
+        showNotification('User not found', 'danger');
+    }
+}
+
+function updateUser() {
+    const userId = +document.getElementById('editUserId').value;
+    const formData = {
+        name: document.getElementById('editUserName').value,
+        email: document.getElementById('editUserEmail').value,
+        role: document.getElementById('editUserRole').value,
+        status: document.getElementById('editUserStatus').value,
+        password: document.getElementById('editUserPassword').value
+    };
+
+    if (!formData.name || !formData.email || !formData.role || !formData.status) {
+        showNotification('Please fill all required fields', 'warning');
+        return;
+    }
+
+    const userIndex = data.users.findIndex(u => u.id === userId);
+    if (userIndex > -1) {
+        const user = data.users[userIndex];
+        const oldName = user.firstName;
+
+        // Update user data
+        user.firstName = formData.name;
+        user.email = formData.email;
+        user.role = formData.role;
+        user.status = formData.status;
+
+        // Update password only if a new one is provided
+        if (formData.password.trim()) {
+            user.password = btoa(formData.password); // Simple encoding (use proper hashing in production)
+        }
+
+        // Update timestamp
+        user.updatedAt = new Date().toISOString().split('T')[0];
+
+        saveData();
+        loadUsers();
+        updateDashboard();
+
+        // Close modal
+        const modal = bootstrap.Modal.getInstance(document.getElementById('editUserModal'));
+        modal?.hide();
+
+        // Clear form
+        document.getElementById('editUserForm')?.reset();
+
+        showNotification(`User ${oldName} updated successfully`, 'success');
+        addActivity('user_updated', `User ${oldName} updated`);
+    } else {
+        showNotification('User not found', 'danger');
     }
 }
 
@@ -506,9 +549,9 @@ function resetPassword(userId) {
 
 function removeUser(userId) {
     if (confirm('Are you sure you want to remove this user?')) {
-        const userIndex = data.users.findIndex(u => u.id === userId);
+        const userIndex = data.users.findIndex(u => u.id === +userId);
         if (userIndex > -1) {
-            const userName = data.users[userIndex].name;
+            const userName = data.users[userIndex].firstName + ' ' + data.users[userIndex].lastName;
             data.users.splice(userIndex, 1);
             saveData();
             loadUsers();
@@ -521,7 +564,7 @@ function removeUser(userId) {
 
 // Product Management Functions
 function viewProduct(productId) {
-    const product = data.products.find(p => p.id === productId);
+    const product = data.products.find(p => p.id === +productId);
     if (product) {
         // Store the current product ID globally for approve/reject functions
         window.currentProductId = productId;
@@ -535,7 +578,7 @@ function viewProduct(productId) {
                     <p><strong>Seller:</strong> ${product.seller}</p>
                     <p><strong>Category:</strong> ${product.category}</p>
                     <p><strong>Price:</strong> $${product.price}</p>
-                    <p><strong>Status:</strong> ${product.status}</p>
+                    <p><strong>Status:</strong> ${product.adminReview.status}</p>
                     <p><strong>Created:</strong> ${product.createdAt}</p>
                 </div>
                 <div class="col-md-6">
@@ -549,9 +592,9 @@ function viewProduct(productId) {
 }
 
 function approveProduct(productId) {
-    const product = data.products.find(p => p.id === productId);
+    const product = data.products.find(p => p.id === +productId);
     if (product) {
-        product.status = 'approved';
+        product.adminReview.status = 'approved';
         saveData();
         loadProducts();
         showNotification(`Product ${product.name} approved`, 'success');
@@ -560,9 +603,9 @@ function approveProduct(productId) {
 }
 
 function rejectProduct(productId) {
-    const product = data.products.find(p => p.id === productId);
+    const product = data.products.find(p => p.id === +productId);
     if (product) {
-        product.status = 'rejected';
+        product.adminReview.status = 'rejected';
         saveData();
         loadProducts();
         showNotification(`Product ${product.name} rejected`, 'warning');
@@ -572,14 +615,14 @@ function rejectProduct(productId) {
 
 // Order Management Functions
 function viewOrder(orderId) {
-    const order = data.orders.find(o => o.id === orderId);
+    const order = data.orders.find(o => o.id === +orderId);
     if (order) {
         showNotification(`Order ${orderId} details: ${order.products.join(', ')}`, 'info');
     }
 }
 
 function updateOrderStatus(orderId) {
-    const order = data.orders.find(o => o.id === orderId);
+    const order = data.orders.find(o => o.id === +orderId);
     if (order) {
         const statuses = ['pending', 'processing', 'completed', 'cancelled'];
         const currentIndex = statuses.indexOf(order.status);
@@ -594,7 +637,7 @@ function updateOrderStatus(orderId) {
 
 // Ticket Management Functions
 function viewTicket(ticketId) {
-    const ticket = data.tickets.find(t => t.id === ticketId);
+    const ticket = data.tickets.find(t => t.id === +ticketId);
     if (ticket) {
         const modal = new bootstrap.Modal(document.getElementById('ticketResponseModal'));
         document.getElementById('ticketDetails').innerHTML = `
@@ -626,7 +669,7 @@ function updateTicket() {
         return;
     }
 
-    const ticket = data.tickets.find(t => t.id === ticketId);
+    const ticket = data.tickets.find(t => t.id === +ticketId);
     if (ticket) {
         ticket.responses.push(response);
         ticket.status = status;
@@ -648,11 +691,170 @@ function getCurrentTicketId() {
 
 // Filter Functions
 function filterProducts(status) {
-    showNotification(`Filtering products by ${status}`, 'info');
+    const tbody = document.getElementById('productsTableBody');
+    if (!tbody) return;
+
+    if (!data.products || !Array.isArray(data.products)) {
+        showNotification('No products data available', 'warning');
+        return;
+    }
+
+    let filteredProducts = data.products;
+
+    if (status !== 'all') {
+        filteredProducts = data.products.filter(product => product.adminReview?.status === status);
+    }
+
+    tbody.innerHTML = filteredProducts.map(product => `
+        <tr>
+            <td>${product.id}</td>
+            <td>${product.name}</td>
+            <td>${data.users.find(u => u.id === product.sellerId)?.firstName} ${data.users.find(u => u.id === product.sellerId)?.lastName}</td>
+            <td>${product.category}</td>
+            <td>$${product.price}</td>
+            <td><span class="badge bg-${getProductStatusBadgeColor(product.adminReview?.status)}">${product.adminReview?.status}</span></td>
+            <td>
+                <button class="btn btn-sm btn-outline-primary me-1" onclick="viewProduct('${product.id}')">
+                    <i class="bi bi-eye"></i>
+                </button>
+                <button class="btn btn-sm btn-outline-success me-1" onclick="approveProduct('${product.id}')" ${product.adminReview?.status === 'approved' ? 'disabled' : ''}>
+                    <i class="bi bi-check"></i>
+                </button>
+                <button class="btn btn-sm btn-outline-danger" onclick="rejectProduct('${product.id}')" ${product.adminReview?.status === 'rejected' ? 'disabled' : ''}>
+                    <i class="bi bi-x"></i>
+                </button>
+            </td>
+        </tr>
+    `).join('');
+
+    // Update active filter button states
+    updateFilterButtonStates('products', status);
+    showNotification(`Showing ${filteredProducts.length} products with status: ${status}`, 'info');
 }
 
 function filterTickets(status) {
-    showNotification(`Filtering tickets by ${status}`, 'info');
+    const tbody = document.getElementById('ticketsTableBody');
+    if (!tbody) return;
+
+    if (!data.tickets || !Array.isArray(data.tickets)) {
+        showNotification('No tickets data available', 'warning');
+        return;
+    }
+
+    let filteredTickets = data.tickets;
+
+    if (status !== 'all') {
+        filteredTickets = data.tickets.filter(ticket => ticket.status === status);
+    }
+
+    tbody.innerHTML = filteredTickets.map(ticket => `
+        <tr>
+            <td>${ticket.id}</td>
+            <td>${ticket.customer}</td>
+            <td>${ticket.subject}</td>
+            <td><span class="badge bg-${getPriorityBadgeColor(ticket.priority)}">${ticket.priority}</span></td>
+            <td><span class="badge bg-${getTicketStatusBadgeColor(ticket.status)}">${ticket.status}</span></td>
+            <td>${ticket.createdAt}</td>
+            <td>
+                <button class="btn btn-sm btn-outline-primary me-1" onclick="viewTicket('${ticket.id}')">
+                    <i class="bi bi-eye"></i>
+                </button>
+                <button class="btn btn-sm btn-outline-success" onclick="respondToTicket('${ticket.id}')">
+                    <i class="bi bi-reply"></i>
+                </button>
+            </td>
+        </tr>
+    `).join('');
+
+    // Update active filter button states
+    updateFilterButtonStates('tickets', status);
+    showNotification(`Showing ${filteredTickets.length} tickets with status: ${status}`, 'info');
+}
+
+function filterUsers(role) {
+    const tbody = document.getElementById('usersTableBody');
+    if (!tbody) return;
+
+    if (!data.users || !Array.isArray(data.users)) {
+        showNotification('No users data available', 'warning');
+        return;
+    }
+
+    let filteredUsers = data.users;
+
+    if (role !== 'all') {
+        filteredUsers = data.users.filter(user => user.role === role);
+    }
+
+    tbody.innerHTML = filteredUsers.map(user => `
+        <tr>
+            <td>${user.id}</td>
+                <td>${user.firstName} ${user.lastName || ''}</td>
+            <td>${user.email}</td>
+            <td><span class="badge bg-${getRoleBadgeColor(user.role)}">${user.role}</span></td>
+            <td><span class="badge bg-${getStatusBadgeColor(user.status)}">${user.status}</span></td>
+            <td>
+                <button class="btn btn-sm btn-outline-primary me-1" onclick="editUser('${user.id}')">
+                    <i class="bi bi-pencil"></i>
+                </button>
+                <button class="btn btn-sm btn-outline-warning me-1" onclick="resetPassword('${user.id}')">
+                    <i class="bi bi-key"></i>
+                </button>
+                <button class="btn btn-sm btn-outline-danger" onclick="removeUser('${user.id}')">
+                    <i class="bi bi-trash"></i>
+                </button>
+            </td>
+        </tr>
+    `);
+
+    // Update active filter button states
+    updateFilterButtonStates('users', role);
+    showNotification(`Showing ${filteredUsers.length} users with role: ${role}`, 'info');
+}
+
+function updateFilterButtonStates(section, activeFilter) {
+    // Remove active class from all filter buttons in the section
+    const filterButtons = document.querySelectorAll(`[onclick*="filter${section.charAt(0).toUpperCase() + section.slice(1)}"]`);
+    filterButtons.forEach(btn => {
+        btn.classList.remove('active');
+        btn.classList.remove('btn-primary');
+        btn.classList.add('btn-outline-primary');
+    });
+
+    // Add active class to the clicked filter button
+    const activeButton = document.querySelector(`[onclick*="filter${section.charAt(0).toUpperCase() + section.slice(1)}('${activeFilter}')"]`);
+    if (activeButton) {
+        activeButton.classList.remove('btn-outline-primary');
+        activeButton.classList.add('btn-primary');
+        activeButton.classList.add('active');
+    }
+}
+
+function resetFilters(section) {
+    switch (section) {
+        case 'users':
+            loadUsers();
+            break;
+        case 'products':
+            loadProducts();
+            break;
+        case 'tickets':
+            loadTickets();
+            break;
+        case 'orders':
+            loadOrders();
+            break;
+    }
+
+    // Reset all filter button states
+    const filterButtons = document.querySelectorAll(`[onclick*="filter${section.charAt(0).toUpperCase() + section.slice(1)}"]`);
+    filterButtons.forEach(btn => {
+        btn.classList.remove('active');
+        btn.classList.remove('btn-primary');
+        btn.classList.add('btn-outline-primary');
+    });
+
+    showNotification(`Filters reset for ${section}`, 'info');
 }
 
 // Utility Functions
@@ -706,6 +908,7 @@ function showAddModal() {
     // Show appropriate modal based on current section
     const sections = {
         users: showAddUserModal
+
     };
 
     const handler = sections[currentSection];
@@ -714,4 +917,8 @@ function showAddModal() {
     } else {
         showNotification('Add functionality for this section coming soon', 'info');
     }
+}
+
+function showEditUserModal(userId) {
+    editUser(userId);
 }

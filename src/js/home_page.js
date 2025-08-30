@@ -12,10 +12,10 @@ function loadSpinner() {
     }, 1000);
   });
 }
-loadSpinner();
-displaySaleProducts(products);
+// loadSpinner();
+displaySaleProducts(filteredProducts);
 initSwipers();
-displayAllProducts(products);
+displayAllProducts(filteredProducts);
 // display sale products
 
 function displaySaleProducts(products) {

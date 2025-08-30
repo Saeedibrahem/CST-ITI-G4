@@ -1,74 +1,23 @@
 // ============================= products section =============================
-// ============================= products section =============================
 // Fetch products and render them
 fetch("../../data/products.json")
   .then(res => res.json())
   .then(products => {
-    setItemToLocalStorage("products", products);
+    if (!getItemFromLocalStorage("products")) {
+      setItemToLocalStorage("products", products);
+    }
+    else {
+      return;
+    }
     // renderProducts(products);
   })
   .catch(err => console.error("Error loading products:", err));
 
 // Get Products from Local Storage
 const products = getItemFromLocalStorage("products");
+// filter products
+let filteredProducts = products.filter(p => p.adminReview.status === 'approved');
 
-// function renderProducts(products) {
-//   if (!products) return;
-
-//   const productList = document.getElementById("product-list");
-//   productList.innerHTML = "";
-
-//   products.forEach(product => {
-//     const productCard = document.createElement("div");
-//     productCard.className = "col-md-4";
-//     productCard.innerHTML = `
-//       <div class="card h-100">
-//         <img src="${product.images[0]}" class="card-img-top" alt="${product.name}">
-//         <div class="card-body">
-//           <h5 class="card-title">${product.name}</h5>
-//           <p class="card-text text-truncate">${product.description}</p>
-//           <h6 class="text-success">$${product.price}</h6>
-//           <button class="btn btn-primary btn-sm mt-2" 
-//             data-id="${product.id}" 
-//             data-bs-toggle="modal" 
-//             data-bs-target="#productModal">
-//             View Details
-//           </button>
-//         </div>
-//       </div>
-//     `;
-
-//     productList.appendChild(productCard);
-//   });
-// }
-
-// Handle modal content
-// document.addEventListener('DOMContentLoaded', function() {
-//   document.addEventListener("click", function(e) {
-//     if (e.target.matches("[data-bs-target='#productModal']")) {
-//       const id = e.target.getAttribute("data-id");
-//       const products = getItemFromLocalStorage("products");
-//       if (!products) return;
-
-//       const product = products.find(p => p.id == id);
-//       if (!product) return;
-
-//       document.getElementById("modalProductName").textContent = product.name;
-//       document.getElementById("modalProductImage").src = product.images[0];
-//       document.getElementById("modalProductDescription").textContent = product.description;
-//       document.getElementById("modalProductPrice").textContent = product.price;
-
-//       const specsList = document.getElementById("modalProductSpecs");
-//       specsList.innerHTML = ""; // clear old specs
-//       for (const [key, value] of Object.entries(product.specifications)) {
-//         const li = document.createElement("li");
-//         li.className = "list-group-item";
-//         li.textContent = `${key}: ${value}`;
-//         specsList.appendChild(li);
-//       }
-//     }
-//   });
-// });
 
 // Local Storage Functions
 // Get Item from Local Storage
@@ -92,11 +41,6 @@ function clearLocalStorage() {
   localStorage.clear();
 }
 
-//! how to calculate TotalSales/TotoalOrders from products.json, add "sold" field after "stock"
-//! how to calculate MonthlySales from products.json, add "monthlySales" field after "sold", [0,0,0,0,0,0,0,0,0,0,0,0]
-//! login.js get admin data
-// ============================= user section =============================
-// ============================= user section =============================
 // ============================= user section =============================
 // fetch users one tiem
 if (!localStorage.getItem("users")) {
@@ -127,8 +71,6 @@ window.addEventListener("DOMContentLoaded", () => {
 function logout() {
   loggedIn = false;
   removeItemFromLocalStorage("currentUser");
-
-
   window.location.href = "./";
 }
 // encrypt func     abdo=>***
@@ -160,19 +102,3 @@ function getUsers() {
   );
   return users;
 }
-// ============================= product section =============================
-// ============================= product section =============================
-// ============================= product section =============================
-// Fetch products one time
-// if (!localStorage.getItem("products")) {
-//   fetch("../../data/products.json")
-//     .then((res) => res.json())
-//     .then((products) => {
-//       localStorage.setItem("products", JSON.stringify(products));
-//     })
-//     .catch((err) => console.error("Error loading products:", err));
-// }
-// // get products
-// function getProducts() {
-//   return JSON.parse(localStorage.getItem("products"));
-// }
