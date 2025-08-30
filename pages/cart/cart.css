@@ -1,0 +1,281 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box
+}
+
+body {
+    background: #f8f9fa;
+  }
+/* main compent */
+
+
+  /* cart  */
+  .cart-item img {
+    width: 80px;
+  }
+
+  .cart-summary {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+
+
+  .delete-wrap {
+    position: relative;
+    filter: url(#goo);
+  }
+
+  .delete-btn {
+    border: none;
+    cursor: pointer;
+    padding: 0.35rem 0.8rem;
+    border-radius: 999px;
+    font-weight: 600;
+    background: linear-gradient(180deg, #ef4444, #dc2626);
+    color: #fff;
+    font-size: 0.85rem;
+  }
+
+  .x-mark {
+    position: absolute;
+    right: -35px;
+    top: 50%;
+    transform: translateY(-50%) scale(0);
+    background: #fff;
+    color: #ef4444;
+    font-weight: bold;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    transition: .3s;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+
+  .delete-wrap.active .x-mark {
+    transform: translateY(-50%) scale(1);
+  }
+
+  .bubble {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    background: #ef4444;
+    border-radius: 50%;
+    transform: translateX(-50%) scale(0);
+    opacity: 0;
+  }
+
+  .delete-wrap.active .bubble {
+    animation: float 2s ease-in-out infinite;
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+  }
+
+  @keyframes float {
+    0% {
+      transform: translate(-50%, 0) scale(1);
+    }
+
+    50% {
+      transform: translate(-50%, -12px) scale(1.2);
+    }
+
+    100% {
+      transform: translate(-50%, 0) scale(1);
+    }
+  }
+
+
+
+
+
+  /* checkout steps */
+  .hidden {
+    display: none;
+  }
+
+  .steps .active {
+    font-weight: bold;
+    color: #000 !important;
+  }
+
+  .steps .step {
+    color: #aaa;
+  }
+
+  /* end checkout steps */
+
+
+
+  /* step 1 start */
+  
+.btn-close.loading {
+  position: relative;
+  border: 2px solid transparent;
+  border-radius: 50%;
+}
+
+.btn-close.loading::after {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border: 2px solid #dc3545; 
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 2s linear forwards; 
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* step 1 end */
+
+
+/* spet 3 */
+  .card-summary img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+  }
+
+  .wrapper {
+    width: 400px;
+    perspective: 1000px;
+  }
+
+  .card-preview {
+    width: 100%;
+    height: 200px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.8s ease;
+  }
+
+  .card-preview.flipped {
+    transform: rotateY(180deg);
+  }
+
+  .card-side {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    backface-visibility: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    color: white;
+
+  }
+
+  .card-front {
+    background: linear-gradient(135deg, #4b79a1, #283e51);
+  }
+
+  .card-back {
+    background: linear-gradient(135deg, #283e51, #4b79a1);
+    transform: rotateY(180deg);
+  }
+
+  .visa {
+    background-image: linear-gradient(135deg, #1A1F71, #faaa13);
+  }
+
+  #cardType {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+  }
+
+  .card-number {
+    font-size: 20px;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    position: absolute;
+    top: 45%;
+    left: 20px;
+  }
+
+  .cardDatePreview {
+    position: absolute;
+    top: 75%;
+    right: 40px;
+  }
+
+  .cardNamePreview {
+    position: absolute;
+    top: 75%;
+    left: 20px;
+  }
+
+  .cvvPreview {
+    position: absolute;
+    top: 50%;
+    left: 40px;
+    font-size: 20px;
+    letter-spacing: 2px;
+  }
+
+  .card-form {
+    margin-top: 80px;
+  }
+
+  .form-group {
+    margin-top: 15px;
+  }
+
+  .form-group:nth-child(5) {
+    margin-bottom: 20px;
+  }
+
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  input,
+  select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+  }
+
+  /* button {
+    width: 100%;
+    padding: 10px;
+    background: #283e51;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+  } */
+/* 
+  button:hover {
+    background: #4b79a1;
+  } */
+
+  /* end step 3 */
+    @media print {
+            #printBtn , #homeBackBtn {
+                display: none;
+            }
+        }

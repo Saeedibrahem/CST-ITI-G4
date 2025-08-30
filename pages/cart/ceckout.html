@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>MobileXpress</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+
+  <!-- Bootstrap + FontAwesome -->
+  <link rel="stylesheet" href="../../assets/lib/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="./cart.css">
+  <link rel="stylesheet" href="../../src/css/global.css">
+</head>
+
+<body class="bg-light">
+
+<!-- header -->
+
+<header class="sticky-top bg-white shadow-sm border-bottom ">
+  <nav class="navbar navbar-expand-lg navbar-light py-2 px-lg-5 ">
+    <div class="container-fluid">
+
+      <!-- Logo -->
+      <a class="navbar-brand fw-bold d-flex align-items-center" href="../../index.html">
+        <img src="../../assets/home_page_img/logo.png" alt="Logo" height="40" class="me-2">
+      </a>
+
+      <!-- Collapsible Nav + Search -->
+      <div class="collapse navbar-collapse justify-content-center" id="mainNav">
+        <ul class="navbar-nav mx-3 d-flex g-4 ">
+          <li class="nav-item"><a class="nav-link  fw-semibold text-dark " href="../../index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link fw-semibold text-dark " href="../products/index.html">Catalog</a></li>
+          <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="../aboutus/aboutus.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link fw-semibold text-dark  " href="./cart.html">cart</a></li>
+        </ul>
+
+        <!-- Search -->
+        <!-- <form class="d-flex mx-lg-3 my-2 my-lg-0">
+          <div class="input-group">
+            <input type="search" class="form-control" placeholder="Search products...">
+            <button class="btn btn-primary"><i class="fa-solid fa-search"></i></button>
+          </div>
+        </form> -->
+      </div>
+
+      <!-- Right Side (Auth / User) -->
+      <div class="d-flex align-items-center gap-2 ms-3">
+        
+        <!-- If user logged in -->
+        <div id="userMenu" class="dropdown d-none">
+          <button class="btn btn-outline-dark rounded-circle p-2" data-bs-toggle="dropdown">
+            <i class="fa-solid fa-user fa-lg"></i>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end shadow border-0 rounded-3 mt-2">
+            <li><h6 class="dropdown-header  text-primary">User Account</h6></li>
+            <li><a class="dropdown-item" href="#"><i class="fa-solid fa-user-gear me-2 "></i>Profile</a></li>
+            <li><a class="dropdown-item" href="#"><i class="fa-solid fa-box me-2 text-primary"></i>Orders</a></li>
+            <li><a class="dropdown-item" href="#"><i class="fa-solid fa-heart me-2 text-primary"></i>Wishlist</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item text-danger" href="#" onclick="logout()"><i class="fa-solid fa-sign-out-alt me-2"></i>Logout</a></li>
+          </ul>
+        </div>
+
+        <!-- If user NOT logged in -->
+        <div id="authLinks" class="d-flex gap-2 ">
+          <a href="../login/index.html" class=" login_btn btn btn-outline-dark  text-dark btn-sm">
+            <i class="fa-solid fa-right-to-bracket me-1"></i> Login
+          </a>
+          <a href="../signup/index.html" class="btn btn-primary signup_btn bg-dark text-white btn-outline-dark btn-sm">
+            <i class="fa-solid fa-user-plus me-1"></i> Signup
+          </a>
+        </div>
+      </div>
+
+      <!-- Navbar Toggler (Always at far right) -->
+      <button class="navbar-toggler border-0 shadow-none ms-2" type="button" data-bs-toggle="collapse"
+        data-bs-target="#mainNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+
+
+
+
+  <div class="container my-5 p-4 bg-white rounded shadow">
+
+    <!-- steps options -->
+    <div class="d-flex justify-content-between mb-4 steps">
+      <div class="step active ">
+        <i class="fa-solid fa-location-dot "></i> Step 1<div class="ms-2">Address</div>
+      </div>
+
+      <div class="step"><i class="fa-solid fa-cart-shopping"></i> Step 2: <div class="ms-2">Shipping</div>
+      </div>
+      <div class="step"> <i class="fa-solid fa-credit-card"></i> Step 3: <div class="ms-2">Payment</div>
+      </div>
+    </div>
+
+    <!-- notification -->
+    <div class="position-fixed top-0 end-0 p-5" style="z-index: 1055;">
+      <div id="notification"></div>
+    </div>
+
+    <!-- Step 1: Address -->
+    <div class="step-content " id="step-1">
+
+      <div class="container my-5 ">
+        <div class="card  rounded-4 p-4">
+          <h3 class="mb-4">Select Address</h3>
+          <div id="address-list" class="mb-3"></div>
+          <!-- Add Button -->
+          <button class="btn btn-outline-dark " data-bs-toggle="modal" data-bs-target="#addressModal">
+            + Add New Address
+          </button>
+        </div>
+      </div>
+
+      <!-- Modal -->
+      <div class="modal fade " id="addressModal" tabindex="-1" aria-labelledby="form-title" aria-hidden="true"
+        data-bs-backdrop="static" data-bs-keyboard="false">
+        <div class="modal-dialog">
+          <div class="modal-content rounded-4">
+            <div class="modal-header">
+              <h5 class="modal-title" id="form-title">Add Address</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                onclick="closeForm()"></button>
+            </div>
+            <div class="modal-body">
+              <div id="address-listxx" class="mb-3 bg-danger text-white d-none text-center">fill all
+                fields please</div>
+              <input type="text" id="name" class="form-control mb-2" placeholder="Label (e.g. Home, Office)">
+              <input type="text" id="street" class="form-control mb-2" placeholder="Street">
+              <input type="text" id="city" class="form-control mb-2" placeholder="City, State, Zip">
+              <input type="text" id="phone" class="form-control mb-2" placeholder="Phone">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                onclick="closeForm()">Cancel</button>
+              <button type="button" class="btn btn-primary" onclick="saveAddress()">Save</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- button next -->
+      <div class="d-flex justify-content-between mt-4">
+        <button class="btn btn-outline-dark" disabled>Back</button>
+        <button class="btn btn-dark" onclick="nextStep()">Next</button>
+      </div>
+    </div>
+
+
+
+
+
+    <!-- Step 2: Shipping -->
+    <div class="step-content hidden" id="step-2">
+      <h3 class="mb-3">Shipment Method</h3>
+
+
+      <div class="card mb-3 p-3">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="shipping" id="ship1">
+          <label class="form-check-label" for="ship1">
+            Fast Delivery – <span id="datespan1" class="float-end"></span>
+            <span class="badge bg-dark" id="cost1"></span>
+          </label>
+          <input type="hidden" id="spinp1">
+        </div>
+      </div>
+
+      <div class="card mb-3 p-3">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="shipping" id="ship2">
+          <label class="form-check-label" for="ship2">
+            Standard Delivery – <span id="datespan2" class="float-end"></span>
+            <span class="badge bg-dark" id="cost2"></span>
+          </label>
+          <input type="hidden" id="spinp2">
+        </div>
+      </div>
+
+      <div class="card mb-3 p-3">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="shipping" id="ship3">
+          <label class="form-check-label" for="ship3">
+            Scheduled Delivery – <span id="datespan3" class="float-end"></span>
+            <span class="badge bg-dark" id="cost3"></span>
+          </label>
+          <input type="hidden" id="spinp3">
+        </div>
+      </div>
+
+      <div class="card mb-3 p-3">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="shipping" id="ship4">
+          <label class="form-check-label" for="ship4">Choose Your Date <span class="badge bg-dark mt-2"
+              id="customCost"></span>
+          </label>
+          <input type="date" id="customDate" class="form-control mt-2" disabled>
+        </div>
+      </div>
+
+
+      <div class="d-flex justify-content-between mt-4">
+        <button class="btn btn-outline-dark" onclick="prevStep()">Back</button>
+        <button class="btn btn-dark" onclick="nextStep()">Next</button>
+      </div>
+    </div>
+
+
+
+    <!-- Step 3: Payment -->
+    <div class="step-content hidden" id="step-3">
+      <div class="container ">
+        <div class="row g-4">
+          <!-- Summary -->
+          <div class="col-md-5">
+            <div class="card shadow card-summary">
+              <div class="card-body">
+                <h5 class="mb-3">Summary</h5>
+                <ul class="list-group mb-3" id="itemsList"></ul>
+                <p><strong>Address:</strong> <span id="address"></span></p>
+                <p><strong>Shipment method:</strong> <span id="shipment"></span></p>
+                <p><strong>Shipment Data:</strong> <span id="shipmentDate"></span></p>
+                <p><strong>Shipment Cost:</strong> <span id="shipmentCost"></span></p>
+                <hr>
+                <p class="d-flex justify-content-between"><span>Subtotal</span> <span id="subtotal"></span></p>
+                <p class="d-flex justify-content-between"><span>Estimated Tax</span> <span id="tax"></span></p>
+                <hr>
+                <h5 class="d-flex justify-content-between"><span>Total</span> <span id="total"></span></h5>
+              </div>
+            </div>
+          </div>
+
+          <!-- Payment -->
+          <div class="col-md-7">
+            <div class="card shadow">
+              <div class="card-body">
+                <h5 class="mb-3">Payment</h5>
+                <ul class="nav nav-tabs mb-3">
+                  <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#credit">Credit Card</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#paypalcredit">PayPal Credit</a>
+                  </li>
+                  <li class="nav-item"><a class="nav-link " data-bs-toggle="tab" href="#cash">Cash on Delivery</a></li>
+
+                </ul>
+
+                <!-- paymentm tabs -->
+                <div class="tab-content">
+
+                  <!-- Credit Card -->
+                  <div class="tab-pane fade show active px-4" id="credit">
+                    <!-- البطاقة -->
+                    <div class="card-preview " id="card">
+                      <!-- الوجه الأمامي -->
+                      <div class="card-side card-front visa">
+                        <img id="cardType" src="../../assets/img/visa.PNG">
+                        <div class="card-number cardNumberPreview">#### #### #### ####</div>
+                        <div id="cardNamePreview " class="cardNamePreview">FULL NAME</div>
+                        <div id="cardDatePreview " class="cardDatePreview">MM/YY</div>
+                      </div>
+                      <!-- الوجه الخلفي -->
+                      <div class="card-side card-back visa">
+                        <div id="cvvPreview " class="cvvPreview">CVV</div>
+                        <div style="background:#fff;height:40px;margin-top:30px;"></div>
+
+                      </div>
+                    </div>
+
+                    <!-- الفورم -->
+                    <div class="form-group">
+                      <label>Card Number</label>
+                      <input type="text" class="cardNumber" id="cardNumber" maxlength="19"
+                        placeholder="#### #### #### ####">
+                    </div>
+                    <div class="form-group">
+                      <label>Card Holder</label>
+                      <input type="text" class="cardName" id="cardName" placeholder="Full Name">
+                    </div>
+                    <div class="form-group">
+                      <label>Expiration Date</label>
+                      <div style="display:flex; gap:10px;">
+                        <select class="cardMonth" id="cardMonth">
+                          <option value="">MM</option>
+                          <script>
+                            for (let i = 1; i <= 12; i++) {
+                              let m = i < 10 ? '0' + i : i;
+                              document.write(`<option value="${m}">${m}</option>`);
+                            }
+                          </script>
+                        </select>
+                        <select class="cardYear" id="cardYear">
+                          <option value="">YY</option>
+                          <script>
+                            let year = new Date().getFullYear();
+                            for (let i = 0; i < 10; i++) {
+                              document.write(`<option value="${year + i}">${year + i}</option>`);
+                            }
+                          </script>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label>CVV</label>
+                      <input type="text" class="cardCvv" id="cardCvv" maxlength="4" placeholder="123">
+                    </div>
+                  </div>
+                  <!-- Credit Card -->
+                  <div class="tab-pane fade  px-4" id="paypalcredit">
+                    <!-- البطاقة -->
+                    <div class="card-preview " id="card">
+                      <!-- الوجه الأمامي -->
+                      <div class="card-side card-front">
+                        <img id="cardType" src="../../assets/img/paypal.png">
+                        <div class="card-number cardNumberPreview" id="">#### #### #### ####</div>
+                        <div class="cardNamePreview">FULL NAME</div>
+                        <div class="cardDatePreview">MM/YY</div>
+                      </div>
+                      <!-- الوجه الخلفي -->
+                      <div class="card-side card-back">
+                        <div class="cvvPreview">CVV</div>
+                        <div style="background:#fff;height:40px;margin-top:30px;"></div>
+                      </div>
+                    </div>
+                    <!-- الفورم -->
+                    <div class="form-group">
+                      <label>Card Number</label>
+                      <input type="text" class="cardNumber" maxlength="19" placeholder="#### #### #### ####">
+                    </div>
+                    <div class="form-group">
+                      <label>Card Holder</label>
+                      <input type="text" class="cardName" placeholder="Full Name">
+                    </div>
+                    <div class="form-group">
+                      <label>Expiration Date</label>
+                      <div style="display:flex; gap:10px;">
+                        <select class="cardMonth">
+                          <option value="">MM</option>
+                          <script>
+                            for (let i = 1; i <= 12; i++) {
+                              let m = i < 10 ? '0' + i : i;
+                              document.write(`<option value="${m}">${m}</option>`);
+                            }
+                          </script>
+                        </select>
+                        <select class="cardYear">
+                          <option value="">YY</option>
+                          <script>
+                            let y = new Date().getFullYear();
+                            for (let i = 0; i < 10; i++) {
+                              document.write(`<option value="${y + i}">${y + i}</option>`);
+                            }
+                          </script>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label>CVV</label>
+                      <input type="text" class="cardCvv" maxlength="4" placeholder="123">
+                    </div>
+                  </div>
+                </div>
+                <!-- Cash on delivery -->
+                <div class="tab-pane fade px-4" id="cash">
+                  <div class="alert alert-info mt-3">
+                    <strong>Cash on delivery</strong><br>
+                    Payment will be made in cash upon receipt of the order from the shipping representative.
+                  </div>
+                  <div class="form-check mt-3">
+                    <input class="form-check-input" type="checkbox" id="codAgree">
+                    <label class="form-check-label" for="codAgree">
+                      I agree to pay cash on delivery
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex justify-content-between gap-3">
+                <button type="submit" class="btn btn-dark w-100" id="btnstep3" onclick=" step3valid() ">Pay</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-between mt-4">
+        <button class="btn btn-outline-dark" onclick="prevStep()">Back</button>
+        <button class="btn btn-dark " id="btnfinish" disabled onclick="finishOrder()">finsh</button>
+      </div>
+    </div>
+  </div>
+
+
+<!-- invoice payment -->
+
+    <div class="container my-5 p-4 bg-white rounded shadow d-none" id="invoice"> 
+        
+    </div>
+
+
+    
+
+  <!-- footer -->
+  <footer id="page-footer" class="footer mt-auto py-5 bg-black text-white">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-md-4">
+          <h5 class="fw-bold text-white logo_footer"><a href="./index.html"> <img
+                src="../../assets/home_page_img/logo_white_black_back.png" alt=""> </a></h5>
+          <p class=" text-white">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste sint perspiciatis eaque maxime expedita eius
+            asperiores provident delectus dolores distinctio?.
+          </p>
+        </div>
+        <div class="col-md-2 mt-5">
+          <h5 class="fw-bold text-white">Shop</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2">
+              <a href="./pages/products/index.html"
+                class="text-decoration-none  text-white footer-text text-white">Collection</a>
+            </li>
+            <li class="mb-2">
+              <a href="#sale_sction" class="text-decoration-none text-white footer-text text-white">sale </a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-3 mt-5">
+          <h5 class="fw-bold text-white">Support</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2 footer-text">
+              <a href="#" class="text-decoration-none text-white footer-text">FAQ</a>
+            </li>
+            <li class="mb-2">
+              <a href="./index.html" class="text-decoration-none text-white footer-text">Shipping</a>
+            </li>
+            <li class="mb-2">
+              <a href="#" class="text-decoration-none text-white footer-text">Contact Us</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h5 class="fw-bold text-center mb-4">Follow Us</h5>
+
+          <div class="d-flex justify-content-evenly">
+
+            <div class="social-group text-center">
+              <a href="#" class="text-decoration-none text-white d-block">
+                <i class="fab fa-facebook fa-2x social-icon"></i>
+                <div class="social-text">Facebook</div>
+              </a>
+            </div>
+
+
+            <div class="social-group text-center">
+              <a href="#" class="text-decoration-none text-white d-block">
+                <i class="fab fa-instagram fa-2x social-icon"></i>
+                <div class="social-text">Instagram</div>
+              </a>
+            </div>
+
+
+          </div>
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="col-12 text-white">
+          <p class="text-white mb-0">
+            &copy; 2025 mobileshop. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+<script src="../../src/js/cart_badge.js"></script>
+
+  <script src="checkout.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script defer src="../../src/js/shared.js"></script>
+    <script defer src="../../src/js/main.js"></script>
+
+
+</body>
+
+</html>

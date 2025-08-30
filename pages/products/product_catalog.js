@@ -85,6 +85,7 @@
 
       <div class="mt-auto btn-group-custom">
         <button 
+        onclick="addToCart(${product.id})"
           class="btn btn-sm btn-dark add-to-cart-btn w-100" 
           data-id="${product.id}">
           <i class="fa fa-shopping-cart me-1"></i> Add to Cart
@@ -221,6 +222,45 @@
 
 
 
+
+// add to cart
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+function addToCart(productId, quantity = 1) {
+  const product = products.find(p => p.id === productId);
+  if (!product) return; 
+
+// see if product is in cart
+  let existing = cart.find(item => item.id === product.id);
+
+  if (existing) {
+    // if product is already in cart
+    if (existing.qty + quantity > product.stock) {
+      alert("Stock not enough!");
+      return;
+    }
+    existing.qty += quantity;
+  } else {
+    // if product is not in cart
+    if (quantity > product.stock) {
+      alert("Stock not enough!");
+      return;
+    }
+    cart.push({
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      image: product.images[0],
+      qty: quantity,
+      stock: product.stock
+    });
+  }
+
+  // save cart
+  localStorage.setItem("cart", JSON.stringify(cart));
+  console.log(cart);
+}
 
 
 

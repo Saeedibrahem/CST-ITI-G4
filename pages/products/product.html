@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="../../src/css/product_details.css">
+    <link rel="stylesheet" href="./product_details.css">
   <link href="../../src/css/global.css" rel="stylesheet">
     
 </head> 
@@ -31,6 +31,11 @@
           <li class="nav-item"><a class="nav-link  fw-semibold text-dark" href="../../index.html">Home</a></li>
           <li class="nav-item"><a class="nav-link fw-semibold text-dark active " href="./index.html">Catalog</a></li>
           <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="../aboutus/aboutus.html">About Us</a></li>
+<li class="nav-item position-relative">
+  <a class="nav-link fw-semibold text-dark" href="../cart/cart.html"> Cart
+    <span id="cart-count" class="cart-counter">0</span>
+  </a>
+</li>
         </ul>
 
         <!-- Search -->
@@ -62,10 +67,10 @@
 
         <!-- If user NOT logged in -->
         <div id="authLinks" class="d-flex gap-2 ">
-          <a href="./pages/login/index.html" class=" login_btn btn btn-outline-dark  text-dark btn-sm">
+          <a href="../login/index.html" class=" login_btn btn btn-outline-dark  text-dark btn-sm">
             <i class="fa-solid fa-right-to-bracket me-1"></i> Login
           </a>
-          <a href="./pages/signup/index.html" class="btn btn-primary signup_btn bg-dark text-white btn-outline-dark btn-sm">
+          <a href="../signup/index.html" class="btn btn-primary signup_btn bg-dark text-white btn-outline-dark btn-sm">
             <i class="fa-solid fa-user-plus me-1"></i> Signup
           </a>
         </div>
@@ -223,7 +228,8 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../../src/js/cart_badge.js"></script>
 
-  <script src="../../src/js/product-details.js"></script>
+  <script src="./product-details.js"></script>
 </body>
 </html>

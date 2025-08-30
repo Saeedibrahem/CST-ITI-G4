@@ -46,8 +46,8 @@ function displayProductDetails(product) {
       <p class="product-category">Category: ${product.category}</p>
 
       <div class="price-box">
-        ${product.old_price ? `<del>EGP ${product.old_price}</del>` : ""}
-        <h1 class="new-price">EGP ${product.price}</h1>
+        ${product.old_price ? `<del>EGP${product.old_price}</del>` : ""}
+        <h2 class="new-price">$${product.price}</h2>
       </div>
 
       <p class="description text-start">Description: ${product.description}</p>
@@ -65,7 +65,7 @@ function displayProductDetails(product) {
       </div>
 
       <div class="actions">
-        <button class="btn bg-black text-white">Add to Cart</button>
+        <button id="addToCart" class="btn bg-black text-white"  >Add to Cart</button>
         <a href="../../index.html" class="btn back-home">Back to Home</a>
         <a href="../../pages/products/index.html" class="btn back-home">Back to product catalog</a>
       </div>
@@ -148,7 +148,10 @@ function displayProductDetails(product) {
   const quantityInput = document.getElementById("quantity");
   document.getElementById("increase").addEventListener("click", () => {
     if (quantityInput.value < product.stock) {
-      quantityInput.value = parseInt(quantityInput.value) + 1;
+      if (quantityInput.value < product.stock){
+              quantityInput.value = parseInt(quantityInput.value) + 1;
+      }
+      
     }
   });
 
@@ -157,17 +160,19 @@ function displayProductDetails(product) {
       quantityInput.value = parseInt(quantityInput.value) - 1;
     }
   });
+
+
+  // add to cart 
+  document.getElementById("addToCart").addEventListener("click", () => {
+    const quantity = parseInt(quantityInput.value);
+    addToCart(product, quantity);
+  });
+
 }
 
 
 
-
-
-
-
 // review  and descript
-
-
 const tabBtns = document.querySelectorAll('.tab-btn');
 const tabContents = document.querySelectorAll('.tab-content');
 
@@ -184,9 +189,46 @@ tabBtns.forEach(btn => btn.addEventListener('click', () => {
 
 
 
+// add to cart
 
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
+function addToCart(product, quantity) {
+// if product is  in cart
+  let existing = cart.find(item => item.id === product.id);
 
+  if (existing) {
+    // if product is already in cart add `qty`
+    if (existing.qty < existing.stock) { 
+      //  existing.qty++;
+      // existing.qty = quantity;
+      if (quantity === 1) 
+        existing.qty++;
+      else
+        existing.qty = quantity;
+
+    } else {
+      alert("Stock not enough");
+      return;
+    }
+  } else {
+    // first time adding to cart
+    cart.push({
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      image: product.images[0],
+      qty: 1,
+      stock: product.stock
+    });
+  }
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+  console.log(cart);
+
+  // render cart in secation if i add product
+  
+}
 
 
 

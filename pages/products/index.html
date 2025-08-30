@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
 
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="../../src/css/product_catalog.css">
+  <link rel="stylesheet" href="./product_catalog.css">
   <link rel="stylesheet" href="../../src/css/home_page.css">
   <link href="../../src/css/global.css" rel="stylesheet">
 </head>
@@ -38,6 +38,11 @@
           <li class="nav-item"><a class="nav-link  fw-semibold text-dark" href="../../index.html">Home</a></li>
           <li class="nav-item"><a class="nav-link fw-semibold text-dark active " href="./index.html">Catalog</a></li>
           <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="../aboutus/aboutus.html">About Us</a></li>
+<li class="nav-item position-relative">
+  <a class="nav-link fw-semibold text-dark" href="../cart/cart.html"> Cart
+    <span id="cart-count" class="cart-counter">0</span>
+  </a>
+</li>
         </ul>
 
         <!-- Search -->
@@ -284,11 +289,12 @@
   <script defer src="../../assets/lib/js/bootstrap.bundle.min.js"></script>
   <script defer src="../../assets/lib/js/crypto-js.min.js"></script>
 
+<script src="../../src/js/cart_badge.js"></script>
 
   <script defer src="../../src/js/shared.js"></script>
   <script defer src="../../src/js/main.js"></script>
   <!-- <script src="../../src/js/product_catalog.js">  </script> -->
-  <script defer src="../../src/js/product_catalog.js"></script>
+  <script defer src="./product_catalog.js"></script>
 </body>
 
 </html>

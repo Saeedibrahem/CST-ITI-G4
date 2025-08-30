@@ -1,45 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <!-- outer CSS files -->
-    <link rel="stylesheet" href="../../assets/lib/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="../../src/css/global.css" />
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+<head>
+  <meta charset="UTF-8">
+  <title>MobileXpress</title>
 
-    <link rel="stylesheet" href="./login.css" />
-  </head>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
 
-  <body>
-<!-- nav -->
+  <!-- Bootstrap + FontAwesome -->
+  <link rel="stylesheet" href="../../assets/lib/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="./cart.css">
+  <link rel="stylesheet" href="../../src/css/global.css">
+</head>
+<svg width="0" height="0" id="goo-filter">
+  <defs>
+    <filter id="goo">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur"/>
+      <feColorMatrix in="blur" mode="matrix"
+        values="1 0 0 0 0  
+                0 1 0 0 0  
+                0 0 1 0 0  
+                0 0 0 20 -10" result="goo"/>
+      <feBlend in="SourceGraphic" in2="goo"/>
+    </filter>
+  </defs>
+</svg>
+<body>
+
 
 <header class="sticky-top bg-white shadow-sm border-bottom ">
   <nav class="navbar navbar-expand-lg navbar-light py-2 px-lg-5 ">
     <div class="container-fluid">
 
       <!-- Logo -->
-      <a class="navbar-brand fw-bold d-flex align-items-center" href="./index.html">
+      <a class="navbar-brand fw-bold d-flex align-items-center" href="../../index.html">
         <img src="../../assets/home_page_img/logo.png" alt="Logo" height="40" class="me-2">
       </a>
 
       <!-- Collapsible Nav + Search -->
       <div class="collapse navbar-collapse justify-content-center" id="mainNav">
         <ul class="navbar-nav mx-3 d-flex g-4 ">
-          <li class="nav-item"><a class="nav-link  fw-semibold text-dark" href="../../index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link  fw-semibold text-dark " href="../../index.html">Home</a></li>
           <li class="nav-item"><a class="nav-link fw-semibold text-dark " href="../products/index.html">Catalog</a></li>
-          
-          
           <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="../aboutus/aboutus.html">About Us</a></li>
-        <li class="nav-item position-relative">
-  <a class="nav-link fw-semibold text-dark" href="../cart/cart.html"> Cart
+<li class="nav-item position-relative">
+  <a class="nav-link fw-semibold text-dark active" href="./cart.html"> Cart
     <span id="cart-count" class="cart-counter">0</span>
   </a>
 </li>
-
         </ul>
-
 
         <!-- Search -->
         <!-- <form class="d-flex mx-lg-3 my-2 my-lg-0">
@@ -70,7 +85,7 @@
 
         <!-- If user NOT logged in -->
         <div id="authLinks" class="d-flex gap-2 ">
-          <a href="./index.html" class=" login_btn btn btn-outline-dark  text-dark btn-sm">
+          <a href="../login/index.html" class=" login_btn btn btn-outline-dark  text-dark btn-sm">
             <i class="fa-solid fa-right-to-bracket me-1"></i> Login
           </a>
           <a href="../signup/index.html" class="btn btn-primary signup_btn bg-dark text-white btn-outline-dark btn-sm">
@@ -88,119 +103,39 @@
   </nav>
 </header>
 
-<!-- nav -->
+  
+  <div id="cart" class="container m-5">
+    <div class="row">
+      <!-- Shopping Cart -->
+      <div class="col-lg-7 mb-4">
+        <h3>Shopping Cart</h3>
+        <div id="cart-items" class="list-group"></div>
+      </div>
 
-
-<div class="login_container">
-  <!-- <img class="back_ground" src="../../assets/img/4.jpg" alt="img" /> -->
-  <img class="back_ground" src="./login.png" alt="img" />
-
-    <section>
-      <form>
-                <label for="" class="text-dark "><h2>Login</h2> </label>
-
-        <div class="form-field">
-          <label for="email">Email</label>
-          <input
-            required
-            type="email"
-            id="email"
-            name="email"
-            placeholder="abdo@gmail.com"
-            class="form-control"
-          />
-        </div>
-
-        <div class="form-field">
-          <label for="password">Password</label>
-          <input
-            required
-            type="password"
-            id="password"
-            name="password"
-            placeholder="1b@z38"
-            class="form-control"
-          />
-        </div>
-        <div class="form-field mt-3">
-          <button
-            type="submit"
-            onclick="confirmForm(event)"
-            class="btn bg-dark text-white"
-            id="confirm_btn"
-          >
-            Login
-          </button>
-        </div>
-
-        <div
-          class="form-field d-flex flex-row justify-content-center"
-          style="font-size: small"
-        >
-          Don't have account?
-          <a href="../signup/index.html" class="text-primary">Sign up</a>
-        </div>
-        <!-- toast 1 -->
-        <div class="toast-container position-fixed top-0 end-0 p-3">
-          <div
-            class="toast align-items-center bg-success text-white border-0"
-            role="alert"
-            aria-live="assertive"
-            aria-atomic="true"
-          >
-            <div class="d-flex">
-              <div class="toast-body">🥳 Logged in successfully</div>
-              <button
-                type="button"
-                class="btn-close btn-close-white me-2 m-auto"
-                data-bs-dismiss="toast"
-                aria-label="Close"
-              ></button>
-            </div>
+      <!-- Order Summary -->
+      <div class="col-lg-5">
+        <div class="cart-summary shadow-sm">
+          <h4>Order Summary</h4>
+          <label for="code">Discount code / Promo code</label>
+          <input id="code" type="text" placeholder="code" class="form-control mt-3">
+          <label for="bonus" class="mt-3">Your bonus card number</label>
+          <div class="input-group mt-3 mb-3">
+            <input type="text" class="form-control" placeholder="Enter Card Number" aria-label="Recipient’s username"
+              aria-describedby="button-addon2">
+            <button class="btn btn-outline-secondary" type="button" id="button-addon2">Apply</button>
           </div>
+          <p>Subtotal:<span class="float-end" id="subtotal">0</span></p>
+          <p>Estimated Tax: <span class="float-end" id="tax">0</span></p>
+          <p>Estimated shipping & Handling: <span class="float-end" id="shipping">0</span></p>
+          <h5>Total: <span class="float-end" id="total">0</span></h5>
+          <button class="btn btn-dark w-100" onclick="showCheckout()">Checkout</button>
         </div>
-        <!-- toast 2 -->
-        <div class="toast-container position-fixed top-0 end-0 p-3 toast">
-          <div
-            class="toast align-items-center bg-danger text-white border-0"
-            role="alert"
-            aria-live="assertive"
-            aria-atomic="true"
-          >
-            <div class="d-flex">
-              <div class="toast-body">⚠️ Invalid credentials</div>
-              <button
-                type="button"
-                class="btn-close btn-close-white me-2 m-auto"
-                data-bs-dismiss="toast"
-                aria-label="Close"
-              ></button>
-            </div>
-          </div>
-        </div>
-        <!-- end of form -->
-      </form>
-    </section>
+      </div>
+    </div>    
+  </div>  
 
-
-
-
-</div>
-
-
-<hr>
-
-
-
-
-
-
-
-
-
-
-
-
+  
+  <!-- footer -->
   <footer id="page-footer" class="footer mt-auto py-5 bg-black text-white">
     <div class="container">
       <div class="row mb-5">
@@ -231,7 +166,7 @@
               <a href="#" class="text-decoration-none text-white footer-text">FAQ</a>
             </li>
             <li class="mb-2">
-              <a href="../products/index.html" class="text-decoration-none text-white footer-text">Shipping</a>
+              <a href="./index.html" class="text-decoration-none text-white footer-text">Shipping</a>
             </li>
             <li class="mb-2">
               <a href="#" class="text-decoration-none text-white footer-text">Contact Us</a>
@@ -272,18 +207,12 @@
       </div>
     </div>
   </footer>
-
-
-
-    
-    
-  <!-- outer JS files -->
-  <script src="../../src/js/cart_badge.js"></script>
-
-  <script defer src="../../assets/lib/js/crypto-js.min.js"></script>
-    <script defer src="../../assets/lib/js/bootstrap.bundle.min.js"></script>
+<script src="../../src/js/cart_badge.js"></script>
+  <script src="./cart.js"></script>
+  <script defer src="../../assets/lib/js/bootstrap.bundle.min.js"></script>
     <script defer src="../../src/js/shared.js"></script>
     <script defer src="../../src/js/main.js"></script>
-    <script defer src="./login.js"></script>
-  </body>
+
+</body>
+
 </html>
