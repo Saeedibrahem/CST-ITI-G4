@@ -1,0 +1,426 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+
+
+
+
+
+main {
+      padding-top: 20px;
+
+}
+/* Product Card Layout */
+.product-card_details {
+  display: flex;
+  gap: 40px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  flex-wrap: wrap;
+}
+.product-name {
+  color: black;
+}
+.price-box del {
+  font-size: 18px;
+}
+.price-box h1 {
+  color: #198754;
+}
+.description , .stock , .rating {
+  color: black;
+}
+/* Left - Image */
+.product-image {
+  flex: 1 1 350px;
+  max-width: 400px;
+}
+
+.product-image .main-img {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+/* Gallery */
+.product-gallery {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.gallery-thumb {
+  width: 70px;
+  height: 70px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  object-fit: cover;
+  transition: all 0.3s ease;
+}
+
+.gallery-thumb:hover,
+.gallery-thumb.active {
+  border-color: #007bff;
+}
+
+/* Right - Info */
+.product-info {
+  flex: 1 1 400px;
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Actions (buttons) */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.actions .btn {
+  border-radius: 8px;
+  padding: 10px 18px;
+  transition: 0.3s;
+}
+table {
+  margin-bottom: 20px;
+}
+ .back-home , .back-home {
+  background-color: rgb(230, 230, 230);
+ }
+/* Tabs */
+.tabs-header {
+  display: flex;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #ddd;
+  margin: 20px 0;
+}
+
+.tab-btn {
+  padding: 12px 25px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  border-bottom: 3px solid transparent;
+}
+
+.tab-btn.active {
+  border-bottom-color: #007bff;
+  color: #007bff;
+}
+
+.tab-content {
+  display: none;
+}
+.tab-content.active {
+  display: block;
+}
+
+/* ------------------ */
+/* RESPONSIVE DESIGN */
+/* ------------------ */
+
+/* موبايل صغير */
+@media (max-width: 576px) {
+  .product-card_details {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .product-info {
+    align-items: center;
+    text-align: center;
+  }
+
+  .product-name {
+    font-size: 1.4rem;
+    color: black;
+  }
+
+  .new-price {
+    font-size: 1.2rem;
+  }
+
+  .actions .btn {
+    width: 100%;
+  }
+
+  .gallery-thumb {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+/* تابلت */
+@media (min-width: 577px) and (max-width: 991px) {
+  .product-card_details {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .product-info {
+    align-items: center;
+    text-align: center;
+  }
+
+  .product-name {
+    font-size: 1.6rem;
+  }
+
+  .new-price {
+    font-size: 1.3rem;
+  }
+
+  .actions {
+    justify-content: center;
+  }
+}
+
+/* ديسكتوب */
+@media (min-width: 992px) {
+  .product-card_details {
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .product-info {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .product-name {
+    font-size: 2rem;
+  }
+
+  .new-price {
+    font-size: 1.6rem;
+  }
+}/* Product Details Tabs */
+/* .product-tabs {
+  margin-top: 20px;
+} */
+.tabs-header {
+  display: flex;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 20px;
+}
+
+/* ------------------ */
+/* RESPONSIVE DESIGN */
+/* ------------------ */
+
+/* موبايل صغير */
+@media (max-width: 576px) {
+ .product-card_details {
+    flex-direction: column;
+  }
+
+  .product-name {
+    font-size: 1.4rem;
+  }
+
+  .new-price {
+    font-size: 1.2rem;
+  }
+
+  .btn {
+    width: 100%; /* الأزرار تاخد عرض الشاشة */
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+
+  .gallery-thumb {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+/* تابلت */
+@media (min-width: 577px) and (max-width: 991px) {
+  .product-card_details {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .product-info {
+    align-items: center;
+
+  }
+
+  .product-name {
+    font-size: 1.6rem;
+  }
+
+  .new-price {
+    font-size: 1.4rem;
+  }
+
+  .actions {
+    justify-content: center;
+  }
+}
+
+/* ديسكتوب */
+@media (min-width: 992px) {
+  .product-card_details {
+    flex-direction: row;
+    text-align: left;
+  }
+
+  .product-info {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .product-name {
+    font-size: 2rem;
+  }
+
+  .new-price {
+    font-size: 1.6rem;
+  }
+}
+
+.tab-btn {
+  padding: 12px 25px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  border-bottom: 3px solid transparent;
+}
+
+.tab-btn.active {
+  border-bottom-color: #007bff;
+  color: #007bff;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+.specs-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid rgb(216, 216, 216); 
+}
+
+.specs-table td {
+  padding: 12px 15px;
+    border: 0.5px solid rgb(221, 221, 221); 
+
+  border-bottom: 1px solid #eee;
+}
+
+.specs-table tr:last-child td {
+  border-bottom: none;
+}
+
+.specs-table td:first-child {
+  font-weight: bold;
+  width: 30%;
+}
+
+
+.quantity-box {
+  margin: 15px 0;
+}
+
+.quantity-box input {
+  text-align: center;
+  font-weight: bold;
+}
+.main-img {
+  width: 100%;
+  max-width: 400px;   /* الصورة الكبيرة أقصى عرض */
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+}
+.gallery-thumb {
+  width: 70px !important;
+  height: 70px !important;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  object-fit: cover;
+  transition: all 0.3s ease;
+}
+
+
+
+/* Responsive */
+@media (max-width: 992px) {
+  .product-card_details {
+    flex-direction: column;
+    align-items: center;
+
+
+    padding: 20px;
+  }
+
+  .product-info {
+    text-align: center;
+  }
+
+  .actions {
+    justify-content: center;
+  }
+}
+img, .product-card_details, .product-tabs {
+  max-width: 100%;
+}
+
+
+
+
+
+
+
+
+.footer {
+  background-color: #000;
+}
+.logo_footer {
+  width: 120px;
+  height: 120px;
+}
+.logo_footer img {
+  width: 100%;
+  height: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

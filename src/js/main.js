@@ -1,5 +1,7 @@
+// ============================= products section =============================
+// ============================= products section =============================
 // Fetch products and render them
-fetch("./data/products.json")
+fetch("../../data/products.json")
   .then(res => res.json())
   .then(products => {
     setItemToLocalStorage("products", products);
@@ -106,6 +108,29 @@ if (!localStorage.getItem("users")) {
     })
     .catch((err) => console.error("Error loading users:", err));
 }
+// mock login
+// let loggedIn = getCurrentUser() ? true : false;
+
+window.addEventListener("DOMContentLoaded", () => {
+  const userMenu = document.getElementById("userMenu");
+  const authLinks = document.getElementById("authLinks");
+
+  if (loggedIn) {
+    userMenu.classList.remove("d-none");
+    authLinks.classList.add("d-none");
+  } else {
+    userMenu.classList.add("d-none");
+    authLinks.classList.remove("d-none");
+  }
+});
+
+function logout() {
+  loggedIn = false;
+  removeItemFromLocalStorage("currentUser");
+
+
+  window.location.href = "./";
+}
 // encrypt func     abdo=>***
 // if argument is string enter it, else enter JSON.stringify(data)
 // to use next 3 methods you have to import cryptojs library
@@ -139,15 +164,15 @@ function getUsers() {
 // ============================= product section =============================
 // ============================= product section =============================
 // Fetch products one time
-if (!localStorage.getItem("products")) {
-  fetch("../../data/products.json")
-    .then((res) => res.json())
-    .then((products) => {
-      localStorage.setItem("products", JSON.stringify(products));
-    })
-    .catch((err) => console.error("Error loading products:", err));
-}
-// get products
-function getProducts() {
-  return JSON.parse(localStorage.getItem("products"));
-}
+// if (!localStorage.getItem("products")) {
+//   fetch("../../data/products.json")
+//     .then((res) => res.json())
+//     .then((products) => {
+//       localStorage.setItem("products", JSON.stringify(products));
+//     })
+//     .catch((err) => console.error("Error loading products:", err));
+// }
+// // get products
+// function getProducts() {
+//   return JSON.parse(localStorage.getItem("products"));
+// }
