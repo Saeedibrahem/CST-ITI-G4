@@ -8,6 +8,7 @@
 
   <!-- Bootstrap 5.3 CSS -->
   <link href="../../assets/lib/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
 
   <!-- Bootstrap Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
@@ -50,22 +51,23 @@
 <body>
 
   <header class="topbar py-2">
-    <div class="container-fluid d-flex align-items-center justify-content-between ">
-      <div class="d-flex align-items-center gap-2">
-        <button class="btn btn-outline-secondary d-md-none" type="button" data-bs-toggle="offcanvas"
-          data-bs-target="#sidebarOffcanvas" aria-controls="sidebarOffcanvas" aria-label="Open menu">
-          <i class="bi bi-list" style="font-size:1.25rem"></i>
-        </button>
-        <a class="navbar-brand mb-0" href="#" style="font-weight:600;color:#111">Seller Dashboard</a>
-      </div>
+    <div class="container-fluid d-flex align-items-center justify-content-between">
+        <div class="d-flex align-items-center gap-2">
+            <!-- burger opens offcanvas on small screens -->
+            <button class="btn btn-outline-secondary d-md-none" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#sidebarOffcanvas" aria-controls="sidebarOffcanvas" aria-label="Open menu">
+                <i class="bi bi-list" style="font-size:1.25rem"></i>
+            </button>
+            <a class="navbar-brand mb-0" href="#" style="font-weight:600;color:#111">Seller Dashboard</a>
+        </div>
 
-      <div class="d-flex align-items-center gap-2">
-        <span class="d-none d-sm-inline text-muted small">Welcome, <strong>Mark</strong></span>
-        <img src="https://api.dicebear.com/6.x/initials/svg?seed=MT" alt="avatar"
-          style="width:36px;height:36px;border-radius:50%;">
-      </div>
+        <div class="d-flex align-items-center gap-2">
+            <span class="d-none d-sm-inline text-muted small">Welcome, <b id="navUser"></b></span>
+            <img src="https://api.dicebear.com/6.x/initials/svg?seed=MT" alt="avatar"
+                style="width:36px;height:36px;border-radius:50%;">
+        </div>
     </div>
-  </header>
+</header>
 
   <!-- Responsive offcanvas (only used on small screens) -->
   <div class="offcanvas offcanvas-start d-md-none" tabindex="-1" id="sidebarOffcanvas" aria-labelledby="sidebarLabel">
@@ -76,7 +78,7 @@
     <div class="offcanvas-body p-0">
       <nav class="nav flex-column px-2" style="background:var(--sidebar-bg); min-height:100vh; color:#fff;">
         <div class="px-3 pb-3 border-bottom" style="border-color: rgba(255,255,255,0.06) !important;">
-          <div style="font-weight:600;font-size:1.05rem;color:#fff;">Seller Dashboard</div>
+          <!-- <div style="font-weight:600;font-size:1.05rem;color:#fff;">Seller Dashboard</div> -->
         </div>
         <a class="nav-link  rounded-2 px-3 py-2 mt-3" href="./index.html"><i class="bi bi-speedometer2 me-2"></i>
           Dashboard</a>
@@ -84,10 +86,7 @@
           Products</a>
         <a class="nav-link rounded-2 px-3 py-2 active" href="./orders.html"><i class="bi bi-cart3 me-2"></i>
           Orders</a>
-        <a class="nav-link rounded-2 px-3 py-2" href="./cusomers.html"><i class="bi bi-people me-2"></i>
-          Customers</a>
-        <div class="mt-auto px-3 py-4 small text-muted" style="color:rgba(255,255,255,0.6)">© 2025 mobile Phones
-        </div>
+        
       </nav>
     </div>
   </div>
@@ -97,20 +96,16 @@
       <aside class="col-0 col-md-3 col-lg-2 d-none d-md-block sidebar-col">
         <div class="static-sidebar h-100">
           <div class="px-3 pb-3">
-            <div style="font-weight:600;font-size:1.05rem;color:#fff;">Seller Dashboard</div>
+            <!-- <div style="font-weight:600;font-size:1.05rem;color:#fff;"></div> -->
           </div>
           <nav class="nav flex-column px-2">
             <a class="nav-link  rounded-2 px-3 py-2 mt-3" href="./index.html"><i class="bi bi-speedometer2 me-2"></i>
               Dashboard</a>
-            <a class="nav-link active rounded-2 px-3 py-2" href="./products.html"><i class="bi bi-grid-1x2 me-2"></i> Products</a>
+            <a class="nav-link active rounded-2 px-3 py-2" href="./products.html"><i class="bi bi-grid-1x2 me-2"></i>
+              Products</a>
             <a class="nav-link rounded-2 px-3 py-2" href="./orders.html"><i class="bi bi-cart3 me-2"></i>
               Orders</a>
-            <a class="nav-link rounded-2 px-3 py-2" href="./cusomers.html"><i class="bi bi-people me-2"></i>
-              Customers</a>
-          </nav>
-          <div class="mt-auto px-3 py-4 small text-muted" style="color:rgba(255,255,255,0.6)">© 2025 Mobile
-            Phones
-          </div>
+            
         </div>
       </aside>
 
@@ -121,7 +116,8 @@
               <h5 class="mb-0">Products (Smartphones)</h5>
               <div class="d-flex align-items-center gap-2">
                 <div id="adminPendingContainer"></div>
-                <button class="btn btn-primary btn-sm" id="openAddModalBtn" type="button" data-bs-toggle="modal" data-bs-target="#addProductModal">
+                <button class="btn btn-primary btn-sm" id="openAddModalBtn" type="button" data-bs-toggle="modal"
+                  data-bs-target="#addProductModal">
                   <i class="bi bi-plus-circle"></i> Add Product
                 </button>
               </div>
@@ -153,40 +149,40 @@
   <!-- Add Product Modal (now supports file upload) -->
   <div class="modal fade" id="addProductModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-scrollable">
-      <div class="modal-content">
+      <div class="modal-content overflow-scroll">
         <form id="addProductForm">
           <div class="modal-header">
-            <h5 class="modal-title">Add Product (Phone)</h5>
+            <h5 class="modal-title">Add Product</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
             <div class="row g-3">
               <div class="col-12 d-flex gap-3 align-items-start">
-                <img id="addImg" src="https://via.placeholder.com/80" class="prod-img" alt="Product">
+                <img id="addImg" src="" class="prod-img" alt="Product">
                 <div style="flex:1">
                   <div class="mb-2">
                     <label class="form-label mb-1">Name</label>
                     <input id="addName" class="form-control form-control-sm" required>
                   </div>
                   <div class="mb-2 row g-2">
-                    <div class="col-4">
+                    <div class="col-sm-12 col-md-4 ">
                       <label class="form-label mb-1">Category</label>
                       <!-- fixed to Smartphones -->
                       <input id="addCategory" class="form-control form-control-sm" value="Smartphones" readonly>
                     </div>
-                    <div class="col-2">
+                    <div class="col-xs-12 col-md-2 ">
                       <label class="form-label mb-1">Price</label>
                       <input id="addPrice" type="number" step="0.01" class="form-control form-control-sm">
                     </div>
-                    <div class="col-2">
+                    <div class="col-xs-12 col-md-2 ">
                       <label class="form-label mb-1">Original Price</label>
                       <input id="addOriginalPrice" type="number" step="0.01" class="form-control form-control-sm">
                     </div>
-                    <div class="col-2">
+                    <div class="col-sm-12 col-md-2 ">
                       <label class="form-label mb-1">Sale %</label>
                       <input id="addSalePercentage" type="number" readonly class="form-control form-control-sm">
                     </div>
-                    <div class="col-2">
+                    <div class="col-sm-12 col-md-2 ">
                       <label class="form-label mb-1">Stock</label>
                       <input id="addStock" type="number" class="form-control form-control-sm" value="1">
                     </div>
@@ -194,9 +190,36 @@
                 </div>
               </div>
 
+              <div class="col-12 mb-2 row g-2">
+                <div class="col-sm-12 col-md-3">
+                  <label class="form-label mb-1">Color</label>
+                  <input id="addColor" class="form-control form-control-sm">
+                </div>
+                <div class="col-sm-12 col-md-3">
+                  <label class="form-label mb-1">OS</label>
+                  <input id="addOs" class="form-control form-control-sm">
+                </div>
+                <div class="col-sm-12 col-md-3">
+                  <label class="form-label mb-1">Brand</label>
+                  <input id="addBrand" class="form-control form-control-sm">
+                </div>
+                <div class="col-sm-12 col-md-3">
+                  <label class="form-label mb-1">Old Price</label>
+                  <input id="addOldPrice" type="number" step="0.01" class="form-control form-control-sm">
+                </div>
+              </div>
+
+              <div class="col-12 mb-2 row g-2">
+                <div class="col-sm-12 col-md-6">
+                  <label class="form-label mb-1">Slug</label>
+                  <input id="addSlug" class="form-control form-control-sm">
+                </div>
+              </div>
+
               <div class="col-12">
                 <label class="form-label mb-1">Upload Images (choose one or more)</label>
-                <input id="addImageFiles" type="file" accept="image/*" multiple class="form-control form-control-sm mb-2">
+                <input id="addImageFiles" type="file" accept="image/*" multiple
+                  class="form-control form-control-sm mb-2">
                 <label class="form-label mb-1">(optional) Image URLs (comma separated)</label>
                 <input id="addImageUrls" class="form-control form-control-sm" placeholder="https://..., https://...">
               </div>
@@ -218,23 +241,15 @@
               <div class="col-12 row g-2">
                 <div class="col-3">
                   <label class="form-label mb-1">Seller ID</label>
-                  <input id="addSellerId" class="form-control form-control-sm">
+                  <input id="addSellerId" class="form-control form-control-sm" disabled>
                 </div>
                 <div class="col-3">
                   <label class="form-label mb-1">Rating</label>
                   <input id="addRating" type="number" step="0.1" min="0" max="5" class="form-control form-control-sm">
                 </div>
                 <div class="col-3">
-                  <label class="form-label mb-1">Status</label>
-                  <select id="addStatus" class="form-select form-select-sm">
-                    <option value="Active" selected>Active</option>
-                    <option value="Low Stock">Low Stock</option>
-                    <option value="Inactive">Inactive</option>
-                  </select>
-                </div>
-                <div class="col-3">
-                  <label class="form-label mb-1">Admin Review</label>
-                  <div id="addAdminReview" class="modal-meta">-</div>
+                  <label class="form-label mb-1">Notes</label>
+                  <input id="addNotes" class="form-control form-control-sm">
                 </div>
               </div>
 
@@ -253,7 +268,7 @@
   <!-- Product Modal (view / edit) -->
   <div class="modal fade" id="productModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-scrollable">
-      <div class="modal-content">
+      <div class="modal-content overflow-scroll">
         <form id="productFormModal">
           <div class="modal-header">
             <h5 class="modal-title">Product #<span id="modalProductId"></span></h5>
@@ -262,30 +277,30 @@
           <div class="modal-body">
             <div class="row g-3">
               <div class="col-12 d-flex gap-3 align-items-start">
-                <img id="modalImg" src="https://via.placeholder.com/80" class="prod-img" alt="Product">
+                <img id="modalImg" src="" class="prod-img" alt="Product">
                 <div style="flex:1">
                   <div class="mb-2">
                     <label class="form-label mb-1">Name</label>
                     <input id="modalName" class="form-control form-control-sm" required>
                   </div>
                   <div class="mb-2 row g-2">
-                    <div class="col-4">
+                    <div class="col-md-4 col-sm-12">
                       <label class="form-label mb-1">Category</label>
                       <input id="modalCategory" class="form-control form-control-sm">
                     </div>
-                    <div class="col-2">
+                    <div class="col-md-2 col-sm-12">
                       <label class="form-label mb-1">Price</label>
                       <input id="modalPrice" type="number" step="0.01" class="form-control form-control-sm">
                     </div>
-                    <div class="col-2">
+                    <div class="col-md-2 col-sm-12">
                       <label class="form-label mb-1">Original Price</label>
                       <input id="modalOriginalPrice" type="number" step="0.01" class="form-control form-control-sm">
                     </div>
-                    <div class="col-2">
+                    <div class="col-md-2 col-sm-12">
                       <label class="form-label mb-1">Sale %</label>
                       <input id="modalSalePercentage" type="number" readonly class="form-control form-control-sm">
                     </div>
-                    <div class="col-2">
+                    <div class="col-md-2 col-sm-12">
                       <label class="form-label mb-1">Stock</label>
                       <input id="modalStock" type="number" class="form-control form-control-sm">
                     </div>
@@ -293,9 +308,36 @@
                 </div>
               </div>
 
+              <div class="col-12 mb-2 row g-2">
+                <div class="col-sm-12 col-md-3">
+                  <label class="form-label mb-1">Color</label>
+                  <input id="modalColor" class="form-control form-control-sm">
+                </div>
+                <div class="col-sm-12 col-md-3">
+                  <label class="form-label mb-1">OS</label>
+                  <input id="modalOs" class="form-control form-control-sm">
+                </div>
+                <div class="col-sm-12 col-md-3">
+                  <label class="form-label mb-1">Brand</label>
+                  <input id="modalBrand" class="form-control form-control-sm">
+                </div>
+                <div class="col-sm-12 col-md-3">
+                  <label class="form-label mb-1">Old Price</label>
+                  <input id="modalOldPrice" type="number" step="0.01" class="form-control form-control-sm">
+                </div>
+              </div>
+
+              <div class="col-12 mb-2 row g-2">
+                <div class="col-sm-12 col-md-6">
+                  <label class="form-label mb-1">Slug</label>
+                  <input id="modalSlug" class="form-control form-control-sm">
+                </div>
+              </div>
+
               <div class="col-12">
                 <label class="form-label mb-1">Upload Images (choose one or more)</label>
-                <input id="modalImageFiles" type="file" accept="image/*" multiple class="form-control form-control-sm mb-2">
+                <input id="modalImageFiles" type="file" accept="image/*" multiple
+                  class="form-control form-control-sm mb-2">
                 <label class="form-label mb-1">(optional) Image URLs (comma separated)</label>
                 <input id="modalImageUrls" class="form-control form-control-sm" placeholder="https://..., https://...">
               </div>
@@ -309,9 +351,15 @@
                 <label class="form-label mb-1">Specifications</label>
                 <div id="modalSpecs"></div>
                 <div class="mt-2">
-                  <button id="modalAddSpecBtn" type="button" class="btn btn-sm btn-outline-secondary">+ Add spec</button>
+                  <button id="modalAddSpecBtn" type="button" class="btn btn-sm btn-outline-secondary">+ Add
+                    spec</button>
                 </div>
                 <small class="text-muted">You can edit specification values directly.</small>
+              </div>
+
+              <div class="col-12">
+                <label class="form-label mb-1">User Comments</label>
+                <div id="modalUserComments" class="modal-meta">-</div>
               </div>
 
               <div class="col-12 row g-2">
@@ -324,12 +372,8 @@
                   <input id="modalRating" type="number" step="0.1" min="0" max="5" class="form-control form-control-sm">
                 </div>
                 <div class="col-3">
-                  <label class="form-label mb-1">Status</label>
-                  <select id="modalStatus" class="form-select form-select-sm">
-                    <option value="Active">Active</option>
-                    <option value="Low Stock">Low Stock</option>
-                    <option value="Inactive">Inactive</option>
-                  </select>
+                  <label class="form-label mb-1">Notes</label>
+                  <input id="modalNotes" class="form-control form-control-sm">
                 </div>
                 <div class="col-3">
                   <label class="form-label mb-1">Admin Review</label>
@@ -390,8 +434,10 @@
     </div>
   </div>
 
-  <script src="../../assets/lib/js/bootstrap.bundle.min.js"></script>
-  <script src="../../src/js/product_seller.js"></script>
+  <script defer src="../../assets/lib/js/bootstrap.bundle.min.js"></script>
+  <script defer src="../../assets/lib/js/crypto-js.min.js"></script>
+  <script defer src="../../src/js/shared.js"></script>
+  <script defer src="../../src/js/product_seller.js"></script>
 
 </body>
 

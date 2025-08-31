@@ -1,4 +1,9 @@
-// if user loggedin redirect to home page
+// Render navbar when page loads
+document.addEventListener('DOMContentLoaded', function () {
+  if (window.sharedUtils && window.sharedUtils.renderNavbar) {
+      window.sharedUtils.renderNavbar();
+  }
+});// if user loggedin redirect to home page
 if (localStorage.getItem("currentUser")) {
   window.location.href = "../../index.html";
 }

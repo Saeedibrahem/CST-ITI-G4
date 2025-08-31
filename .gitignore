@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # MobileXpress - .gitignore
 
 # Dependencies
@@ -229,3 +230,9 @@ yarn-error.log*
 
 # Project specific
 # Add any project-specific files or directories here
+=======
+/node_modules
+.vscode
+.env
+/dist
+>>>>>>> test2

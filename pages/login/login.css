@@ -1,12 +1,11 @@
-body {
-  background-image: url("../../assets/img/4.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+.login_container {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  /* min-height: 80vh; */
+  overflow: hidden;
+  
+background-color: black;  
 }
 body::before {
   content: "";
@@ -15,21 +14,26 @@ body::before {
   left: 0;
   right: 0;
   bottom: 0;
-  background: url("../../assets/img/4.jpg") no-repeat center center / cover;
-  filter: blur(8px);
+  /* filter: blur(8px); */
   z-index: -1; /* keep it behind content */
 }
 
-img {
+.back_ground {
   display: none;
 }
-
+hr{
+  background: #474747;
+    padding: 0;
+    margin: 0;
+    height:10px;
+    width: 100%;
+}
 section {
   background-color: white;
   padding: 20px;
-  margin: 20px;
+  margin: 10px;
   border-radius: 10px;
-  box-shadow: 3px 3px 10px gray;
+  /* box-shadow: 3px 3px 10px gray; */
   font-size: 1rem;
 
   form {
@@ -61,13 +65,18 @@ section {
     justify-content: space-between;
     gap: 20px;
   }
-
-  img {
+.login_container {
+  background-color: black;
+}
+  .back_ground {
     display: inline-block;
-    height: 100vh;
+    height: 90vh;
     object-fit: cover;
     width: 50%;
-    filter: blur(3px);
+    /* filter: blur(3px); */
+    overflow: hidden;
+    
+
   }
   section {
     flex-grow: 1;

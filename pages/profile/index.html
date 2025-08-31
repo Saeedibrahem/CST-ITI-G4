@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+
+  <link rel="stylesheet" href="../../assets/lib/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="../../src/css/global.css" />
+  <link rel="stylesheet" href="./account.css" />
+</head>
+
+<body>
+  <!-- navbar -->
+
+
+  <h1 class="text-center my-4">My Account</h1>
+  <main class="account_container">
+    <!-- card_1 -->
+    <!-- card_1 -->
+    <!-- card_1 -->
+    <div class="card card_1">
+      <div class="username">user name</div>
+      <div class="useremail">user email</div>
+      <div class="option option1" onclick="select_option1()">
+        <img src="../../assets/img/account.svg" alt="account" width="15px" />
+        <div>Profile Information</div>
+      </div>
+      <div id="orders" class="option option2" onclick="select_option2()">
+        <img src="../../assets/img/cube.svg" alt="orders" width="15px" />
+        <div>My Orders</div>
+      </div>
+      <div class="option option3" onclick="select_option3()">
+        <img src="../../assets/img/pass.svg" alt="orders" width="15px" />
+        <div>Change Password</div>
+      </div>
+    </div>
+    <!-- card_2 -->
+    <!-- card_2 -->
+    <!-- card_2 -->
+    <div class="card card_2">
+      <form id="profileIformation_form" onsubmit="save_btn(event)">
+        <div class="title">Profile Information</div>
+        <div class="profileInfo-block">
+          <div class="row-in-block">
+            <div class="sub-info">
+              <div class="label">First Name</div>
+              <div class="data data_to_view firstName">abdo</div>
+              <input required id="firstName" class="form-control data_to_enter firstName" type="text" />
+            </div>
+            <div class="sub-info">
+              <div class="label">Last Name</div>
+              <div class="data data_to_view lastName">sakr</div>
+              <input required class="form-control data_to_enter lastName" type="text" />
+            </div>
+          </div>
+          <div class="sub-info">
+            <div class="label">Email</div>
+            <div class="data data_to_view email">abdo@gmail.com</div>
+            <input required class="form-control data_to_enter email" type="email" />
+          </div>
+          <div class="sub-info">
+            <div class="label">Phone</div>
+            <div class="data data_to_view phone"></div>
+            <input class="form-control data_to_enter phone" type="number" />
+          </div>
+          <div class="row-in-block">
+            <div class="sub-info">
+              <div class="label">Address</div>
+              <div class="data data_to_view address"></div>
+              <input class="form-control data_to_enter address" type="text" />
+            </div>
+            <div class="sub-info">
+              <div class="label">City</div>
+              <div class="data data_to_view city"></div>
+              <input class="form-control data_to_enter city" type="text" />
+            </div>
+          </div>
+          <div class="row-in-block">
+            <div class="sub-info">
+              <div class="label">Country</div>
+              <div class="data data_to_view country"></div>
+              <input class="form-control data_to_enter country" type="text" />
+            </div>
+            <div class="sub-info">
+              <div class="label">ZIP</div>
+              <div class="data data_to_view zip"></div>
+              <input class="form-control data_to_enter zip" type="number" />
+            </div>
+          </div>
+          <div class="row-in-block">
+            <div class="sub-info">
+              <div class="label">Date of birth</div>
+              <div class="data data_to_view DOB"></div>
+              <input class="form-control data_to_enter DOB" type="date" />
+            </div>
+            <div class="sub-info">
+              <div class="label">Gender</div>
+              <div class="data data_to_view gender_data"></div>
+              <!-- radio -->
+              <div class="form-check data_to_enter">
+                <input class="form-check-input gender_input" type="radio" name="gender" id="male" value="male"
+                  required />
+                <label class="form-check-label" for="male"> male </label>
+              </div>
+              <div class="form-check data_to_enter">
+                <input class="form-check-input gender_input" type="radio" name="gender" id="female" value="female"
+                  required />
+                <label class="form-check-label" for="female"> female </label>
+              </div>
+              <!-- radio -->
+            </div>
+          </div>
+          <div>
+            <button type="button" class="btn btn-primary data_to_view" onclick="editProfile_btn()">
+              Edit Profile
+            </button>
+            <button type="submit" class="btn btn-success data_to_enter">
+              Save
+            </button>
+            <button type="button" class="btn btn-outline-secondary data_to_enter" onclick="cancle_btn()">
+              Cancel
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <!-- card_3 -->
+    <!-- card_3 -->
+    <!-- card_3 -->
+    <div class="card card_3">
+      <form id="orders_form">
+        <div class="title">My Orders</div>
+      </form>
+    </div>
+    <!-- card_4 -->
+    <!-- card_4 -->
+    <!-- card_4 -->
+    <div class="card card_4">
+      <form id="password_form" onsubmit="change_password(event)">
+        <div class="title">Change Password</div>
+        <div class="profileInfo-block">
+          <div class="sub-info">
+            <div class="label">Old Password</div>
+            <input required class="form-control" type="password" id="entred_oldPassword" />
+          </div>
+          <div class="sub-info">
+            <div class="label">New Password</div>
+            <input required class="form-control" type="password" id="new_password" />
+          </div>
+          <div class="sub-info">
+            <div class="label">Confirm New Password</div>
+            <input required class="form-control" type="password" id="confirm_new_password" />
+          </div>
+          <div>
+            <button type="submit" class="btn btn-primary">Confirm</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </main>
+  <!-- toasts -->
+  <!-- toast 1.1 -->
+  <div class="toast-container position-fixed top-0 end-0 p-3">
+    <div class="toast align-items-center bg-success text-white border-0" role="alert" aria-live="assertive"
+      aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body">🥳 Profile updated successfully</div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+          aria-label="Close"></button>
+      </div>
+    </div>
+  </div>
+  <!-- toast 2.1 -->
+  <div class="toast-container position-fixed top-0 end-0 p-3">
+    <div class="toast align-items-center bg-success text-white border-0" role="alert" aria-live="assertive"
+      aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body">🥳 Password changed successfully</div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+          aria-label="Close"></button>
+      </div>
+    </div>
+  </div>
+  <!-- toast 2.2 -->
+  <div class="toast-container position-fixed top-0 end-0 p-3">
+    <div class="toast align-items-center bg-danger text-white border-0" role="alert" aria-live="assertive"
+      aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body">⚠️ Password incorrect</div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+          aria-label="Close"></button>
+      </div>
+    </div>
+  </div>
+  <!-- toast 2.3 -->
+  <div class="toast-container position-fixed top-0 end-0 p-3">
+    <div class="toast align-items-center bg-danger text-white border-0" role="alert" aria-live="assertive"
+      aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body">
+          ⚠️ Password and Confirm password not the same
+        </div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+          aria-label="Close"></button>
+      </div>
+    </div>
+  </div>
+  <!-- outer JS files -->
+  <script defer src="../../assets/lib/js/crypto-js.min.js"></script>
+  <script defer src="../../assets/lib/js/bootstrap.bundle.min.js"></script>
+  <script defer src="../../src/js/shared.js"></script>
+
+  <script defer src="./account.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,137 @@
+    .top_page {
+      text-align: center;
+    }
+    
+    .top_page h1 {
+      font-size: 48px;
+      margin-bottom: 14px;
+      color: black;
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .top_page p {
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      font-size: 18px;
+      margin: auto;
+      width: 60%;
+      color: gray;
+    }
+    
+    .about-content {
+      padding: 50px 0;
+    }
+    
+    .mission-card, .team-card {
+      background-color: #f8f9fa;
+      border-radius: 15px;
+      padding: 25px;
+      margin-bottom: 30px;
+      transition: transform 0.3s;
+      height: 100%;
+    }
+    
+    .mission-card:hover, .team-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    
+    .team-img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 20px;
+      border: 5px solid #fff;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .values-section {
+      background-color: #f8f9fa;
+      padding: 60px 0;
+    }
+    
+    .value-item {
+      text-align: center;
+      padding: 20px;
+    }
+    
+    .value-icon {
+      font-size: 2.5rem;
+      color: #000;
+      margin-bottom: 15px;
+    }
+    
+    .footer {
+      background-color: #000;
+    }
+    
+    .logo_footer {
+      width: 120px;
+      height: 120px;
+    }
+    
+    .logo_footer img {
+      width: 100%;
+      height: 100%;
+    }
+    
+    * {
+      text-transform: capitalize;
+    }
+    
+    /* تنسيقات جديدة للخريطة */
+    .location-container {
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
+    }
+    
+    .map-wrapper {
+      position: relative;
+      height: 400px;
+    }
+    
+    .map-overlay {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+      z-index: 100;
+      max-width: 300px;
+    }
+    
+    .location-info {
+      padding: 20px;
+      background: #f8f9fa;
+    }
+    
+    .store-hours {
+      margin-top: 15px;
+    }
+    
+    .store-hours h5 {
+      border-bottom: 2px solid #000;
+      padding-bottom: 5px;
+      margin-bottom: 10px;
+    }
+.about_us_img {
+    width: 400px;
+    height: 400px;
+}
+
+.about_us_img img {
+    width: 100%;
+    height: 100%;
+    border-radius: 40px;
+}

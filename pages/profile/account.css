@@ -1,0 +1,111 @@
+body {
+  color: black;
+  /* padding: 20px; */
+}
+
+.account_container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+
+  .card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px gray;
+  }
+
+  .card_1 {
+    .username {
+      font-size: medium;
+    }
+    .useremail {
+      font-size: small;
+      opacity: 0.5;
+    }
+    .option {
+      margin-top: 20px;
+      display: flex;
+      justify-content: left;
+      gap: 5px;
+      padding: 10px 20px;
+      border-radius: 10px;
+    }
+    .option:hover {
+      cursor: pointer;
+    }
+  }
+
+  .card_2 form,
+  .card_3 form,
+  .card_4 form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .title {
+      font-size: large;
+      font-weight: bold;
+    }
+    .row-in-block {
+      display: flex;
+      justify-content: start;
+      flex-direction: column;
+      gap: 20px;
+
+      div {
+        width: 100%;
+      }
+    }
+    .profileInfo-block,
+    .myOrders-block {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .label {
+      font-size: medium;
+    }
+    .data {
+      font-size: small;
+      opacity: 0.5;
+    }
+  }
+
+  .card_3 {
+  }
+
+  .card_4 {
+  }
+}
+@media only screen and (min-width: 600px) {
+  .account_container {
+    flex-direction: row;
+    align-items: start;
+
+    .card_1 {
+      position: sticky;
+      top: 20px;
+    }
+    .card_2,
+    .card_3,
+    .card_4 {
+      flex-grow: 1;
+    }
+    .card_2 form,
+    .card_3 form,
+    .card_4 form {
+      .row-in-block {
+        display: flex;
+        justify-content: start;
+        flex-direction: row;
+
+        div {
+          /* width: 50%; */
+        }
+      }
+    }
+  }
+}

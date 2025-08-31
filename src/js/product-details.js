@@ -1,4 +1,9 @@
-const params = new URLSearchParams(window.location.search);
+// Render navbar when page loads
+document.addEventListener('DOMContentLoaded', function () {
+  if (window.sharedUtils && window.sharedUtils.renderNavbar) {
+      window.sharedUtils.renderNavbar();
+  }
+});const params = new URLSearchParams(window.location.search);
 const productId = params.get("id");
 
 
@@ -15,7 +20,7 @@ if (productId) {
       document.getElementById("product-details").innerHTML = `
         <div class="col-12 text-center">
           <h2>Product not found!</h2>
-          <a href="index.html" class="btn btn-outline-dark mt-3">⬅ Back to Home</a>
+          <a href="../../index.html" class="btn btn-outline-dark mt-3">⬅ Back to Home</a>
         </div>
       `;
     }
@@ -65,9 +70,9 @@ function displayProductDetails(product) {
       </div>
 
       <div class="actions">
-        <button class="btn bg-black text-white">Add to Cart</button>
-        <a href="home_page.html" class="btn back-home">Back to Home</a>
-        <a href="product_catalog.html" class="btn back-home">Back to product catalog</a>
+        <button id="addToCart" class="btn bg-black text-white"  >Add to Cart</button>
+        <a href="../../index.html" class="btn back-home">Back to Home</a>
+        <a href="../../pages/products/index.html" class="btn back-home">Back to product catalog</a>
       </div>
 
 
@@ -148,7 +153,10 @@ function displayProductDetails(product) {
   const quantityInput = document.getElementById("quantity");
   document.getElementById("increase").addEventListener("click", () => {
     if (quantityInput.value < product.stock) {
-      quantityInput.value = parseInt(quantityInput.value) + 1;
+      if (quantityInput.value < product.stock){
+              quantityInput.value = parseInt(quantityInput.value) + 1;
+      }
+      
     }
   });
 
@@ -157,17 +165,19 @@ function displayProductDetails(product) {
       quantityInput.value = parseInt(quantityInput.value) - 1;
     }
   });
+
+
+  // add to cart 
+  document.getElementById("addToCart").addEventListener("click", () => {
+    const quantity = parseInt(quantityInput.value);
+    addToCart(product, quantity);
+  });
+
 }
 
 
 
-
-
-
-
 // review  and descript
-
-
 const tabBtns = document.querySelectorAll('.tab-btn');
 const tabContents = document.querySelectorAll('.tab-content');
 
@@ -184,7 +194,9 @@ tabBtns.forEach(btn => btn.addEventListener('click', () => {
 
 
 
+// add to cart
 
+// var cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 
 

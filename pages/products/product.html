@@ -5,65 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MobileXpress</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../../src/css/product_details.css">
   <link href="../../src/css/global.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="../../src/css/product_details.css">
+    
 </head> 
 <body>
 
-<header>
-  <nav class="top_nav nav_cont">
-    <!-- logo -->
-    <a class="logo" href="../../index.html">
-      <img src="../../assets/home_page_img/logo.png" alt="logo">
-    </a>
 
-    <!-- search bar -->
-    <form action="" class="search">
-      <input type="search" class="search" placeholder="Search for product...">
-      <button type="submit">Search</button>
-    </form>
-
-    <!-- cart -->
-    <div class="  ">
-      <div class="icon_cart" onclick="open_cart()">
-        <i class="fa-solid fa-cart-shopping"></i>
-      </div>
-    </div>
-  </nav>
-
-  <!-- bottom nav -->
-<div class="bottom_nav">
-  <div class="links _cont">
-<i onclick="open_menu()" class="fa-solid fa-bars open_menu"></i>
-    <ul id="menu">
-      <span class="bg_overlay " onclick="close_menu()">
-
-      </span>
-
-
-      <img src="../../assets/home_page_img/iphone-seeklogo.png" class="logo_menu" alt="">
-
-
-        <i class="fa-solid fa-xmark close_menu" onclick="close_menu()" style="color: #000000;"></i>
-        <li class="active"><a href="../../index.html">Home</a></li>
-        <li><a href="./index.html">Catalog</a></li>
-        <li><a href="#">About Us</a></li>
-        <li><a href="#">Contact Us</a></li>
-      </ul>
-
-      <!-- login / signup -->
-      <div class="login_sign_up">
-        <a href="../login/index.html">Login <i class="fa-solid fa-right-to-bracket"></i></a>
-        <a href="../signup/index.html">Signup<i class="fa-solid fa-user-plus"></i></a>
-      </div>
-    </div>
-  </div>
-</header>
 
 
 
@@ -135,77 +88,81 @@
 
   </main>
 
-<footer id="page-footer" class="footer mt-auto py-5 bg-black text-white">
-  <div class="container">
-    <div class="row mb-5">
-      <div class="col-md-4">
-        <h5 class="fw-bold text-white logo"><a href="../../index.html"> <img src="../../assets/home_page_img/logo_white_black_back.png" alt=""> </a></h5>
-        <p class=" text-white">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste sint perspiciatis eaque maxime expedita eius asperiores provident delectus dolores distinctio?.
-        </p>
-      </div>
-      <div class="col-md-2 mt-5">
-        <h5 class="fw-bold text-white">Shop</h5>
-        <ul class="list-unstyled">
-          <li class="mb-2">
-            <a href="./index.html" class="text-decoration-none  text-white footer-text text-white">Collection</a>
-          </li>
-          <li class="mb-2">
-            <a href="#sale_sction" class="text-decoration-none text-white footer-text text-white">sale </a>
-          </li>
-        </ul>
-      </div>
-      <div class="col-md-3 mt-5">
-        <h5 class="fw-bold text-white">Support</h5>
-        <ul class="list-unstyled">
-          <li class="mb-2 footer-text">
-            <a href="#" class="text-decoration-none text-white footer-text">FAQ</a>
-          </li>
-          <li class="mb-2">
-            <a href="../../index.html" class="text-decoration-none text-white footer-text">Shipping</a>
-          </li>
-          <li class="mb-2">
-            <a href="#" class="text-decoration-none text-white footer-text">Contact Us</a>
-          </li>
-        </ul>
-      </div>
-      <div class="col-md-3">
-        <h5 class="fw-bold text-center mb-4">Follow Us</h5>
+  <footer id="page-footer" class="footer mt-auto py-5 bg-black text-white">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-md-4">
+          <h5 class="fw-bold text-white logo_footer"><a href="./index.html"> <img
+                src="../../assets/home_page_img/logo_white_black_back.png" alt=""> </a></h5>
+          <p class=" text-white">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste sint perspiciatis eaque maxime expedita eius
+            asperiores provident delectus dolores distinctio?.
+          </p>
+        </div>
+        <div class="col-md-2 mt-5">
+          <h5 class="fw-bold text-white">Shop</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2">
+              <a href="./pages/products/index.html"
+                class="text-decoration-none  text-white footer-text text-white">Collection</a>
+            </li>
+            <li class="mb-2">
+              <a href="#sale_sction" class="text-decoration-none text-white footer-text text-white">sale </a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-3 mt-5">
+          <h5 class="fw-bold text-white">Support</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2 footer-text">
+              <a href="#" class="text-decoration-none text-white footer-text">FAQ</a>
+            </li>
+            <li class="mb-2">
+              <a href="./index.html" class="text-decoration-none text-white footer-text">Shipping</a>
+            </li>
+            <li class="mb-2">
+              <a href="#" class="text-decoration-none text-white footer-text">Contact Us</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h5 class="fw-bold text-center mb-4">Follow Us</h5>
 
-        <div class="d-flex justify-content-evenly">
+          <div class="d-flex justify-content-evenly">
 
-          <div class="social-group text-center">
-            <a href="#" class="text-decoration-none text-white d-block">
-              <i class="fab fa-facebook fa-2x social-icon"></i>
-              <div class="social-text">Facebook</div>
-            </a>
+            <div class="social-group text-center">
+              <a href="#" class="text-decoration-none text-white d-block">
+                <i class="fab fa-facebook fa-2x social-icon"></i>
+                <div class="social-text">Facebook</div>
+              </a>
+            </div>
+
+
+            <div class="social-group text-center">
+              <a href="#" class="text-decoration-none text-white d-block">
+                <i class="fab fa-instagram fa-2x social-icon"></i>
+                <div class="social-text">Instagram</div>
+              </a>
+            </div>
+
+
           </div>
+        </div>
 
-
-          <div class="social-group text-center">
-            <a href="#" class="text-decoration-none text-white d-block">
-              <i class="fab fa-instagram fa-2x social-icon"></i>
-              <div class="social-text">Instagram</div>
-            </a>
-          </div>
-
-
+      </div>
+      <div class="row">
+        <div class="col-12 text-white">
+          <p class="text-white mb-0">
+            &copy; 2025 mobileshop. All rights reserved.
+          </p>
         </div>
       </div>
-
     </div>
-    <div class="row">
-      <div class="col-12 text-white">
-        <p class="text-white mb-0">
-          &copy; 2025 mobileshop. All rights reserved.
-        </p>
-      </div>
-    </div>
-  </div>
-</footer>
+  </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
+  <script src="../../assets/lib/js/crypto-js.min.js"></script>
+  <script src="../../assets/lib/js/bootstrap.bundle.min.js"></script>
+  <script src="../../src/js/shared.js"></script>
   <script src="../../src/js/product-details.js"></script>
 </body>
 </html>

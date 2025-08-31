@@ -10,15 +10,19 @@
     <link rel="stylesheet" href="../src/css/admin.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+
 
 
 </head>
 
 <body>
+
     <!-- Sidebar -->
     <div class="sidebar bg-dark">
         <div class="d-flex flex-column h-100 p-3">
-            <a href="../index.html" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+            <a href="../index.html"
+                class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
                 <i class="bi bi-shield-check fs-4 me-2"></i>
                 <span class="fs-4">Admin Panel</span>
             </a>
@@ -79,9 +83,7 @@
                     <button type="button" class="btn btn-outline-primary" onclick="exportData()">
                         <i class="bi bi-download me-2"></i>Export Data
                     </button>
-                    <button type="button" class="btn btn-primary" onclick="showAddModal()">
-                        <i class="bi bi-plus me-2"></i>Add New
-                    </button>
+
                 </div>
             </div>
 
@@ -126,6 +128,41 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Order Summary -->
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <div class="content-card">
+                            <h5 class="card-title mb-3">
+                                <i class="bi bi-cart me-2"></i>Order Summary
+                            </h5>
+                            <div class="row text-center">
+                                <div class="col-6">
+                                    <div class="bg-success text-white p-3 rounded mb-2">
+                                        <h4 id="dashboardTotalOrders">0</h4>
+                                        <small>Total Orders</small>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="bg-primary text-white p-3 rounded mb-2">
+                                        <h4 id="dashboardTotalRevenue">$0</h4>
+                                        <small>Total Revenue</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="content-card">
+                            <h5 class="card-title mb-3">
+                                <i class="bi bi-bell me-2"></i>Recent Activity
+                            </h5>
+                            <div class="list-group list-group-flush" id="activityList">
+                                <!-- Activity will be loaded here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- Users Section -->
@@ -135,9 +172,20 @@
                         <h5 class="card-title mb-0">
                             <i class="bi bi-people me-2"></i>User Management
                         </h5>
-                        <button class="btn btn-primary btn-sm" onclick="showAddUserModal()">
-                            <i class="bi bi-plus me-1"></i>Add User
-                        </button>
+                        <div class="d-flex gap-2">
+                            <div class="btn-group" role="group">
+                                <button class="btn btn-outline-primary btn-sm" onclick="filterUsers('all')">All</button>
+                                <button class="btn btn-outline-secondary btn-sm"
+                                    onclick="filterUsers('customer')">Customers</button>
+                                <button class="btn btn-outline-info btn-sm"
+                                    onclick="filterUsers('seller')">Sellers</button>
+                                <button class="btn btn-outline-danger btn-sm"
+                                    onclick="filterUsers('admin')">Admins</button>
+                                <button class="btn btn-outline-warning btn-sm"
+                                    onclick="resetFilters('users')">Reset</button>
+                            </div>
+
+                        </div>
                     </div>
                     <div class="table-responsive">
                         <table class="table table-hover" id="usersTable">
@@ -174,6 +222,8 @@
                                 onclick="filterProducts('approved')">Approved</button>
                             <button class="btn btn-outline-danger btn-sm"
                                 onclick="filterProducts('rejected')">Rejected</button>
+                            <button class="btn btn-outline-warning btn-sm"
+                                onclick="resetFilters('products')">Reset</button>
                         </div>
                     </div>
                     <div class="table-responsive">
@@ -199,12 +249,31 @@
 
             <!-- Orders Section -->
             <div id="orders" class="section-content" style="display: none;">
+                <!-- Order Statistics Cards -->
+
+
+                <!-- Orders Table -->
                 <div class="row">
-                    <div class="col-md-8">
+                    <div class="col-12">
                         <div class="content-card">
-                            <h5 class="card-title mb-3">
-                                <i class="bi bi-cart me-2"></i>Order Management
-                            </h5>
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h5 class="card-title mb-0">
+                                    <i class="bi bi-cart me-2"></i>Order Management
+                                </h5>
+                                <div class="d-flex gap-2">
+                                    
+                                    <div class="btn-group" role="group">
+                                        <button class="btn btn-outline-primary btn-sm"
+                                            onclick="filterOrders('all')">All</button>
+                                        <button class="btn btn-outline-warning btn-sm"
+                                            onclick="filterOrders('recent')">Recent</button>
+                                        <button class="btn btn-outline-info btn-sm"
+                                            onclick="filterOrders('high-value')">High Value</button>
+                                        <button class="btn btn-outline-warning btn-sm"
+                                            onclick="resetFilters('orders')">Reset</button>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="table-responsive">
                                 <table class="table table-hover" id="ordersTable">
                                     <thead>
@@ -214,6 +283,7 @@
                                             <th>Products</th>
                                             <th>Total</th>
                                             <th>Status</th>
+                                            <th>Date</th>
                                             <th>Actions</th>
                                         </tr>
                                     </thead>
@@ -224,18 +294,9 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="col-md-4">
-                        <div class="content-card">
-                            <h5 class="card-title mb-3">
-                                <i class="bi bi-bell me-2"></i>Recent Activity
-                            </h5>
-                            <div class="list-group list-group-flush" id="activityList">
-                                <!-- Activity will be loaded here -->
-                            </div>
-                        </div>
-                    </div>
                 </div>
+
+
             </div>
 
             <!-- Support Section -->
@@ -245,13 +306,23 @@
                         <h5 class="card-title mb-0">
                             <i class="bi bi-headset me-2"></i>Customer Service
                         </h5>
-                        <div class="btn-group" role="group">
-                            <button class="btn btn-outline-primary btn-sm" onclick="filterTickets('all')">All</button>
-                            <button class="btn btn-outline-warning btn-sm" onclick="filterTickets('open')">Open</button>
-                            <button class="btn btn-outline-info btn-sm" onclick="filterTickets('in-progress')">In
-                                Progress</button>
-                            <button class="btn btn-outline-success btn-sm"
-                                onclick="filterTickets('resolved')">Resolved</button>
+                        <div class="d-flex gap-2">
+                            <button class="btn btn-outline-secondary btn-sm" onclick="refreshTickets()"
+                                title="Refresh tickets">
+                                <i class="bi bi-arrow-clockwise"></i> Refresh
+                            </button>
+                            <div class="btn-group" role="group">
+                                <button class="btn btn-outline-primary btn-sm"
+                                    onclick="filterTickets('all')">All</button>
+                                <button class="btn btn-outline-warning btn-sm"
+                                    onclick="filterTickets('open')">Open</button>
+                                <button class="btn btn-outline-info btn-sm" onclick="filterTickets('in-progress')">In
+                                    Progress</button>
+                                <button class="btn btn-outline-success btn-sm"
+                                    onclick="filterTickets('resolved')">Resolved</button>
+                                <button class="btn btn-outline-warning btn-sm"
+                                    onclick="resetFilters('tickets')">Reset</button>
+                            </div>
                         </div>
                     </div>
                     <div class="table-responsive">
@@ -278,40 +349,53 @@
     </div>
 
     <!-- Add User Modal -->
-    <div class="modal fade" id="addUserModal" tabindex="-1">
+
+
+    <!-- Edit User Modal -->
+    <div class="modal fade" id="editUserModal" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Add New User</h5>
+                    <h5 class="modal-title">Edit User</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="addUserForm">
+                    <form id="editUserForm">
+                        <input type="hidden" id="editUserId">
                         <div class="mb-3">
                             <label class="form-label">Full Name</label>
-                            <input type="text" class="form-control" id="userName" required>
+                            <input type="text" class="form-control" id="editUserName" required>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Email</label>
-                            <input type="email" class="form-control" id="userEmail" required>
+                            <input type="email" class="form-control" id="editUserEmail" required>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Role</label>
-                            <select class="form-select" id="userRole" required>
-                                <option value="user">User</option>
+                            <select class="form-select" id="editUserRole" required>
+                                <option value="customer">Customer</option>
                                 <option value="seller">Seller</option>
                                 <option value="admin">Admin</option>
                             </select>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Password</label>
-                            <input type="password" class="form-control" id="userPassword" required>
+                            <label class="form-label">Status</label>
+                            <select class="form-select" id="editUserStatus" required>
+                                <option value="active">Active</option>
+                                <option value="inactive">Inactive</option>
+                                <option value="pending">Pending</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">New Password (leave blank to keep current)</label>
+                            <input type="password" class="form-control" id="editUserPassword"
+                                placeholder="Enter new password or leave blank">
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-primary" onclick="addUser()">Add User</button>
+                    <button type="button" class="btn btn-primary" onclick="updateUser()">Update User</button>
                 </div>
             </div>
         </div>
@@ -330,8 +414,8 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-danger" onclick="rejectProduct()">Reject</button>
-                    <button type="button" class="btn btn-success" onclick="approveProduct()">Approve</button>
+                    <!-- <button type="button" class="btn btn-danger" onclick="rejectProduct()">Reject</button>
+                    <button type="button" class="btn btn-success" onclick="approveProduct()">Approve</button> -->
                 </div>
             </div>
         </div>
@@ -375,8 +459,9 @@
     <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <!-- Admin Demo Data -->
-    <script src="../data/admin-demo.json"></script>
+    <script src="../assets/lib/js/crypto-js.min.js"></script>
+
+
 
     <!-- Bootstrap Bundle -->
     <script src="../assets/lib/js/bootstrap.bundle.min.js"></script>

@@ -1,48 +1,45 @@
-(function () {
-  // ---------- Demo users (replace with real auth in production) ----------
-  const users = [
-    { id: 1, firstName: "abdo", lastName: "sakr", email: "abdo@gmail.com", password: "123", role: "seller" },
-    { id: 2, firstName: "ali", lastName: "ahmed", email: "ali@gmail.com", password: "123", role: "customer" },
-    { id: 999, firstName: "Admin", lastName: "User", email: "admin@example.com", password: "admin", role: "admin" },
-  ];
+// Render navbar when page loads
+document.addEventListener('DOMContentLoaded', function () {
+  if (window.sharedUtils && window.sharedUtils.renderNavbar) {
+    window.sharedUtils.renderNavbar();
+  }
+  
+  // Check if user is logged in and has seller role
+  const currentUser = getCurrentUser();
+  if (!currentUser) {
+    console.warn("No user logged in");
+    return;
+  }
+  
+  if (currentUser.role !== "seller" && currentUser.role !== "admin") {
+    console.warn("User does not have seller or admin role");
+    return;
+  }
+  
+  // Initialize the dashboard
+  initializeDashboard(currentUser);
+});
 
-  // Change to simulate different roles. In production, set currentUser from your auth system.
-  let currentUser = users[0]; // default = seller
-  // currentUser = users.find(u => u.role === 'admin'); // uncomment to test admin flows
+// Initialize dashboard functionality
+function initializeDashboard(currentUser) {
+  // update User in Nav Bar
+  function updateUserInNav() {
+    const navUser = document.getElementById("navUser");
+    if (navUser && currentUser.firstName) {
+      navUser.innerHTML = currentUser.firstName;
+    }
+  }
 
-  // ---------- Default product data ----------
-  const DEFAULT_PRODUCTS = [
-    {
-      id: 1,
-      name: "iPhone 15 Pro Max",
-      description: "Apple iPhone 15 Pro Max with A17 Pro chip, 6.7-inch Super Retina XDR display, 256GB storage.",
-      price: 1399,
-      originalPrice: 1399,
-      salePercentage: 0,
-      category: "Smartphones",
-      stock: 25,
-      images: [
-        "assets/img/products/iphone15pro_max/front.png",
-        "assets/img/products/iphone15pro_max/back.png",
-      ],
-      sellerId: 101,
-      rating: 4.8,
-      adminReview: { status: "approved", reviewedBy: "admin001", reviewedAt: "2025-01-20T10:30:00Z" },
-      specifications: {
-        Processor: "Apple A17 Pro (3nm)",
-        Display: "6.7-inch Super Retina XDR OLED, 120Hz",
-        RAM: "8GB",
-      },
-      createdAt: "2025-08-17T12:00:00Z",
-      updatedAt: "2025-01-20T10:30:00Z",
-      status: "Active",
-    },
-  ];
+  updateUserInNav();
+
+
+  (function () {
 
   // ---------- Storage keys & constants ----------
-  const STORAGE_KEY = "products_store";
+  const STORAGE_KEY = "products";
   const PENDING_KEY = "pendingEdits";
-  const PLACEHOLDER = "https://via.placeholder.com/200";
+  const PLACEHOLDER = "";
+  const DEFAULT_PRODUCTS = [];
 
   // ---------- DOM references (Add modal) ----------
   const addProductForm = document.getElementById("addProductForm");
@@ -54,21 +51,30 @@
   const addStock = document.getElementById("addStock");
   const addSellerId = document.getElementById("addSellerId");
   const addRating = document.getElementById("addRating");
+  const addColor = document.getElementById("addColor");
+  const addOs = document.getElementById("addOs");
+  const addBrand = document.getElementById("addBrand");
+  const addOldPrice = document.getElementById("addOldPrice");
+  const addSlug = document.getElementById("addSlug");
+  const addNotes = document.getElementById("addNotes");
   const addImageUrls = document.getElementById("addImageUrls"); // optional fallback
   const addImageFiles = document.getElementById("addImageFiles"); // new file input
   const addDescription = document.getElementById("addDescription");
   const addSpecsContainer = document.getElementById("addSpecsContainer");
   const addSpecBtn = document.getElementById("addSpecBtn");
-  const addStatus = document.getElementById("addStatus");
   const addCreateAndCloseBtn = document.getElementById("addCreateAndCloseBtn");
   const openAddModalBtn = document.getElementById("openAddModalBtn");
   const addImg = document.getElementById("addImg");
 
   // ---------- DOM references (Product modal / edit) ----------
   const productsTbody = document.getElementById("productsTbody");
-  const adminPendingContainer = document.getElementById("adminPendingContainer");
+  const adminPendingContainer = document.getElementById(
+    "adminPendingContainer"
+  );
   const productModalEl = document.getElementById("productModal");
-  const productModal = productModalEl ? new bootstrap.Modal(productModalEl) : null;
+  const productModal = productModalEl
+    ? new bootstrap.Modal(productModalEl)
+    : null;
   const modalProductId = document.getElementById("modalProductId");
   const modalImg = document.getElementById("modalImg");
   const modalName = document.getElementById("modalName");
@@ -86,21 +92,32 @@
   const modalImageFiles = document.getElementById("modalImageFiles"); // new file input in modal
   const modalSellerId = document.getElementById("modalSellerId");
   const modalRating = document.getElementById("modalRating");
-  const modalStatus = document.getElementById("modalStatus");
   const modalAdminReview = document.getElementById("modalAdminReview");
   const modalCreatedAt = document.getElementById("modalCreatedAt");
   const modalUpdatedAt = document.getElementById("modalUpdatedAt");
+  const modalColor = document.getElementById("modalColor");
+  const modalOs = document.getElementById("modalOs");
+  const modalBrand = document.getElementById("modalBrand");
+  const modalOldPrice = document.getElementById("modalOldPrice");
+  const modalSlug = document.getElementById("modalSlug");
+  const modalUserComments = document.getElementById("modalUserComments");
+  const modalNotes = document.getElementById("modalNotes");
 
   // ---------- Runtime state ----------
   let PRODUCTS_ARRAY = [];
   let currentProductId = null;
-  let addImageDataUrls = [];   // array of data-URLs selected in Add modal
+  let addImageDataUrls = []; // array of data-URLs selected in Add modal
   let modalImageDataUrls = []; // array of data-URLs selected in Edit modal
 
   // ---------- Helpers ----------
   function escapeHtml(s) {
     if (typeof s !== "string") return s;
-    return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/\"/g, "&quot;").replace(/'/g, "&#039;");
+    return s
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/\"/g, "&quot;")
+      .replace(/'/g, "&#039;");
   }
 
   function loadProducts() {
@@ -158,28 +175,18 @@
     const row = document.createElement("div");
     row.className = "spec-row";
     row.innerHTML = `
-      <input class="form-control form-control-sm spec-key-input" placeholder="Key" value="${escapeHtml(key)}">
-      <input class="form-control form-control-sm spec-val-input" placeholder="Value" value="${escapeHtml(value)}">
+      <input class="form-control form-control-sm spec-key-input" placeholder="Key" value="${escapeHtml(
+      key
+    )}">
+      <input class="form-control form-control-sm spec-val-input" placeholder="Value" value="${escapeHtml(
+      value
+    )}">
       <button type="button" class="btn btn-sm btn-outline-danger spec-remove-btn spec-actions" title="Remove">&times;</button>
     `;
     const btn = row.querySelector(".spec-remove-btn");
     btn.addEventListener("click", () => row.remove());
     container.appendChild(row);
     return row;
-  }
-
-  function parseSpecs(text) {
-    const lines = (text || "").split(/\r?\n/).map((l) => l.trim()).filter(Boolean);
-    const obj = {};
-    lines.forEach((line) => {
-      const parts = line.split(":");
-      if (parts.length >= 2) {
-        const key = parts.shift().trim();
-        const val = parts.join(":").trim();
-        if (key) obj[key] = val;
-      }
-    });
-    return obj;
   }
 
   function productHasPending(productId) {
@@ -192,24 +199,41 @@
     if (!productsTbody) return;
     productsTbody.innerHTML = "";
     if (!Array.isArray(items) || items.length === 0) {
-      productsTbody.innerHTML = '<tr><td colspan="7" class="text-center py-4">No products found</td></tr>';
+      productsTbody.innerHTML =
+        '<tr><td colspan="7" class="text-center py-4">No products found</td></tr>';
       if (adminPendingContainer) adminPendingContainer.innerHTML = "";
       return;
     }
 
+    if (currentUser.role !== "admin") {
+      items = items.filter(p => p.sellerId == currentUser.id);
+    }
     items.forEach((p, idx) => {
       const tr = document.createElement("tr");
       tr.setAttribute("data-product-id", p.id);
       const imgSrc = p.images && p.images[0] ? p.images[0] : PLACEHOLDER;
-      const statusBadge = p.status === "Active" ? "bg-success" : p.status === "Low Stock" ? "bg-warning text-dark" : "bg-secondary";
-      const pending = productHasPending(p.id);
-      const statusContent = pending ? '<span class="badge bg-warning text-dark">Pending Review</span>' : `<span class="badge ${statusBadge}">${escapeHtml(p.status || "")}</span>`;
+      const approvalStatus = p.adminReview ? p.adminReview.status : "unknown";
+      const isPendingEdit = productHasPending(p.id);
+      let badgeClass, badgeText;
+      if (isPendingEdit || approvalStatus === "pending") {
+        badgeClass = "bg-warning text-dark";
+        badgeText = "Pending Review";
+      } else if (approvalStatus === "approved") {
+        badgeClass = "bg-success";
+        badgeText = "Approved";
+      } else {
+        badgeClass = "bg-secondary";
+        badgeText = approvalStatus;
+      }
+      const statusContent = `<span class="badge ${badgeClass}">${escapeHtml(badgeText)}</span>`;
 
       tr.innerHTML = `
         <td>${idx + 1}</td>
         <td>
           <div class="d-flex align-items-center">
-            <img src="${escapeHtml(imgSrc)}" class="rounded me-2 prod-img" alt="Product">
+            <img src="${escapeHtml(
+        imgSrc
+      )}" class="rounded me-2 prod-img" alt="Product">
             <span>${escapeHtml(p.name)}</span>
           </div>
         </td>
@@ -217,12 +241,19 @@
         <td>${Number(p.stock || 0)}</td>
         <td>
           $${Number(p.price || 0).toFixed(2)}
-          ${p.originalPrice && Number(p.originalPrice) > Number(p.price) ? `<small class="text-muted d-block"><s>$${Number(p.originalPrice).toFixed(2)}</s> -${Number(p.salePercentage)}%</small>` : ""}
+          ${p.originalPrice && Number(p.originalPrice) > Number(p.price)
+          ? `<small class="text-muted d-block"><s>$${Number(
+            p.originalPrice
+          ).toFixed(2)}</s> -${Number(p.salePercentage)}%</small>`
+          : ""
+        }
         </td>
         <td>${statusContent}</td>
         <td class="text-end">
-          <button class="btn btn-sm btn-outline-secondary btn-edit" data-id="${p.id}" title="Edit"><i class="bi bi-pencil"></i></button>
-          <button class="btn btn-sm btn-outline-danger btn-delete" data-id="${p.id}" title="Delete"><i class="bi bi-trash"></i></button>
+          <button class="btn btn-sm btn-outline-secondary btn-edit" data-id="${p.id
+        }" title="Edit"><i class="bi bi-pencil"></i></button>
+          <button class="btn btn-sm btn-outline-danger btn-delete" data-id="${p.id
+        }" title="Delete"><i class="bi bi-trash"></i></button>
         </td>
       `;
       productsTbody.appendChild(tr);
@@ -231,16 +262,21 @@
     if (adminPendingContainer) {
       adminPendingContainer.innerHTML = `<button class="btn btn-sm btn-danger" id="btnDeleteAll">Delete All ( ${PRODUCTS_ARRAY.length} )</button>`;
       const btnDeleteAll = document.getElementById("btnDeleteAll");
-      if (btnDeleteAll) btnDeleteAll.addEventListener("click", () => {
-        if (!confirm("Delete all products?")) return;
-        PRODUCTS_ARRAY = [];
-        saveProducts();
-        renderProductsTable();
-      });
+      if (btnDeleteAll)
+        btnDeleteAll.addEventListener("click", () => {
+          if (!confirm("Delete all products?")) return;
+          PRODUCTS_ARRAY = [];
+          saveProducts();
+          renderProductsTable();
+        });
     }
 
-    productsTbody.querySelectorAll(".btn-delete").forEach((b) => b.addEventListener("click", onDeleteClick));
-    productsTbody.querySelectorAll(".btn-edit").forEach((b) => b.addEventListener("click", onEditClick));
+    productsTbody
+      .querySelectorAll(".btn-delete")
+      .forEach((b) => b.addEventListener("click", onDeleteClick));
+    productsTbody
+      .querySelectorAll(".btn-edit")
+      .forEach((b) => b.addEventListener("click", onEditClick));
   }
 
   function onDeleteClick(e) {
@@ -265,22 +301,61 @@
     }
     currentProductId = Number(id);
     if (modalProductId) modalProductId.textContent = product.id;
-    if (modalImg) modalImg.src = product.images && product.images[0] ? product.images[0] : PLACEHOLDER;
+    if (modalImg)
+      modalImg.src =
+        product.images && product.images[0] ? product.images[0] : PLACEHOLDER;
     if (modalName) modalName.value = product.name || "";
     if (modalCategory) modalCategory.value = product.category || "";
     if (modalPrice) modalPrice.value = product.price || 0;
-    if (modalOriginalPrice) modalOriginalPrice.value = product.originalPrice || 0;
-    if (modalSalePercentage) modalSalePercentage.value = product.salePercentage || 0;
+    if (modalOriginalPrice)
+      modalOriginalPrice.value = product.originalPrice || 0;
+    if (modalSalePercentage)
+      modalSalePercentage.value = product.salePercentage || 0;
     if (modalStock) modalStock.value = product.stock || 0;
     if (modalDescription) modalDescription.value = product.description || "";
-    if (modalImageUrls) modalImageUrls.value = (product.images || []).join(", ");
+    if (modalImageUrls)
+      modalImageUrls.value = (product.images || []).join(", ");
     modalImageDataUrls = (product.images || []).slice(); // default to existing images (data-URLs or URLs)
     if (modalSellerId) modalSellerId.value = product.sellerId || "";
     if (modalRating) modalRating.value = product.rating || "";
-    if (modalStatus) modalStatus.value = product.status || "Active";
-    if (modalAdminReview) modalAdminReview.textContent = product.adminReview && product.adminReview.status ? `${product.adminReview.status} (${product.adminReview.reviewedBy || ''})` : "-";
+    if (modalColor) modalColor.value = product.color || "";
+    if (modalOs) modalOs.value = product.os || "";
+    if (modalBrand) modalBrand.value = product.brand || "";
+    if (modalOldPrice) modalOldPrice.value = product.old_price || 0;
+    if (modalSlug) modalSlug.value = product.slug || "";
+    if (modalNotes) modalNotes.value = product.adminReview ? product.adminReview.notes || "" : "";
+    if (modalAdminReview) {
+      if (product.adminReview) {
+        modalAdminReview.innerHTML = `
+          Status: ${escapeHtml(product.adminReview.status || "-")} <br>
+          Reviewed By: ${escapeHtml(product.adminReview.reviewedBy || "-")} <br>
+          Reviewed At: ${product.adminReview.reviewedAt || "-"} <br>
+          Notes: ${escapeHtml(product.adminReview.notes || "-")} <br>
+          Approval Date: ${product.adminReview.approvalDate || "-"}
+        `;
+      } else {
+        modalAdminReview.innerHTML = "-";
+      }
+    }
     if (modalCreatedAt) modalCreatedAt.textContent = product.createdAt || "-";
     if (modalUpdatedAt) modalUpdatedAt.textContent = product.updatedAt || "-";
+    if (modalUserComments) {
+      modalUserComments.innerHTML = "";
+      if (product.userComments && product.userComments.length > 0) {
+        product.userComments.forEach((c) => {
+          const div = document.createElement("div");
+          div.className = "comment-item mb-2 border-bottom pb-2";
+          div.innerHTML = `
+            <strong>${escapeHtml(c.username || "")}</strong> - Rating: ${c.rating || 0}/5 <br>
+            ${escapeHtml(c.comment || "")} <br>
+            <small>Created: ${c.createdAt || "-"} | Helpful: ${c.helpful || 0} | Verified: ${c.verified ? "Yes" : "No"}</small>
+          `;
+          modalUserComments.appendChild(div);
+        });
+      } else {
+        modalUserComments.innerHTML = "<p class='text-muted'>No comments yet.</p>";
+      }
+    }
 
     if (modalSpecs) {
       modalSpecs.innerHTML = "";
@@ -292,27 +367,36 @@
   }
 
   // modal spec add
-  if (modalAddSpecBtn && modalSpecs) modalAddSpecBtn.addEventListener("click", () => createSpecRow(modalSpecs, "", ""));
+  if (modalAddSpecBtn && modalSpecs)
+    modalAddSpecBtn.addEventListener("click", () =>
+      createSpecRow(modalSpecs, "", "")
+    );
 
   // modal delete
-  if (modalDeleteBtn) modalDeleteBtn.addEventListener("click", () => {
-    if (currentProductId === null) return;
-    if (!confirm("Delete product #" + currentProductId + "?")) return;
-    PRODUCTS_ARRAY = PRODUCTS_ARRAY.filter((p) => Number(p.id) !== Number(currentProductId));
-    saveProducts();
-    if (productModal) productModal.hide();
-    renderProductsTable();
-  });
+  if (modalDeleteBtn)
+    modalDeleteBtn.addEventListener("click", () => {
+      if (currentProductId === null) return;
+      if (!confirm("Delete product #" + currentProductId + "?")) return;
+      PRODUCTS_ARRAY = PRODUCTS_ARRAY.filter(
+        (p) => Number(p.id) !== Number(currentProductId)
+      );
+      saveProducts();
+      if (productModal) productModal.hide();
+      renderProductsTable();
+    });
 
   // ---------- FILE UPLOAD UTIL ----------
   function readFilesAsDataURLs(fileList) {
     const files = Array.from(fileList || []);
-    const readers = files.map(file => new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.onload = (e) => resolve(e.target.result);
-      reader.onerror = (err) => reject(err);
-      reader.readAsDataURL(file);
-    }));
+    const readers = files.map(
+      (file) =>
+        new Promise((resolve, reject) => {
+          const reader = new FileReader();
+          reader.onload = (e) => resolve(e.target.result);
+          reader.onerror = (err) => reject(err);
+          reader.readAsDataURL(file);
+        })
+    );
     return Promise.all(readers);
   }
 
@@ -326,7 +410,8 @@
           return;
         }
         addImageDataUrls = await readFilesAsDataURLs(e.target.files);
-        if (addImg && addImageDataUrls.length > 0) addImg.src = addImageDataUrls[0];
+        if (addImg && addImageDataUrls.length > 0)
+          addImg.src = addImageDataUrls[0];
       } catch (err) {
         console.error("Failed to read add images", err);
       }
@@ -343,7 +428,8 @@
           return;
         }
         modalImageDataUrls = await readFilesAsDataURLs(e.target.files);
-        if (modalImg && modalImageDataUrls.length > 0) modalImg.src = modalImageDataUrls[0];
+        if (modalImg && modalImageDataUrls.length > 0)
+          modalImg.src = modalImageDataUrls[0];
       } catch (err) {
         console.error("Failed to read modal images", err);
       }
@@ -355,68 +441,71 @@
     productFormModal.addEventListener("submit", (e) => {
       e.preventDefault();
       if (currentProductId === null) return;
-      const idx = PRODUCTS_ARRAY.findIndex((p) => Number(p.id) === Number(currentProductId));
-      if (idx === -1) { alert("Product not found"); return; }
+      const idx = PRODUCTS_ARRAY.findIndex(
+        (p) => Number(p.id) === Number(currentProductId)
+      );
+      if (idx === -1) {
+        alert("Product not found");
+        return;
+      }
 
       // choose images priority: modalImageDataUrls (files) -> modalImageUrls (text) -> placeholder
       let imagesToUse = [];
       if (Array.isArray(modalImageDataUrls) && modalImageDataUrls.length > 0) {
         imagesToUse = modalImageDataUrls.slice();
       } else if (modalImageUrls && modalImageUrls.value) {
-        imagesToUse = modalImageUrls.value.split(",").map(s => s.trim()).filter(Boolean);
+        imagesToUse = modalImageUrls.value
+          .split(",")
+          .map((s) => s.trim())
+          .filter(Boolean);
       } else {
         imagesToUse = [PLACEHOLDER];
       }
 
-      const proposed = {
-        id: PRODUCTS_ARRAY[idx].id,
-        name: modalName ? modalName.value.trim() : PRODUCTS_ARRAY[idx].name,
-        category: modalCategory ? modalCategory.value.trim() : PRODUCTS_ARRAY[idx].category,
-        price: modalPrice ? Number(modalPrice.value) || 0 : PRODUCTS_ARRAY[idx].price,
-        originalPrice: modalOriginalPrice ? Number(modalOriginalPrice.value) || 0 : PRODUCTS_ARRAY[idx].originalPrice,
-        salePercentage: 0,
-        stock: modalStock ? Number(modalStock.value) || 0 : PRODUCTS_ARRAY[idx].stock,
-        images: imagesToUse,
-        description: modalDescription ? modalDescription.value.trim() : PRODUCTS_ARRAY[idx].description,
-        specifications: modalSpecs ? parseSpecsFromRows(modalSpecs) : PRODUCTS_ARRAY[idx].specifications,
-        sellerId: modalSellerId ? (modalSellerId.value ? Number(modalSellerId.value) : null) : PRODUCTS_ARRAY[idx].sellerId,
-        rating: modalRating ? (modalRating.value ? Number(modalRating.value) : null) : PRODUCTS_ARRAY[idx].rating,
-        status: modalStatus ? modalStatus.value || "Active" : PRODUCTS_ARRAY[idx].status
-      };
+      const proposed = {};
+      proposed.color = modalColor ? modalColor.value.trim() : PRODUCTS_ARRAY[idx].color;
+      proposed.os = modalOs ? modalOs.value.trim() : PRODUCTS_ARRAY[idx].os;
+      proposed.brand = modalBrand ? modalBrand.value.trim() : PRODUCTS_ARRAY[idx].brand;
+      proposed.old_price = modalOldPrice ? Number(modalOldPrice.value) || 0 : PRODUCTS_ARRAY[idx].old_price;
+      proposed.price = modalPrice ? Number(modalPrice.value) || 0 : PRODUCTS_ARRAY[idx].price;
+      proposed.id = PRODUCTS_ARRAY[idx].id;
+      proposed.slug = modalSlug ? modalSlug.value.trim() : PRODUCTS_ARRAY[idx].slug;
+      proposed.name = modalName ? modalName.value.trim() : PRODUCTS_ARRAY[idx].name;
+      proposed.description = modalDescription ? modalDescription.value.trim() : PRODUCTS_ARRAY[idx].description;
+      proposed.originalPrice = modalOriginalPrice ? Number(modalOriginalPrice.value) || 0 : PRODUCTS_ARRAY[idx].originalPrice;
+      proposed.salePercentage = 0;
+      proposed.category = modalCategory ? modalCategory.value.trim() : PRODUCTS_ARRAY[idx].category;
+      proposed.stock = modalStock ? Number(modalStock.value) || 0 : PRODUCTS_ARRAY[idx].stock;
+      proposed.images = imagesToUse;
+      proposed.sellerId = modalSellerId ? Number(modalSellerId.value) || null : PRODUCTS_ARRAY[idx].sellerId;
+      proposed.rating = modalRating ? Number(modalRating.value) || null : PRODUCTS_ARRAY[idx].rating;
+      proposed.userComments = PRODUCTS_ARRAY[idx].userComments || [];
+      proposed.specifications = modalSpecs ? parseSpecsFromRows(modalSpecs) : PRODUCTS_ARRAY[idx].specifications;
+      proposed.createdAt = PRODUCTS_ARRAY[idx].createdAt;
+      proposed.updatedAt = PRODUCTS_ARRAY[idx].updatedAt;
+      proposed.adminReview = PRODUCTS_ARRAY[idx].adminReview || null;
 
-      if (proposed.originalPrice > 0 && proposed.originalPrice >= proposed.price) {
-        proposed.salePercentage = Math.round(((proposed.originalPrice - proposed.price) / proposed.originalPrice) * 100);
+      if (
+        proposed.originalPrice > 0 &&
+        proposed.originalPrice >= proposed.price
+      ) {
+        proposed.salePercentage = Math.round(
+          ((proposed.originalPrice - proposed.price) / proposed.originalPrice) *
+          100
+        );
       } else {
         proposed.salePercentage = 0;
       }
 
-      // If admin -> apply immediately
-      if (currentUser && currentUser.role === "admin") {
-        PRODUCTS_ARRAY[idx] = Object.assign({}, PRODUCTS_ARRAY[idx], proposed);
-        PRODUCTS_ARRAY[idx].updatedAt = new Date().toISOString();
-        PRODUCTS_ARRAY[idx].adminReview = { status: 'approved', reviewedBy: currentUser.email, reviewedAt: new Date().toISOString() };
-        saveProducts();
-        if (productModal) productModal.hide();
-        renderProductsTable();
-        alert("Changes applied successfully (admin).");
-        return;
-      }
 
+      console.log(proposed);
+
+      proposed.adminReview.status = "pending";
       // Otherwise (seller) -> create pending edit
-      const pending = {
-        pendingId: generateId(),
-        productId: PRODUCTS_ARRAY[idx].id,
-        proposedProduct: proposed,
-        sellerId: currentUser ? currentUser.id : null,
-        status: "pending",
-        createdAt: new Date().toISOString(),
-      };
 
-      const pendings = getPendingEdits();
-      pendings.unshift(pending);
-      savePendingEdits(pendings);
 
-      if (modalAdminReview) modalAdminReview.textContent = "Pending review";
+
+      if (modalAdminReview) modalAdminReview.innerHTML = "Pending review";
       if (productModal) productModal.hide();
       renderProductsTable();
       renderAdminPendingButton();
@@ -433,10 +522,10 @@
       addImageDataUrls = [];
       if (addImageFiles) addImageFiles.value = "";
       if (addSpecsContainer) addSpecsContainer.innerHTML = "";
-      if (addStatus) addStatus.value = "Active";
       if (addImg) addImg.src = PLACEHOLDER;
       if (addSalePercentage) addSalePercentage.value = 0;
       if (addCategory) addCategory.value = "Smartphones";
+      if (addNotes) addNotes.value = "";
       // initial spec rows
       if (addSpecsContainer) {
         createSpecRow(addSpecsContainer, "Processor", "");
@@ -447,7 +536,10 @@
     });
   }
 
-  if (addSpecBtn && addSpecsContainer) addSpecBtn.addEventListener("click", () => createSpecRow(addSpecsContainer, "", ""));
+  if (addSpecBtn && addSpecsContainer)
+    addSpecBtn.addEventListener("click", () =>
+      createSpecRow(addSpecsContainer, "", "")
+    );
 
   // recalc sale % on add modal
   if (addPrice && addOriginalPrice && addSalePercentage) {
@@ -456,66 +548,98 @@
         const price = Number(addPrice.value) || 0;
         const original = Number(addOriginalPrice.value) || 0;
         let sale = 0;
-        if (original > 0 && original >= price) sale = Math.round(((original - price) / original) * 100);
+        if (original > 0 && original >= price)
+          sale = Math.round(((original - price) / original) * 100);
         addSalePercentage.value = sale;
       });
     });
   }
 
   // fallback preview if user types URLs (only when no files selected)
-  if (addImageUrls && addImg) addImageUrls.addEventListener("input", () => {
-    if (addImageFiles && addImageFiles.files && addImageFiles.files.length > 0) return;
-    const urls = (addImageUrls.value || "").split(",").map(s => s.trim()).filter(Boolean);
-    addImg.src = urls[0] || PLACEHOLDER;
-  });
+  if (addImageUrls && addImg)
+    addImageUrls.addEventListener("input", () => {
+      if (
+        addImageFiles &&
+        addImageFiles.files &&
+        addImageFiles.files.length > 0
+      )
+        return;
+      const urls = (addImageUrls.value || "")
+        .split(",")
+        .map((s) => s.trim())
+        .filter(Boolean);
+      addImg.src = urls[0] || PLACEHOLDER;
+    });
 
   // ---------- Handle create product (Add modal) ----------
+
   function handleAddModalCreate(closeAfter) {
-    const imagesFromUrls = addImageUrls ? (addImageUrls.value || "").split(",").map((s) => s.trim()).filter(Boolean) : [];
-    const p = {
-      id: null,
-      name: (addName && addName.value || "").trim(),
-      price: addPrice ? Number(addPrice.value) || 0 : 0,
-      originalPrice: addOriginalPrice ? Number(addOriginalPrice.value) || 0 : 0,
-      category: (addCategory && addCategory.value || "").trim() || "Smartphones",
-      stock: addStock ? Number(addStock.value) || 0 : 0,
-      images: (Array.isArray(addImageDataUrls) && addImageDataUrls.length > 0) ? addImageDataUrls.slice() : (imagesFromUrls.length > 0 ? imagesFromUrls : [PLACEHOLDER]),
-      description: addDescription ? (addDescription.value || "").trim() : '',
-      specifications: addSpecsContainer ? parseSpecsFromRows(addSpecsContainer) : {},
-      sellerId: addSellerId && addSellerId.value ? Number(addSellerId.value) : null,
-      rating: addRating && addRating.value ? Number(addRating.value) : null,
-      adminReview: null,
-      status: addStatus ? addStatus.value || "Active" : "Active",
-      createdAt: new Date().toISOString(),
-      updatedAt: null,
+    const imagesFromUrls = addImageUrls
+      ? (addImageUrls.value || "")
+        .split(",")
+        .map((s) => s.trim())
+        .filter(Boolean)
+      : [];
+    const p = {};
+    p.color = addColor ? addColor.value.trim() : "";
+    p.os = addOs ? addOs.value.trim() : "";
+    p.brand = addBrand ? addBrand.value.trim() : "";
+    p.old_price = addOldPrice ? Number(addOldPrice.value) || 0 : 0;
+    p.price = addPrice ? Number(addPrice.value) || 0 : 0;
+    p.id = null;
+    p.slug = addSlug ? addSlug.value.trim() : "";
+    p.name = addName ? addName.value.trim() : "";
+    p.description = addDescription ? addDescription.value.trim() : "";
+    p.originalPrice = addOriginalPrice ? Number(addOriginalPrice.value) || 0 : 0;
+    p.salePercentage = 0;
+    p.category = addCategory ? addCategory.value.trim() || "Smartphones" : "Smartphones";
+    p.stock = addStock ? Number(addStock.value) || 0 : 0;
+    p.images =
+      Array.isArray(addImageDataUrls) && addImageDataUrls.length > 0
+        ? addImageDataUrls.slice()
+        : imagesFromUrls.length > 0
+          ? imagesFromUrls
+          : [PLACEHOLDER];
+    p.sellerId = currentUser.role === "admin" ? (addSellerId ? Number(addSellerId.value) || null : null) : currentUser.id;
+    p.rating = addRating && addRating.value ? Number(addRating.value) : null;
+    p.adminReview =
+    {
+      status: "pending",
+      reviewedBy: currentUser.email,
+      reviewedAt: new Date().toISOString(),
+      notes: addNotes ? addNotes.value.trim() : "",
+      approvalDate: new Date().toISOString(),
     };
+    p.userComments = [];
+    p.specifications = addSpecsContainer
+      ? parseSpecsFromRows(addSpecsContainer)
+      : {};
+    p.createdAt = new Date().toISOString();
+    p.updatedAt = null;
+    console.log(currentUser.firstName);
 
     // validations
-    if (!p.name) { alert("Name required"); return; }
-    if (!(p.price > 0)) { alert("Price must be > 0"); return; }
-
-    // sale %
-    if (p.originalPrice > 0 && p.originalPrice >= p.price) p.salePercentage = Math.round(((p.originalPrice - p.price) / p.originalPrice) * 100); else p.salePercentage = 0;
-
-    p.id = generateId();
-
-    // If current user is admin -> approve immediately
-    if (currentUser && currentUser.role === "admin") {
-      p.adminReview = { status: 'approved', reviewedBy: currentUser.email, reviewedAt: new Date().toISOString() };
-      PRODUCTS_ARRAY.push(p);
-      saveProducts();
-      renderProductsTable();
-      if (closeAfter) {
-        const addModalEl = document.getElementById("addProductModal");
-        const modalInstance = bootstrap.Modal.getInstance(addModalEl);
-        if (modalInstance) modalInstance.hide();
-      }
-      alert("Product created (admin).");
+    if (!p.name) {
+      alert("Name required");
+      return;
+    }
+    if (!(p.price > 0)) {
+      alert("Price must be > 0");
       return;
     }
 
-    // Seller -> create but mark adminReview pending
-    p.adminReview = { status: 'pending', reviewedBy: null, reviewedAt: null };
+    // sale %
+    if (p.originalPrice > 0 && p.originalPrice >= p.price)
+      p.salePercentage = Math.round(
+        ((p.originalPrice - p.price) / p.originalPrice) * 100
+      );
+    else p.salePercentage = 0;
+
+    p.id = generateId();
+
+
+    p.adminReview.status = "pending";
+
     PRODUCTS_ARRAY.push(p);
     saveProducts();
     renderProductsTable();
@@ -530,7 +654,6 @@
       addImageDataUrls = [];
       if (addImageUrls) addImageUrls.value = "";
       if (addSpecsContainer) addSpecsContainer.innerHTML = "";
-      if (addStatus) addStatus.value = "Active";
       if (addImg) addImg.src = PLACEHOLDER;
       if (addSalePercentage) addSalePercentage.value = 0;
     }
@@ -539,12 +662,20 @@
     renderAdminPendingButton();
   }
 
-  if (addProductForm) addProductForm.addEventListener("submit", (e) => { e.preventDefault(); handleAddModalCreate(false); });
-  if (addCreateAndCloseBtn) addCreateAndCloseBtn.addEventListener("click", () => handleAddModalCreate(true));
+  if (addProductForm)
+    addProductForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      handleAddModalCreate(false);
+    });
+  if (addCreateAndCloseBtn)
+    addCreateAndCloseBtn.addEventListener("click", () =>
+      handleAddModalCreate(true)
+    );
 
   // ---------- Public API helpers (optional) ----------
   window.setProducts = function (newArray) {
-    if (!Array.isArray(newArray)) throw new Error("setProducts expects an array");
+    if (!Array.isArray(newArray))
+      throw new Error("setProducts expects an array");
     PRODUCTS_ARRAY = newArray.map((item) => {
       const copy = Object.assign({}, item);
       if (!copy.id) copy.id = generateId();
@@ -553,7 +684,9 @@
     saveProducts();
     renderProductsTable();
   };
-  window.getProducts = function () { return PRODUCTS_ARRAY.map((p) => JSON.parse(JSON.stringify(p))); };
+  window.getProducts = function () {
+    return PRODUCTS_ARRAY.map((p) => JSON.parse(JSON.stringify(p)));
+  };
 
   // ---------- Pending edits admin functions ----------
   function renderPendingEditsList() {
@@ -562,7 +695,10 @@
     const pendings = getPendingEdits();
     tbody.innerHTML = "";
     pendings.forEach((p, idx) => {
-      const seller = users.find((u) => u.id === p.sellerId) || { firstName: "Unknown", lastName: "" };
+      const seller = users.find((u) => u.id === p.sellerId) || {
+        firstName: "Unknown",
+        lastName: "",
+      };
       const tr = document.createElement("tr");
       tr.innerHTML = `
         <td>${idx + 1}</td>
@@ -571,9 +707,12 @@
         <td>${escapeHtml(seller.firstName + " " + seller.lastName)}</td>
         <td>${new Date(p.createdAt).toLocaleString()}</td>
         <td class="text-end">
-          <button class="btn btn-sm btn-outline-primary me-1" onclick="viewPendingDetail(${p.pendingId})">View</button>
-          <button class="btn btn-sm btn-success me-1" onclick="approvePending(${p.pendingId})">Approve</button>
-          <button class="btn btn-sm btn-danger" onclick="rejectPending(${p.pendingId})">Reject</button>
+          <button class="btn btn-sm btn-outline-primary me-1" onclick="viewPendingDetail(${p.pendingId
+        })">View</button>
+          <button class="btn btn-sm btn-success me-1" onclick="approvePending(${p.pendingId
+        })">Approve</button>
+          <button class="btn btn-sm btn-danger" onclick="rejectPending(${p.pendingId
+        })">Reject</button>
         </td>
       `;
       tbody.appendChild(tr);
@@ -581,9 +720,15 @@
   }
 
   // open plain window with JSON for quick review
+
   window.viewPendingDetail = function (pendingId) {
-    const p = getPendingEdits().find((x) => Number(x.pendingId) === Number(pendingId));
-    if (!p) { alert("Not found"); return; }
+    const p = getPendingEdits().find(
+      (x) => Number(x.pendingId) === Number(pendingId)
+    );
+    if (!p) {
+      alert("Not found");
+      return;
+    }
     const pretty = JSON.stringify(p.proposedProduct, null, 2);
     const win = window.open("", "_blank", "width=700,height=600,scrollbars=1");
     win.document.write("<pre>" + escapeHtml(pretty) + "</pre>");
@@ -592,25 +737,44 @@
   window.approvePending = function (pendingId) {
     if (!confirm("Approve this edit?")) return;
     const pendings = getPendingEdits();
-    const idx = pendings.findIndex((p) => Number(p.pendingId) === Number(pendingId));
-    if (idx === -1) { alert("Not found"); return; }
-    const pending = pendings[idx];
+    const idx = pendings.findIndex(
+      (p) => Number(p.pendingId) === Number(pendingId)
+    );
+    if (idx === -1) {
+      alert("Not found");
+      return;
+    }
 
     const products = PRODUCTS_ARRAY.slice();
-    const prodIndex = products.findIndex((pr) => String(pr.id) === String(pending.productId));
+    const pending = pendings[idx];
+    const prodIndex = products.findIndex(
+      (pr) => String(pr.id) === String(pending.productId)
+    );
     if (prodIndex !== -1) {
       const original = products[prodIndex];
       const updated = Object.assign({}, original, pending.proposedProduct);
       updated.id = original.id;
       updated.updatedAt = new Date().toISOString();
-      updated.adminReview = { status: 'approved', reviewedBy: currentUser ? currentUser.email : "admin", reviewedAt: new Date().toISOString() };
+      updated.adminReview = {
+        status: "approved",
+        reviewedBy: currentUser ? currentUser.email : "admin",
+        reviewedAt: new Date().toISOString(),
+        notes: original.adminReview ? original.adminReview.notes || "" : "",
+        approvalDate: new Date().toISOString(),
+      };
       products[prodIndex] = updated;
     } else {
       const newProd = Object.assign({}, pending.proposedProduct);
       newProd.id = pending.productId || generateId();
       newProd.createdAt = newProd.createdAt || new Date().toISOString();
       newProd.updatedAt = new Date().toISOString();
-      newProd.adminReview = { status: 'approved', reviewedBy: currentUser ? currentUser.email : "admin", reviewedAt: new Date().toISOString() };
+      newProd.adminReview = {
+        status: "approved",
+        reviewedBy: currentUser ? currentUser.email : "admin",
+        reviewedAt: new Date().toISOString(),
+        notes: "",
+        approvalDate: new Date().toISOString(),
+      };
       products.push(newProd);
     }
 
@@ -618,6 +782,7 @@
     saveProducts();
 
     // remove pending
+
     pendings.splice(idx, 1);
     savePendingEdits(pendings);
 
@@ -630,8 +795,15 @@
   window.rejectPending = function (pendingId) {
     if (!confirm("Reject this edit?")) return;
     const pendings = getPendingEdits();
-    const idx = pendings.findIndex((p) => Number(p.pendingId) === Number(pendingId));
-    if (idx === -1) { alert("Not found"); return; }
+    const idx = pendings.findIndex(
+      (p) => Number(p.pendingId) === Number(pendingId)
+    );
+
+    if (idx === -1) {
+      alert("Not found");
+      return;
+    }
+
     pendings.splice(idx, 1);
     savePendingEdits(pendings);
     renderPendingEditsList();
@@ -653,9 +825,14 @@
       adminPendingContainer.appendChild(btn);
 
       const pendModalEl = document.getElementById("pendingEditsModal");
-      if (pendModalEl) pendModalEl.addEventListener("show.bs.modal", renderPendingEditsList, { once: false });
+      if (pendModalEl)
+        pendModalEl.addEventListener("show.bs.modal", renderPendingEditsList, {
+          once: false,
+        });
     } else {
-      const pendings = getPendingEdits().filter((p) => currentUser && p.sellerId === currentUser.id);
+      const pendings = getPendingEdits().filter(
+        (p) => currentUser && p.sellerId === currentUser.id
+      );
       if (pendings.length > 0) {
         const span = document.createElement("span");
         span.className = "small text-muted";
@@ -676,7 +853,10 @@
       const row = e.target.closest("tr");
       if (!row) return;
       const idx = Array.from(productsTbody.querySelectorAll("tr")).indexOf(row);
-      if (idx >= 0 && PRODUCTS_ARRAY[idx]) openProductModal(PRODUCTS_ARRAY[idx].id);
+      if (idx >= 0 && PRODUCTS_ARRAY[idx])
+        openProductModal(PRODUCTS_ARRAY[idx].id);
     });
   }
-})();
+  })(); // Close the IIFE
+  
+} // Close the initializeDashboard function
