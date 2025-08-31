@@ -134,96 +134,63 @@ function save_profile_information() {
 // ====== fill_myOrders_information() ======
 // ====== fill_myOrders_information() ======
 function fill_myOrders_information() {
-  const selledProducts = [
-    {
-      id_of_product: 0,
-      id_of_customer_bought_that_product: 0,
-      order_status: "delivered",
-      quantity_sold: 5,
-      buy_item_at: "14-8-2025",
-      totalPrice: 5000,
-      listOfItems: [
-        {
-          name: "iPhone 13 Pro Max",
-          quantity: 2,
-        },
-        {
-          name: "infinix 7",
-          quantity: 1,
-        },
-      ],
-    },
-    {
-      id_of_product: 0,
-      id_of_customer_bought_that_product: 0,
-      order_status: "Ongoing",
-      quantity_sold: 3,
-      buy_item_at: "14-10-2025",
-      totalPrice: 3000,
-      listOfItems: [
-        {
-          name: "Realme c9",
-          quantity: 2,
-        },
-        {
-          name: "oppo b7",
-          quantity: 4,
-        },
-      ],
-    },
-  ];
+  const invoices = JSON.parse(localStorage.getItem("invoices")) 
   const orders_form = document.getElementById("orders_form");
-  selledProducts.map((item, index) => {
-    if (item.id_of_customer_bought_that_product == currentUser.id) {
+  invoices.map((item, index) => {
+    if (item.userInfo.id == currentUser.id) {
       orders_form.innerHTML += `
-      <div class="row-in-block">
-        <div class="sub-info">
+    <div class="row-in-block">
+      <div class="sub-info">
         <div class="label">Order Number</div>
         <div class="data">${index}</div>
-        </div>
-        <div class="sub-info">
+      </div>
+      <div class="sub-info">
         <div class="label">Order Date</div>
-        <div class="data">${item.buy_item_at}</div>
-        </div>
-        <div class="sub-info">
-        <div class="label">Order State</div>
-        <div class="data" 
-            style="color: ${
-              item.order_status === "delivered"
-                ? "green"
-                : item.order_status === "Ongoing"
-                ? "orange"
-                : "black"
-            };font-weight:bold;font-size:large">
-        ${item.order_status}
-        </div>
-        </div>
+        <div class="data">${item.createdAt}</div>
+      </div>
+      <div class="sub-info">
+        <div class="label">Payment Method</div>
+        <div class="data">${item.paymentMethod}</div>
+      </div>
     </div>
+
     <div class="row-in-block">
-        <div class="sub-info">
+      <div class="sub-info">
         <div class="label">Order List (Quantity)</div>
-        ${item.listOfItems
+        ${item.items
           .map(
-            (prod) => `<div class="data">${prod.name} (${prod.quantity})</div>`
+            (prod) => `
+        <div class="data">${prod.name} (${prod.qty})</div>
+        `
           )
           .join("")}
-        </div>
-        <div class="sub-info">
+      </div>
+      <div class="sub-info">
+        <div class="label">Shipping Cost</div>
+        <div class="data">${item.shippingCost}</div>
+      </div>
+      <div class="sub-info">
         <div class="label">Total Price</div>
-        <div class="data">${item.totalPrice}$</div>
-        </div>
-        <div class="sub-info">
-        <!-- <div class="label">Order State</div>
-        <div class="data">Ongoing</div> -->
-        </div>
+        <div class="data">${item.total}$</div>
+      </div>
     </div>
-    <div class="sub-info">
+
+    <div class="row-in-block">
+      <div class="sub-info">
+        <div class="label">Phone</div>
+        <div class="data">${item.phone}</div>
+      </div>
+      <div class="sub-info">
+        <div class="label">Address</div>
+        <div class="data">${item.address}</div>
+      </div>
+      <div class="sub-info">
         <div class="label">Delivering Date</div>
-        <div class="data">${item.buy_item_at}</div>
-    </div>
+        <div class="data">${item.shippingDate}</div>
+      </div>
     </div>
     ${
-      index != selledProducts.length - 1
+      index != invoices.length - 1
         ? `<div
                 style="
                     height: 3px;
