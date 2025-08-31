@@ -1,4 +1,9 @@
-const params = new URLSearchParams(window.location.search);
+// Render navbar when page loads
+document.addEventListener('DOMContentLoaded', function () {
+  if (window.sharedUtils && window.sharedUtils.renderNavbar) {
+      window.sharedUtils.renderNavbar();
+  }
+});const params = new URLSearchParams(window.location.search);
 const productId = params.get("id");
 
 
@@ -191,44 +196,9 @@ tabBtns.forEach(btn => btn.addEventListener('click', () => {
 
 // add to cart
 
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
+// var cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-function addToCart(product, quantity) {
-// if product is  in cart
-  let existing = cart.find(item => item.id === product.id);
 
-  if (existing) {
-    // if product is already in cart add `qty`
-    if (existing.qty < existing.stock) { 
-      //  existing.qty++;
-      // existing.qty = quantity;
-      if (quantity === 1) 
-        existing.qty++;
-      else
-        existing.qty = quantity;
-
-    } else {
-      alert("Stock not enough");
-      return;
-    }
-  } else {
-    // first time adding to cart
-    cart.push({
-      id: product.id,
-      name: product.name,
-      price: product.price,
-      image: product.images[0],
-      qty: 1,
-      stock: product.stock
-    });
-  }
-
-  localStorage.setItem("cart", JSON.stringify(cart));
-  console.log(cart);
-
-  // render cart in secation if i add product
-  
-}
 
 
 

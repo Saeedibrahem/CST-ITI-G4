@@ -25,69 +25,7 @@
 </head>
 
 <body>
-  <header class="sticky-top bg-white shadow-sm border-bottom ">
-    <nav class="navbar navbar-expand-lg navbar-light py-2 px-lg-5 ">
-      <div class="container-fluid">
-
-        <!-- Logo -->
-        <a class="navbar-brand fw-bold d-flex align-items-center" href="../../index.html">
-          <img src="../../assets/home_page_img/logo.png" alt="Logo" height="40" class="me-2">
-        </a>
-
-        <!-- Collapsible Nav + Search -->
-        <div class="collapse navbar-collapse justify-content-center" id="mainNav">
-          <ul class="navbar-nav mx-3 d-flex g-4 ">
-            <li class="nav-item"><a class="nav-link  fw-semibold text-dark" href="../../index.html">Home</a></li>
-            <li class="nav-item"><a class="nav-link fw-semibold text-dark " href="../products/index.html">Catalog</a>
-            </li>
-            <li class="nav-item"><a class="nav-link fw-semibold text-dark active" href="./aboutus.html">About Us</a>
-            </li>
-          </ul>
-        </div>
-
-        <!-- Right Side (Auth / User) -->
-        <div class="d-flex align-items-center gap-2 ms-3">
-
-          <!-- If user logged in -->
-          <div id="userMenu" class="dropdown d-none">
-            <button class="btn btn-outline-dark rounded-circle p-2" data-bs-toggle="dropdown">
-              <i class="fa-solid fa-user fa-lg"></i>
-            </button>
-            <ul class="dropdown-menu dropdown-menu-end shadow border-0 rounded-3 mt-2">
-              <li>
-                <h6 class="dropdown-header  text-primary">User Account</h6>
-              </li>
-              <li><a class="dropdown-item" href="#"><i class="fa-solid fa-user-gear me-2 "></i>Profile</a></li>
-              <li><a class="dropdown-item" href="#"><i class="fa-solid fa-box me-2 text-primary"></i>Orders</a></li>
-              <li><a class="dropdown-item" href="#"><i class="fa-solid fa-heart me-2 text-primary"></i>Wishlist</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item text-danger" href="#" onclick="logout()"><i
-                    class="fa-solid fa-sign-out-alt me-2"></i>Logout</a></li>
-            </ul>
-          </div>
-
-          <!-- If user NOT logged in -->
-          <div id="authLinks" class="d-flex gap-2 ">
-            <a href="../login/index.html" class=" login_btn btn btn-outline-dark  text-dark btn-sm">
-              <i class="fa-solid fa-right-to-bracket me-1"></i> Login
-            </a>
-            <a href="../signup/index.html"
-              class="btn btn-primary signup_btn bg-dark text-white btn-outline-dark btn-sm">
-              <i class="fa-solid fa-user-plus me-1"></i> Signup
-            </a>
-          </div>
-        </div>
-
-        <!-- Navbar Toggler (Always at far right) -->
-        <button class="navbar-toggler border-0 shadow-none ms-2" type="button" data-bs-toggle="collapse"
-          data-bs-target="#mainNav">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      </div>
-    </nav>
-  </header>
+ 
 
   <div class="top_page">
     <div class="catalog_container text-center py-3">
@@ -293,6 +231,7 @@
   <script defer src="../../assets/lib/js/bootstrap.bundle.min.js"></script>
   <script defer src="../../assets/lib/js/crypto-js.min.js"></script>
   <script defer src="../../src/js/shared.js"></script>
+  <script defer src="./aboutus.js"></script>
   <script defer src="../../src/js/main.js"></script>
 </body>
 

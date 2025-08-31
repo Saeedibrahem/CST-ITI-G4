@@ -1,5 +1,5 @@
 // Cart functionality with integration to shared utilities
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
+var cart = JSON.parse(localStorage.getItem("cart")) || [];
 let discountApplied = false;
 let discountAmount = 0;
 let bonusApplied = false;
@@ -15,11 +15,13 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize cart
     renderCart();
     updateCartBadge();
+    updateNavbarCartCounter();
 });
 
 function saveCart() {
     localStorage.setItem("cart", JSON.stringify(cart));
     updateCartBadge();
+    updateNavbarCartCounter();
 }
 
 function updateCartBadge() {
@@ -29,10 +31,30 @@ function updateCartBadge() {
     }
 }
 
+// Update navbar cart counter
+function updateNavbarCartCounter() {
+    if (window.sharedUtils && window.sharedUtils.updateCartCounter) {
+        window.sharedUtils.updateCartCounter();
+    }
+}
+
+// Clear entire cart
+function clearCart() {
+    cart = [];
+    discountApplied = false;
+    discountAmount = 0;
+    bonusApplied = false;
+    bonusAmount = 0;
+    saveCart();
+    renderCart();
+    showAlert("Cart cleared successfully", "success");
+}
+
 function renderCart() {
     let cartItems = document.getElementById("cart-items");
     let emptyCart = document.getElementById("empty-cart");
     let checkoutBtn = document.getElementById("checkout-btn");
+    let clearCartBtn = document.getElementById("clear-cart-btn");
     
     if (!cartItems) return;
     
@@ -42,12 +64,16 @@ function renderCart() {
         // Show empty cart message
         if (emptyCart) emptyCart.classList.remove("d-none");
         if (checkoutBtn) checkoutBtn.disabled = true;
+        if (clearCartBtn) clearCartBtn.style.display = 'none';
+        // Update navbar counter when cart is empty
+        updateNavbarCartCounter();
         return;
     }
     
-    // Hide empty cart message
+    // Hide empty cart message and show buttons
     if (emptyCart) emptyCart.classList.add("d-none");
     if (checkoutBtn) checkoutBtn.disabled = false;
+    if (clearCartBtn) clearCartBtn.style.display = 'block';
     
     let subtotal = 0;
 
@@ -115,7 +141,7 @@ function updateSummaryDisplay(subtotal, tax, shipping, total) {
         shipping: document.getElementById("shipping"),
         total: document.getElementById("total")
     };
-    
+
     if (elements.subtotal) elements.subtotal.textContent = `$${subtotal.toLocaleString()}`;
     if (elements.tax) elements.tax.textContent = `$${tax.toLocaleString()}`;
     if (elements.shipping) elements.shipping.textContent = `$${shipping.toLocaleString()}`;
@@ -138,6 +164,7 @@ function updateQty(index, change) {
     }
     
     cart[index].qty = newQty;
+    saveCart();
     renderCart();
 }
 
@@ -146,6 +173,7 @@ function removeItem(index) {
     
     const itemName = cart[index].name;
     cart.splice(index, 1);
+    saveCart();
     renderCart();
     showAlert(`"${itemName}" removed from cart`, "success");
 }
@@ -315,5 +343,6 @@ window.cartFunctions = {
     removeItem,
     applyDiscount,
     applyBonus,
-    showCheckout
+    showCheckout,
+    clearCart
 };

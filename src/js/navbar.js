@@ -1,36 +1,56 @@
 // Generate full navbar based on role
 const getNavbar = (role = "guest") => {
+  // Get cart items count
+  const getCartItemsCount = () => {
+    try {
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      return cart.reduce((total, item) => total + (item.qty || 0), 0);
+    } catch (error) {
+      console.error("Error getting cart count:", error);
+      return 0;
+    }
+  };
+
   // Main Links
   const getMainLinks = () => {
+    const cartCount = getCartItemsCount();
+    
     switch (role.toLowerCase()) {
       case "admin":
         return `
         <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="./index.html">Home</a></li>
-        <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="./pages/products/index.html">Catalog</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="./pages/products/index.html">Products</a></li>
         <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="./pages/aboutus/aboutus.html">About Us</a></li>
         <li class="nav-item"><a class="nav-link fw-semibold text-danger" href="./pages/admin.html">Admin Dashboard</a></li>
       `;
       case "seller":
         return `
         <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="./index.html">Home</a></li>
-        <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="./pages/products/index.html">Catalog</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="./pages/products/index.html">Products</a></li>
         <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="./pages/aboutus/aboutus.html">About Us</a></li>
         <li class="nav-item"><a class="nav-link fw-semibold text-primary" href="./pages/sellerdashboard/index.html">Seller Dashboard</a></li>
       `;
       case "customer":
         return `
         <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="./index.html">Home</a></li>
-        <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="./pages/products/index.html">Catalog</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="./pages/products/index.html">Products</a></li>
         <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="./pages/aboutus/aboutus.html">About Us</a></li>
-        <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="./pages/cart/cart.html">cart</a></li>
-        <li class="nav-item"><a class="nav-link fw-semibold text-success" href="./pages/profile/index.html#orders">My Orders</a></li>
+        <li class="nav-item position-relative"><a class="nav-link fw-semibold text-dark" href="./pages/cart/cart.html">
+          Cart
+          ${cartCount > 0 ? `<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.7em; transform: translate(-50%, -50%);">${cartCount}</span>` : ''}
+        </a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="./pages/customer-service.html">Customer Service</a></li>
       `;
       default: // guest
         return `
         <li class="nav-item"><a class="nav-link fw-semibold text-dark active" href="./index.html">Home</a></li>
-        <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="./pages/products/index.html">Catalog</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="./pages/products/index.html">Products</a></li>
         <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="./pages/aboutus/aboutus.html">About Us</a></li>
-        <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="./pages/cart/cart.html">cart</a></li>
+        <li class="nav-item position-relative"><a class="nav-link fw-semibold text-dark" href="./pages/cart/cart.html">
+          Cart
+          ${cartCount > 0 ? `<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.7em; transform: translate(-50%, -50%);">${cartCount}</span>` : ''}
+        </a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="./pages/customer-service.html">Customer Service</a></li>
       `;
     }
   };
@@ -66,6 +86,8 @@ const getNavbar = (role = "guest") => {
             <li><a class="dropdown-item" href="./pages/seller/dashboard.html"><i class="fa-solid fa-chart-line me-2"></i>Dashboard</a></li>
             <li><a class="dropdown-item" href="./pages/seller/products.html"><i class="fa-solid fa-box-open me-2"></i>My Products</a></li>
             <li><a class="dropdown-item" href="./pages/seller/orders.html"><i class="fa-solid fa-truck me-2"></i>Orders</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="./pages/profile/index.html"><i class="fa-solid fa-user-gear me-2"></i>Profile</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item text-danger" href="#" onclick="logout()"><i class="fa-solid fa-sign-out-alt me-2"></i>Logout</a></li>
           </ul>
@@ -110,7 +132,7 @@ const getNavbar = (role = "guest") => {
 
         <!-- Logo -->
         <a class="navbar-brand fw-bold d-flex align-items-center" href="./index.html">
-          <img src="../../assets/home_page_img/logo.png" alt="Logo" height="40" class="me-2">
+          <img src="./assets/home_page_img/logo.png" alt="Logo" height="40" class="me-2">
         </a>
 
         <!-- Collapsible Nav -->
@@ -141,6 +163,9 @@ const getNavbar = (role = "guest") => {
 // - Automatic active state highlighting
 // - Centralized management
 // - Better path handling for different page levels
+// - Cart and Customer Service pages for customers and guests
+// - Profile access for sellers
+// - Professional cart counter badge with conditional display
 
 // To use the new system:
 // 1. Include shared.js in your HTML

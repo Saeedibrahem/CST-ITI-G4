@@ -37,7 +37,7 @@ async function init() {
         await loadData();
         initializeCharts();
         initializeNavigation();
-        initializeEventListeners();
+        // initializeEventListeners();
         updateDashboard();
     } catch (error) {
         console.error('Initialization error:', error);
@@ -139,18 +139,7 @@ function initializeNavigation() {
 }
 
 // Initialize Event Listeners
-function initializeEventListeners() {
-    const addUserForm = document.getElementById('addUserForm');
-    if (addUserForm) {
-        addUserForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            addUser();
-        });
-    }
 
-    // Initialize ticket modal
-    initializeTicketModal();
-}
 
 // Show selected section
 function showSection(sectionName) {
@@ -572,42 +561,7 @@ function getTicketStatusBadgeColor(status) {
 }
 
 // User Management Functions
-function addUser() {
-    const formData = {
-        name: document.getElementById('userName')?.value,
-        email: document.getElementById('userEmail')?.value,
-        role: document.getElementById('userRole')?.value,
-        password: document.getElementById('userPassword')?.value
-    };
 
-    if (Object.values(formData).some(value => !value)) {
-        showNotification('Please fill all fields', 'warning');
-        return;
-    }
-
-    const newUser = {
-        id: `U${String(data.users.length + 1).padStart(3, '0')}`,
-        ...formData,
-        status: 'active',
-        password: btoa(formData.password), // Simple encoding (use proper hashing in production)
-        createdAt: new Date().toISOString().split('T')[0]
-    };
-
-    data.users.push(newUser);
-    saveData();
-    loadUsers();
-    updateDashboard();
-
-    // Close modal
-    const modal = bootstrap.Modal.getInstance(document.getElementById('addUserModal'));
-    modal?.hide();
-
-    // Clear form
-    document.getElementById('addUserForm')?.reset();
-
-    showNotification('User added successfully', 'success');
-    addActivity('user_added', `New user ${formData.name} added`);
-}
 
 function editUser(userId) {
     const user = data.users.find(u => u.id === +userId);
@@ -1557,26 +1511,6 @@ function exportData() {
     showNotification('Data exported successfully', 'success');
 }
 
-// Modal functions
-function showAddUserModal() {
-    const modal = new bootstrap.Modal(document.getElementById('addUserModal'));
-    modal.show();
-}
-
-function showAddModal() {
-    // Show appropriate modal based on current section
-    const sections = {
-        users: showAddUserModal
-
-    };
-
-    const handler = sections[currentSection];
-    if (handler) {
-        handler();
-    } else {
-        showNotification('Add functionality for this section coming soon', 'info');
-    }
-}
 
 function showEditUserModal(userId) {
     editUser(userId);

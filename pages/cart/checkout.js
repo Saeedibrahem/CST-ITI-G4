@@ -1,9 +1,7 @@
 // Checkout functionality with integration to shared utilities
 document.addEventListener('DOMContentLoaded', function () {
     // Render navbar using shared utilities
-    if (window.sharedUtils && window.sharedUtils.renderNavbar) {
-        window.sharedUtils.renderNavbar();
-    }
+   
     
     // Initialize checkout
     initializeCheckout();
@@ -541,7 +539,7 @@ function step3valid() {
 function finishOrder() {
     try {
         // Get cart and order info
-        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        var cart = JSON.parse(localStorage.getItem("cart")) || [];
         let orderInfo = JSON.parse(localStorage.getItem("cartInfo")) || {};
         let invoices = JSON.parse(localStorage.getItem("invoices")) || [];
         let userInfo = currentUser || user;

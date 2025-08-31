@@ -1,3 +1,9 @@
+// Render navbar when page loads
+document.addEventListener('DOMContentLoaded', function () {
+  if (window.sharedUtils && window.sharedUtils.renderNavbar) {
+    window.sharedUtils.renderNavbar();
+  }
+}); 
 let allProducts = [];
 let currentPage = 1;
 const itemsPerPage = 12;

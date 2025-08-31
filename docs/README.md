@@ -20,8 +20,8 @@
 
 كل عضو موثق شغله في ملف منفصل داخل `/docs`:
 
-- [Person 1 Documentation](./docs/person1.md)
-- [Person 2 Documentation](./docs/person2.md)
-- [Person 3 Documentation](./docs/person3.md)
-- [Person 4 Documentation](./docs/person4.md)
-- [Person 5 Documentation](./docs/person5.md)
+- [Person 1 Documentation](./person1.md)
+- [Person 2 Documentation](./person2.md)
+- [Person 3 Documentation](./person3.md)
+- [Person 4 Documentation](./person4.md)
+- [Person 5 Documentation](./person5.md)

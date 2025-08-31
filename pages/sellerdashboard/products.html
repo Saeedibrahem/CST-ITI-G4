@@ -51,22 +51,23 @@
 <body>
 
   <header class="topbar py-2">
-    <div class="container-fluid d-flex align-items-center justify-content-between ">
-      <div class="d-flex align-items-center gap-2">
-        <button class="btn btn-outline-secondary d-md-none" type="button" data-bs-toggle="offcanvas"
-          data-bs-target="#sidebarOffcanvas" aria-controls="sidebarOffcanvas" aria-label="Open menu">
-          <i class="bi bi-list" style="font-size:1.25rem"></i>
-        </button>
-        <a class="navbar-brand mb-0" href="#" style="font-weight:600;color:#111">Seller Dashboard</a>
-      </div>
+    <div class="container-fluid d-flex align-items-center justify-content-between">
+        <div class="d-flex align-items-center gap-2">
+            <!-- burger opens offcanvas on small screens -->
+            <button class="btn btn-outline-secondary d-md-none" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#sidebarOffcanvas" aria-controls="sidebarOffcanvas" aria-label="Open menu">
+                <i class="bi bi-list" style="font-size:1.25rem"></i>
+            </button>
+            <a class="navbar-brand mb-0" href="#" style="font-weight:600;color:#111">Seller Dashboard</a>
+        </div>
 
-      <div class="d-flex align-items-center gap-2">
-        <span class="d-none d-sm-inline text-muted small">Welcome, <b id="navUser"></b></span>
-        <img src="https://api.dicebear.com/6.x/initials/svg?seed=MT" alt="avatar"
-          style="width:36px;height:36px;border-radius:50%;">
-      </div>
+        <div class="d-flex align-items-center gap-2">
+            <span class="d-none d-sm-inline text-muted small">Welcome, <b id="navUser"></b></span>
+            <img src="https://api.dicebear.com/6.x/initials/svg?seed=MT" alt="avatar"
+                style="width:36px;height:36px;border-radius:50%;">
+        </div>
     </div>
-  </header>
+</header>
 
   <!-- Responsive offcanvas (only used on small screens) -->
   <div class="offcanvas offcanvas-start d-md-none" tabindex="-1" id="sidebarOffcanvas" aria-labelledby="sidebarLabel">
@@ -85,10 +86,7 @@
           Products</a>
         <a class="nav-link rounded-2 px-3 py-2 active" href="./orders.html"><i class="bi bi-cart3 me-2"></i>
           Orders</a>
-        <a class="nav-link rounded-2 px-3 py-2" href="./cusomers.html"><i class="bi bi-people me-2"></i>
-          Customers</a>
-        <div class="mt-auto px-3 py-4 small text-muted" style="color:rgba(255,255,255,0.6)">© 2025 mobile Phones
-        </div>
+        
       </nav>
     </div>
   </div>
@@ -107,25 +105,7 @@
               Products</a>
             <a class="nav-link rounded-2 px-3 py-2" href="./orders.html"><i class="bi bi-cart3 me-2"></i>
               Orders</a>
-            <a class="nav-link rounded-2 px-3 py-2" href="./cusomers.html"><i class="bi bi-people me-2"></i>
-              Customers</a>
-          </nav>
-          <pre>
-
-
-
-
-
-
-
-
-
-
-
-          </pre>
-          <div class="mt-auto px-3 py-4 small text-muted" style="color:rgba(255,255,255,0.6)">© 2025 Mobile
-            Phones
-          </div>
+            
         </div>
       </aside>
 
