@@ -1,7 +1,61 @@
+// Render navbar when page loads
+document.addEventListener('DOMContentLoaded', function () {
+  // Check if user is logged in
+  if (!localStorage.getItem("currentUser")) {
+    window.location.href = "../../index.html";
+    return;
+  }
 
-if (!localStorage.getItem("currentUser")) {
-  window.location.href = "../../index.html";
-}
+  // Get current user data
+  currentUser = getCurrentUser();
+  if (!currentUser) {
+    console.error("Failed to get current user data");
+    window.location.href = "../../index.html";
+    return;
+  }
+
+  // Get users data
+  users = getUsers();
+
+  if (window.sharedUtils && window.sharedUtils.renderNavbar) {
+    window.sharedUtils.renderNavbar();
+  }
+
+  // Initialize DOM element references
+  firstName = document.getElementsByClassName("firstName");
+  lastName = document.getElementsByClassName("lastName");
+  email = document.getElementsByClassName("email");
+  phone = document.getElementsByClassName("phone");
+  address = document.getElementsByClassName("address");
+  city = document.getElementsByClassName("city");
+  country = document.getElementsByClassName("country");
+  zip = document.getElementsByClassName("zip");
+  DOB = document.getElementsByClassName("DOB");
+  gender_data = document.getElementsByClassName("gender_data")[0];
+
+  // Verify that all required DOM elements exist
+  if (!firstName[0] || !firstName[1] || !lastName[0] || !lastName[1] ||
+    !email[0] || !email[1] || !phone[0] || !phone[1] ||
+    !address[0] || !address[1] || !city[0] || !city[1] ||
+    !country[0] || !country[1] || !zip[0] || !zip[1] ||
+    !DOB[0] || !DOB[1] || !gender_data) {
+    console.error("Required DOM elements not found");
+    return;
+  }
+
+  // Initialize profile data after DOM is loaded
+  select_option1();
+  cancle_btn();
+  fill_myOrders_information();
+
+  // fill user name and email
+  if (currentUser) {
+    document.getElementsByClassName("username")[0].innerHTML = currentUser.firstName;
+    document.getElementsByClassName("useremail")[0].innerHTML = currentUser.email;
+  }
+});
+
+// Global variables
 
 // collect-toast-blocks
 var toastElList = [].slice.call(document.querySelectorAll(".toast"));
@@ -42,49 +96,57 @@ function select_option3() {
   card_2.style.display = "none";
   card_3.style.display = "none";
 }
-select_option1();
+// select_option1() will be called after DOM loads
 
 // ====== fill_profile_information() ======
 // ====== fill_profile_information() ======
 // ====== fill_profile_information() ======
-// let currentUser = getCurrentUser();
-// let users = getUsers();
-const firstName = document.getElementsByClassName("firstName");
-const lastName = document.getElementsByClassName("lastName");
-const email = document.getElementsByClassName("email");
-const phone = document.getElementsByClassName("phone");
-const address = document.getElementsByClassName("address");
-const city = document.getElementsByClassName("city");
-const country = document.getElementsByClassName("country");
-const zip = document.getElementsByClassName("zip");
-const DOB = document.getElementsByClassName("DOB");
-const gender_data = document.getElementsByClassName("gender_data")[0];
+// DOM element references - will be populated after DOM loads
+let firstName, lastName, email, phone, address, city, country, zip, DOB, gender_data;
 function fill_profile_information() {
-  currentUser = getCurrentUser();
-  users = getUsers();
-  firstName[0].innerHTML = currentUser.firstName;
-  lastName[0].innerHTML = currentUser.lastName;
-  email[0].innerHTML = currentUser.email;
-  phone[0].innerHTML = currentUser.phone;
-  address[0].innerHTML = currentUser.address;
-  city[0].innerHTML = currentUser.city;
-  country[0].innerHTML = currentUser.country;
-  zip[0].innerHTML = currentUser.zip;
-  DOB[0].innerHTML = currentUser.DOB;
+  // Check if currentUser exists and has the required properties
+  if (!currentUser) {
+    console.error("No current user found");
+    return;
+  }
 
-  firstName[1].value = currentUser.firstName;
-  lastName[1].value = currentUser.lastName;
-  email[1].value = currentUser.email;
-  phone[1].value = currentUser.phone;
-  address[1].value = currentUser.address;
-  city[1].value = currentUser.city;
-  country[1].value = currentUser.country;
-  zip[1].value = currentUser.zip;
-  DOB[1].value = currentUser.DOB;
-  gender_data.innerHTML = currentUser.gender;
-  document.querySelector(
-    `input[name="gender"][value="${currentUser.gender}"]`
-  ).checked = true;
+  firstName[0].innerHTML = currentUser.firstName || '';
+  lastName[0].innerHTML = currentUser.lastName || '';
+  email[0].innerHTML = currentUser.email || '';
+  phone[0].innerHTML = currentUser.phone || '';
+  address[0].innerHTML = currentUser.address || '';
+  city[0].innerHTML = currentUser.city || '';
+  country[0].innerHTML = currentUser.country || '';
+  zip[0].innerHTML = currentUser.zip || '';
+  DOB[0].innerHTML = currentUser.DOB || '';
+
+  firstName[1].value = currentUser.firstName || '';
+  lastName[1].value = currentUser.lastName || '';
+  email[1].value = currentUser.email || '';
+  phone[1].value = currentUser.phone || '';
+  address[1].value = currentUser.address || '';
+  city[1].value = currentUser.city || '';
+  country[1].value = currentUser.country || '';
+  zip[1].value = currentUser.zip || '';
+  DOB[1].value = currentUser.DOB || '';
+
+  // Safely set gender data
+  if (currentUser.gender) {
+    gender_data.innerHTML = currentUser.gender;
+
+    // Safely find and check the gender radio button
+    const genderRadio = document.querySelector(
+      `input[name="gender"][value="${currentUser.gender}"]`
+    );
+
+    if (genderRadio) {
+      genderRadio.checked = true;
+    } else {
+      console.warn(`Gender value "${currentUser.gender}" not found in radio buttons`);
+    }
+  } else {
+    gender_data.innerHTML = '';
+  }
 }
 
 // ====== save_profile_information() ======
@@ -127,94 +189,108 @@ function save_profile_information() {
   users.push(user);
   const encryptedUsers = encrypt_string_to_string(JSON.stringify(users));
   localStorage.setItem("users", encryptedUsers);
-  //* update currentUser in localstorage
-  localStorage.setItem(
-    "currentUser",
-    encrypt_string_to_string(JSON.stringify(user))
-  );
+
+  // Update currentUser in memory
+  currentUser = user;
+
+  // Refresh users data from localStorage
+  users = getUsers();
 
   toastList[0].show();
 }
+
+
 // ====== fill_myOrders_information() ======
 // ====== fill_myOrders_information() ======
 // ====== fill_myOrders_information() ======
 function fill_myOrders_information() {
-  const selledProducts = [
-    {
-      id_of_product: 0,
-      id_of_customer_bought_that_product: 0,
-      order_status: "delivered",
-      quantity_sold: 5,
-      buy_item_at: "14-8-2025",
-      totalPrice: 5000,
-      listOfItems: [
-        {
-          name: "iPhone 13 Pro Max",
-          quantity: 2,
-        },
-        {
-          name: "infinix 7",
-          quantity: 1,
-        },
-      ],
-    },
-    {
-      id_of_product: 0,
-      id_of_customer_bought_that_product: 0,
-      order_status: "Ongoing",
-      quantity_sold: 3,
-      buy_item_at: "14-10-2025",
-      totalPrice: 3000,
-      listOfItems: [
-        {
-          name: "Realme c9",
-          quantity: 2,
-        },
-        {
-          name: "oppo b7",
-          quantity: 4,
-        },
-      ],
-    },
-  ];
+  let selledProducts = getItemFromLocalStorage("invoices") || [];
+
+  if (localStorage.getItem("seller_orders")) {
+    const orders = getItemFromLocalStorage("seller_orders"); // array of seller orders
+    const invoices = getItemFromLocalStorage("invoices");    // array of invoices
+
+    // get only invoices that match seller orders
+    const myorders = invoices.filter(inv =>
+      orders.some(order => order.id === inv.id)
+    );
+
+    selledProducts = myorders;
+    console.log("Matched Orders (Invoices + Seller Orders):", myorders);
+
+    // get only seller orders that match invoices
+    const myorder = orders.filter(order =>
+      invoices.some(inv => inv.id === order.id)
+    );
+    // console.log("Matched Seller Orders:", myorder);
+
+    myorder.forEach(order => {
+      // console.log(order.status);
+      myorders.forEach(invoice => {
+        let allmyorders = [...selledProducts];
+        invoice.status = order.status;
+        allmyorders.push(invoice);
+
+        // console.log(invoice.status);
+      });
+    });
+
+  }
+
+  // get all sold products (invoices)
+  console.log("All Sold Products:", selledProducts);
+
+  console.log(selledProducts);
   const orders_form = document.getElementById("orders_form");
-  selledProducts.map((item, index) => {
-    if (item.id_of_customer_bought_that_product == currentUser.id) {
+
+  if (!orders_form) {
+    console.error("Orders form not found");
+    return;
+  }
+
+  if (!Array.isArray(selledProducts) || selledProducts.length === 0) {
+    orders_form.innerHTML = '<div class="text-center text-muted">No orders found</div>';
+    return;
+  }
+
+  selledProducts.forEach((item, index) => {
+    console.log(item)
+    if (item.customerId && currentUser.id && item.customerId == currentUser.id) {
       orders_form.innerHTML += `
       <div class="row-in-block">
         <div class="sub-info">
         <div class="label">Order Number</div>
-        <div class="data">${index}</div>
+        <div class="data">${index + 1}</div>
         </div>
         <div class="sub-info">
         <div class="label">Order Date</div>
-        <div class="data">${item.buy_item_at}</div>
+        <div class="data">${item.createdAt || 'N/A'}</div>
         </div>
         <div class="sub-info">
         <div class="label">Order State</div>
         <div class="data" 
-            style="color: ${item.order_status === "delivered"
+            style="color: ${item.status === "delivered"
           ? "green"
-          : item.order_status === "Ongoing"
+          : item.status === "Ongoing"
             ? "orange"
             : "black"
         };font-weight:bold;font-size:large">
-        ${item.order_status}
+        ${item.status || 'Unknown'}
         </div>
         </div>
     </div>
     <div class="row-in-block">
         <div class="sub-info">
         <div class="label">Order List (Quantity)</div>
-        ${item.listOfItems
+        ${Array.isArray(item.items) ? item.items
           .map(
-            (prod) => `<div class="data">${prod.name} (${prod.quantity})</div>`
+            (prod) => `<div class="data">${prod.name || 'Unknown Product'} (${prod.qty || 0})</div>`
           )
-          .join("")}
+          .join("") : '<div class="data">No items</div>'}
         </div>
         <div class="sub-info">
         <div class="label">Total Price</div>
-        <div class="data">${item.totalPrice}$</div>
+        <div class="data">${item.total || 0}$</div>
         </div>
         <div class="sub-info">
         <!-- <div class="label">Order State</div>
@@ -223,7 +299,7 @@ function fill_myOrders_information() {
     </div>
     <div class="sub-info">
         <div class="label">Delivering Date</div>
-        <div class="data">${item.buy_item_at}</div>
+        <div class="data">${item.shippingDate || 'N/A'}</div>
     </div>
     </div>
     ${index != selledProducts.length - 1
@@ -281,11 +357,16 @@ function change_password(e) {
     users.push(user);
     const encryptedUsers = encrypt_string_to_string(JSON.stringify(users));
     localStorage.setItem("users", encryptedUsers);
-    //* update currentUser in localstorage
+
+    // Update currentUser in memory and localStorage
+    currentUser = user;
     localStorage.setItem(
       "currentUser",
       encrypt_string_to_string(JSON.stringify(user))
     );
+
+    // Refresh users data from localStorage
+    users = getUsers();
 
     select_option1();
     toastList[1].show();
@@ -329,9 +410,4 @@ function cancle_btn() {
     item.style.display = "none";
   }
 }
-cancle_btn();
-fill_myOrders_information();
-// fill user name and email
-document.getElementsByClassName("username")[0].innerHTML =
-  currentUser.firstName;
-document.getElementsByClassName("useremail")[0].innerHTML = currentUser.email;
+// These functions are now called in DOMContentLoaded event

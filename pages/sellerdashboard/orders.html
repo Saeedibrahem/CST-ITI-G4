@@ -1,0 +1,769 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Seller Dashboard - Orders</title>
+
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="../../assets/lib/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../src/css/sellerdashboard.css">
+</head>
+
+<body>
+
+    <header class="topbar py-2">
+        <div class="container-fluid d-flex align-items-center justify-content-between">
+            <div class="d-flex align-items-center gap-2">
+                <!-- burger opens offcanvas on small screens -->
+                <button class="btn btn-outline-secondary d-md-none" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#sidebarOffcanvas" aria-controls="sidebarOffcanvas" aria-label="Open menu">
+                    <i class="bi bi-list" style="font-size:1.25rem"></i>
+                </button>
+                <a class="navbar-brand mb-0" href="#" style="font-weight:600;color:#111">Seller Dashboard</a>
+            </div>
+
+            <div class="d-flex align-items-center gap-2">
+                <span class="d-none d-sm-inline text-muted small">Welcome, <b id="navUser"></b></span>
+                <img src="https://api.dicebear.com/6.x/initials/svg?seed=MT" alt="avatar"
+                    style="width:36px;height:36px;border-radius:50%;">
+            </div>
+        </div>
+    </header>
+
+    <!-- Responsive offcanvas (only used on small screens) -->
+    <div class="offcanvas offcanvas-start d-md-none" tabindex="-1" id="sidebarOffcanvas" aria-labelledby="sidebarLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title text-white" id="sidebarLabel">Menu</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body p-0">
+            <nav class="nav flex-column px-2" style="background:var(--sidebar-bg); min-height:100vh; color:#fff;">
+                <div class="px-3 pb-3 border-bottom" style="border-color: rgba(255,255,255,0.06) !important;">
+                    <div style="font-weight:600;font-size:1.05rem;color:#fff;">Seller Dashboard</div>
+                </div>
+                <a class="nav-link  rounded-2 px-3 py-2 mt-3" href="./index.html"><i
+                        class="bi bi-speedometer2 me-2"></i>
+                    Dashboard</a>
+                <a class="nav-link rounded-2 px-3 py-2" href="./products.html"><i class="bi bi-grid-1x2 me-2"></i>
+                    Products</a>
+                <a class="nav-link rounded-2 px-3 py-2 active" href="./orders.html"><i class="bi bi-cart3 me-2"></i>
+                    Orders</a>
+                <a class="nav-link rounded-2 px-3 py-2" href="./cusomers.html"><i class="bi bi-people me-2"></i>
+                    Customers</a>
+                <div class="mt-auto px-3 py-4 small text-muted" style="color:rgba(255,255,255,0.6)">© 2025 mobile Phones
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <div class="container-fluid" style="padding-left: 0  ; margin-left: 0;">
+        <div class="row g-0">
+            <!-- STATIC SIDEBAR: visible on md+ -->
+            <aside class="col-0 col-md-3 col-lg-2 d-none d-md-block sidebar-col">
+                <div class="static-sidebar h-100">
+                    <div class="px-3 pb-3">
+                        <div style="font-weight:600;font-size:1.05rem;color:#fff;">Seller Dashboard</div>
+                    </div>
+                    <nav class="nav flex-column px-2">
+                        <a class="nav-link  rounded-2 px-3 py-2 mt-3" href="./index.html"><i
+                                class="bi bi-speedometer2 me-2"></i> Dashboard</a>
+                        <a class="nav-link rounded-2 px-3 py-2" href="./products.html"><i
+                                class="bi bi-grid-1x2 me-2"></i>
+                            Products</a>
+                        <a class="nav-link active rounded-2 px-3 py-2" href="./orders.html"><i
+                                class="bi bi-cart3 me-2"></i> Orders</a>
+                        <a class="nav-link rounded-2 px-3 py-2" href="./cusomers.html"><i class="bi bi-people me-2"></i>
+                            Customers</a>
+                    </nav>
+                    <div class="mt-auto px-3 py-4 small text-muted" style="color:rgba(255,255,255,0.6)">© 2025 mobile
+                        Phones
+                    </div>
+                </div>
+            </aside>
+
+            <!-- MAIN CONTENT -->
+            <main class="col-12 col-md-9 col-lg-10 p-3">
+                <div class="container my-4">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h2><i class="bi bi-cart3 me-2"></i>Orders Management</h2>
+                        <div class="d-flex gap-2">
+                            <button class="btn btn-outline-primary btn-sm" onclick="refreshOrders()">
+                                <i class="bi bi-arrow-clockwise"></i> Refresh
+                            </button>
+                            <select id="statusFilter" class="form-select form-select-sm" style="width:150px;"
+                                onchange="filterOrders()">
+                                <option value="">All Status</option>
+                                <option value="Pending">Pending</option>
+                                <option value="Accepted">Accepted</option>
+                                <option value="Processing">Processing</option>
+                                <option value="Shipped">Shipped</option>
+                                <option value="Delivered">Delivered</option>
+                                <option value="Rejected">Rejected</option>
+                                <option value="Cancelled">Cancelled</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Quick Stats (dynamic) -->
+                    <div class="row mb-4">
+                        <div class="col-md-2">
+                            <div class="card text-center shadow-sm">
+                                <div class="card-body">
+                                    <h6 class="card-title text-warning">Pending</h6>
+                                    <p id="statPending" class="card-text fs-4">0</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="card text-center shadow-sm">
+                                <div class="card-body">
+                                    <h6 class="card-title text-primary">Accepted</h6>
+                                    <p id="statAccepted" class="card-text fs-4">0</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="card text-center shadow-sm">
+                                <div class="card-body">
+                                    <h6 class="card-title text-info">Processing</h6>
+                                    <p id="statProcessing" class="card-text fs-4">0</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="card text-center shadow-sm">
+                                <div class="card-body">
+                                    <h6 class="card-title text-info">Shipped</h6>
+                                    <p id="statShipped" class="card-text fs-4">0</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="card text-center shadow-sm">
+                                <div class="card-body">
+                                    <h6 class="card-title text-success">Delivered</h6>
+                                    <p id="statDelivered" class="card-text fs-4">0</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="card text-center shadow-sm">
+                                <div class="card-body">
+                                    <h6 class="card-title text-danger">Rejected</h6>
+                                    <p id="statRejected" class="card-text fs-4">0</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Orders Table -->
+                    <div class="card shadow-sm">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0">Orders List</h5>
+                            <span class="badge bg-primary" id="totalOrders">Total: 0</span>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-striped align-middle mb-0">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>Order ID</th>
+                                        <th>Customer</th>
+                                        <th>Products</th>
+                                        <th>Total</th>
+                                        <th>Status</th>
+                                        <th>Date</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="ordersTbody">
+                                    <!-- rows will be injected by JS -->
+                                </tbody>
+                            </table>
+                        </div>
+                        <div id="noOrders" class="text-center py-4 d-none">
+                            <i class="bi bi-cart3" style="font-size: 3rem; color: #ccc;"></i>
+                            <p class="text-muted mt-2">No orders found</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+    <!-- Order details modal -->
+    <div class="modal fade" id="orderModal" tabindex="-1" aria-labelledby="orderModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="orderModalLabel">Order #<span id="modalOrderId"></span></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6><i class="bi bi-person me-2"></i>Customer Information</h6>
+                            <p><strong>Name:</strong> <span id="modalCustomer"></span></p>
+                            <p><strong>Email:</strong> <span id="modalEmail"></span></p>
+                            <p><strong>Phone:</strong> <span id="modalPhone"></span></p>
+                            <p><strong>Address:</strong> <span id="modalAddress"></span></p>
+                        </div>
+                        <div class="col-md-6">
+                            <h6><i class="bi bi-info-circle me-2"></i>Order Information</h6>
+                            <p><strong>Date:</strong> <span id="modalDate"></span></p>
+                            <p><strong>Payment Method:</strong> <span id="modalPayment"></span></p>
+                            <p><strong>Shipping Method:</strong> <span id="modalShipping"></span></p>
+                        </div>
+                    </div>
+                    <hr>
+                    <h6><i class="bi bi-box me-2"></i>Products</h6>
+                    <div id="modalProducts"></div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6><i class="bi bi-gear me-2"></i>Order Status</h6>
+                            <div class="d-flex gap-2 align-items-center">
+                                <select id="modalStatus" class="form-select">
+                                    <option value="Pending">Pending</option>
+                                    <option value="Accepted">Accepted</option>
+                                    <option value="Processing">Processing</option>
+                                    <option value="Shipped">Shipped</option>
+                                    <option value="Delivered">Delivered</option>
+                                    <option value="Rejected">Rejected</option>
+                                    <option value="Cancelled">Cancelled</option>
+                                </select>
+                                <button id="saveStatusBtn" class="btn btn-primary">Save Changes</button>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <h6><i class="bi bi-chat-text me-2"></i>Notes</h6>
+                            <textarea id="modalNotes" class="form-control" rows="3"
+                                placeholder="Add order notes..."></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="d-flex gap-2">
+                        <button id="acceptOrderBtn" class="btn btn-success" style="display:none;">
+                            <i class="bi bi-check-circle"></i> Accept Order
+                        </button>
+                        <button id="rejectOrderBtn" class="btn btn-danger" style="display:none;">
+                            <i class="bi bi-x-circle"></i> Reject Order
+                        </button>
+                        <button id="modalDeleteBtn" type="button" class="btn btn-outline-danger">
+                            <i class="bi bi-trash"></i> Delete
+                        </button>
+                    </div>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script defer src="../../assets/lib/js/crypto-js.min.js"></script>
+    <script defer src="../../src/js/shared.js"></script>
+    <script defer src="../../src/js/product_seller.js"></script>
+    <script src="../../assets/lib/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        (function () {
+            "use strict";
+
+            // ---------- Config & defaults ----------
+            const STORAGE_KEY = "seller_orders";
+
+            console.log(JSON.parse(localStorage.getItem(STORAGE_KEY)));
+            console.log(JSON.parse(localStorage.getItem("invoices")));
+
+            // ---------- State ----------
+            let ORDERS = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+
+            // ---------- DOM refs ----------
+            const ordersTbody = document.getElementById("ordersTbody");
+            const statPending = document.getElementById("statPending");
+            const statAccepted = document.getElementById("statAccepted");
+            const statProcessing = document.getElementById("statProcessing");
+            const statShipped = document.getElementById("statShipped");
+            const statDelivered = document.getElementById("statDelivered");
+            const statRejected = document.getElementById("statRejected");
+            const totalOrders = document.getElementById("totalOrders");
+            const noOrders = document.getElementById("noOrders");
+
+            // modal elements
+            const orderModalEl = document.getElementById("orderModal");
+            const orderModal = orderModalEl ? new bootstrap.Modal(orderModalEl) : null;
+            const modalOrderId = document.getElementById("modalOrderId");
+            const modalCustomer = document.getElementById("modalCustomer");
+            const modalEmail = document.getElementById("modalEmail");
+            const modalPhone = document.getElementById("modalPhone");
+            const modalAddress = document.getElementById("modalAddress");
+            const modalDate = document.getElementById("modalDate");
+            const modalPayment = document.getElementById("modalPayment");
+            const modalShipping = document.getElementById("modalShipping");
+            const modalProducts = document.getElementById("modalProducts");
+            const modalStatus = document.getElementById("modalStatus");
+            const modalNotes = document.getElementById("modalNotes");
+            const modalDeleteBtn = document.getElementById("modalDeleteBtn");
+            const saveStatusBtn = document.getElementById("saveStatusBtn");
+            const acceptOrderBtn = document.getElementById("acceptOrderBtn");
+            const rejectOrderBtn = document.getElementById("rejectOrderBtn");
+
+            let currentModalOrderId = null;
+
+            // ---------- Helpers ----------
+            function safeParse(json, fallback) {
+                try { return JSON.parse(json); } catch (e) { return fallback; }
+            }
+
+            function saveToStorage() {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(ORDERS));
+
+            }
+
+            function loadFromStorage() {
+                const raw = localStorage.getItem(STORAGE_KEY);
+                const parsed = safeParse(raw, null);
+                if (!Array.isArray(parsed)) {
+                    ORDERS = [];
+                    saveToStorage();
+                } else {
+                    ORDERS = parsed;
+                }
+            }
+
+            function generateId() {
+                return Date.now() + Math.floor(Math.random() * 1000);
+            }
+
+            function escapeHtml(s) {
+                if (typeof s !== "string") return s;
+                return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+                    .replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+            }
+
+            function statusBadge(status) {
+                const map = {
+                    Pending: "warning",
+                    Accepted: "primary",
+                    Processing: "info",
+                    Shipped: "info",
+                    Delivered: "success",
+                    Rejected: "danger",
+                    Cancelled: "secondary"
+                };
+                const cls = map[status] || "secondary";
+                return `<span class="badge bg-${cls}">${escapeHtml(status)}</span>`;
+            }
+
+            // ---------- Load orders from invoices ----------
+            function loadOrdersFromInvoices() {
+                const invoices = JSON.parse(localStorage.getItem("invoices")) || [];
+                const currentUser = getCurrentUser();
+                const products = JSON.parse(localStorage.getItem("products")) || [];
+
+                if (!currentUser) return;
+
+                const sellerOrders = [];
+
+                invoices.forEach(invoice => {
+                    const sellerItems = invoice.items.filter(item => {
+                        const product = products.find(p => p.name === item.name);
+                        return product && product.sellerId == currentUser.id;
+                    });
+
+                    if (sellerItems.length > 0) {
+                        const sellerTotal = sellerItems.reduce((sum, item) => sum + (item.price * item.qty), 0);
+                        console.log(sellerTotal + +invoice.tax);
+                        sellerOrders.push({
+                            id: invoice.id,
+                            customerName: `${invoice.userInfo.firstName} ${invoice.userInfo.lastName}`,
+                            email: invoice.userInfo.email,
+                            phone: invoice.phone || "N/A",
+                            address: invoice.address || "N/A",
+                            date: invoice.createdAt,
+                            products: sellerItems,
+                            total: sellerTotal + + +invoice.tax,
+                            status: "Pending", // Default status for new orders
+                            createdAt: invoice.createdAt,
+                            paymentMethod: invoice.paymentMethod || "Credit Card",
+                            shippingMethod: invoice.shippingMethod || "Standard",
+                            notes: "",
+                            updatedAt: new Date().toISOString()
+                        });
+                    }
+                });
+
+                // Merge with existing orders, avoiding duplicates
+                const existingIds = ORDERS.map(o => o.id);
+                const newOrders = sellerOrders.filter(order => !existingIds.includes(order.id));
+
+                if (newOrders.length > 0) {
+                    ORDERS = [...ORDERS, ...newOrders];
+                    saveToStorage();
+                }
+            }
+
+            // ---------- Render functions ----------
+            function renderStats() {
+                if (statPending) statPending.textContent = ORDERS.filter(o => o.status === "Pending").length;
+                if (statAccepted) statAccepted.textContent = ORDERS.filter(o => o.status === "Accepted").length;
+                if (statProcessing) statProcessing.textContent = ORDERS.filter(o => o.status === "Processing").length;
+                if (statShipped) statShipped.textContent = ORDERS.filter(o => o.status === "Shipped").length;
+                if (statDelivered) statDelivered.textContent = ORDERS.filter(o => o.status === "Delivered").length;
+                if (statRejected) statRejected.textContent = ORDERS.filter(o => o.status === "Rejected").length;
+                if (totalOrders) totalOrders.textContent = `Total: ${ORDERS.length}`;
+            }
+
+            function renderOrdersTable() {
+                if (!ordersTbody) return;
+
+                ordersTbody.innerHTML = "";
+
+                if (!Array.isArray(ORDERS) || ORDERS.length === 0) {
+                    ordersTbody.innerHTML = '<tr><td colspan="7" class="text-center py-4">No orders found</td></tr>';
+                    if (noOrders) noOrders.classList.remove("d-none");
+                    renderStats();
+                    return;
+                }
+
+                if (noOrders) noOrders.classList.add("d-none");
+
+                ORDERS.forEach(order => {
+                    const productsText = (order.products || []).map(p => `${escapeHtml(p.name)} (x${p.qty})`).join(", ");
+                    const tr = document.createElement("tr");
+                    tr.innerHTML = `
+                        <td><strong>#${order.id}</strong></td>
+                        <td>
+                            <div>
+                                <strong>${escapeHtml(order.customerName || "")}</strong><br>
+                                <small class="text-muted">${escapeHtml(order.email || "")}</small>
+                            </div>
+                        </td>
+                        <td>${productsText}</td>
+                        <td><strong>$${Number(order.total || 0).toFixed(2)}</strong></td>
+                        <td>${statusBadge(order.status)}</td>
+                        <td>${escapeHtml(order.date || "")}</td>
+                        <td>
+                            <div class="btn-group btn-group-sm" role="group">
+                                <button class="btn btn-outline-primary btn-view" data-id="${order.id}" title="View Details">
+                                    <i class="bi bi-eye"></i>
+                                </button>
+                                ${order.status === "Pending" ? `
+                                    <button class="btn btn-outline-success btn-accept" data-id="${order.id}" title="Accept Order">
+                                        <i class="bi bi-check-circle"></i>
+                                    </button>
+                                    <button class="btn btn-outline-danger btn-reject" data-id="${order.id}" title="Reject Order">
+                                        <i class="bi bi-x-circle"></i>
+                                    </button>
+                                ` : ''}
+                                <button class="btn btn-outline-danger btn-delete" data-id="${order.id}" title="Delete Order">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </div>
+                        </td>
+                    `;
+                    ordersTbody.appendChild(tr);
+                });
+
+                // attach event handlers
+                attachOrderEventHandlers();
+                renderStats();
+            }
+
+            function attachOrderEventHandlers() {
+                document.querySelectorAll(".btn-delete").forEach(btn => btn.addEventListener("click", (e) => {
+                    const id = Number(e.currentTarget.dataset.id);
+                    deleteOrderById(id);
+                }));
+
+                document.querySelectorAll(".btn-view").forEach(btn => btn.addEventListener("click", (e) => {
+                    const id = Number(e.currentTarget.dataset.id);
+                    openOrderModal(id);
+                }));
+
+                document.querySelectorAll(".btn-accept").forEach(btn => btn.addEventListener("click", (e) => {
+                    const id = Number(e.currentTarget.dataset.id);
+                    updateOrderStatus(id, "Accepted");
+                }));
+
+                document.querySelectorAll(".btn-reject").forEach(btn => btn.addEventListener("click", (e) => {
+                    const id = Number(e.currentTarget.dataset.id);
+                    updateOrderStatus(id, "Rejected");
+                }));
+            }
+
+            // ---------- CRUD operations ----------
+            function addOrder(order) {
+                const o = Object.assign({}, order);
+                if (!o.id) o.id = generateId();
+                if (!o.createdAt) o.createdAt = new Date().toISOString();
+                ORDERS.unshift(o);
+                saveToStorage();
+                renderOrdersTable();
+                return o;
+            }
+
+            function deleteOrderById(id) {
+                if (!confirm("Are you sure you want to delete order #" + id + "?")) return;
+                const before = ORDERS.length;
+                ORDERS = ORDERS.filter(o => o.id !== id);
+                if (ORDERS.length !== before) {
+                    saveToStorage();
+                    renderOrdersTable();
+                    if (currentModalOrderId === id && orderModal) orderModal.hide();
+                }
+            }
+
+            function updateOrderStatus(id, newStatus) {
+                const idx = ORDERS.findIndex(o => o.id === id);
+                if (idx === -1) return false;
+
+                ORDERS[idx].status = newStatus;
+                ORDERS[idx].updatedAt = new Date().toISOString();
+
+                // Add status change note
+                if (!ORDERS[idx].notes) ORDERS[idx].notes = "";
+                ORDERS[idx].notes += `\n[${new Date().toLocaleString()}] Status changed to: ${newStatus}`;
+
+                saveToStorage();
+                renderOrdersTable();
+
+                // Show success message
+                showNotification(`Order #${id} status updated to ${newStatus}`, "success");
+
+                return true;
+            }
+
+            function updateOrderNotes(id, notes) {
+                const idx = ORDERS.findIndex(o => o.id === id);
+                if (idx === -1) return false;
+
+                ORDERS[idx].notes = notes;
+                ORDERS[idx].updatedAt = new Date().toISOString();
+                saveToStorage();
+                return true;
+            }
+
+            // ---------- Modal interactions ----------
+            function openOrderModal(id) {
+                const order = ORDERS.find(o => o.id === id);
+                if (!order) {
+                    showNotification("Order not found", "error");
+                    return;
+                }
+
+                currentModalOrderId = id;
+
+                // Populate modal fields
+                if (modalOrderId) modalOrderId.textContent = order.id;
+                if (modalCustomer) modalCustomer.textContent = order.customerName || "-";
+                if (modalEmail) modalEmail.textContent = order.email || "-";
+                if (modalPhone) modalPhone.textContent = order.phone || "-";
+                if (modalAddress) modalAddress.textContent = order.address || "-";
+                if (modalDate) modalDate.textContent = order.date || "-";
+                if (modalPayment) modalPayment.textContent = order.paymentMethod || "-";
+                if (modalShipping) modalShipping.textContent = order.shippingMethod || "-";
+                if (modalStatus) modalStatus.value = order.status || "Pending";
+                if (modalNotes) modalNotes.value = order.notes || "";
+
+                // Populate products
+                if (modalProducts) {
+                    modalProducts.innerHTML = "";
+                    if (order.products && order.products.length > 0) {
+                        const productsHtml = order.products.map(p => `
+                            <div class="row border-bottom py-2">
+                                <div class="col-6">${escapeHtml(p.name)}</div>
+                                <div class="col-2 text-center">${p.qty}</div>
+                                <div class="col-2 text-center">$${Number(p.price).toFixed(2)}</div>
+                                <div class="col-2 text-center">$${(Number(p.price) * p.qty).toFixed(2)}</div>
+                            </div>
+                        `).join('');
+
+                        modalProducts.innerHTML = `
+                            <div class="row fw-bold border-bottom py-2">
+                                <div class="col-6">Product</div>
+                                <div class="col-2 text-center">Qty</div>
+                                <div class="col-2 text-center">Price</div>
+                                <div class="col-2 text-center">Total</div>
+                            </div>
+                            ${productsHtml}
+                        `;
+                    }
+                }
+
+                // Show/hide action buttons based on status
+                if (acceptOrderBtn) acceptOrderBtn.style.display = order.status === "Pending" ? "block" : "none";
+                if (rejectOrderBtn) rejectOrderBtn.style.display = order.status === "Pending" ? "block" : "none";
+
+                if (orderModal) orderModal.show();
+            }
+
+            // ---------- Event listeners ----------
+            if (modalDeleteBtn) modalDeleteBtn.addEventListener("click", () => {
+                if (!currentModalOrderId) return;
+                if (!confirm("Are you sure you want to delete order #" + currentModalOrderId + "?")) return;
+                deleteOrderById(currentModalOrderId);
+                if (orderModal) orderModal.hide();
+            });
+
+            if (saveStatusBtn) saveStatusBtn.addEventListener("click", () => {
+                if (!currentModalOrderId) return;
+                const newStatus = modalStatus ? modalStatus.value : null;
+                if (!newStatus) return;
+                if (updateOrderStatus(currentModalOrderId, newStatus)) {
+                    if (orderModal) orderModal.hide();
+                } else {
+                    showNotification("Failed to update status", "error");
+                }
+            });
+
+            if (acceptOrderBtn) acceptOrderBtn.addEventListener("click", () => {
+                if (!currentModalOrderId) return;
+                if (updateOrderStatus(currentModalOrderId, "Accepted")) {
+                    if (orderModal) orderModal.hide();
+                }
+            });
+
+            if (rejectOrderBtn) rejectOrderBtn.addEventListener("click", () => {
+                if (!currentModalOrderId) return;
+                if (updateOrderStatus(currentModalOrderId, "Rejected")) {
+                    if (orderModal) orderModal.hide();
+                }
+            });
+
+            // ---------- Filter functions ----------
+            function filterOrders() {
+                const statusFilter = document.getElementById("statusFilter").value;
+                let filteredOrders = ORDERS;
+
+                if (statusFilter) {
+                    filteredOrders = ORDERS.filter(order => order.status === statusFilter);
+                }
+
+                renderFilteredOrders(filteredOrders);
+            }
+
+            function renderFilteredOrders(filteredOrders) {
+                if (!ordersTbody) return;
+
+                ordersTbody.innerHTML = "";
+
+                if (filteredOrders.length === 0) {
+                    ordersTbody.innerHTML = '<tr><td colspan="7" class="text-center py-4">No orders found with selected filter</td></tr>';
+                    return;
+                }
+
+                filteredOrders.forEach(order => {
+                    const productsText = (order.products || []).map(p => `${escapeHtml(p.name)} (x${p.qty})`).join(", ");
+                    const tr = document.createElement("tr");
+                    tr.innerHTML = `
+                        <td><strong>#${order.id}</strong></td>
+                        <td>
+                            <div>
+                                <strong>${escapeHtml(order.customerName || "")}</strong><br>
+                                <small class="text-muted">${escapeHtml(order.email || "")}</small>
+                            </div>
+                        </td>
+                        <td>${productsText}</td>
+                        <td><strong>$${Number(order.total || 0).toFixed(2)}</strong></td>
+                        <td>${statusBadge(order.status)}</td>
+                        <td>${escapeHtml(order.date || "")}</td>
+                        <td>
+                            <div class="btn-group btn-group-sm" role="group">
+                                <button class="btn btn-outline-primary btn-view" data-id="${order.id}" title="View Details">
+                                    <i class="bi bi-eye"></i>
+                                </button>
+                                ${order.status === "Pending" ? `
+                                    <button class="btn btn-outline-success btn-accept" data-id="${order.id}" title="Accept Order">
+                                        <i class="bi bi-check-circle"></i>
+                                    </button>
+                                    <button class="btn btn-outline-danger btn-reject" data-id="${order.id}" title="Reject Order">
+                                        <i class="bi bi-x-circle"></i>
+                                    </button>
+                                </div>
+                                ` : ''}
+                                <button class="btn btn-outline-danger btn-delete" data-id="${order.id}" title="Delete Order">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </div>
+                        </td>
+                    `;
+                    ordersTbody.appendChild(tr);
+                });
+
+                attachOrderEventHandlers();
+            }
+
+            // ---------- Utility functions ----------
+            function showNotification(message, type = "info") {
+                // Create notification element
+                const notification = document.createElement("div");
+                notification.className = `alert alert-${type === "error" ? "danger" : type} alert-dismissible fade show position-fixed`;
+                notification.style.cssText = "top: 20px; right: 20px; z-index: 9999; min-width: 300px;";
+                notification.innerHTML = `
+                    ${message}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                `;
+
+                document.body.appendChild(notification);
+
+                // Auto remove after 5 seconds
+                setTimeout(() => {
+                    if (notification.parentNode) {
+                        notification.remove();
+                    }
+                }, 5000);
+            }
+
+            function refreshOrders() {
+                loadOrdersFromInvoices();
+                renderOrdersTable();
+                showNotification("Orders refreshed successfully", "success");
+            }
+
+            // ---------- Public API exposure ----------
+            window.ordersApp = {
+                getOrders: () => ORDERS.map(o => JSON.parse(JSON.stringify(o))),
+                setOrders: (newArray) => {
+                    if (!Array.isArray(newArray)) throw new Error("setOrders expects array");
+                    ORDERS = newArray.slice();
+                    saveToStorage();
+                    renderOrdersTable();
+                },
+                addOrder,
+                deleteOrderById,
+                updateOrderStatus,
+                refreshOrders,
+                reload: function () {
+                    loadFromStorage();
+                    renderOrdersTable();
+                }
+            };
+
+            // ---------- Init ----------
+            function init() {
+                loadFromStorage();
+                loadOrdersFromInvoices();
+                renderOrdersTable();
+            }
+
+            // Wait DOM if necessary
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', init);
+            } else {
+                init();
+            }
+
+        })();
+    </script>
+</body>
+
+</html>

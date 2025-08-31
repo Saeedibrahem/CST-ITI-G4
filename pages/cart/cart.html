@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MobileXpress - Shopping Cart</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+
+  <!-- Bootstrap + FontAwesome -->
+  <link rel="stylesheet" href="../../assets/lib/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="./cart.css">
+  <link rel="stylesheet" href="../../src/css/global.css">
+</head>
+
+<body>
+  <!-- Navbar will be rendered by shared.js -->
+  
+  <div id="cart" class="container m-5">
+    <div class="row">
+      <!-- Shopping Cart -->
+      <div class="col-lg-7 mb-4">
+        <h3><i class="fa-solid fa-shopping-cart me-2"></i>Shopping Cart</h3>
+        <div id="cart-items" class="list-group">
+          <!-- Cart items will be rendered here -->
+        </div>
+        
+        <!-- Empty cart message -->
+        <div id="empty-cart" class="text-center py-5 d-none">
+          <i class="fa-solid fa-cart-shopping fa-3x text-muted mb-3"></i>
+          <h4 class="text-muted">Your cart is empty</h4>
+          <p class="text-muted">Add some products to get started!</p>
+          <a href="../../pages/products/index.html" class="btn btn-primary">
+            <i class="fa-solid fa-shopping-bag me-2"></i>Continue Shopping
+          </a>
+        </div>
+      </div>
+
+      <!-- Order Summary -->
+      <div class="col-lg-5">
+        <div class="cart-summary shadow-sm">
+          <h4><i class="fa-solid fa-receipt me-2"></i>Order Summary</h4>
+          
+          <!-- Discount code section -->
+          <div class="mb-3">
+            <label for="code" class="form-label">Discount code / Promo code</label>
+            <div class="input-group">
+              <input id="code" type="text" placeholder="Enter code" class="form-control">
+              <button class="btn btn-outline-secondary" type="button" onclick="applyDiscount()">
+                <i class="fa-solid fa-check"></i>
+              </button>
+            </div>
+          </div>
+          
+          <!-- Bonus card section -->
+          <div class="mb-3">
+            <label for="bonus" class="form-label">Your bonus card number</label>
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Enter Card Number" id="bonus">
+              <button class="btn btn-outline-secondary" type="button" onclick="applyBonus()">
+                <i class="fa-solid fa-check"></i>
+              </button>
+            </div>
+          </div>
+          
+          <!-- Summary details -->
+          <div class="summary-details">
+            <div class="d-flex justify-content-between mb-2">
+              <span>Subtotal:</span>
+              <span id="subtotal">$0</span>
+            </div>
+            <div class="d-flex justify-content-between mb-2">
+              <span>Estimated Tax (14%):</span>
+              <span id="tax">$0</span>
+            </div>
+            <div class="d-flex justify-content-between mb-2">
+              <span>Estimated shipping & Handling:</span>
+              <span id="shipping">$0</span>
+            </div>
+            <hr>
+            <div class="d-flex justify-content-between fw-bold fs-5">
+              <span>Total:</span>
+              <span id="total">$0</span>
+            </div>
+          </div>
+          
+          <button class="btn btn-dark w-100 mt-3" onclick="showCheckout()" id="checkout-btn" disabled>
+            <i class="fa-solid fa-credit-card me-2"></i>Proceed to Checkout
+          </button>
+          
+          <!-- Continue shopping link -->
+          <div class="text-center mt-3">
+            <a href="../../pages/products/index.html" class="text-decoration-none">
+              <i class="fa-solid fa-arrow-left me-1"></i>Continue Shopping
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>    
+  </div>  
+
+  <!-- footer -->
+  <footer id="page-footer" class="footer mt-auto py-5 bg-black text-white">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-md-4">
+          <h5 class="fw-bold text-white logo_footer">
+            <a href="../../index.html"> 
+              <img src="../../assets/home_page_img/logo_white_black_back.png" alt="MobileXpress Logo"> 
+            </a>
+          </h5>
+          <p class="text-white">
+            Your trusted destination for premium mobile devices and exceptional service. Quality products, competitive prices, and outstanding customer support.
+          </p>
+        </div>
+        <div class="col-md-2 mt-5">
+          <h5 class="fw-bold text-white">Shop</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2">
+              <a href="../../pages/products/index.html" class="text-decoration-none text-white footer-text">Collection</a>
+            </li>
+            <li class="mb-2">
+              <a href="../../index.html#sale_section" class="text-decoration-none text-white footer-text">Sale</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-3 mt-5">
+          <h5 class="fw-bold text-white">Support</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2 footer-text">
+              <a href="../../pages/customer-service.html" class="text-decoration-none text-white footer-text">FAQ</a>
+            </li>
+            <li class="mb-2">
+              <a href="../../pages/customer-service.html" class="text-decoration-none text-white footer-text">Shipping</a>
+            </li>
+            <li class="mb-2">
+              <a href="../../pages/customer-service.html" class="text-decoration-none text-white footer-text">Contact Us</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h5 class="fw-bold text-center mb-4">Follow Us</h5>
+          <div class="d-flex justify-content-evenly">
+            <div class="social-group text-center">
+              <a href="#" class="text-decoration-none text-white d-block">
+                <i class="fab fa-facebook fa-2x social-icon"></i>
+                <div class="social-text">Facebook</div>
+              </a>
+            </div>
+            <div class="social-group text-center">
+              <a href="#" class="text-decoration-none text-white d-block">
+                <i class="fab fa-instagram fa-2x social-icon"></i>
+                <div class="social-text">Instagram</div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 text-white">
+          <p class="text-white mb-0">
+            &copy; 2025 MobileXpress. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../../assets/lib/js/bootstrap.bundle.min.js"></script>
+  <script src="../../assets/lib/js/crypto-js.min.js"></script>
+  <script src="../../src/js/cart_badge.js"></script>
+  <script src="../../src/js/shared.js"></script>
+  <script src="../../src/js/main.js"></script>
+  <script src="./cart.js"></script>
+</body>
+</html>

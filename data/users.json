@@ -52,6 +52,7 @@
   },
   {
     "id": 105,
+    "password": "123",
     "firstName": "saeed",
     "lastName": "ebrahim",
     "email": "saeed@gmail.com",
@@ -74,6 +75,7 @@
     "status": "active",
     "createdAt": "2025-01-15",
     "role": "seller",
+    "password": "123",
     "phone": null,
     "address": null,
     "city": null,

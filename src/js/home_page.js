@@ -1,22 +1,14 @@
-// load spinner
-function loadSpinner() {
-  window.addEventListener("load", () => {
-    const loaderContainer = document.createElement("div");
-    loaderContainer.classList.add("loader-container");
-    document.body.appendChild(loaderContainer);
-    const spinner = document.createElement("span");
-    spinner.classList.add("loader");
-    loaderContainer.appendChild(spinner);
-    setTimeout(() => {
-      loaderContainer.remove();
-    }, 1000);
-  });
-}
-// loadSpinner();
+// Render navbar when page loads
+document.addEventListener('DOMContentLoaded', function () {
+  if (window.sharedUtils && window.sharedUtils.renderNavbar) {
+    window.sharedUtils.renderNavbar();
+  }
+});
+
+
 displaySaleProducts(filteredProducts);
 initSwipers();
 displayAllProducts(filteredProducts);
-// display sale products
 
 function displaySaleProducts(products) {
   const swiperWrapper = document.querySelector(".saleSwiper .swiper-wrapper");
@@ -71,6 +63,7 @@ function displaySaleProducts(products) {
 <div class="mt-auto btn-group-custom">
   <button 
     class="btn btn-sm btn-dark add-to-cart-btn w-100" 
+    onclick="addToCart(${product.id})"
     data-id="${product.id}">
     <i class="fa fa-shopping-cart me-1"></i> Add to Cart
   </button>
@@ -127,6 +120,7 @@ function displayAllProducts(products) {
           <div class="mt-auto btn-group-custom">
             <button 
               class="btn btn-sm btn-dark add-to-cart-btn w-100" 
+              onclick="addToCart(${product.id})"
               data-id="${product.id}">
               <i class="fa fa-shopping-cart me-1"></i> Add to Cart
             </button>
@@ -225,3 +219,42 @@ var swiper = new Swiper(".mySwiper", {
   speed: 800,
 });
 
+
+
+// add to cart
+let cart = getItemFromLocalStorage("cart") || [];
+
+function addToCart(productId, quantity = 1) {
+  const product = products.find(p => p.id === productId);
+  if (!product) return;
+
+  // see if product is in cart
+  let existing = cart.find(item => item.id === product.id);
+
+  if (existing) {
+    // if product is already in cart
+    if (existing.qty + quantity > product.stock) {
+      alert("Stock not enough!");
+      return;
+    }
+    existing.qty += quantity;
+  } else {
+    // if product is not in cart
+    if (quantity > product.stock) {
+      alert("Stock not enough!");
+      return;
+    }
+    cart.push({
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      image: product.images[0],
+      qty: quantity,
+      stock: product.stock
+    });
+  }
+
+  // save cart
+  setItemToLocalStorage("cart", cart);
+  console.log(cart);
+}

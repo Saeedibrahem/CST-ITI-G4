@@ -91,6 +91,7 @@ function displayAllProducts(products, page = 1) {
 
       <div class="mt-auto btn-group-custom">
         <button 
+        onclick="addToCart(${product.id})"
           class="btn btn-sm btn-dark add-to-cart-btn w-100" 
           data-id="${product.id}">
           <i class="fa fa-shopping-cart me-1"></i> Add to Cart

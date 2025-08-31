@@ -19,70 +19,9 @@
 </head>
 
 <body>
-<header class="sticky-top bg-white shadow-sm border-bottom ">
-  <nav class="navbar navbar-expand-lg navbar-light py-2 px-lg-5 ">
-    <div class="container-fluid">
 
-      <!-- Logo -->
-      <a class="navbar-brand fw-bold d-flex align-items-center" href="./index.html">
-        <img src="../../assets/home_page_img/logo.png" alt="Logo" height="40" class="me-2">
-      </a>
-
-      <!-- Collapsible Nav + Search -->
-      <div class="collapse navbar-collapse justify-content-center" id="mainNav">
-        <ul class="navbar-nav mx-3 d-flex g-4 ">
-          <li class="nav-item"><a class="nav-link  fw-semibold text-dark active" href="./index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link fw-semibold text-dark " href="./pages/products/index.html">Catalog</a></li>
-          <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="./pages/aboutus/aboutus.html">About Us</a></li>
-        </ul>
-
-        <!-- Search -->
-        <!-- <form class="d-flex mx-lg-3 my-2 my-lg-0">
-          <div class="input-group">
-            <input type="search" class="form-control" placeholder="Search products...">
-            <button class="btn btn-primary"><i class="fa-solid fa-search"></i></button>
-          </div>
-        </form> -->
-      </div>
-
-      <!-- Right Side (Auth / User) -->
-      <div class="d-flex align-items-center gap-2 ms-3">
-        
-        <!-- If user logged in -->
-        <div id="userMenu" class="dropdown d-none">
-          <button class="btn btn-outline-dark rounded-circle p-2" data-bs-toggle="dropdown">
-            <i class="fa-solid fa-user fa-lg"></i>
-          </button>
-          <ul class="dropdown-menu dropdown-menu-end shadow border-0 rounded-3 mt-2">
-            <li><h6 class="dropdown-header  text-primary">User Account</h6></li>
-            <li><a class="dropdown-item" href="./pages/profile/index.html"><i class="fa-solid fa-user-gear me-2 "></i>Profile</a></li>
-            <li><a class="dropdown-item" href="./pages/profile/index.html#orders"><i class="fa-solid fa-box me-2 text-primary"></i>Orders</a></li>
-            <!-- <li><a class="dropdown-item" href="#"><i class="fa-solid fa-heart me-2 text-primary"></i>Wishlist</a></li> -->
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item text-danger" href="#" onclick="logout()"><i class="fa-solid fa-sign-out-alt me-2"></i>Logout</a></li>
-          </ul>
-        </div>
-
-        <!-- If user NOT logged in -->
-        <div id="authLinks" class="d-flex gap-2 ">
-          <a href="./pages/login/index.html" class=" login_btn btn btn-outline-dark  text-dark btn-sm">
-            <i class="fa-solid fa-right-to-bracket me-1"></i> Login
-          </a>
-          <a href="./pages/signup/index.html" class="btn btn-primary signup_btn bg-dark text-white btn-outline-dark btn-sm">
-            <i class="fa-solid fa-user-plus me-1"></i> Signup
-          </a>
-        </div>
-      </div>
-
-      <!-- Navbar Toggler (Always at far right) -->
-      <button class="navbar-toggler border-0 shadow-none ms-2" type="button" data-bs-toggle="collapse"
-        data-bs-target="#mainNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-    </div>
-  </nav>
-</header>
-
+  <!-- Navbar will be inserted here by JavaScript -->
+  
   <section class="hero-section  ">
     <div class="container">
       <div class="row align-items-center g-4 g-lg-5">
@@ -90,7 +29,8 @@
           <div class="hero-content text-center text-md-start py-4 py-lg-5">
             <h1 class="display-4 fw-bold text-white mb-3">iPhone 14 Pro</h1>
             <p class="lead text-white mb-4">Experience the future with Dynamic Island & A16 Bionic</p>
-            <a href="./pages/products/index.html" class="btn btn-outline-light btn-lg px-4 py-2 text-sm-center">Shop Now</a>
+            <a href="./pages/products/index.html" class="btn btn-outline-light btn-lg px-4 py-2 text-sm-center">Shop
+              Now</a>
           </div>
         </div>
         <div class="col-12 col-md-6 order-md-2 order-2">
@@ -139,25 +79,25 @@
 
 
   <!-- sale section  -->
-<section class="sale-products py-5" id="sale_section">
-  <div class="">
-    <div class="text-center mb-4">
-      <h1 class="fw-bold">
-        Sale <span class="text-primary">Products</span>
-      </h1>
-    </div>
-
-    <div class="swiper saleSwiper">
-      <div class="swiper-wrapper">
-        <!-- product cards go here -->
+  <section class="sale-products py-5" id="sale_section">
+    <div class="">
+      <div class="text-center mb-4">
+        <h1 class="fw-bold">
+          Sale <span class="text-primary">Products</span>
+        </h1>
       </div>
 
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-pagination"></div>
+      <div class="swiper saleSwiper">
+        <div class="swiper-wrapper">
+          <!-- product cards go here -->
+        </div>
+
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
 
 
@@ -226,32 +166,32 @@
 
 
 
-    <section class="slider py-5">
-        <div class="container">
-            <!-- Swiper -->
-            <div class="swiper mySwiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <a href="#"><img src="./assets/home_page_img/Banner1.png" alt="Banner 1"></a>
-                    </div>
-                    <div class="swiper-slide">
-                        <a href="#"><img src="./assets/home_page_img/banner6.png" alt="Banner 2"></a>
-                    </div>
-                    <div class="swiper-slide">
-                        <a href="#"><img src="./assets/home_page_img/baner4.png" alt="Banner 3"></a>
-                    </div>
-                </div>
-                
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-pagination"></div>
-            </div>
-            
-            <div class="sidebanner">
-                <a href="#"><img src="./assets/home_page_img/sidebaner.png" alt="Side Banner"></a>
-            </div>
+  <section class="slider py-5">
+    <div class="container">
+      <!-- Swiper -->
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <a href="#"><img src="./assets/home_page_img/Banner1.png" alt="Banner 1"></a>
+          </div>
+          <div class="swiper-slide">
+            <a href="#"><img src="./assets/home_page_img/banner6.png" alt="Banner 2"></a>
+          </div>
+          <div class="swiper-slide">
+            <a href="#"><img src="./assets/home_page_img/baner4.png" alt="Banner 3"></a>
+          </div>
         </div>
-    </section>
+
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+
+      <div class="sidebanner">
+        <a href="#"><img src="./assets/home_page_img/sidebaner.png" alt="Side Banner"></a>
+      </div>
+    </div>
+  </section>
 
 
 
@@ -367,59 +307,16 @@
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <!-- crypto js -->
   <script defer src="./assets/lib/js/crypto-js.min.js"></script>
+
   <!-- js files -->
   <script defer src="./src/js/shared.js"></script>
   <script defer src="./src/js/main.js"></script>
   <script defer src="./src/js/home_page.js"></script>
 
+  <script>
+    
+
+  </script>
 </body>
 
 </html>
-
-
-<!-- <div class="product_popup deactive">
-</div> -->
-<!-- Product Catalog -->
-<!-- <div class="container py-5">
-  <h2 class="mb-4 text-center">Product Catalog</h2>
-  <div class="row g-3" id="catalog"> -->
-<!-- Content will be added by JavaScript -->
-<!-- </div>
-</div>
-
- -->
-
-
-<!-- <div id="cartSidebar" class="cart-sidebar">
-  <div class="cart-header d-flex justify-content-between align-items-center">
-    <h5 class="mb-0">Shopping Cart</h5>
-    <button class="btn-close" id="closeCart"></button>
-  </div>
-
-  <div class="cart-items p-3" id="cartItems">
-    <p class="text-muted">Your cart is empty</p>
-  </div>
-
-  <div class="cart-footer p-3 border-top">
-    <div class="d-flex justify-content-between align-items-center mb-2">
-      <strong>Total</strong>
-      <span id="cartTotal">0 EGP</span>
-    </div>
-    <button class="btn btn-primary w-100">Checkout</button>
-  </div>
-</div> -->
-
-<!-- Overlay -->
-<!-- <div id="cartOverlay" class="cart-overlay"></div> -->
-
-
-
-<!-- Summer Discount Section -->
-<!-- <section class="bg-primary text-white text-center py-5 summer-disc">
-  <div class="container">
-    <h2 class="fw-bold">Big Summer Sale</h2>
-    <p>Up to 50% off on selected smartphones!</p>
-    <a href="catalog.html" class="text-white btn-lg btn-summer">Shop Now</a>
-  </section> -->
-
-<!-- Footer -->
