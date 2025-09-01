@@ -1557,5 +1557,1031 @@
     "description": "Infinix Smart 9 with MediaTek Helio G81, Octa-core, 6.77″ IPS LCD 120Hz display, 4 GB RAM, 128 GB storage, and 5000 mAh battery. Features include 4G connectivity, 13 MP + AI Lens main camera, and Wi-Fi, Bluetooth, USB-C.",
     "createdAt": "2025-08-30T16:18:34.721Z",
     "updatedAt": "2025-08-30T16:18:34.721Z"
+  },
+  {
+    "id": 510,
+    "name": "Samsung Galaxy A16",
+    "slug": "samsung_galaxy_a16_510",
+    "color": "black",
+    "os": "android",
+    "brand": "samsung",
+    "old_price": 8999,
+    "price": 8199,
+    "originalPrice": 8199,
+    "salePercentage": 0,
+    "category": "Smartphones",
+    "stock": 15,
+    "images": [
+      "../../assets/img/products/samsung/a16/front.png",
+      "../../assets/img/products/samsung/a16/back.jpg"
+    ],
+    "sellerId": 107,
+    "rating": 4.2,
+    "adminReview": {
+      "status": "approved",
+      "reviewedBy": "admin001",
+      "reviewedAt": "2025-01-15T10:00:00Z",
+      "notes": "Budget Samsung with good battery life",
+      "approvalDate": "2025-01-15T10:00:00Z"
+    },
+    "userComments": [
+      {
+        "id": "comment_510_001",
+        "userId": "user_510_001",
+        "username": "SamsungUser510",
+        "rating": 4,
+        "comment": "Great budget phone with excellent battery life. Perfect for daily use.",
+        "createdAt": "2025-01-16T12:00:00Z",
+        "helpful": 8,
+        "verified": true
+      }
+    ],
+    "specifications": {
+      "Processor": "MediaTek Helio G35",
+      "Display": "6.6-inch HD+ TFT",
+      "RAM": "4GB",
+      "Storage": "64GB",
+      "Battery": "5000mAh",
+      "Camera": "13MP + 5MP + 2MP + 2MP"
+    },
+    "description": "Samsung Galaxy A16 with MediaTek Helio G35, 6.6-inch HD+ display, 4GB RAM, 64GB storage, and 5000mAh battery.",
+    "createdAt": "2025-01-15T10:00:00Z",
+    "updatedAt": "2025-01-15T10:00:00Z"
+  },
+  {
+    "id": 511,
+    "name": "Samsung Galaxy A36 5G",
+    "slug": "samsung_galaxy_a36_5g_511",
+    "color": "white",
+    "os": "android",
+    "brand": "samsung",
+    "old_price": 12999,
+    "price": 11999,
+    "originalPrice": 11999,
+    "salePercentage": 0,
+    "category": "Smartphones",
+    "stock": 12,
+    "images": [
+      "../../assets/img/products/samsung/a365g/front.png",
+      "../../assets/img/products/samsung/a365g/back.png"
+    ],
+    "sellerId": 107,
+    "rating": 4.4,
+    "adminReview": {
+      "status": "approved",
+      "reviewedBy": "admin002",
+      "reviewedAt": "2025-01-16T11:00:00Z",
+      "notes": "5G capable mid-range Samsung",
+      "approvalDate": "2025-01-16T11:00:00Z"
+    },
+    "userComments": [
+      {
+        "id": "comment_511_001",
+        "userId": "user_511_001",
+        "username": "SamsungUser511",
+        "rating": 4,
+        "comment": "5G connectivity is great and the camera quality is impressive for the price.",
+        "createdAt": "2025-01-17T14:00:00Z",
+        "helpful": 12,
+        "verified": true
+      }
+    ],
+    "specifications": {
+      "Processor": "MediaTek Dimensity 700",
+      "Display": "6.6-inch FHD+ Super AMOLED",
+      "RAM": "6GB",
+      "Storage": "128GB",
+      "Battery": "5000mAh",
+      "Camera": "48MP + 8MP + 5MP + 2MP"
+    },
+    "description": "Samsung Galaxy A36 5G with MediaTek Dimensity 700, 6.6-inch FHD+ Super AMOLED display, 6GB RAM, 128GB storage, and 5G connectivity.",
+    "createdAt": "2025-01-16T11:00:00Z",
+    "updatedAt": "2025-01-16T11:00:00Z"
+  },
+  {
+    "id": 512,
+    "name": "Samsung Galaxy A56",
+    "slug": "samsung_galaxy_a56_512",
+    "color": "blue",
+    "os": "android",
+    "brand": "samsung",
+    "old_price": 15999,
+    "price": 14999,
+    "originalPrice": 14999,
+    "salePercentage": 0,
+    "category": "Smartphones",
+    "stock": 10,
+    "images": [
+      "../../assets/img/products/samsung/a56/front.png",
+      "../../assets/img/products/samsung/a56/back.png"
+    ],
+    "sellerId": 107,
+    "rating": 4.5,
+    "adminReview": {
+      "status": "approved",
+      "reviewedBy": "admin003",
+      "reviewedAt": "2025-01-17T12:00:00Z",
+      "notes": "Premium A-series with excellent camera",
+      "approvalDate": "2025-01-17T12:00:00Z"
+    },
+    "userComments": [
+      {
+        "id": "comment_512_001",
+        "userId": "user_512_001",
+        "username": "SamsungUser512",
+        "rating": 5,
+        "comment": "Amazing camera quality and the design is premium. Great value for money!",
+        "createdAt": "2025-01-18T16:00:00Z",
+        "helpful": 15,
+        "verified": true
+      }
+    ],
+    "specifications": {
+      "Processor": "Exynos 1480",
+      "Display": "6.6-inch FHD+ Super AMOLED 120Hz",
+      "RAM": "8GB",
+      "Storage": "256GB",
+      "Battery": "5000mAh",
+      "Camera": "50MP + 12MP + 5MP"
+    },
+    "description": "Samsung Galaxy A56 with Exynos 1480, 6.6-inch FHD+ Super AMOLED 120Hz display, 8GB RAM, 256GB storage, and advanced camera system.",
+    "createdAt": "2025-01-17T12:00:00Z",
+    "updatedAt": "2025-01-17T12:00:00Z"
+  },
+  {
+    "id": 513,
+    "name": "Samsung Galaxy S25",
+    "slug": "samsung_galaxy_s25_513",
+    "color": "phantom_black",
+    "os": "android",
+    "brand": "samsung",
+    "old_price": 89999,
+    "price": 84999,
+    "originalPrice": 84999,
+    "salePercentage": 0,
+    "category": "Smartphones",
+    "stock": 8,
+    "images": ["../../assets/img/products/samsung/s25/front.png"],
+    "sellerId": 107,
+    "rating": 4.8,
+    "adminReview": {
+      "status": "approved",
+      "reviewedBy": "admin004",
+      "reviewedAt": "2025-01-18T13:00:00Z",
+      "notes": "Latest flagship with AI features",
+      "approvalDate": "2025-01-18T13:00:00Z"
+    },
+    "userComments": [
+      {
+        "id": "comment_513_001",
+        "userId": "user_513_001",
+        "username": "SamsungUser513",
+        "rating": 5,
+        "comment": "The AI features are incredible! Camera quality is outstanding and performance is top-notch.",
+        "createdAt": "2025-01-19T18:00:00Z",
+        "helpful": 25,
+        "verified": true
+      }
+    ],
+    "specifications": {
+      "Processor": "Exynos 2500",
+      "Display": "6.2-inch Dynamic AMOLED 2X 120Hz",
+      "RAM": "8GB",
+      "Storage": "256GB",
+      "Battery": "4000mAh",
+      "Camera": "50MP + 12MP + 10MP"
+    },
+    "description": "Samsung Galaxy S25 with Exynos 2500, 6.2-inch Dynamic AMOLED 2X 120Hz display, 8GB RAM, 256GB storage, and advanced AI camera system.",
+    "createdAt": "2025-01-18T13:00:00Z",
+    "updatedAt": "2025-01-18T13:00:00Z"
+  },
+  {
+    "id": 514,
+    "name": "Samsung Galaxy S25+",
+    "slug": "samsung_galaxy_s25_plus_514",
+    "color": "phantom_black",
+    "os": "android",
+    "brand": "samsung",
+    "old_price": 99999,
+    "price": 94999,
+    "originalPrice": 94999,
+    "salePercentage": 0,
+    "category": "Smartphones",
+    "stock": 6,
+    "images": [
+      "../../assets/img/products/samsung/s25+/front.png",
+      "../../assets/img/products/samsung/s25+/back.png"
+    ],
+    "sellerId": 107,
+    "rating": 4.9,
+    "adminReview": {
+      "status": "approved",
+      "reviewedBy": "admin005",
+      "reviewedAt": "2025-01-19T14:00:00Z",
+      "notes": "Premium flagship with larger display",
+      "approvalDate": "2025-01-19T14:00:00Z"
+    },
+    "userComments": [
+      {
+        "id": "comment_514_001",
+        "userId": "user_514_001",
+        "username": "SamsungUser514",
+        "rating": 5,
+        "comment": "Perfect size and the larger battery is amazing. AI features work flawlessly!",
+        "createdAt": "2025-01-20T19:00:00Z",
+        "helpful": 28,
+        "verified": true
+      }
+    ],
+    "specifications": {
+      "Processor": "Exynos 2500",
+      "Display": "6.7-inch Dynamic AMOLED 2X 120Hz",
+      "RAM": "12GB",
+      "Storage": "512GB",
+      "Battery": "4900mAh",
+      "Camera": "50MP + 12MP + 10MP"
+    },
+    "description": "Samsung Galaxy S25+ with Exynos 2500, 6.7-inch Dynamic AMOLED 2X 120Hz display, 12GB RAM, 512GB storage, and enhanced AI features.",
+    "createdAt": "2025-01-19T14:00:00Z",
+    "updatedAt": "2025-01-19T14:00:00Z"
+  },
+  {
+    "id": 515,
+    "name": "Samsung Galaxy S25 Edge",
+    "slug": "samsung_galaxy_s25_edge_515",
+    "color": "phantom_black",
+    "os": "android",
+    "brand": "samsung",
+    "old_price": 109999,
+    "price": 104999,
+    "originalPrice": 104999,
+    "salePercentage": 0,
+    "category": "Smartphones",
+    "stock": 5,
+    "images": ["../../assets/img/products/samsung/s25edge/front.png"],
+    "sellerId": 107,
+    "rating": 4.9,
+    "adminReview": {
+      "status": "approved",
+      "reviewedBy": "admin001",
+      "reviewedAt": "2025-01-20T15:00:00Z",
+      "notes": "Ultimate flagship with curved display",
+      "approvalDate": "2025-01-20T15:00:00Z"
+    },
+    "userComments": [
+      {
+        "id": "comment_515_001",
+        "userId": "user_515_001",
+        "username": "SamsungUser515",
+        "rating": 5,
+        "comment": "The curved display is stunning and the S Pen integration is perfect. Best phone I've ever owned!",
+        "createdAt": "2025-01-21T20:00:00Z",
+        "helpful": 30,
+        "verified": true
+      }
+    ],
+    "specifications": {
+      "Processor": "Exynos 2500",
+      "Display": "6.8-inch Dynamic AMOLED 2X 120Hz Curved",
+      "RAM": "12GB",
+      "Storage": "512GB",
+      "Battery": "5000mAh",
+      "Camera": "200MP + 12MP + 50MP + 10MP"
+    },
+    "description": "Samsung Galaxy S25 Edge with Exynos 2500, 6.8-inch Dynamic AMOLED 2X 120Hz curved display, 12GB RAM, 512GB storage, and S Pen support.",
+    "createdAt": "2025-01-20T15:00:00Z",
+    "updatedAt": "2025-01-20T15:00:00Z"
+  },
+  {
+    "id": 516,
+    "name": "Samsung Galaxy S25 FE",
+    "slug": "samsung_galaxy_s25_fe_516",
+    "color": "mint",
+    "os": "android",
+    "brand": "samsung",
+    "old_price": 69999,
+    "price": 64999,
+    "originalPrice": 64999,
+    "salePercentage": 0,
+    "category": "Smartphones",
+    "stock": 12,
+    "images": ["../../assets/img/products/samsung/s25fe/front.png"],
+    "sellerId": 107,
+    "rating": 4.6,
+    "adminReview": {
+      "status": "approved",
+      "reviewedBy": "admin002",
+      "reviewedAt": "2025-01-21T16:00:00Z",
+      "notes": "Fan Edition with flagship features",
+      "approvalDate": "2025-01-21T16:00:00Z"
+    },
+    "userComments": [
+      {
+        "id": "comment_516_001",
+        "userId": "user_516_001",
+        "username": "SamsungUser516",
+        "rating": 4,
+        "comment": "Great value for money! Has most flagship features at a more affordable price.",
+        "createdAt": "2025-01-22T21:00:00Z",
+        "helpful": 18,
+        "verified": true
+      }
+    ],
+    "specifications": {
+      "Processor": "Exynos 2400",
+      "Display": "6.4-inch Dynamic AMOLED 2X 120Hz",
+      "RAM": "8GB",
+      "Storage": "256GB",
+      "Battery": "4500mAh",
+      "Camera": "50MP + 12MP + 8MP"
+    },
+    "description": "Samsung Galaxy S25 FE with Exynos 2400, 6.4-inch Dynamic AMOLED 2X 120Hz display, 8GB RAM, 256GB storage, and flagship camera system.",
+    "createdAt": "2025-01-21T16:00:00Z",
+    "updatedAt": "2025-01-21T16:00:00Z"
+  },
+  {
+    "id": 517,
+    "name": "Samsung Galaxy S24 Ultra",
+    "slug": "samsung_galaxy_s24_ultra_517",
+    "color": "titanium_black",
+    "os": "android",
+    "brand": "samsung",
+    "old_price": 129999,
+    "price": 119999,
+    "originalPrice": 119999,
+    "salePercentage": 0,
+    "category": "Smartphones",
+    "stock": 4,
+    "images": [
+      "../../assets/img/products/samsung/samsung_s24ultra/front.png",
+      "../../assets/img/products/samsung/samsung_s24ultra/back.png"
+    ],
+    "sellerId": 107,
+    "rating": 4.9,
+    "adminReview": {
+      "status": "approved",
+      "reviewedBy": "admin003",
+      "reviewedAt": "2025-01-22T17:00:00Z",
+      "notes": "Previous generation flagship with titanium build",
+      "approvalDate": "2025-01-22T17:00:00Z"
+    },
+    "userComments": [
+      {
+        "id": "comment_517_001",
+        "userId": "user_517_001",
+        "username": "SamsungUser517",
+        "rating": 5,
+        "comment": "Titanium build feels premium and the S Pen is incredibly useful. Camera quality is exceptional!",
+        "createdAt": "2025-01-23T22:00:00Z",
+        "helpful": 32,
+        "verified": true
+      }
+    ],
+    "specifications": {
+      "Processor": "Snapdragon 8 Gen 3",
+      "Display": "6.8-inch Dynamic AMOLED 2X 120Hz",
+      "RAM": "12GB",
+      "Storage": "512GB",
+      "Battery": "5000mAh",
+      "Camera": "200MP + 12MP + 50MP + 10MP"
+    },
+    "description": "Samsung Galaxy S24 Ultra with Snapdragon 8 Gen 3, 6.8-inch Dynamic AMOLED 2X 120Hz display, 12GB RAM, 512GB storage, and titanium build.",
+    "createdAt": "2025-01-22T17:00:00Z",
+    "updatedAt": "2025-01-22T17:00:00Z"
+  },
+  {
+    "id": 518,
+    "name": "Samsung Galaxy Z Flip",
+    "slug": "samsung_galaxy_z_flip_518",
+    "color": "mint",
+    "os": "android",
+    "brand": "samsung",
+    "old_price": 99999,
+    "price": 89999,
+    "originalPrice": 89999,
+    "salePercentage": 0,
+    "category": "Smartphones",
+    "stock": 3,
+    "images": ["../../assets/img/products/samsung/zflip/front.png"],
+    "sellerId": 107,
+    "rating": 4.7,
+    "adminReview": {
+      "status": "approved",
+      "reviewedBy": "admin004",
+      "reviewedAt": "2025-01-23T18:00:00Z",
+      "notes": "Foldable flip phone with compact design",
+      "approvalDate": "2025-01-23T18:00:00Z"
+    },
+    "userComments": [
+      {
+        "id": "comment_518_001",
+        "userId": "user_518_001",
+        "username": "SamsungUser518",
+        "rating": 4,
+        "comment": "The foldable design is amazing! Perfect size when folded and great screen when open.",
+        "createdAt": "2025-01-24T23:00:00Z",
+        "helpful": 20,
+        "verified": true
+      }
+    ],
+    "specifications": {
+      "Processor": "Snapdragon 8 Gen 3",
+      "Display": "6.7-inch Dynamic AMOLED 2X 120Hz (Folded: 3.4-inch)",
+      "RAM": "8GB",
+      "Storage": "256GB",
+      "Battery": "3700mAh",
+      "Camera": "12MP + 12MP"
+    },
+    "description": "Samsung Galaxy Z Flip with Snapdragon 8 Gen 3, 6.7-inch Dynamic AMOLED 2X 120Hz foldable display, 8GB RAM, 256GB storage, and compact design.",
+    "createdAt": "2025-01-23T18:00:00Z",
+    "updatedAt": "2025-01-23T18:00:00Z"
+  },
+  {
+    "id": 519,
+    "name": "Samsung Galaxy Z Fold 7",
+    "slug": "samsung_galaxy_z_fold_7_519",
+    "color": "phantom_black",
+    "os": "android",
+    "brand": "samsung",
+    "old_price": 179999,
+    "price": 169999,
+    "originalPrice": 169999,
+    "salePercentage": 0,
+    "category": "Smartphones",
+    "stock": 2,
+    "images": [
+      "../../assets/img/products/samsung/zfold7/front.png",
+      "../../assets/img/products/samsung/zfold7/back.png"
+    ],
+    "sellerId": 107,
+    "rating": 4.9,
+    "adminReview": {
+      "status": "approved",
+      "reviewedBy": "admin005",
+      "reviewedAt": "2025-01-24T19:00:00Z",
+      "notes": "Latest foldable with tablet-like experience",
+      "approvalDate": "2025-01-24T19:00:00Z"
+    },
+    "userComments": [
+      {
+        "id": "comment_519_001",
+        "userId": "user_519_001",
+        "username": "SamsungUser519",
+        "rating": 5,
+        "comment": "The large foldable screen is incredible! Perfect for productivity and entertainment. S Pen support is a bonus!",
+        "createdAt": "2025-01-25T00:00:00Z",
+        "helpful": 35,
+        "verified": true
+      }
+    ],
+    "specifications": {
+      "Processor": "Snapdragon 8 Gen 3",
+      "Display": "7.6-inch Dynamic AMOLED 2X 120Hz (Cover: 6.3-inch)",
+      "RAM": "16GB",
+      "Storage": "1TB",
+      "Battery": "4400mAh",
+      "Camera": "50MP + 12MP + 10MP"
+    },
+    "description": "Samsung Galaxy Z Fold 7 with Snapdragon 8 Gen 3, 7.6-inch Dynamic AMOLED 2X 120Hz foldable display, 16GB RAM, 1TB storage, and S Pen support.",
+    "createdAt": "2025-01-24T19:00:00Z",
+    "updatedAt": "2025-01-24T19:00:00Z"
+  },
+  {
+    "id": 520,
+    "name": "OnePlus 11 5G",
+    "slug": "oneplus_11_5g_520",
+    "color": "titan_black",
+    "os": "android",
+    "brand": "oneplus",
+    "old_price": 69999,
+    "price": 64999,
+    "originalPrice": 64999,
+    "salePercentage": 0,
+    "category": "Smartphones",
+    "stock": 8,
+    "images": [
+      "../../assets/img/products/oneplus/OnePlus115G/front.png",
+      "../../assets/img/products/oneplus/OnePlus115G/back.png"
+    ],
+    "sellerId": 107,
+    "rating": 4.7,
+    "adminReview": {
+      "status": "approved",
+      "reviewedBy": "admin001",
+      "reviewedAt": "2025-01-25T10:00:00Z",
+      "notes": "Flagship OnePlus with Hasselblad camera",
+      "approvalDate": "2025-01-25T10:00:00Z"
+    },
+    "userComments": [
+      {
+        "id": "comment_520_001",
+        "userId": "user_520_001",
+        "username": "OnePlusUser520",
+        "rating": 5,
+        "comment": "Incredible performance and the Hasselblad camera is amazing! OxygenOS is smooth as always.",
+        "createdAt": "2025-01-26T12:00:00Z",
+        "helpful": 22,
+        "verified": true
+      }
+    ],
+    "specifications": {
+      "Processor": "Snapdragon 8 Gen 2",
+      "Display": "6.7-inch LTPO3 AMOLED 120Hz",
+      "RAM": "8GB",
+      "Storage": "128GB",
+      "Battery": "5000mAh",
+      "Camera": "50MP + 48MP + 32MP"
+    },
+    "description": "OnePlus 11 5G with Snapdragon 8 Gen 2, 6.7-inch LTPO3 AMOLED 120Hz display, 8GB RAM, 128GB storage, and Hasselblad camera system.",
+    "createdAt": "2025-01-25T10:00:00Z",
+    "updatedAt": "2025-01-25T10:00:00Z"
+  },
+  {
+    "id": 521,
+    "name": "OnePlus 11R",
+    "slug": "oneplus_11r_521",
+    "color": "galactic_silver",
+    "os": "android",
+    "brand": "oneplus",
+    "old_price": 54999,
+    "price": 49999,
+    "originalPrice": 49999,
+    "salePercentage": 0,
+    "category": "Smartphones",
+    "stock": 10,
+    "images": [
+      "../../assets/img/products/oneplus/OnePlus11R/front.png",
+      "../../assets/img/products/oneplus/OnePlus11R/back.png"
+    ],
+    "sellerId": 107,
+    "rating": 4.6,
+    "adminReview": {
+      "status": "approved",
+      "reviewedBy": "admin002",
+      "reviewedAt": "2025-01-26T11:00:00Z",
+      "notes": "Performance-focused OnePlus model",
+      "approvalDate": "2025-01-26T11:00:00Z"
+    },
+    "userComments": [
+      {
+        "id": "comment_521_001",
+        "userId": "user_521_001",
+        "username": "OnePlusUser521",
+        "rating": 4,
+        "comment": "Great performance for gaming and the 100W charging is incredibly fast!",
+        "createdAt": "2025-01-27T14:00:00Z",
+        "helpful": 18,
+        "verified": true
+      }
+    ],
+    "specifications": {
+      "Processor": "Snapdragon 8+ Gen 1",
+      "Display": "6.74-inch AMOLED 120Hz",
+      "RAM": "8GB",
+      "Storage": "128GB",
+      "Battery": "5000mAh",
+      "Camera": "50MP + 8MP + 2MP"
+    },
+    "description": "OnePlus 11R with Snapdragon 8+ Gen 1, 6.74-inch AMOLED 120Hz display, 8GB RAM, 128GB storage, and 100W fast charging.",
+    "createdAt": "2025-01-26T11:00:00Z",
+    "updatedAt": "2025-01-26T11:00:00Z"
+  },
+  {
+    "id": 522,
+    "name": "OnePlus 12",
+    "slug": "oneplus_12_522",
+    "color": "flowing_emerald",
+    "os": "android",
+    "brand": "oneplus",
+    "old_price": 79999,
+    "price": 74999,
+    "originalPrice": 74999,
+    "salePercentage": 0,
+    "category": "Smartphones",
+    "stock": 6,
+    "images": [
+      "../../assets/img/products/oneplus/OnePlus12/front.png",
+      "../../assets/img/products/oneplus/OnePlus12/back.jpg"
+    ],
+    "sellerId": 107,
+    "rating": 4.8,
+    "adminReview": {
+      "status": "approved",
+      "reviewedBy": "admin003",
+      "reviewedAt": "2025-01-27T12:00:00Z",
+      "notes": "Latest flagship with improved camera system",
+      "approvalDate": "2025-01-27T12:00:00Z"
+    },
+    "userComments": [
+      {
+        "id": "comment_522_001",
+        "userId": "user_522_001",
+        "username": "OnePlusUser522",
+        "rating": 5,
+        "comment": "The camera improvements are incredible! Periscope zoom is a game-changer.",
+        "createdAt": "2025-01-28T16:00:00Z",
+        "helpful": 25,
+        "verified": true
+      }
+    ],
+    "specifications": {
+      "Processor": "Snapdragon 8 Gen 3",
+      "Display": "6.82-inch LTPO AMOLED 120Hz",
+      "RAM": "12GB",
+      "Storage": "256GB",
+      "Battery": "5400mAh",
+      "Camera": "50MP + 48MP + 64MP"
+    },
+    "description": "OnePlus 12 with Snapdragon 8 Gen 3, 6.82-inch LTPO AMOLED 120Hz display, 12GB RAM, 256GB storage, and advanced camera system.",
+    "createdAt": "2025-01-27T12:00:00Z",
+    "updatedAt": "2025-01-27T12:00:00Z"
+  },
+  {
+    "id": 523,
+    "name": "OnePlus 12R",
+    "slug": "oneplus_12r_523",
+    "color": "cool_blue",
+    "os": "android",
+    "brand": "oneplus",
+    "old_price": 59999,
+    "price": 54999,
+    "originalPrice": 54999,
+    "salePercentage": 0,
+    "category": "Smartphones",
+    "stock": 9,
+    "images": ["../../assets/img/products/oneplus/OnePlus12R/front.jpg"],
+    "sellerId": 107,
+    "rating": 4.5,
+    "adminReview": {
+      "status": "approved",
+      "reviewedBy": "admin004",
+      "reviewedAt": "2025-01-28T13:00:00Z",
+      "notes": "Performance-focused with flagship features",
+      "approvalDate": "2025-01-28T13:00:00Z"
+    },
+    "userComments": [
+      {
+        "id": "comment_523_001",
+        "userId": "user_523_001",
+        "username": "OnePlusUser523",
+        "rating": 4,
+        "comment": "Great value for money! Has most flagship features at a better price point.",
+        "createdAt": "2025-01-29T18:00:00Z",
+        "helpful": 16,
+        "verified": true
+      }
+    ],
+    "specifications": {
+      "Processor": "Snapdragon 8 Gen 2",
+      "Display": "6.78-inch AMOLED 120Hz",
+      "RAM": "8GB",
+      "Storage": "128GB",
+      "Battery": "5500mAh",
+      "Camera": "50MP + 8MP + 2MP"
+    },
+    "description": "OnePlus 12R with Snapdragon 8 Gen 2, 6.78-inch AMOLED 120Hz display, 8GB RAM, 128GB storage, and 100W fast charging.",
+    "createdAt": "2025-01-28T13:00:00Z",
+    "updatedAt": "2025-01-28T13:00:00Z"
+  },
+  {
+    "id": 524,
+    "name": "OnePlus Ace 2V",
+    "slug": "oneplus_ace_2v_524",
+    "color": "black_silk",
+    "os": "android",
+    "brand": "oneplus",
+    "old_price": 29999,
+    "price": 26999,
+    "originalPrice": 26999,
+    "salePercentage": 0,
+    "category": "Smartphones",
+    "stock": 15,
+    "images": [
+      "../../assets/img/products/oneplus/OnePlusAce2V/front.png",
+      "../../assets/img/products/oneplus/OnePlusAce2V/back.png"
+    ],
+    "sellerId": 105,
+    "rating": 4.4,
+    "adminReview": {
+      "status": "approved",
+      "reviewedBy": "admin005",
+      "reviewedAt": "2025-01-29T14:00:00Z",
+      "notes": "Budget-friendly with good performance",
+      "approvalDate": "2025-01-29T14:00:00Z"
+    },
+    "userComments": [
+      {
+        "id": "comment_524_001",
+        "userId": "user_524_001",
+        "username": "OnePlusUser524",
+        "rating": 4,
+        "comment": "Amazing value! Performance is great for the price and the design is premium.",
+        "createdAt": "2025-01-30T20:00:00Z",
+        "helpful": 12,
+        "verified": true
+      }
+    ],
+    "specifications": {
+      "Processor": "MediaTek Dimensity 9000",
+      "Display": "6.74-inch AMOLED 120Hz",
+      "RAM": "12GB",
+      "Storage": "256GB",
+      "Battery": "5000mAh",
+      "Camera": "64MP + 8MP + 2MP"
+    },
+    "description": "OnePlus Ace 2V with MediaTek Dimensity 9000, 6.74-inch AMOLED 120Hz display, 12GB RAM, 256GB storage, and 80W fast charging.",
+    "createdAt": "2025-01-29T14:00:00Z",
+    "updatedAt": "2025-01-29T14:00:00Z"
+  },
+  {
+    "id": 525,
+    "name": "OnePlus Nord 2T",
+    "slug": "oneplus_nord_2t_525",
+    "color": "jade_fog",
+    "os": "android",
+    "brand": "oneplus",
+    "old_price": 24999,
+    "price": 22999,
+    "originalPrice": 22999,
+    "salePercentage": 0,
+    "category": "Smartphones",
+    "stock": 12,
+    "images": ["../../assets/img/products/oneplus/OnePlusNord2T/front.png"],
+    "sellerId": 105,
+    "rating": 4.3,
+    "adminReview": {
+      "status": "approved",
+      "reviewedBy": "admin001",
+      "reviewedAt": "2025-01-30T15:00:00Z",
+      "notes": "Popular Nord series model",
+      "approvalDate": "2025-01-30T15:00:00Z"
+    },
+    "userComments": [
+      {
+        "id": "comment_525_001",
+        "userId": "user_525_001",
+        "username": "OnePlusUser525",
+        "rating": 4,
+        "comment": "Great camera for the price and OxygenOS is smooth. Perfect daily driver.",
+        "createdAt": "2025-01-31T22:00:00Z",
+        "helpful": 10,
+        "verified": true
+      }
+    ],
+    "specifications": {
+      "Processor": "MediaTek Dimensity 1300",
+      "Display": "6.43-inch AMOLED 90Hz",
+      "RAM": "8GB",
+      "Storage": "128GB",
+      "Battery": "4500mAh",
+      "Camera": "50MP + 8MP + 2MP"
+    },
+    "description": "OnePlus Nord 2T with MediaTek Dimensity 1300, 6.43-inch AMOLED 90Hz display, 8GB RAM, 128GB storage, and 80W fast charging.",
+    "createdAt": "2025-01-30T15:00:00Z",
+    "updatedAt": "2025-01-30T15:00:00Z"
+  },
+  {
+    "id": 526,
+    "name": "OnePlus Nord 3",
+    "slug": "oneplus_nord_3_526",
+    "color": "misty_green",
+    "os": "android",
+    "brand": "oneplus",
+    "old_price": 29999,
+    "price": 27999,
+    "originalPrice": 27999,
+    "salePercentage": 0,
+    "category": "Smartphones",
+    "stock": 11,
+    "images": ["../../assets/img/products/oneplus/OnePlusNord3/front.png"],
+    "sellerId": 105,
+    "rating": 4.5,
+    "adminReview": {
+      "status": "approved",
+      "reviewedBy": "admin002",
+      "reviewedAt": "2025-01-31T16:00:00Z",
+      "notes": "Improved Nord with better performance",
+      "approvalDate": "2025-01-31T16:00:00Z"
+    },
+    "userComments": [
+      {
+        "id": "comment_526_001",
+        "userId": "user_526_001",
+        "username": "OnePlusUser526",
+        "rating": 4,
+        "comment": "Performance is much better than previous Nord models. Camera quality is impressive!",
+        "createdAt": "2025-02-01T00:00:00Z",
+        "helpful": 14,
+        "verified": true
+      }
+    ],
+    "specifications": {
+      "Processor": "MediaTek Dimensity 9000",
+      "Display": "6.74-inch AMOLED 120Hz",
+      "RAM": "8GB",
+      "Storage": "128GB",
+      "Battery": "5000mAh",
+      "Camera": "50MP + 8MP + 2MP"
+    },
+    "description": "OnePlus Nord 3 with MediaTek Dimensity 9000, 6.74-inch AMOLED 120Hz display, 8GB RAM, 128GB storage, and 80W fast charging.",
+    "createdAt": "2025-01-31T16:00:00Z",
+    "updatedAt": "2025-01-31T16:00:00Z"
+  },
+  {
+    "id": 527,
+    "name": "OnePlus Nord CE 3",
+    "slug": "oneplus_nord_ce_3_527",
+    "color": "aqua_surge",
+    "os": "android",
+    "brand": "oneplus",
+    "old_price": 22999,
+    "price": 20999,
+    "originalPrice": 20999,
+    "salePercentage": 0,
+    "category": "Smartphones",
+    "stock": 14,
+    "images": [
+      "../../assets/img/products/oneplus/OnePlusNordCE3/front.png",
+      "../../assets/img/products/oneplus/OnePlusNordCE3/back.png"
+    ],
+    "sellerId": 105,
+    "rating": 4.2,
+    "adminReview": {
+      "status": "approved",
+      "reviewedBy": "admin003",
+      "reviewedAt": "2025-02-01T17:00:00Z",
+      "notes": "Core Edition with essential features",
+      "approvalDate": "2025-02-01T17:00:00Z"
+    },
+    "userComments": [
+      {
+        "id": "comment_527_001",
+        "userId": "user_527_001",
+        "username": "OnePlusUser527",
+        "rating": 4,
+        "comment": "Good performance for the price. Battery life is excellent!",
+        "createdAt": "2025-02-02T02:00:00Z",
+        "helpful": 8,
+        "verified": true
+      }
+    ],
+    "specifications": {
+      "Processor": "Snapdragon 782G",
+      "Display": "6.7-inch AMOLED 120Hz",
+      "RAM": "8GB",
+      "Storage": "128GB",
+      "Battery": "5000mAh",
+      "Camera": "108MP + 2MP + 2MP"
+    },
+    "description": "OnePlus Nord CE 3 with Snapdragon 782G, 6.7-inch AMOLED 120Hz display, 8GB RAM, 128GB storage, and 67W fast charging.",
+    "createdAt": "2025-02-01T17:00:00Z",
+    "updatedAt": "2025-02-01T17:00:00Z"
+  },
+  {
+    "id": 528,
+    "name": "OnePlus Nord CE 3 Lite",
+    "slug": "oneplus_nord_ce_3_lite_528",
+    "color": "pastel_lime",
+    "os": "android",
+    "brand": "oneplus",
+    "old_price": 18999,
+    "price": 16999,
+    "originalPrice": 16999,
+    "salePercentage": 0,
+    "category": "Smartphones",
+    "stock": 16,
+    "images": [
+      "../../assets/img/products/oneplus/OnePlusNordCE3Lite/front.png",
+      "../../assets/img/products/oneplus/OnePlusNordCE3Lite/back.png"
+    ],
+    "sellerId": 105,
+    "rating": 4.1,
+    "adminReview": {
+      "status": "approved",
+      "reviewedBy": "admin004",
+      "reviewedAt": "2025-02-02T18:00:00Z",
+      "notes": "Budget-friendly Nord variant",
+      "approvalDate": "2025-02-02T18:00:00Z"
+    },
+    "userComments": [
+      {
+        "id": "comment_528_001",
+        "userId": "user_528_001",
+        "username": "OnePlusUser528",
+        "rating": 4,
+        "comment": "Great value for money! Good performance and decent camera for the price.",
+        "createdAt": "2025-02-03T04:00:00Z",
+        "helpful": 6,
+        "verified": true
+      }
+    ],
+    "specifications": {
+      "Processor": "Snapdragon 695",
+      "Display": "6.72-inch IPS LCD 120Hz",
+      "RAM": "8GB",
+      "Storage": "128GB",
+      "Battery": "5000mAh",
+      "Camera": "108MP + 2MP + 2MP"
+    },
+    "description": "OnePlus Nord CE 3 Lite with Snapdragon 695, 6.72-inch IPS LCD 120Hz display, 8GB RAM, 128GB storage, and 67W fast charging.",
+    "createdAt": "2025-02-02T18:00:00Z",
+    "updatedAt": "2025-02-02T18:00:00Z"
+  },
+  {
+    "id": 529,
+    "name": "OnePlus Nord N30",
+    "slug": "oneplus_nord_n30_529",
+    "color": "chromatic_gray",
+    "os": "android",
+    "brand": "oneplus",
+    "old_price": 21999,
+    "price": 19999,
+    "originalPrice": 19999,
+    "salePercentage": 0,
+    "category": "Smartphones",
+    "stock": 13,
+    "images": ["../../assets/img/products/oneplus/OnePlusNordN30/front.png"],
+    "sellerId": 105,
+    "rating": 4.3,
+    "adminReview": {
+      "status": "approved",
+      "reviewedBy": "admin005",
+      "reviewedAt": "2025-02-03T19:00:00Z",
+      "notes": "Nord N series with large display",
+      "approvalDate": "2025-02-03T19:00:00Z"
+    },
+    "userComments": [
+      {
+        "id": "comment_529_001",
+        "userId": "user_529_001",
+        "username": "OnePlusUser529",
+        "rating": 4,
+        "comment": "Large display is perfect for media consumption. Battery life is impressive!",
+        "createdAt": "2025-02-04T06:00:00Z",
+        "helpful": 9,
+        "verified": true
+      }
+    ],
+    "specifications": {
+      "Processor": "Snapdragon 695",
+      "Display": "6.72-inch AMOLED 120Hz",
+      "RAM": "8GB",
+      "Storage": "128GB",
+      "Battery": "5000mAh",
+      "Camera": "108MP + 2MP + 2MP"
+    },
+    "description": "OnePlus Nord N30 with Snapdragon 695, 6.72-inch AMOLED 120Hz display, 8GB RAM, 128GB storage, and 67W fast charging.",
+    "createdAt": "2025-02-03T19:00:00Z",
+    "updatedAt": "2025-02-03T19:00:00Z"
+  },
+  {
+    "id": 530,
+    "name": "Google Pixel 8 Pro",
+    "slug": "google_pixel_8_pro_530",
+    "color": "obsidian",
+    "os": "android",
+    "brand": "google",
+    "old_price": 89999,
+    "price": 84999,
+    "originalPrice": 84999,
+    "salePercentage": 0,
+    "category": "Smartphones",
+    "stock": 5,
+    "images": [
+      "../../assets/img/products/pixel8pro/front.png",
+      "../../assets/img/products/pixel8pro/back.png"
+    ],
+    "sellerId": 109,
+    "rating": 4.8,
+    "adminReview": {
+      "status": "approved",
+      "reviewedBy": "admin001",
+      "reviewedAt": "2025-02-04T20:00:00Z",
+      "notes": "Google's flagship with AI camera features",
+      "approvalDate": "2025-02-04T20:00:00Z"
+    },
+    "userComments": [
+      {
+        "id": "comment_530_001",
+        "userId": "user_530_001",
+        "username": "PixelUser530",
+        "rating": 5,
+        "comment": "The AI camera features are incredible! Magic Eraser and Best Take are game-changers. Pure Android experience is smooth.",
+        "createdAt": "2025-02-05T08:00:00Z",
+        "helpful": 28,
+        "verified": true
+      }
+    ],
+    "specifications": {
+      "Processor": "Google Tensor G3",
+      "Display": "6.7-inch LTPO OLED 120Hz",
+      "RAM": "12GB",
+      "Storage": "256GB",
+      "Battery": "4950mAh",
+      "Camera": "50MP + 48MP + 48MP"
+    },
+    "description": "Google Pixel 8 Pro with Google Tensor G3, 6.7-inch LTPO OLED 120Hz display, 12GB RAM, 256GB storage, and advanced AI camera system.",
+    "createdAt": "2025-02-04T20:00:00Z",
+    "updatedAt": "2025-02-04T20:00:00Z"
   }
 ]
