@@ -97,7 +97,7 @@ function displayAllProducts(products, page = 1) {
 
       <div class="mt-auto btn-group-custom">
         <button 
-        onclick="addToCart(${product.id})"
+        onclick="addToCartFromHome(${JSON.stringify(product).replace(/"/g, '&quot;')})"
           class="btn btn-sm btn-dark add-to-cart-btn w-100" 
           data-id="${product.id}">
           <i class="fa fa-shopping-cart me-1"></i> Add to Cart
@@ -229,22 +229,22 @@ function resetFilters() {
   displayAllProducts(allProducts, currentPage);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// Helper function to add product to cart from home page
+function addToCartFromHome(productData) {
+  if (typeof productData === 'string') {
+    try {
+      productData = JSON.parse(productData);
+    } catch (error) {
+      console.error('Error parsing product data:', error);
+      showNotification("Invalid product data", "error");
+      return;
+    }
+  }
+  
+  if (window.addToCart) {
+    window.addToCart(productData, 1);
+  } else {
+    console.error('addToCart function not found');
+    showNotification("Cart functionality not available", "error");
+  }
+}

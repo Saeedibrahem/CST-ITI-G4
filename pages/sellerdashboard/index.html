@@ -34,7 +34,7 @@
             </div>
         </div>
     </header>
-    
+
 
     <!-- Responsive offcanvas (only used on small screens) -->
     <div class="offcanvas offcanvas-start d-md-none" tabindex="-1" id="sidebarOffcanvas" aria-labelledby="sidebarLabel">
@@ -54,7 +54,7 @@
                 <a class="nav-link rounded-2 px-3 py-2" href="./products.html"><i class="bi bi-grid-1x2 me-2"></i>
                     Products</a>
                 <a class="nav-link rounded-2 px-3 py-2" href="./orders.html"><i class="bi bi-cart3 me-2"></i> Orders</a>
-                
+
             </nav>
         </div>
     </div>
@@ -75,7 +75,7 @@
                             Products</a>
                         <a class="nav-link rounded-2 px-3 py-2" href="./orders.html"><i class="bi bi-cart3 me-2"></i>
                             Orders</a>
-                        
+
                 </div>
             </aside>
 
@@ -97,7 +97,7 @@
                         <div class="stat-card stat-yellow">
                             <div>
                                 <div style="opacity:.9;font-size:0.95rem">Total Products</div>
-                                <div id="totalProduct" style="font-size:1.15rem;font-weight:700">7</div>
+                                <div id="totalProduct" style="font-size:1.15rem;font-weight:700">0</div>
                             </div>
                             <div class="stat-icon"><i class="bi bi-box-seam"></i></div>
                         </div>
@@ -106,7 +106,7 @@
                         <div class="stat-card stat-blue">
                             <div>
                                 <div style="opacity:.9;font-size:0.95rem">Total Orders</div>
-                                <div id="totalOrders" style="font-size:1.15rem;font-weight:700">30</div>
+                                <div id="totalOrders" style="font-size:1.15rem;font-weight:700">0</div>
                             </div>
                             <div class="stat-icon"><i class="bi bi-basket"></i></div>
                         </div>
@@ -141,7 +141,7 @@
                             </div>
 
                             <div style="min-height:320px;">
-                                <canvas id="salesChart" style="width:100%;height:320px;"></canvas>
+                                <canvas id="salesChart" height="320"></canvas>
                             </div>
                         </div>
 
@@ -149,7 +149,7 @@
 
                         <!-- recent table -->
                         <div class="card mt-3 p-3">
-                            <h6>Recent Data</h6>
+                            <h6>Recent Products</h6>
                             <div class="table-responsive small">
                                 <table class="table table-striped mb-0">
                                     <thead>
@@ -158,10 +158,11 @@
                                             <th>Product</th>
                                             <th>Category</th>
                                             <th>Price</th>
+                                            <th>Stock</th>
                                             <th>Status</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody id="recentProductsTable">
 
                                     </tbody>
                                 </table>
@@ -176,7 +177,7 @@
                             <div class="d-flex justify-content-between align-items-center">
                                 <div>
                                     <div style="opacity:.95">Pending Orders</div>
-                                    <div id="pendingOrders" style="font-size:1.4rem;font-weight:700">1</div>
+                                    <div id="pendingOrders" style="font-size:1.4rem;font-weight:700">0</div>
                                 </div>
                                 <div style="font-size:26px;opacity:.95"><i class="bi bi-clock-history"></i></div>
                             </div>
@@ -195,8 +196,10 @@
                                     </li>
                                 </ul>
                                 <div class="tab-content mt-3">
-                                    <div class="tab-pane fade show active" id="recent">No recent orders</div>
-                                    <div class="tab-pane fade" id="best">No best selling yet</div>
+                                    <div class="tab-pane fade show active" id="recent" id="recentOrdersContent">No
+                                        recent orders</div>
+                                    <div class="tab-pane fade" id="best" id="bestSellingContent">No best selling yet
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -215,58 +218,8 @@
 
 
     <script>
-
-        // calc total product 
-        function calacTotalProduct() {
-            let products = localStorage.getItem("products_store");
-            let arrProducts = JSON.parse(products) || [];
-            let productsLength = arrProducts.length;
-
-            document.getElementById("totalProduct").innerHTML = productsLength;
-            return;
-        }
-
-        // calc total orders and pending orders and deliverd products
-        let allOrders = [];
-        function calacTotalOrders() {
-            let orders = localStorage.getItem("orders_store");
-            let arrOrders = JSON.parse(orders) || [];
-            allOrders = arrOrders;
-
-            let ordersLength = arrOrders.length;
-
-            document.getElementById("totalOrders").innerHTML = ordersLength;
-
-            // pending Orders
-
-            let pendingOrders = arrOrders.filter(o => o.status === "Pending");
-            let totalPendingOrders = pendingOrders.length;
-
-            document.getElementById("pendingOrders").innerHTML = totalPendingOrders;
-
-        }
-
-
-        document.addEventListener("load", calacTotalProduct());
-        document.addEventListener("load", calacTotalOrders());
-
-
-        //calc Sold Units and price
-
-        function calcSoldUnits() {
-            let activeOrders = allOrders.filter(o => o.status === "Delivered" || o.status === "Shipped")
-            let soldUnits = 0;
-            let priceSoldUnits = 0;
-            for (let i = 0; i < activeOrders.length; i++) {
-                for (let x = 0; x < activeOrders[i].products.length; x++) {
-                    soldUnits += activeOrders[i].products[x].qty;
-                    priceSoldUnits += (activeOrders[i].products[x].price) * (activeOrders[i].products[x].qty);
-                }
-            }
-            document.getElementById("totalSold").innerHTML = soldUnits;
-            document.getElementById("totalRevenue").innerHTML = priceSoldUnits + " $";
-        }
-        document.addEventListener("load", calcSoldUnits());
+        // Dashboard will be initialized by seller-dashboard.js
+    </script>
 
 
     </script>
@@ -278,6 +231,9 @@
     <script src="../../src/js/chart.js"></script>
     <script defer src="../../assets/lib/js/crypto-js.min.js"></script>
     <script defer src="../../src/js/shared.js"></script>
+    <script defer src="../../src/js/products-data.js"></script>
+    <script defer src="../../src/js/orders-data.js"></script>
+    <script defer src="../../src/js/seller-dashboard.js"></script>
     <script defer src="../../src/js/product_seller.js"></script>
 </body>
 

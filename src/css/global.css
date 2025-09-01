@@ -92,6 +92,7 @@ color: white !important;
 .navbar-brand:hover img {
   filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
 }
+/* 
 
 /* Navigation links */
 .navbar-nav .nav-link {
@@ -119,18 +120,19 @@ color: white !important;
   border-color: var(--shadow);
 }
 
-.navbar-nav .nav-link i {
+/* .navbar-nav .nav-link i {
   margin-right: 8px;
   width: 18px;
   text-align: center;
   transition: var(--transition);
   color: #0d6efd;
-}
+} */
 
 .navbar-nav .nav-link:hover i {
   transform: scale(1.1);
   color: var(--main);
 }
+*/
 
 /* Search bar enhancements */
 .search-bar {

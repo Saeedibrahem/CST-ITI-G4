@@ -619,6 +619,7 @@ function updateUser() {
         saveData();
         loadUsers();
         updateDashboard();
+        loadData();
 
         // Close modal
         const modal = bootstrap.Modal.getInstance(document.getElementById('editUserModal'));

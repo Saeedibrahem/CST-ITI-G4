@@ -3,12 +3,13 @@ document.addEventListener('DOMContentLoaded', function () {
   if (window.sharedUtils && window.sharedUtils.renderNavbar) {
     window.sharedUtils.renderNavbar();
   }
+
+  initSwipers();
+  displaySaleProducts(filteredProducts);
+  displayAllProducts(filteredProducts);
 });
 
 
-displaySaleProducts(filteredProducts);
-initSwipers();
-displayAllProducts(filteredProducts);
 
 function displaySaleProducts(products) {
   const swiperWrapper = document.querySelector(".saleSwiper .swiper-wrapper");
@@ -63,7 +64,7 @@ function displaySaleProducts(products) {
 <div class="mt-auto btn-group-custom">
   <button 
     class="btn btn-sm btn-dark add-to-cart-btn w-100" 
-    onclick="addToCart(${product.id})"
+    onclick="addToCartFromHome(${JSON.stringify(product).replace(/"/g, '&quot;')})"
     data-id="${product.id}">
     <i class="fa fa-shopping-cart me-1"></i> Add to Cart
   </button>
@@ -120,7 +121,7 @@ function displayAllProducts(products) {
           <div class="mt-auto btn-group-custom">
             <button 
               class="btn btn-sm btn-dark add-to-cart-btn w-100" 
-              onclick="addToCart(${product.id})"
+              onclick="addToCartFromHome(${JSON.stringify(product).replace(/"/g, '&quot;')})"
               data-id="${product.id}">
               <i class="fa fa-shopping-cart me-1"></i> Add to Cart
             </button>
@@ -135,6 +136,26 @@ function displayAllProducts(products) {
     </div>
   `;
   });
+}
+
+// Helper function to add product to cart from home page
+function addToCartFromHome(productData) {
+  if (typeof productData === 'string') {
+    try {
+      productData = JSON.parse(productData);
+    } catch (error) {
+      console.error('Error parsing product data:', error);
+      showNotification("Invalid product data", "error");
+      return;
+    }
+  }
+  
+  if (window.addToCart) {
+    window.addToCart(productData, 1);
+  } else {
+    console.error('addToCart function not found');
+    showNotification("Cart functionality not available", "error");
+  }
 }
 
 

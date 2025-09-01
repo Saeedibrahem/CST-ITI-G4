@@ -205,10 +205,10 @@ function save_profile_information() {
 // ====== fill_myOrders_information() ======
 function fill_myOrders_information() {
   let selledProducts = getItemFromLocalStorage("invoices") || [];
+  const orders = getItemFromLocalStorage("seller_orders"); // array of seller orders
+  const invoices = getItemFromLocalStorage("invoices");    // array of invoices
 
-  if (localStorage.getItem("seller_orders")) {
-    const orders = getItemFromLocalStorage("seller_orders"); // array of seller orders
-    const invoices = getItemFromLocalStorage("invoices");    // array of invoices
+  if (orders && orders.length > 0) {
 
     // get only invoices that match seller orders
     const myorders = invoices.filter(inv =>
@@ -235,6 +235,8 @@ function fill_myOrders_information() {
       });
     });
 
+  } else {
+    selledProducts = invoices
   }
 
   // get all sold products (invoices)

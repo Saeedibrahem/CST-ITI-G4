@@ -1218,7 +1218,7 @@
     "sellerId": 106,
     "rating": "4.1",
     "adminReview": {
-      "status": "pending",
+      "status": "approved",
       "reviewedBy": "admin001",
       "reviewedAt": "2025-08-30T16:18:34.720Z",
       "notes": "Realme GT 6T - 256 GB storage, 12 GB RAM",
@@ -1338,7 +1338,7 @@
     "sellerId": 106,
     "rating": "4.1",
     "adminReview": {
-      "status": "pending",
+      "status": "approved",
       "reviewedBy": "admin001",
       "reviewedAt": "2025-08-30T16:18:34.720Z",
       "notes": "Infinix GT 30 Pro 5G - 512 GB storage, 12 GB RAM",
@@ -1458,7 +1458,7 @@
     "sellerId": 106,
     "rating": "4.6",
     "adminReview": {
-      "status": "pending",
+      "status": "approved",
       "reviewedBy": "admin001",
       "reviewedAt": "2025-08-30T16:18:34.721Z",
       "notes": "Infinix Hot 50i - 128 GB storage, 6 GB RAM",

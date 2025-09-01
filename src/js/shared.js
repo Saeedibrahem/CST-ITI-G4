@@ -1,13 +1,16 @@
-// Shared utilities for navbar and user management across all pages
-if (!localStorage.getItem("users")) {
-  fetch("../data/users.json")
-    .then((res) => res.json())
-    .then((users) => {
-      const encryptedUsers = encrypt_string_to_string(JSON.stringify(users));
-      localStorage.setItem("users", encryptedUsers);
-    })
-    .catch((err) => console.error("Error loading users:", err));
-}
+document.addEventListener('DOMContentLoaded', function () {
+
+  // Shared utilities for navbar and user management across all pages
+  if (!localStorage.getItem("users")) {
+    fetch("../data/users.json")
+      .then((res) => res.json())
+      .then((users) => {
+        const encryptedUsers = encrypt_string_to_string(JSON.stringify(users));
+        localStorage.setItem("users", encryptedUsers);
+      })
+      .catch((err) => console.error("Error loading users:", err));
+  }
+});
 
 function getItemFromLocalStorage(key) {
   const item = localStorage.getItem(key);
@@ -45,7 +48,6 @@ function encrypt_string_to_string(data) {
 //     const decryptedData = bytes.toString(CryptoJS.enc.Utf8);
 //     return decryptedData;
 // }
-// في shared.js - تحسين معالجة الأخطاء
 function decrypt_string_to_string(data) {
   try {
     const bytes = CryptoJS.AES.decrypt(data, "secret_key");
@@ -102,8 +104,8 @@ const getUserRole = () => {
 const getCurrentPage = () => {
   const path = window.location.pathname;
   if (path.includes('/index.html') || path.endsWith('/')) return 'home';
-  if (path.includes('/products/')) return 'products';
-  if (path.includes('/aboutus/')) return 'about';
+  if (path.includes('/products')) return 'products';
+  if (path.includes('/aboutus')) return 'about';
   if (path.includes('/admin')) return 'admin';
   if (path.includes('/sellerdashboard')) return 'seller';
   if (path.includes('/profile')) return 'profile';
@@ -392,9 +394,8 @@ const generateHomeNavbar = (role = "guest", currentPage = "home") => {
             <ul class="dropdown-menu dropdown-menu-end shadow border-0 rounded-3 mt-2">
               <li><h6 class="dropdown-header text-danger">Admin Panel</h6></li>
               <li><a class="dropdown-item" href="./pages/admin.html"><i class="fa-solid fa-gauge me-2"></i>Dashboard</a></li>
-              <li><a class="dropdown-item" href="./pages/admin.html#users"><i class="fa-solid fa-users me-2"></i>Manage Users</a></li>
-              <li><a class="dropdown-item" href="./pages/admin.html#products"><i class="fa-solid fa-boxes me-2"></i>Manage Products</a></li>
-              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="./pages/profile/index.html"><i class="fa-solid fa-user-gear me-2"></i>Profile</a></li>          
+                 <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item text-danger" href="#" onclick="logout()"><i class="fa-solid fa-sign-out-alt me-2"></i>Logout</a></li>
             </ul>
           </div>
@@ -428,7 +429,7 @@ const generateHomeNavbar = (role = "guest", currentPage = "home") => {
             <ul class="dropdown-menu dropdown-menu-end shadow border-0 rounded-3 mt-2">
               <li><h6 class="dropdown-header text-primary">User Account</h6></li>
               <li><a class="dropdown-item" href="./pages/profile/index.html"><i class="fa-solid fa-user-gear me-2"></i>Profile</a></li>
-              <li><a class="dropdown-item" href="./pages/profile/index.html#orders"><i class="fa-solid fa-box me-2"></i>Orders</a></li>
+              <li><a class="dropdown-item" href="./pages/cart/cart.html"><i class="fa-solid fa-box me-2"></i>cart</a></li>
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item text-danger" href="#" onclick="logout()"><i class="fa-solid fa-sign-out-alt me-2"></i>Logout</a></li>
             </ul>
@@ -507,7 +508,7 @@ const renderNavbar = () => {
 const updateCartCounter = () => {
   const cartCount = getCartItemsCount();
   const cartBadges = document.querySelectorAll('.nav-link[href*="cart"] .badge');
-  
+
   cartBadges.forEach(badge => {
     badge.textContent = cartCount;
     // Hide badge if count is 0
@@ -559,6 +560,7 @@ function showNotification(message, type = 'info') {
 var cart = getItemFromLocalStorage("cart") || [];
 
 function addToCart(product, quantity = 1) {
+
   try {
     // Input validation
     if (!product || !product.id) {
@@ -582,16 +584,16 @@ function addToCart(product, quantity = 1) {
     if (existingItem) {
       // Product already exists in cart
       const newTotalQuantity = existingItem.qty + quantity;
-      
+
       if (newTotalQuantity > product.stock) {
         showNotification(`Cannot add ${quantity} more. Only ${product.stock - existingItem.qty} items available in stock.`, "warning");
         return false;
       }
-      
+
       // Update quantity
       existingItem.qty = newTotalQuantity;
       existingItem.lastUpdated = new Date().toISOString();
-      
+
       showNotification(`Updated quantity to ${newTotalQuantity} for ${product.name}`, "success");
     } else {
       // First time adding to cart
@@ -599,38 +601,38 @@ function addToCart(product, quantity = 1) {
         showNotification(`Cannot add ${quantity} items. Only ${product.stock} available in stock.`, "warning");
         return false;
       }
-      
+
       // Add new item to cart
       const cartItem = {
         id: product.id,
         name: product.name,
         price: product.price,
         image: product.images && product.images.length > 0 ? product.images[0] : null,
-        qty: quantity,
+        qty: +quantity,
         stock: product.stock,
         addedAt: new Date().toISOString(),
         lastUpdated: new Date().toISOString()
       };
-      
+
       cart.push(cartItem);
       showNotification(`Added ${product.name} to cart`, "success");
     }
 
     // Save cart to localStorage
     setItemToLocalStorage("cart", cart);
-    
+
     // Update cart badge if it exists
     updateCartBadge();
-    
+
     // Dispatch custom event for other components to listen to
-    const cartUpdateEvent = new CustomEvent('cartUpdated', { 
-      detail: { cart, product, quantity } 
+    const cartUpdateEvent = new CustomEvent('cartUpdated', {
+      detail: { cart, product, quantity }
     });
     document.dispatchEvent(cartUpdateEvent);
-    
+
     console.log("Cart updated:", cart);
     return true;
-    
+
   } catch (error) {
     console.error("Error adding to cart:", error);
     showNotification("Failed to add product to cart. Please try again.", "error");
@@ -653,20 +655,20 @@ function removeFromCart(productId) {
   try {
     const initialLength = cart.length;
     cart = cart.filter(item => item.id !== productId);
-    
+
     if (cart.length < initialLength) {
       setItemToLocalStorage("cart", cart);
       updateCartBadge();
-      
-      const cartUpdateEvent = new CustomEvent('cartUpdated', { 
-        detail: { cart, removedProductId: productId } 
+
+      const cartUpdateEvent = new CustomEvent('cartUpdated', {
+        detail: { cart, removedProductId: productId }
       });
       document.dispatchEvent(cartUpdateEvent);
-      
+
       showNotification("Product removed from cart", "success");
       return true;
     }
-    
+
     return false;
   } catch (error) {
     console.error("Error removing from cart:", error);
@@ -682,32 +684,32 @@ function updateCartQuantity(productId, newQuantity) {
       showNotification("Invalid quantity. Please enter a positive number.", "error");
       return false;
     }
-    
+
     const cartItem = cart.find(item => item.id === productId);
     if (!cartItem) {
       showNotification("Product not found in cart", "error");
       return false;
     }
-    
+
     if (newQuantity > cartItem.stock) {
       showNotification(`Cannot set quantity to ${newQuantity}. Only ${cartItem.stock} available in stock.`, "warning");
       return false;
     }
-    
+
     cartItem.qty = newQuantity;
     cartItem.lastUpdated = new Date().toISOString();
-    
+
     setItemToLocalStorage("cart", cart);
     updateCartBadge();
-    
-    const cartUpdateEvent = new CustomEvent('cartUpdated', { 
-      detail: { cart, updatedProductId: productId, newQuantity } 
+
+    const cartUpdateEvent = new CustomEvent('cartUpdated', {
+      detail: { cart, updatedProductId: productId, newQuantity }
     });
     document.dispatchEvent(cartUpdateEvent);
-    
+
     showNotification(`Quantity updated to ${newQuantity}`, "success");
     return true;
-    
+
   } catch (error) {
     console.error("Error updating cart quantity:", error);
     showNotification("Failed to update quantity", "error");
@@ -731,12 +733,12 @@ function clearCart() {
     cart = [];
     setItemToLocalStorage("cart", cart);
     updateCartBadge();
-    
-    const cartUpdateEvent = new CustomEvent('cartUpdated', { 
-      detail: { cart, cleared: true } 
+
+    const cartUpdateEvent = new CustomEvent('cartUpdated', {
+      detail: { cart, cleared: true }
     });
     document.dispatchEvent(cartUpdateEvent);
-    
+
     showNotification("Cart cleared successfully", "success");
     return true;
   } catch (error) {
@@ -755,4 +757,29 @@ function isProductInCart(productId) {
 function getCartItem(productId) {
   return cart.find(item => item.id === productId);
 }
+
+// Make functions globally available
+window.addToCart = addToCart;
+window.showNotification = showNotification;
+window.encrypt_string_to_string = encrypt_string_to_string;
+
+// Add addToCartFromCatalog function globally
+window.addToCartFromCatalog = function (productData) {
+  if (typeof productData === 'string') {
+    try {
+      productData = JSON.parse(productData);
+    } catch (error) {
+      console.error('Error parsing product data:', error);
+      showNotification("Invalid product data", "error");
+      return;
+    }
+  }
+
+  if (window.addToCart) {
+    window.addToCart(productData, 1);
+  } else {
+    console.error('addToCart function not found');
+    showNotification("Cart functionality not available", "error");
+  }
+};
 
