@@ -103,8 +103,8 @@ const getUserRole = () => {
 // Get current page path for active navigation highlighting
 const getCurrentPage = () => {
   const path = window.location.pathname;
-  if (path.includes('/index.html') || path.endsWith('/')) return 'home';
   if (path.includes('/products')) return 'products';
+  if (path.includes('/index.html') || path.endsWith('/')) return 'home';
   if (path.includes('/aboutus')) return 'about';
   if (path.includes('/admin')) return 'admin';
   if (path.includes('/sellerdashboard')) return 'seller';
