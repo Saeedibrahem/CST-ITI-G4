@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
 if (!localStorage.getItem("currentUser") || currentUser.role !== "admin") {
 
     showNotification("You are not authorized to access this page", "danger");
-    // window.location.href = "../../index.html";
+    window.location.href = "../../index.html";
 } else {
     showNotification("Welcome to the admin dashboard", "success");
 }
@@ -31,13 +31,14 @@ document.addEventListener('DOMContentLoaded', () => {
     init();
 });
 
+
 // Main initialization function
 async function init() {
+
     try {
         await loadData();
         initializeCharts();
         initializeNavigation();
-        // initializeEventListeners();
         updateDashboard();
     } catch (error) {
         console.error('Initialization error:', error);
@@ -177,14 +178,13 @@ function loadSectionData(section) {
 function updateDashboard() {
     const ticketStats = getTicketStats();
     getUserCounts();
-    
     // Get order statistics from invoices
     const invoices = JSON.parse(localStorage.getItem("invoices")) || [];
     const totalOrders = invoices.length;
     const totalRevenue = invoices.reduce((sum, invoice) => sum + parseFloat(invoice.total || 0), 0);
-    
+
     const elements = {
-        totalUsers: data.users.length -1,
+        totalUsers: data.users.length - 1,
         totalProducts: data.products.length,
         totalOrders: totalOrders,
         pendingTickets: ticketStats.open,
@@ -243,7 +243,7 @@ function updateDashboard() {
     // Update dashboard order statistics
     const dashboardTotalOrders = document.getElementById('dashboardTotalOrders');
     const dashboardTotalRevenue = document.getElementById('dashboardTotalRevenue');
-    
+
     if (dashboardTotalOrders) dashboardTotalOrders.textContent = totalOrders;
     if (dashboardTotalRevenue) dashboardTotalRevenue.textContent = `$${totalRevenue.toFixed(2)}`;
 
@@ -333,10 +333,10 @@ function loadProducts() {
 function loadOrders() {
     const tbody = document.getElementById('ordersTableBody');
     if (!tbody) return;
-    
+
     // Load orders from invoices
     const invoices = JSON.parse(localStorage.getItem("invoices")) || [];
-    
+
     if (invoices.length === 0) {
         tbody.innerHTML = `
             <tr>
@@ -351,7 +351,7 @@ function loadOrders() {
 
     tbody.innerHTML = invoices.map(invoice => {
         const orderDate = invoice.createdAt ? new Date(invoice.createdAt).toLocaleDateString() : 'Unknown';
-        
+
         return `
             <tr>
                 <td><strong>#${invoice.id}</strong></td>
@@ -363,9 +363,9 @@ function loadOrders() {
                 </td>
                 <td>
                     <div class="d-flex flex-wrap gap-1">
-                        ${invoice.items.map(item => 
-                            `<span class="badge bg-light text-dark">${item.name} x${item.qty}</span>`
-                        ).join('')}
+                        ${invoice.items.map(item =>
+            `<span class="badge bg-light text-dark">${item.name} x${item.qty}</span>`
+        ).join('')}
                     </div>
                 </td>
                 <td><strong>$${invoice.total}</strong></td>
@@ -636,13 +636,13 @@ function updateUser() {
 }
 
 function resetPassword(userId) {
-    const user = data.users.find(u => u.id === userId);
+    const user = data.users.find(u => u.id === +userId);
     if (user) {
         const newPassword = Math.random().toString(36).slice(-8);
         user.password = btoa(newPassword);
         saveData();
-        showNotification(`Password reset for ${user.name}. New password: ${newPassword}`, 'success');
-        addActivity('password_reset', `Password reset for user ${user.name}`);
+        showNotification(`Password reset for ${user.firstName}. New password: ${newPassword}`, 'success');
+        addActivity('password_reset', `Password reset for user ${user.firstName}`);
     }
 }
 
@@ -718,7 +718,7 @@ function rejectProduct(productId) {
 function viewOrder(orderId) {
     const invoices = JSON.parse(localStorage.getItem("invoices")) || [];
     const invoice = invoices.find(inv => inv.id === orderId);
-    
+
     if (invoice) {
         // Create a modal to show order details
         const modal = document.createElement('div');
@@ -1528,7 +1528,7 @@ function initializeCharts() {
 function createSystemChart() {
     const ctx = document.getElementById('systemChart');
     if (!ctx) return;
-    const userCounts = getUserCounts();
+    var userCounts = getUserCounts();
 
     new Chart(ctx, {
         type: 'bar',
@@ -1595,6 +1595,8 @@ function createUserChart() {
 
 // Get user counts by role
 function getUserCounts() {
+
+    console.log(data.users);
     const counts = { customer: 0, seller: 0, admin: 0 };
     data.users.forEach(({ role }) => {
         if (counts.hasOwnProperty(role)) {

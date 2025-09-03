@@ -2116,7 +2116,7 @@
     "sellerId": 107,
     "rating": 4.6,
     "adminReview": {
-      "status": "approved",
+      "status": "pending",
       "reviewedBy": "admin002",
       "reviewedAt": "2025-01-26T11:00:00Z",
       "notes": "Performance-focused OnePlus model",
@@ -2166,7 +2166,7 @@
     "sellerId": 107,
     "rating": 4.8,
     "adminReview": {
-      "status": "approved",
+      "status": "pending",
       "reviewedBy": "admin003",
       "reviewedAt": "2025-01-27T12:00:00Z",
       "notes": "Latest flagship with improved camera system",
@@ -2213,7 +2213,7 @@
     "sellerId": 107,
     "rating": 4.5,
     "adminReview": {
-      "status": "approved",
+      "status": "pending",
       "reviewedBy": "admin004",
       "reviewedAt": "2025-01-28T13:00:00Z",
       "notes": "Performance-focused with flagship features",
@@ -2263,7 +2263,7 @@
     "sellerId": 105,
     "rating": 4.4,
     "adminReview": {
-      "status": "approved",
+      "status": "pending",
       "reviewedBy": "admin005",
       "reviewedAt": "2025-01-29T14:00:00Z",
       "notes": "Budget-friendly with good performance",
@@ -2310,7 +2310,7 @@
     "sellerId": 105,
     "rating": 4.3,
     "adminReview": {
-      "status": "approved",
+      "status": "pending",
       "reviewedBy": "admin001",
       "reviewedAt": "2025-01-30T15:00:00Z",
       "notes": "Popular Nord series model",
@@ -2357,7 +2357,7 @@
     "sellerId": 105,
     "rating": 4.5,
     "adminReview": {
-      "status": "approved",
+      "status": "pending",
       "reviewedBy": "admin002",
       "reviewedAt": "2025-01-31T16:00:00Z",
       "notes": "Improved Nord with better performance",
@@ -2407,7 +2407,7 @@
     "sellerId": 105,
     "rating": 4.2,
     "adminReview": {
-      "status": "approved",
+      "status": "pending",
       "reviewedBy": "admin003",
       "reviewedAt": "2025-02-01T17:00:00Z",
       "notes": "Core Edition with essential features",
@@ -2457,7 +2457,7 @@
     "sellerId": 105,
     "rating": 4.1,
     "adminReview": {
-      "status": "approved",
+      "status": "pending",
       "reviewedBy": "admin004",
       "reviewedAt": "2025-02-02T18:00:00Z",
       "notes": "Budget-friendly Nord variant",
@@ -2504,7 +2504,7 @@
     "sellerId": 105,
     "rating": 4.3,
     "adminReview": {
-      "status": "approved",
+      "status": "pending  ",
       "reviewedBy": "admin005",
       "reviewedAt": "2025-02-03T19:00:00Z",
       "notes": "Nord N series with large display",
@@ -2551,7 +2551,7 @@
       "../../assets/img/products/pixel8pro/front.png",
       "../../assets/img/products/pixel8pro/back.png"
     ],
-    "sellerId": 109,
+    "sellerId": 106,
     "rating": 4.8,
     "adminReview": {
       "status": "approved",
