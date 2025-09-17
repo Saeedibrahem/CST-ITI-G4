@@ -172,7 +172,7 @@ function initSwipers() {
   // === Sale Swiper ===
   new Swiper(".saleSwiper", {
     loop: true,
-    autoHeight: true, // 👈 ده اللي هيحل المشكلة
+    autoHeight: true, 
 
     spaceBetween: 20,
     navigation: {
@@ -184,14 +184,14 @@ function initSwipers() {
       clickable: true,
     },
     breakpoints: {
-      320: { slidesPerView: 1, spaceBetween: 10 }, // موبايل صغير
-      576: { slidesPerView: 2, spaceBetween: 15 }, // موبايل كبير
-      768: { slidesPerView: 3, spaceBetween: 20 }, // تابلت
-      1200: { slidesPerView: 4, spaceBetween: 20 }, // ديسكتوب
+      320: { slidesPerView: 2, spaceBetween: 10 }, 
+      576: { slidesPerView: 2, spaceBetween: 15 },  
+      768: { slidesPerView: 3, spaceBetween: 20 }, 
+      1200: { slidesPerView: 4, spaceBetween: 20 }, 
     },
   });
 
-  // === All Products Swiper ===
+  // All Products Swiper 
   new Swiper(".allProductsSwiper", {
     loop: true,
     autoHeight: true,
@@ -209,17 +209,17 @@ function initSwipers() {
       clickable: true,
     },
     breakpoints: {
-      320: { slidesPerView: 1, spaceBetween: 10 }, // موبايل صغير
-      576: { slidesPerView: 2, spaceBetween: 15 }, // موبايل كبير
-      768: { slidesPerView: 3, spaceBetween: 20 }, // تابلت
-      1200: { slidesPerView: 4, spaceBetween: 20 }, // ديسكتوب
+      320: { slidesPerView: 2, spaceBetween: 10 },   
+      576: { slidesPerView: 2, spaceBetween: 15 }, 
+      768: { slidesPerView: 3, spaceBetween: 20 },  
+      1200: { slidesPerView: 4, spaceBetween: 20 },  
     },
   });
 }
 
 
 
-//  hero section swiper
+//  hero-sec section swiper
 var swiper = new Swiper(".mySwiper", {
   loop: true,
   autoHeight: true,

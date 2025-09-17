@@ -50,9 +50,9 @@ function displayProductDetails(product) {
       <h2 class="product-name">${product.name}</h2>
       <p class="product-category">Category: ${product.category}</p>
 
-      <div class="price-box">
+      <div class="price-box d-flex align-items-baseline gap-2">
+      <h2 class="new-price text-danger">EGP${product.price}</h2>
         ${product.old_price ? `<del>EGP${product.old_price}</del>` : ""}
-        <h2 class="new-price">$${product.price}</h2>
       </div>
 
       <p class="description text-start">Description: ${product.description}</p>
