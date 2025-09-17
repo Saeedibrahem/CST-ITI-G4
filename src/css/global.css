@@ -19,10 +19,12 @@
   --gradient-primary: linear-gradient(135deg, var(--main), #ff8c00);
   --gradient-hover: linear-gradient(135deg, #ff8c00, var(--main));
 }
-/* main {
-  padding-top: 100px; عشان يبعد عن الناف بار 
-} */
-
+.toast-container {
+  pointer-events: none !important;
+  z-index: 9999 !important;
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  
+}
 * {
   padding: 0;
   margin: 0;
@@ -66,14 +68,14 @@ header {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   transition: var(--transition);
 }
-.login_btn:hover  {
-color: white !important;
+.login_btn:hover {
+  color: white !important;
 }
 
-.signup_btn:hover{
+.signup_btn:hover {
   background-color: white !important;
   color: black !important;
-} 
+}
 
 /* Logo styling */
 .navbar-brand {
@@ -103,19 +105,19 @@ color: white !important;
   margin: 0 4px;
   border: 2px solid transparent;
 
-  display: flex ;
+  display: flex;
 }
 
 .navbar-nav .nav-link:hover {
   color: var(--dark);
-    transform: translateY(-2px);
+  transform: translateY(-2px);
   border-color: var(--shadow);
 }
 
 .navbar-nav .nav-link.active {
   color: var(--primary);
-background-color: #000;
-color: white !important;  
+  background-color: #000;
+  color: white !important;
   box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2);
   border-color: var(--shadow);
 }

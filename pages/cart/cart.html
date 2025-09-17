@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>MobileXpress - Shopping Cart</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,8 +23,8 @@
 
 <body>
   <!-- Navbar will be rendered by shared.js -->
-  
-  <div id="cart" class="container m-5">
+
+  <div id="cart" class="container ">
     <div class="row">
       <!-- Shopping Cart -->
       <div class="col-lg-7 mb-4">
@@ -30,7 +32,7 @@
         <div id="cart-items" class="list-group">
           <!-- Cart items will be rendered here -->
         </div>
-        
+
         <!-- Empty cart message -->
         <div id="empty-cart" class="text-center py-5 d-none">
           <i class="fa-solid fa-cart-shopping fa-3x text-muted mb-3"></i>
@@ -46,7 +48,7 @@
       <div class="col-lg-5">
         <div class="cart-summary shadow-sm">
           <h4><i class="fa-solid fa-receipt me-2"></i>Order Summary</h4>
-          
+
           <!-- Discount code section -->
           <div class="mb-3">
             <label for="code" class="form-label">Discount code / Promo code</label>
@@ -57,7 +59,7 @@
               </button>
             </div>
           </div>
-          
+
           <!-- Bonus card section -->
           <div class="mb-3">
             <label for="bonus" class="form-label">Your bonus card number</label>
@@ -68,7 +70,7 @@
               </button>
             </div>
           </div>
-          
+
           <!-- Summary details -->
           <div class="summary-details">
             <div class="d-flex justify-content-between mb-2">
@@ -89,16 +91,16 @@
               <span id="total">$0</span>
             </div>
           </div>
-          
+
           <!-- Clear Cart Button -->
           <button class="btn btn-outline-danger w-100 mb-2" onclick="clearCart()" id="clear-cart-btn">
             <i class="fa-solid fa-trash me-2"></i>Clear Cart
           </button>
-          
+
           <button class="btn btn-dark w-100 mt-3" onclick="showCheckout()" id="checkout-btn" disabled>
             <i class="fa-solid fa-credit-card me-2"></i>Proceed to Checkout
           </button>
-          
+
           <!-- Continue shopping link -->
           <div class="text-center mt-3">
             <a href="../../pages/products/index.html" class="text-decoration-none">
@@ -107,8 +109,8 @@
           </div>
         </div>
       </div>
-    </div>    
-  </div>  
+    </div>
+  </div>
 
   <!-- footer -->
   <footer id="page-footer" class="footer mt-auto py-5 bg-black text-white">
@@ -116,19 +118,21 @@
       <div class="row mb-5">
         <div class="col-md-4">
           <h5 class="fw-bold text-white logo_footer">
-            <a href="../../index.html"> 
-              <img src="../../assets/home_page_img/logo_white_black_back.png" alt="MobileXpress Logo"> 
+            <a href="../../index.html">
+              <img class="img-fluid" src="../../assets/home_page_img/logo_white_black_back.png" alt="MobileXpress Logo">
             </a>
           </h5>
           <p class="text-white">
-            Your trusted destination for premium mobile devices and exceptional service. Quality products, competitive prices, and outstanding customer support.
+            Your trusted destination for premium mobile devices and exceptional service. Quality products, competitive
+            prices, and outstanding customer support.
           </p>
         </div>
         <div class="col-md-2 mt-5">
           <h5 class="fw-bold text-white">Shop</h5>
           <ul class="list-unstyled">
             <li class="mb-2">
-              <a href="../../pages/products/index.html" class="text-decoration-none text-white footer-text">Collection</a>
+              <a href="../../pages/products/index.html"
+                class="text-decoration-none text-white footer-text">Collection</a>
             </li>
             <li class="mb-2">
               <a href="../../index.html#sale_section" class="text-decoration-none text-white footer-text">Sale</a>
@@ -142,10 +146,12 @@
               <a href="../../pages/customer-service.html" class="text-decoration-none text-white footer-text">FAQ</a>
             </li>
             <li class="mb-2">
-              <a href="../../pages/customer-service.html" class="text-decoration-none text-white footer-text">Shipping</a>
+              <a href="../../pages/customer-service.html"
+                class="text-decoration-none text-white footer-text">Shipping</a>
             </li>
             <li class="mb-2">
-              <a href="../../pages/customer-service.html" class="text-decoration-none text-white footer-text">Contact Us</a>
+              <a href="../../pages/customer-service.html" class="text-decoration-none text-white footer-text">Contact
+                Us</a>
             </li>
           </ul>
         </div>
@@ -184,4 +190,5 @@
   <script src="../../src/js/main.js"></script>
   <script src="./cart.js"></script>
 </body>
+
 </html>

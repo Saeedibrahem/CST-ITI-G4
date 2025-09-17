@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="../src/css/customer-service.css">
     <link rel="stylesheet" href="../src/css/global.css">
 
     <!-- Favicon -->
@@ -22,7 +21,7 @@
 
 <body>
     <!-- Navigation Header -->
-    
+
 
     <!-- Main Content -->
     <main class="container my-5">
@@ -296,7 +295,7 @@
                                 </h2>
                                 <div id="collapse2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                                     <div class="accordion-body">
-                                        You can view all your submitted tickets by clicking the "View Tickets" button. 
+                                        You can view all your submitted tickets by clicking the "View Tickets" button.
                                         Each ticket shows its current status, priority, and creation date.
                                     </div>
                                 </div>
@@ -322,32 +321,32 @@
             </div>
         </div>
 
-        
-    <!-- Toast Container -->
-    <div id="toastContainer" class="toast-container position-fixed top-0 end-0 p-3"></div>
 
-    <!-- Scripts -->
-    <script src="../assets/lib/js/bootstrap.bundle.min.js"></script>
-    <script src="../assets/lib/js/crypto-js.min.js"></script>
-    <script src="../src/js/shared.js"></script>
-    <script src="../src/js/customer-service.js"></script>
+        <!-- Toast Container -->
+        <div id="toastContainer" class="toast-container position-fixed top-0 end-0 p-3"></div>
 
-    <script>
-        // Scroll to form function
-        function scrollToForm() {
-            document.getElementById('supportFormSection').scrollIntoView({
-                behavior: 'smooth'
+        <!-- Scripts -->
+        <script src="../assets/lib/js/bootstrap.bundle.min.js"></script>
+        <script src="../assets/lib/js/crypto-js.min.js"></script>
+        <script src="../src/js/shared.js"></script>
+        <script src="../src/js/customer-service.js"></script>
+
+        <script>
+            // Scroll to form function
+            function scrollToForm() {
+                document.getElementById('supportFormSection').scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+
+            // Initialize tooltips
+            document.addEventListener('DOMContentLoaded', function () {
+                var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+                var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+                    return new bootstrap.Tooltip(tooltipTriggerEl);
+                });
             });
-        }
-
-        // Initialize tooltips
-        document.addEventListener('DOMContentLoaded', function () {
-            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-            var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-                return new bootstrap.Tooltip(tooltipTriggerEl);
-            });
-        });
-    </script>
+        </script>
 </body>
 
 </html>

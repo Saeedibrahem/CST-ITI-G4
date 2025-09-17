@@ -12,52 +12,69 @@ function confirmForm(e) {
   e.preventDefault();
   // collect-form-data
   const my_form = document.getElementsByTagName("form")[0];
-  const etnered_email = document.getElementById("email").value;
+  const entered_email = document.getElementById("email").value;
   const entered_password = document.getElementById("password").value;
-  // collect-toast-blocks
-  var toastElList = [].slice.call(document.querySelectorAll(".toast"));
-  var toastList = toastElList.map(function (toastEl) {
-    return new bootstrap.Toast(toastEl);
-  });
+  
   // check-form-validity
   if (my_form.checkValidity()) {
+    // Disable button to prevent multiple submissions
+    e.target.disabled = true;
+    e.target.innerHTML = '<i class="fa-solid fa-spinner fa-spin me-2"></i>Logging in...';
+    
     //* get users form localstorage
     const users = JSON.parse(
       decrypt_string_to_string(localStorage.getItem("users"))
     );
     const resultArr = users.filter((value) => {
-      if (value.email == etnered_email && value.password == entered_password) {
+      if (value.email == entered_email && value.password == entered_password) {
         return value;
       }
     });
+    
     // check-if-user-exist
     if (resultArr.length > 0) {
-      e.target.disabled = true;
-      toastList[0].show();
+      // Show success notification
+      window.showNotification("Login Successful! Welcome to MobileXpress", "success");
+      
       //* update currentUser in localstorage
       localStorage.setItem(
         "currentUser",
         encrypt_string_to_string(JSON.stringify(resultArr[0]))
       );
-      // redirect-to-home-page
-      window.location.href = "../../index.html";
+      
+      // Redirect after showing notification
+      setTimeout(() => {
+        window.location.href = "../../index.html";
+      }, 2000);
+      
     } else {
-      if (etnered_email == "admin@gmail.com" && entered_password == "123") {
-        window.location.href = "../../admin.html";
-        //! get admin
+      // Check for admin login
+      if (entered_email == "admin@gmail.com" && entered_password == "123") {
+        window.showNotification("Admin Login Successful!", "success");
         localStorage.setItem(
           "currentUser",
-          encrypt_string_to_string(JSON.stringify({}))
+          encrypt_string_to_string(JSON.stringify({role: 'admin'}))
         );
+        setTimeout(() => {
+          window.location.href = "../../admin.html";
+        }, 2000);
       } else {
-        e.target.disabled = true;
+        // Show error notification
+        window.showNotification("Login Failed! Please check your email and password", "danger");
+        
+        // Re-enable button after delay
         setTimeout(() => {
           e.target.disabled = false;
-        }, 2000);
-        toastList[1].show();
+          e.target.innerHTML = 'Login';
+        }, 3000);
       }
     }
   } else {
+    // Show validation error
+    window.showNotification("Please fill all required fields", "warning");
     my_form.classList.add("was-validated");
   }
 }
+
+
+

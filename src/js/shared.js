@@ -42,12 +42,7 @@ function encrypt_string_to_string(data) {
   const encryptedData = CryptoJS.AES.encrypt(data, "secret_key").toString();
   return encryptedData;
 }
-// decrypt func     ***=>abdo
-// function decrypt_string_to_string(data) {
-//     const bytes = CryptoJS.AES.decrypt(data, "secret_key");
-//     const decryptedData = bytes.toString(CryptoJS.enc.Utf8);
-//     return decryptedData;
-// }
+
 function decrypt_string_to_string(data) {
   try {
     const bytes = CryptoJS.AES.decrypt(data, "secret_key");
@@ -206,7 +201,7 @@ const generateNavbar = (role = "guest", currentPage = "home") => {
             <button class="btn btn-outline-dark rounded-circle p-2" data-bs-toggle="dropdown">
               <i class="fa-solid fa-user-shield fa-lg"></i>
             </button>
-            <ul class="dropdown-menu dropdown-menu-end shadow border-0 rounded-3 mt-2">
+            <ul class="dropdown-menu dropdown-menu-start dropdown-menu-lg-end shadow border-0 rounded-3 mt-2">
               <li><h6 class="dropdown-header text-danger">Admin Panel</h6></li>
               <li><a class="dropdown-item" href="../../pages/admin.html"><i class="fa-solid fa-gauge me-2"></i>Dashboard</a></li>
               <li><a class="dropdown-item" href="../../pages/admin.html#users"><i class="fa-solid fa-users me-2"></i>Manage Users</a></li>
@@ -223,7 +218,7 @@ const generateNavbar = (role = "guest", currentPage = "home") => {
             <button class="btn btn-outline-dark rounded-circle p-2" data-bs-toggle="dropdown">
               <i class="fa-solid fa-store fa-lg"></i>
             </button>
-            <ul class="dropdown-menu dropdown-menu-end shadow border-0 rounded-3 mt-2">
+            <ul class="dropdown-menu dropdown-menu-start dropdown-menu-lg-end shadow border-0 rounded-3 mt-2">
               <li><h6 class="dropdown-header text-primary">Seller Panel</h6></li>
               <li><a class="dropdown-item" href="../../pages/sellerdashboard/index.html"><i class="fa-solid fa-chart-line me-2"></i>Dashboard</a></li>
               <li><a class="dropdown-item" href="../../pages/sellerdashboard/products.html"><i class="fa-solid fa-box-open me-2"></i>My Products</a></li>
@@ -242,7 +237,7 @@ const generateNavbar = (role = "guest", currentPage = "home") => {
             <button class="btn btn-outline-dark rounded-circle p-2" data-bs-toggle="dropdown">
               <i class="fa-solid fa-user fa-lg"></i>
             </button>
-            <ul class="dropdown-menu dropdown-menu-end shadow border-0 rounded-3 mt-2">
+            <ul class="dropdown-menu dropdown-menu-start dropdown-menu-lg-end shadow border-0 rounded-3 mt-2">
               <li><h6 class="dropdown-header text-primary">User Account</h6></li>
               <li><a class="dropdown-item" href="../../pages/profile/index.html"><i class="fa-solid fa-user-gear me-2"></i>Profile</a></li>
               <li><a class="dropdown-item" href="../../pages/profile/index.html#orders"><i class="fa-solid fa-box me-2"></i>Orders</a></li>
@@ -391,7 +386,7 @@ const generateHomeNavbar = (role = "guest", currentPage = "home") => {
             <button class="btn btn-outline-dark rounded-circle p-2" data-bs-toggle="dropdown">
               <i class="fa-solid fa-user-shield fa-lg"></i>
             </button>
-            <ul class="dropdown-menu dropdown-menu-end shadow border-0 rounded-3 mt-2">
+            <ul class="dropdown-menu dropdown-menu-start dropdown-menu-lg-end shadow border-0 rounded-3 mt-2">
               <li><h6 class="dropdown-header text-danger">Admin Panel</h6></li>
               <li><a class="dropdown-item" href="./pages/admin.html"><i class="fa-solid fa-gauge me-2"></i>Dashboard</a></li>
               <li><a class="dropdown-item" href="./pages/profile/index.html"><i class="fa-solid fa-user-gear me-2"></i>Profile</a></li>          
@@ -407,7 +402,7 @@ const generateHomeNavbar = (role = "guest", currentPage = "home") => {
             <button class="btn btn-outline-dark rounded-circle p-2" data-bs-toggle="dropdown">
               <i class="fa-solid fa-store fa-lg"></i>
             </button>
-            <ul class="dropdown-menu dropdown-menu-end shadow border-0 rounded-3 mt-2">
+              <ul class="dropdown-menu dropdown-menu-start dropdown-menu-lg-end shadow border-0 rounded-3 mt-2">
               <li><h6 class="dropdown-header text-primary">Seller Panel</h6></li>
               <li><a class="dropdown-item" href="./pages/sellerdashboard/index.html"><i class="fa-solid fa-chart-line me-2"></i>Dashboard</a></li>
               <li><a class="dropdown-item" href="./pages/sellerdashboard/products.html"><i class="fa-solid fa-box-open me-2"></i>My Products</a></li>
@@ -426,7 +421,7 @@ const generateHomeNavbar = (role = "guest", currentPage = "home") => {
             <button class="btn btn-outline-dark rounded-circle p-2" data-bs-toggle="dropdown">
               <i class="fa-solid fa-user fa-lg"></i>
             </button>
-            <ul class="dropdown-menu dropdown-menu-end shadow border-0 rounded-3 mt-2">
+              <ul class="dropdown-menu dropdown-menu-start dropdown-menu-lg-end shadow border-0 rounded-3 mt-2">
               <li><h6 class="dropdown-header text-primary">User Account</h6></li>
               <li><a class="dropdown-item" href="./pages/profile/index.html"><i class="fa-solid fa-user-gear me-2"></i>Profile</a></li>
               <li><a class="dropdown-item" href="./pages/cart/cart.html"><i class="fa-solid fa-box me-2"></i>cart</a></li>
@@ -536,7 +531,7 @@ window.sharedUtils = {
   renderNavbar,
   getCartItemsCount,
   updateCartCounter,
-  logout
+  logout, showNotification
 };
 function showNotification(message, type = 'info') {
   const notification = document.createElement('div');
