@@ -25,7 +25,8 @@ body {
 
 /* Page Header */
 .display-4 {
-  background: linear-gradient(135deg, var(--primary-color), #0056b3);
+  background-color: black;
+  color: black;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
