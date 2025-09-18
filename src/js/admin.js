@@ -355,7 +355,6 @@ function loadOrders() {
     }
 
     tbody.innerHTML = invoices.map(invoice => {
-        const orderDate = invoice.createdAt ? new Date(invoice.createdAt).toLocaleDateString() : 'Unknown';
 
         return `
             <tr>
@@ -375,11 +374,15 @@ function loadOrders() {
                 </td>
                 <td><strong>$${invoice.total}</strong></td>
                 <td><span class="badge bg-success">Completed</span></td>
-                <td><small class="text-muted">${orderDate}</small></td>
+                <td><small class="text-muted">${invoice.createdAt}</small></td>
                 <td>
                     <button class="btn btn-sm btn-outline-primary" onclick="viewOrder('${invoice.id}')" title="View Order Details">
                         <i class="bi bi-eye"></i> View
                     </button>
+                     <button class="btn btn-sm btn-outline-secondary" onclick="printAdminInvoice(${invoice.id})" title="Print">
+                            <i class="bi bi-printer"></i>
+                        </button>
+                       
                 </td>
             </tr>
         `;
@@ -722,7 +725,7 @@ function rejectProduct(productId) {
 function viewOrder(orderId) {
     const invoices = JSON.parse(localStorage.getItem("invoices")) || [];
     const invoice = invoices.find(inv => inv.id === +orderId);
-
+    console.log(invoice);
     if (invoice) {
         // Create a modal to show order details
         const modal = document.createElement('div');
@@ -746,11 +749,13 @@ function viewOrder(orderId) {
                             </div>
                             <div class="col-md-4">
                                 <h6>Order Information</h6>
-                                <p><strong>Date:</strong> ${new Date(invoice.createdAt).toLocaleDateString()}</p>
+                                <p><strong>Date:</strong> ${invoice.createdAt}</p>
                                 <p><strong>Shipping:</strong> ${invoice.shippingMethod || 'Standard'}</p>
                                 <p><strong>Payment:</strong> ${invoice.paymentMethod || 'Credit Card'}</p>
                                 <p><strong>Status:</strong> <span class="badge bg-success">Completed</span></p>
                             </div>
+                            
+                
                             <div class="col-md-4">
                                 <h6>Financial Summary</h6>
                                 <p><strong>Subtotal:</strong> $${(invoice.total - (invoice.tax || 0) - (invoice.shippingCost || 0)).toFixed(2)}</p>
@@ -761,7 +766,7 @@ function viewOrder(orderId) {
                         </div>
                         
                         <h6>Products Ordered</h6>
-                        <div class="table-responsive">
+                        <div class="table-responsive overflow-auto">
                             <table class="table table-sm">
                                 <thead>
                                     <tr>
@@ -1660,7 +1665,7 @@ function displayAdminInvoices(invoices) {
                     </div>
                 </td>
                 <td>
-                    <small>${new Date(invoice.createdAt).toLocaleDateString()}</small>
+                    <small>${invoice.createdAt}</small>
                 </td>
                 <td>
                     <span class="badge bg-success">Completed</span>
@@ -1692,7 +1697,7 @@ function getSellerInfo(invoice) {
         const product = products.find(p => p.name === item.name);
         if (product && product.sellerId) {
             sellerIds.add(product.sellerId);
-            const users = getItemFromLocalStorage("users") || [];
+            // const users = getItemFromLocalStorage("users") || [];
             const seller = users.find(u => u.id == product.sellerId);
             if (seller) {
                 sellerNames.add(seller.firstName + " " + seller.lastName);
@@ -1829,7 +1834,7 @@ function viewAdminInvoiceDetails(invoiceId) {
 
 function printAdminInvoice(invoiceId) {
     const invoices = JSON.parse(localStorage.getItem("invoices")) || [];
-    const invoice = invoices.find(inv => inv.id === invoiceId);
+    const invoice = invoices.find(inv => inv.id == invoiceId);
 
     if (!invoice) return;
 
@@ -1892,7 +1897,7 @@ function printAdminInvoice(invoiceId) {
                         ${invoice.items.map(item => {
         const products = getItemFromLocalStorage("products") || [];
         const product = products.find(p => p.name === item.name);
-        const users = getItemFromLocalStorage("users") || [];
+        // const users = getItemFromLocalStorage("users") || [];
         const seller = product ? users.find(u => u.id == product.sellerId) : null;
         const sellerName = seller ? seller.firstName + " " + seller.lastName : "Unknown";
 
