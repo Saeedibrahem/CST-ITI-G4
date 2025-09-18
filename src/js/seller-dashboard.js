@@ -22,7 +22,7 @@ class SellerDashboard {
             return;
         }
 
-        console.log("Initializing dashboard for user:", this.currentUser);
+        // console.log("Initializing dashboard for user:", this.currentUser);
         
         this.updateUserInNav();
         this.productsManager.init(this.currentUser);
@@ -75,7 +75,7 @@ class SellerDashboard {
     // Calculate revenue and sold units
     calculateRevenueAndSoldUnits() {
         const orderStats = this.ordersManager.getOrderStatistics();
-        console.log("Order statistics:", orderStats);
+        // console.log("Order statistics:", orderStats);
 
         const soldElement = document.getElementById("totalSold");
         if (soldElement) {
@@ -243,13 +243,13 @@ class SellerDashboard {
 
         // Generate chart data from actual orders
         const chartData = this.ordersManager.getSalesDataForChart(7);
-        console.log("Chart data generated:", chartData);
+        // console.log("Chart data generated:", chartData);
 
         // Check if we have any data to display
         const hasData = chartData.revenue.some(value => value > 0) || chartData.units.some(value => value > 0);
         
         if (!hasData) {
-            console.log("No sales data available for chart, showing empty chart");
+            // console.log("No sales data available for chart, showing empty chart");
         }
 
         this.chart = new Chart(ctx, {
@@ -324,7 +324,7 @@ class SellerDashboard {
             }
         });
 
-        console.log("Chart initialized successfully");
+        // console.log("Chart initialized successfully");
     }
 
     // Setup event listeners
@@ -386,7 +386,7 @@ class SellerDashboard {
 
 // Initialize dashboard when page loads
 document.addEventListener('DOMContentLoaded', function () {
-    console.log("DOM loaded, initializing dashboard...");
+    // console.log("DOM loaded, initializing dashboard...");
     const dashboard = new SellerDashboard();
     dashboard.init();
 });

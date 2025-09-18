@@ -90,7 +90,7 @@ class OrdersDataManager {
         // Save sample orders to localStorage
         localStorage.setItem("seller_orders", JSON.stringify(sampleOrders));
         this.orders = sampleOrders;
-        console.log("Generated sample orders:", sampleOrders);
+        // console.log("Generated sample orders:", sampleOrders);
     }
 
     // Filter orders for current seller
@@ -263,7 +263,6 @@ class OrdersDataManager {
             }
         }
 
-        console.log("Chart data:", { labels, revenue, units, hasRealData });
         return { labels, revenue, units };
     }
 

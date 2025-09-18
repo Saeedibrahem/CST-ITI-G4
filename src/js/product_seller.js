@@ -498,7 +498,6 @@ function initializeDashboard(currentUser) {
         }
 
 
-        console.log(proposed);
 
         // If admin: apply changes directly to the product list
         if (currentUser && (currentUser.role === "admin")) {
@@ -646,7 +645,7 @@ function initializeDashboard(currentUser) {
         : {};
       p.createdAt = new Date().toISOString();
       p.updatedAt = null;
-      console.log(currentUser.firstName);
+      // console.log(currentUser.firstName);
 
       // validations
       if (!p.name) {

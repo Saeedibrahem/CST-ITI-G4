@@ -392,11 +392,9 @@ function loadOrders() {
 function loadTickets() {
     const tbody = document.getElementById('ticketsTableBody');
     if (!tbody) {
-        console.log('Tickets table body not found');
         return;
     }
 
-    console.log('Loading tickets:', data.tickets);
 
     if (!data.tickets || data.tickets.length === 0) {
         tbody.innerHTML = `
@@ -1102,7 +1100,7 @@ function getCurrentTicketId() {
 function refreshTickets() {
     try {
         const tickets = getItemFromLocalStorage('supportTickets') || [];
-        console.log('Refreshing tickets:', tickets);
+        // console.log('Refreshing tickets:', tickets);
 
         // Validate ticket data structure
         const validTickets = tickets.filter(ticket =>
@@ -1294,10 +1292,8 @@ function initializeTicketModal() {
 
         // Also handle when modal is shown to ensure proper initialization
         modal.addEventListener('shown.bs.modal', () => {
-            console.log('Ticket modal shown');
         });
 
-        console.log('Ticket modal initialized successfully');
     } else {
         console.warn('Ticket response modal not found');
     }

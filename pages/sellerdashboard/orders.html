@@ -271,8 +271,7 @@
             // ---------- Config & defaults ----------
             const STORAGE_KEY = "seller_orders";
 
-            console.log(JSON.parse(localStorage.getItem(STORAGE_KEY)));
-            console.log(JSON.parse(localStorage.getItem("invoices")));
+           
 
             // ---------- State ----------
             let ORDERS = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
@@ -372,7 +371,6 @@
 
                     if (sellerItems.length > 0) {
                         const sellerTotal = sellerItems.reduce((sum, item) => sum + (item.price * item.qty), 0);
-                        console.log(sellerTotal + +invoice.tax);
                         sellerOrders.push({
                             id: invoice.id,
                             customerName: `${invoice.userInfo.firstName} ${invoice.userInfo.lastName}`,

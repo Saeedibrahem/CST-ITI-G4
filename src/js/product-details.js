@@ -1,9 +1,9 @@
 // Render navbar when page loads
 document.addEventListener('DOMContentLoaded', function () {
   if (window.sharedUtils && window.sharedUtils.renderNavbar) {
-      window.sharedUtils.renderNavbar();
+    window.sharedUtils.renderNavbar();
   }
-});const params = new URLSearchParams(window.location.search);
+}); const params = new URLSearchParams(window.location.search);
 const productId = params.get("id");
 
 
@@ -26,7 +26,6 @@ if (productId) {
     }
   }
 }
-
 function displayProductDetails(product) {
   const container = document.querySelector(".container");
   container.innerHTML = `
@@ -57,6 +56,7 @@ function displayProductDetails(product) {
 
       <p class="description text-start">Description: ${product.description}</p>
       <p class="stock">Stock: <strong>${product.stock}</strong> available</p>
+      <p class="stock">Sold By: <strong>${users.find(u => u.id === product.sellerId)?.firstName} ${users.find(u => u.id === product.sellerId)?.lastName}</strong> </p>
       <p class="rating">Rating: ⭐${product.rating} / 5</p>
 
       <!-- Quantity Selector -->
@@ -82,7 +82,7 @@ function displayProductDetails(product) {
     
   </div>
     <!-- Product Details Tabs -->
-  <div class="product-tabs">
+  <div class="product-tabs" style="min-height: 400px;">
     <div class="tabs-header">
       <button class="tab-btn active" data-tab="specifications">Specifications</button>
       <button class="tab-btn" data-tab="description">Description</button>
@@ -126,10 +126,10 @@ function displayProductDetails(product) {
       <div class="review">
       <div class="review">
         <div class="review-header">
-          <span class="reviewer"><i class="fa-solid fa-user"></i> ${product.userComments[0].username} <br></span>
-          <span class="review-rating">Rating : ${product.userComments[0].rating}⭐️</span>
+          <span class="reviewer"><i class="fa-solid fa-user"></i> ${product.userComments[0]?.username} <br></span>
+          <span class="review-rating">Rating : ${product.userComments[0]?.rating}⭐️</span>
         </div>
-        <p class="review-text">${product.userComments[0].comment} </p>
+        <p class="review-text">${product.userComments[0]?.comment} </p>
       </div>
       
   </div>
@@ -153,10 +153,10 @@ function displayProductDetails(product) {
   const quantityInput = document.getElementById("quantity");
   document.getElementById("increase").addEventListener("click", () => {
     if (quantityInput.value < product.stock) {
-      if (quantityInput.value < product.stock){
-              quantityInput.value = parseInt(quantityInput.value) + 1;
+      if (quantityInput.value < product.stock) {
+        quantityInput.value = parseInt(quantityInput.value) + 1;
       }
-      
+
     }
   });
 

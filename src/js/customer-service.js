@@ -304,7 +304,6 @@ function saveSupportTicket(ticketData) {
 
 // Send confirmation email (simulated)
 function sendConfirmationEmail(ticketData) {
-    console.log('Confirmation email sent for ticket:', ticketData.id);
     showTicketConfirmation(ticketData);
 }
 

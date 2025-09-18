@@ -216,7 +216,6 @@ function fill_myOrders_information() {
     );
 
     selledProducts = myorders;
-    console.log("Matched Orders (Invoices + Seller Orders):", myorders);
 
     // get only seller orders that match invoices
     const myorder = orders.filter(order =>
@@ -240,9 +239,9 @@ function fill_myOrders_information() {
   }
 
   // get all sold products (invoices)
-  console.log("All Sold Products:", selledProducts);
+  // console.log("All Sold Products:", selledProducts);
 
-  console.log(selledProducts);
+  // console.log(selledProducts);
   const orders_form = document.getElementById("orders_form");
 
   if (!orders_form) {
@@ -256,7 +255,7 @@ function fill_myOrders_information() {
   }
 
   selledProducts.forEach((item, index) => {
-    console.log(item)
+    // console.log(item)
     if (item.customerId && currentUser.id && item.customerId == currentUser.id) {
       orders_form.innerHTML += `
       <div class="row-in-block">

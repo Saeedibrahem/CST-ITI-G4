@@ -625,7 +625,6 @@ function addToCart(product, quantity = 1) {
     });
     document.dispatchEvent(cartUpdateEvent);
 
-    console.log("Cart updated:", cart);
     return true;
 
   } catch (error) {
