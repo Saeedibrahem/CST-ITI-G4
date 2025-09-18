@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
   if (window.sharedUtils && window.sharedUtils.renderNavbar) {
     window.sharedUtils.renderNavbar();
   }
-}); 
+});
 let allProducts = [];
 let currentPage = 1;
 const itemsPerPage = 12;
@@ -164,7 +164,7 @@ function initEventListeners() {
 }
 
 function applyFilters() {
-  let filtered = [...allProducts];
+  let filtered = [...filteredProducts];
 
   // name serch
   const searchValue = document.getElementById("searchInput").value.toLowerCase();
@@ -240,7 +240,7 @@ function addToCartFromHome(productData) {
       return;
     }
   }
-  
+
   if (window.addToCart) {
     window.addToCart(productData, 1);
   } else {

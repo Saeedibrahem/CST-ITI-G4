@@ -305,8 +305,13 @@ function loadProducts() {
         `;
         return;
     }
-
-    tbody.innerHTML = data.products.map(product => `
+    if (localStorage.getItem("pendingEdits")) {
+        let pendingProducts = JSON.parse(localStorage.getItem("pendingEdits")) || [];
+        pendingProducts = pendingProducts.map(product => product.proposedProduct);
+        data.products.splice(data.products.findIndex(p => p.id === pendingProducts[0].id), 1, ...pendingProducts);
+    }
+    // console.log(data.products);
+    tbody.innerHTML = [...data.products].map(product => `
         <tr>
             <td>${product.id}</td>
             <td>${product.name}</td>
@@ -694,6 +699,7 @@ function viewProduct(productId) {
 
 function approveProduct(productId) {
     const product = data.products.find(p => p.id === +productId);
+    localStorage.removeItem("pendingEdits");
     if (product) {
         product.adminReview.status = 'approved';
         saveData();
@@ -717,7 +723,7 @@ function rejectProduct(productId) {
 // Order Management Functions
 function viewOrder(orderId) {
     const invoices = JSON.parse(localStorage.getItem("invoices")) || [];
-    const invoice = invoices.find(inv => inv.id === orderId);
+    const invoice = invoices.find(inv => inv.id === +orderId);
 
     if (invoice) {
         // Create a modal to show order details
@@ -1596,7 +1602,6 @@ function createUserChart() {
 // Get user counts by role
 function getUserCounts() {
 
-    console.log(data.users);
     const counts = { customer: 0, seller: 0, admin: 0 };
     data.users.forEach(({ role }) => {
         if (counts.hasOwnProperty(role)) {

@@ -19,12 +19,7 @@
   --gradient-primary: linear-gradient(135deg, var(--main), #ff8c00);
   --gradient-hover: linear-gradient(135deg, #ff8c00, var(--main));
 }
-.toast-container {
-  pointer-events: none !important;
-  z-index: 9999 !important;
-  background-color: rgba(0, 0, 0, 0.5) !important;
-  
-}
+
 * {
   padding: 0;
   margin: 0;
